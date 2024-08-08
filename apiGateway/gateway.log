@@ -1,0 +1,37 @@
+INFO 2024-08-07 21:28:42,340 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-07 22:37:50,591 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-07 22:37:52,410 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-07 22:37:59,367 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-07 22:38:00,956 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-07 22:38:16,424 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-07 22:38:18,399 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-07 22:38:58,386 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\gateway\views.py changed, reloading.
+INFO 2024-08-07 22:38:59,613 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-07 22:39:25,790 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\gateway\views.py changed, reloading.
+INFO 2024-08-07 22:39:27,182 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-07 22:39:42,924 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-07 22:39:42,925 views views.py:35 Started login in gateWay view
+INFO 2024-08-07 22:39:44,293 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-07 22:39:44,296 middleware middleware.py:20 Response: 200 OK (1.37s)
+INFO 2024-08-07 22:39:44,296 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-07 22:40:00,071 middleware middleware.py:13 Request: GET /api/service1/generate-model-paper/
+ERROR 2024-08-07 22:40:21,336 views views.py:107 gateway_view RequestException for service: service1, endpoint: generate-model-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-model-paper/
+INFO 2024-08-07 22:40:21,338 middleware middleware.py:20 Response: 500 Internal Server Error (21.27s)
+ERROR 2024-08-07 22:40:21,339 log log.py:241 Internal Server Error: /api/service1/generate-model-paper/
+ERROR 2024-08-07 22:40:21,339 basehttp basehttp.py:212 "GET /api/service1/generate-model-paper/ HTTP/1.1" 500 118
+INFO 2024-08-07 22:41:11,892 middleware middleware.py:13 Request: GET /api/service1/generate-model-paper/
+INFO 2024-08-07 22:41:42,122 views views.py:103 gateway_view success for service: service1, endpoint: generate-model-paper
+INFO 2024-08-07 22:41:42,122 middleware middleware.py:20 Response: 200 OK (30.23s)
+INFO 2024-08-07 22:41:42,134 basehttp basehttp.py:212 "GET /api/service1/generate-model-paper/ HTTP/1.1" 200 5881
+INFO 2024-08-08 14:01:05,778 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-08 14:01:09,002 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-08 14:01:17,359 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-08 14:01:19,786 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-08 14:01:30,146 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-08 14:01:32,389 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-08 14:01:50,069 basehttp basehttp.py:212 code 400, message Bad request version ('À\x13À')
+ERROR 2024-08-08 14:01:50,070 basehttp basehttp.py:192 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2024-08-08 14:02:00,927 basehttp basehttp.py:212 code 400, message Bad request syntax ('\x16\x03\x01\x00å\x01\x00\x00á\x03\x03$áo»Y')
+ERROR 2024-08-08 14:02:00,928 basehttp basehttp.py:192 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2024-08-08 14:03:24,719 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-08 14:03:26,637 autoreload autoreload.py:668 Watching for file changes with StatReloader

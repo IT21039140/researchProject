@@ -27,13 +27,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
+# Function to load service URLs from environment variables
+def load_service_urls(env):
+    service_urls = {}
+    for key, value in env.ENVIRON.items():
+        if key.startswith("SERVICE_") and key.endswith("_URL"):
+            service_name = key[8:-4].lower()  # Extract service name
+            service_urls[service_name] = value
+    return service_urls
 
-SERVICE_URLS = {
-    'service1': env('SERVICE1_URL'),
-    # 'service2': env('SERVICE2_URL'),
-    # 'service3': env('SERVICE3_URL'),
-    # 'service4': env('SERVICE4_URL'),
-}
+# Load service URLs into a dictionary
+SERVICE_URLS = load_service_urls(env)
 
 
 # Quick-start development settings - unsuitable for production
@@ -51,6 +55,52 @@ REFRESH_TOKEN_LIFETIME = timedelta(days=1)
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+# Logging configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {filename}:{lineno} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'gateway.log'),
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'gateway': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
+
+# SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 
 # Application definition
@@ -81,6 +131,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'gateway.middleware.LoggingMiddleware',  # Add your custom middleware here
+
 ]
 
 ROOT_URLCONF = 'api_gateway.urls'

@@ -1,0 +1,5 @@
+INFO 2024-08-08 13:50:03,827 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-08 13:51:05,229 autoreload autoreload.py:266 J:\research project new\researchProject\questionGenerator\researchProject\settings.py changed, reloading.
+INFO 2024-08-08 13:51:06,793 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-08 14:00:56,061 autoreload autoreload.py:266 J:\research project new\researchProject\questionGenerator\researchProject\settings.py changed, reloading.
+INFO 2024-08-08 14:00:57,634 autoreload autoreload.py:677 Watching for file changes with StatReloader
