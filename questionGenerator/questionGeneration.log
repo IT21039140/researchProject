@@ -10,3 +10,9 @@ INFO 2024-08-11 20:42:43,600 basehttp basehttp.py:187 "GET /qizGenerator/generat
 ERROR 2024-08-11 20:43:04,793 log log.py:241 Internal Server Error: /qizGenerator/generate-model-paper/
 ERROR 2024-08-11 20:43:04,795 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper/ HTTP/1.1" 500 70
 INFO 2024-08-11 20:43:32,328 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-11 20:43:51,233 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper HTTP/1.1" 301 0
+INFO 2024-08-11 20:44:17,856 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper/ HTTP/1.1" 200 5644
+ERROR 2024-08-11 20:44:18,131 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper/ HTTP/1.1" 500 59
+INFO 2024-08-11 20:45:39,446 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper HTTP/1.1" 301 0
+INFO 2024-08-11 20:46:05,809 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper/ HTTP/1.1" 200 5820
+ERROR 2024-08-11 20:46:05,825 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper/ HTTP/1.1" 500 59

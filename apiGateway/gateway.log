@@ -91,3 +91,35 @@ INFO 2024-08-11 21:36:33,015 autoreload autoreload.py:266 J:\research project ne
 INFO 2024-08-11 21:36:34,529 autoreload autoreload.py:668 Watching for file changes with StatReloader
 INFO 2024-08-11 21:37:13,256 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
 INFO 2024-08-11 21:37:14,807 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-11 21:49:52,152 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-08-11 21:49:52,154 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-11 21:49:52,155 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-08-11 21:49:52,157 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-11 21:49:52,158 views views.py:35 Started login in gateWay view
+INFO 2024-08-11 21:49:53,540 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-11 21:49:53,541 middleware middleware.py:20 Response: 200 OK (1.38s)
+INFO 2024-08-11 21:49:53,542 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-11 21:51:37,368 middleware middleware.py:13 Request: OPTIONS /api/register/
+INFO 2024-08-11 21:51:37,369 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-11 21:51:37,370 basehttp basehttp.py:212 "OPTIONS /api/register/ HTTP/1.1" 200 0
+INFO 2024-08-11 21:51:37,371 middleware middleware.py:13 Request: POST /api/register/
+INFO 2024-08-11 21:51:37,372 views views.py:20 Started register in gateWay view
+INFO 2024-08-11 21:51:38,193 views views.py:25 End register in gateWay view: Successful
+INFO 2024-08-11 21:51:38,196 middleware middleware.py:20 Response: 201 Created (0.82s)
+INFO 2024-08-11 21:51:38,200 basehttp basehttp.py:212 "POST /api/register/ HTTP/1.1" 201 68
+INFO 2024-08-11 21:51:57,929 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-11 21:51:57,931 views views.py:35 Started login in gateWay view
+INFO 2024-08-11 21:51:58,563 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-11 21:51:58,563 middleware middleware.py:20 Response: 200 OK (0.63s)
+INFO 2024-08-11 21:51:58,563 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-11 21:52:20,824 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-11 21:52:20,825 views views.py:35 Started login in gateWay view
+ERROR 2024-08-11 21:52:20,892 views views.py:52 End login in gateWay view: Fail: Exception UserEdu matching query does not exist.
+INFO 2024-08-11 21:52:20,893 middleware middleware.py:20 Response: 401 Unauthorized (0.07s)
+WARNING 2024-08-11 21:52:20,893 log log.py:241 Unauthorized: /api/login/
+WARNING 2024-08-11 21:52:20,893 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 401 32
+INFO 2024-08-11 21:55:04,367 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-11 21:55:04,369 views views.py:35 Started login in gateWay view
+INFO 2024-08-11 21:55:04,927 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-11 21:55:04,928 middleware middleware.py:20 Response: 200 OK (0.56s)
+INFO 2024-08-11 21:55:04,929 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
