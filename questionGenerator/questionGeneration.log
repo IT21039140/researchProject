@@ -3,3 +3,10 @@ INFO 2024-08-08 13:51:05,229 autoreload autoreload.py:266 J:\research project ne
 INFO 2024-08-08 13:51:06,793 autoreload autoreload.py:677 Watching for file changes with StatReloader
 INFO 2024-08-08 14:00:56,061 autoreload autoreload.py:266 J:\research project new\researchProject\questionGenerator\researchProject\settings.py changed, reloading.
 INFO 2024-08-08 14:00:57,634 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-11 20:37:23,163 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper HTTP/1.1" 301 0
+ERROR 2024-08-11 20:37:44,363 log log.py:241 Internal Server Error: /qizGenerator/generate-model-paper/
+ERROR 2024-08-11 20:37:44,364 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper/ HTTP/1.1" 500 70
+INFO 2024-08-11 20:42:43,600 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper HTTP/1.1" 301 0
+ERROR 2024-08-11 20:43:04,793 log log.py:241 Internal Server Error: /qizGenerator/generate-model-paper/
+ERROR 2024-08-11 20:43:04,795 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper/ HTTP/1.1" 500 70
+INFO 2024-08-11 20:43:32,328 autoreload autoreload.py:677 Watching for file changes with StatReloader

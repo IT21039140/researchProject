@@ -115,6 +115,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'gateway',
     'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -132,6 +133,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'gateway.middleware.LoggingMiddleware',  # Add your custom middleware here
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 
 ]
 
@@ -151,6 +154,10 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',
 ]
 
 WSGI_APPLICATION = 'api_gateway.wsgi.application'

@@ -35,3 +35,59 @@ INFO 2024-08-08 14:02:00,927 basehttp basehttp.py:212 code 400, message Bad requ
 ERROR 2024-08-08 14:02:00,928 basehttp basehttp.py:192 You're accessing the development server over HTTPS, but it only supports HTTP.
 INFO 2024-08-08 14:03:24,719 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
 INFO 2024-08-08 14:03:26,637 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-11 20:35:32,996 basehttp basehttp.py:212 code 400, message Bad request version ('À\x13À')
+ERROR 2024-08-11 20:35:33,007 basehttp basehttp.py:192 You're accessing the development server over HTTPS, but it only supports HTTP.
+INFO 2024-08-11 20:36:59,802 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-11 20:36:59,815 views views.py:35 Started login in gateWay view
+INFO 2024-08-11 20:37:01,349 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-11 20:37:01,356 middleware middleware.py:20 Response: 200 OK (1.55s)
+INFO 2024-08-11 20:37:01,356 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-11 20:37:22,968 middleware middleware.py:13 Request: GET /api/service1/generate-model-paper/
+ERROR 2024-08-11 20:37:44,365 views views.py:107 gateway_view RequestException for service: service1, endpoint: generate-model-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-model-paper/
+INFO 2024-08-11 20:37:44,366 middleware middleware.py:20 Response: 500 Internal Server Error (21.40s)
+ERROR 2024-08-11 20:37:44,367 log log.py:241 Internal Server Error: /api/service1/generate-model-paper/
+ERROR 2024-08-11 20:37:44,368 basehttp basehttp.py:212 "GET /api/service1/generate-model-paper/ HTTP/1.1" 500 118
+INFO 2024-08-11 20:42:25,655 middleware middleware.py:13 Request: GET /api/service1/generate-model-paper/
+INFO 2024-08-11 20:42:25,656 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-11 20:42:25,656 log log.py:241 Forbidden: /api/service1/generate-model-paper/
+WARNING 2024-08-11 20:42:25,656 basehttp basehttp.py:212 "GET /api/service1/generate-model-paper/ HTTP/1.1" 403 37
+INFO 2024-08-11 20:42:32,586 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-11 20:42:32,586 views views.py:35 Started login in gateWay view
+INFO 2024-08-11 20:42:33,297 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-11 20:42:33,297 middleware middleware.py:20 Response: 200 OK (0.71s)
+INFO 2024-08-11 20:42:33,297 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-11 20:42:43,519 middleware middleware.py:13 Request: GET /api/service1/generate-model-paper/
+ERROR 2024-08-11 20:43:04,796 views views.py:107 gateway_view RequestException for service: service1, endpoint: generate-model-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-model-paper/
+INFO 2024-08-11 20:43:04,797 middleware middleware.py:20 Response: 500 Internal Server Error (21.28s)
+ERROR 2024-08-11 20:43:04,797 log log.py:241 Internal Server Error: /api/service1/generate-model-paper/
+ERROR 2024-08-11 20:43:04,798 basehttp basehttp.py:212 "GET /api/service1/generate-model-paper/ HTTP/1.1" 500 118
+INFO 2024-08-11 20:43:15,943 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-11 20:43:17,879 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-11 20:43:21,748 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-11 20:43:23,224 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-11 20:43:50,565 middleware middleware.py:13 Request: GET /api/service1/generate-model-paper/
+INFO 2024-08-11 20:44:17,856 views views.py:103 gateway_view success for service: service1, endpoint: generate-model-paper
+INFO 2024-08-11 20:44:17,856 middleware middleware.py:20 Response: 200 OK (27.29s)
+INFO 2024-08-11 20:44:17,868 basehttp basehttp.py:212 "GET /api/service1/generate-model-paper/ HTTP/1.1" 200 5644
+INFO 2024-08-11 20:45:39,316 middleware middleware.py:13 Request: GET /api/service1/generate-model-paper/
+INFO 2024-08-11 20:46:05,810 views views.py:103 gateway_view success for service: service1, endpoint: generate-model-paper
+INFO 2024-08-11 20:46:05,813 middleware middleware.py:20 Response: 200 OK (26.50s)
+INFO 2024-08-11 20:46:05,814 basehttp basehttp.py:212 "GET /api/service1/generate-model-paper/ HTTP/1.1" 200 5820
+INFO 2024-08-11 21:28:49,465 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-08-11 21:28:49,468 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-11 21:28:49,469 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 164
+INFO 2024-08-11 21:28:51,797 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-08-11 21:28:51,799 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-11 21:28:51,800 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 164
+INFO 2024-08-11 21:28:52,583 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-08-11 21:28:52,586 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-11 21:28:52,588 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 164
+INFO 2024-08-11 21:29:03,513 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-08-11 21:29:03,516 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-11 21:29:03,517 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 164
+INFO 2024-08-11 21:36:05,352 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-11 21:36:06,839 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-11 21:36:33,015 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-11 21:36:34,529 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-11 21:37:13,256 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-11 21:37:14,807 autoreload autoreload.py:668 Watching for file changes with StatReloader
