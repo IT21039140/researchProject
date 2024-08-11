@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import profilePic from '../../assets/profilePic.jpg';
 
 function Sidebar() {
   const [collapsed, setCollapsed] = useState(localStorage.getItem('sidebar-collapsed') === 'true');
@@ -38,7 +39,7 @@ function Sidebar() {
         </ul>
       </nav>
       <div className="user-profile">
-        <img src="profile-icon.png" alt="Profile Icon" className="profile-image" />
+        <img src={profilePic} alt="Profile Icon" className="profile-image" />
         <a href="#" className="profile-name">My Profile</a>
       </div>
     </aside>
