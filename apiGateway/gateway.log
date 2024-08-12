@@ -123,3 +123,33 @@ INFO 2024-08-11 21:55:04,369 views views.py:35 Started login in gateWay view
 INFO 2024-08-11 21:55:04,927 views views.py:43 End login in gateWay view: Successful
 INFO 2024-08-11 21:55:04,928 middleware middleware.py:20 Response: 200 OK (0.56s)
 INFO 2024-08-11 21:55:04,929 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-12 16:06:42,685 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-08-12 16:06:42,698 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-12 16:06:42,707 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-08-12 16:06:42,710 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-12 16:06:42,719 views views.py:35 Started login in gateWay view
+INFO 2024-08-12 16:06:45,518 views views.py:49 End login in gateWay view: Fail: Invalid credentials
+INFO 2024-08-12 16:06:45,522 middleware middleware.py:20 Response: 401 Unauthorized (2.81s)
+WARNING 2024-08-12 16:06:45,523 log log.py:241 Unauthorized: /api/login/
+WARNING 2024-08-12 16:06:45,525 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 401 32
+INFO 2024-08-12 16:06:49,537 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-12 16:06:49,539 views views.py:35 Started login in gateWay view
+INFO 2024-08-12 16:06:50,969 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-12 16:06:50,969 middleware middleware.py:20 Response: 200 OK (1.43s)
+INFO 2024-08-12 16:06:50,969 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-12 16:36:45,848 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-12 16:36:45,850 views views.py:35 Started login in gateWay view
+INFO 2024-08-12 16:36:48,138 views views.py:49 End login in gateWay view: Fail: Invalid credentials
+INFO 2024-08-12 16:36:48,139 middleware middleware.py:20 Response: 401 Unauthorized (2.29s)
+WARNING 2024-08-12 16:36:48,139 log log.py:241 Unauthorized: /api/login/
+WARNING 2024-08-12 16:36:48,139 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 401 32
+INFO 2024-08-12 16:36:55,853 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-12 16:36:55,855 views views.py:35 Started login in gateWay view
+INFO 2024-08-12 16:36:57,182 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-12 16:36:57,185 middleware middleware.py:20 Response: 200 OK (1.33s)
+INFO 2024-08-12 16:36:57,187 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-12 16:47:53,905 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-12 16:47:53,907 views views.py:35 Started login in gateWay view
+INFO 2024-08-12 16:47:55,727 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-12 16:47:55,728 middleware middleware.py:20 Response: 200 OK (1.82s)
+INFO 2024-08-12 16:47:55,729 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380

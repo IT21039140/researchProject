@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './LoginStyles.css'; // Import your CSS styles
-import LoginPageImage from '../../assets/LoginPageImage.png'; // Import the image
+import LoginPageImage from '../../assets/logInImage.png'; // Import the image
 import RegisterForm from './RegisterForm'; // Import the Register component
 import LoginForm from './LoginForm';
 
