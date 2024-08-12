@@ -108,8 +108,52 @@ body {
     padding: 20px;
     display: flex;
     align-items: center;
-    transition: justify-content 0.3s ease;
+    position: relative; /* Ensure the dropdown is positioned relative to the user profile */
+    cursor: pointer; /* Add a pointer cursor */
 }
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    z-index: 2000;
+    right: 20px; /* Adjusts the position near the profile pic */
+    bottom: 60px; /* Move the dropdown above the profile picture */
+    right: 10px;   /* Adjusts the position near the profile pic */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dropdown-menu.collapsed-menu {
+    top: 60px; /* Position adjustment for when the sidebar is collapsed */
+  }
+  
+  .dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-menu li {
+    margin-bottom: 10px;
+  }
+  
+  .dropdown-menu li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .dropdown-menu a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .dropdown-menu a:hover {
+    text-decoration: underline;
+  }
 
 .profile-image {
     width: 40px;
@@ -140,6 +184,19 @@ body {
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
+    .dropdown-menu {
+        position: absolute;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        width: 150px;
+        z-index: 2000;
+        right: 20px; /* Adjusts the position near the profile pic */
+        bottom: 60px;   /* Adjusts the position near the profile pic */
+        display: flex;
+        flex-direction: column;
+    }
     .dashboard-container {
         flex-direction: column;
         height: auto;
@@ -193,6 +250,7 @@ body {
         margin-top: 1px; /* Adjust height to come below the top navigation bar when collapsed */
         height: calc(100vh - 60px);
     }
+    
 }
 
 @media (max-width: 480px) {

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import profilePic from '../../assets/profilePic.jpg';
+import { useNavigate } from 'react-router-dom';
+import profilePic from '../../assets/profilePic2.webp';
 
 function Sidebar() {
   const [collapsed, setCollapsed] = useState(localStorage.getItem('sidebar-collapsed') === 'true');
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,6 +26,34 @@ function Sidebar() {
     localStorage.setItem('sidebar-collapsed', !collapsed);
   };
 
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+
+  const handleOutsideClick = (e) => {
+    if (!e.target.closest('.user-profile')) {
+      setDropdownVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    if (dropdownVisible) {
+      document.addEventListener('click', handleOutsideClick);
+    } else {
+      document.removeEventListener('click', handleOutsideClick);
+    }
+    return () => document.removeEventListener('click', handleOutsideClick);
+  }, [dropdownVisible]);
+
+  const handleLogout = () => {
+    // Remove tokens from localStorage or sessionStorage
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+
+    // Redirect to the login page
+    navigate('/');
+  };
+
   return (
     <aside className={`dashboard-sidebar ${collapsed ? 'collapsed' : ''}`} id="sidebar">
       <div className="sidebar-header">
@@ -38,9 +69,17 @@ function Sidebar() {
           <li><a href="#" className="nav-link">Question Generator</a></li>
         </ul>
       </nav>
-      <div className="user-profile">
+      <div className="user-profile" onClick={toggleDropdown}>
         <img src={profilePic} alt="Profile Icon" className="profile-image" />
         <a href="#" className="profile-name">My Profile</a>
+        {dropdownVisible && (
+          <div className={`dropdown-menu ${collapsed ? 'collapsed-menu' : ''}`}>
+            <ul>
+              <li><a href="#" onClick={() => navigate('/settings')}>Settings</a></li>
+              <li><a href="#" onClick={handleLogout}>Log Out</a></li>
+            </ul>
+          </div>
+        )}
       </div>
     </aside>
   );
