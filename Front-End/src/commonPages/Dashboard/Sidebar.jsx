@@ -67,6 +67,7 @@ function Sidebar() {
           <li><a href="#" className="nav-link">Option 2</a></li>
           <li><a href="#" className="nav-link">Option 3</a></li>
           <li><a href="#" className="nav-link">Question Generator</a></li>
+          <li><a href="/chat" className="nav-link">Chat Bot</a></li>
         </ul>
       </nav>
       <div className="user-profile" onClick={toggleDropdown}>
