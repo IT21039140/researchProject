@@ -170,3 +170,5 @@ INFO 2024-08-12 22:04:46,184 views views.py:35 Started login in gateWay view
 INFO 2024-08-12 22:04:46,544 views views.py:43 End login in gateWay view: Successful
 INFO 2024-08-12 22:04:46,544 middleware middleware.py:20 Response: 200 OK (0.36s)
 INFO 2024-08-12 22:04:46,545 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-15 23:57:22,571 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-16 00:02:20,858 autoreload autoreload.py:668 Watching for file changes with StatReloader

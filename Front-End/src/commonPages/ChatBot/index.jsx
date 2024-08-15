@@ -5,6 +5,7 @@ import ChatHistory from './includes/ChatHistory';
 import axios from 'axios';
 
 function Index() {
+  // let usermail = localStorage.getItem("user")
   const [email, setEmail] = useState('lahiru@gmail.com');
   const [sessionID, setSessionID] = useState('');
   const [messages, setMessages] = useState([
