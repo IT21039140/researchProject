@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './commonPages/LogIn/Login'
 import Dashboard from './commonPages/Dashboard/Dashboard'
+import ChatBot from './commonPages/ChatBot/index'
 
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
               {/* <Route path="/register" component={RegisterForm} /> */}
               <Route path="/dashboard" element={<Dashboard/>} />
               {/* <Route path="/" exact component={LoginForm} /> */}
+
+              <Route path="/chat" element={<ChatBot/>} />
           </Routes>
       </Router>
   );
