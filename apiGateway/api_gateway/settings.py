@@ -48,7 +48,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECRET_KEY = os.getenv('SECRET_KEY', 'your_secret_key')
 JWT_SECRET_KEY = env('JWT_SECRET_KEY')
 JWT_ALGORITHM = 'HS256'
-ACCESS_TOKEN_LIFETIME = timedelta(minutes=5)
+ACCESS_TOKEN_LIFETIME = timedelta(days=1)
 REFRESH_TOKEN_LIFETIME = timedelta(days=1)
 
 # SECURITY WARNING: don't run with debug turned on in production!

@@ -1,7 +1,8 @@
-# question_generator/urls.py
 from django.urls import path
-from .views import GenerateModelPaperAPIView
+from .views import GenerateITModelPaperAPIView,SaveUserResponseAPIView,RetrieveUserResponseAPIView
 
 urlpatterns = [
-    path('generate-model-paper/', GenerateModelPaperAPIView.as_view(), name='generate-model-paper')
+    path('generate-ITmodel-paper', GenerateITModelPaperAPIView.as_view(), name='generate-it-model-paper'),
+    path('save-response', SaveUserResponseAPIView.as_view(), name='save-response'),
+    path('get-response', RetrieveUserResponseAPIView.as_view(), name='get-response'),
 ]

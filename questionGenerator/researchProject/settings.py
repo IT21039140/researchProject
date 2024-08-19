@@ -13,11 +13,17 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import mongoengine
 
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+# GATEWAY_SECRET_KEY=os.getenv('GATEWAY_SECRET_KEY')
+API_GATEWAY_URL=os.getenv('API_GATEWAY_URL')
+
+JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY')
+JWT_ALGORITHM = 'HS256'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -137,6 +143,14 @@ DATABASES = {
         }
     }
 }
+
+# mongoengine.connect(
+#     db='test',
+#     host='mongodb+srv://sasith:Test123@sliit.8grcvgo.mongodb.net/?retryWrites=true&w=majority&appName=Sliit',
+#     username='sasith',
+#     password='Test123'
+# )
+
 
 
 # Password validation

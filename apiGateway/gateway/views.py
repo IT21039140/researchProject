@@ -1,3 +1,4 @@
+#gateway/views.py
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import requests
@@ -88,16 +89,25 @@ def gateway_view(request, service, endpoint):
 
     url = f'{service_url}{endpoint}'
     method = request.method
-    
+
+    # Extract the access token from the request headers
+    access_token = request.headers.get('Authorization')
+
+    if access_token:
+        headers = {'Authorization': access_token}
+    else:
+        log.error('Authorization token is missing')
+        return JsonResponse({"error": "Authorization token is missing"}, status=401)
+
     try:
         if method == 'GET':
-            response = requests.get(url, params=request.query_params)
+            response = requests.get(url, headers=headers, params=request.query_params)
         elif method == 'POST':
-            response = requests.post(url, json=request.data)
+            response = requests.post(url, headers=headers, json=request.data)
         elif method == 'PUT':
-            response = requests.put(url, json=request.data)
+            response = requests.put(url, headers=headers, json=request.data)
         elif method == 'DELETE':
-            response = requests.delete(url)
+            response = requests.delete(url, headers=headers)
         
         response.raise_for_status()  # Raise HTTPError for bad responses (4xx and 5xx)
         log.info(f'gateway_view success for service: {service}, endpoint: {endpoint}')
@@ -109,6 +119,7 @@ def gateway_view(request, service, endpoint):
     except Exception as e:
         log.error(f'gateway_view Exception for service: {service}, endpoint: {endpoint}, error: {e}')
         return JsonResponse({"error": str(e)}, status=500)
+    
     
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

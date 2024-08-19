@@ -1,0 +1,166 @@
+/* Existing styles */
+.question-generator-container {
+    padding: 20px;
+    transition: margin-left 0.3s ease; /* Smooth transition */
+    margin-left: 550px; /* Default margin for expanded sidebar */
+  }
+  
+  .question-generator-container.collapsed {
+    margin-left: 60px; /* Adjust based on the collapsed sidebar */
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center; /* Center the tabs in the container */
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tab:hover {
+    background-color: #483d8b;
+  }
+  
+  .tab.active {
+    background-color: #483d8b;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab-content {
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    max-width: 100%;
+    text-align: center; /* Center text in content area */
+  }
+  
+  /* for question generation*/
+  .additional-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Center the buttons below the main tabs */
+  }
+  
+  .additional-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .additional-button:hover {
+    background-color: #483d8b;
+  }
+  
+  /* Dropdown container to hold the button and dropdown together */
+  .dropdown-container {
+    position: relative; /* Position relative for dropdown alignment */
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%; /* Position below the button */
+    left: 0; /* Align to the left of the button */
+    border-radius: 10px; /* Rounded corners for dropdown */
+    color:#483d8b;
+  }
+  
+  .dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-content li {
+    padding: 12px 16px;
+    cursor: pointer;
+    background-color: #fff;
+  }
+  
+  .dropdown-content li:hover {
+    background-color: #ddd;
+  }
+  
+  .additional-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* for questions */
+  .additional-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .additional-button:hover {
+    background-color: #483d8b;
+  }
+  
+  .quiz-container {
+    margin-top: 20px;
+  }
+  
+  .question-item {
+    margin-bottom: 20px;
+  }
+  
+  .options {
+    margin-top: 10px;
+  }
+  
+  .option-item {
+    margin-bottom: 5px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+  
+  .result {
+    margin-top: 10px;
+  }
+  
+  .score {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+  }
+  
