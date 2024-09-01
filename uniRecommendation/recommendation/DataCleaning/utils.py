@@ -50,7 +50,7 @@ def recommend_for_new_user(new_user_features, data, model, graph, coursedata):
         weighted_scores = torch.where(weighted_scores > threshold, weighted_scores, torch.tensor(0.0))
 
         # Get top-k recommended courses
-        top_k = len(course_nodes)
+        top_k = 50
         recommended_course_indices = weighted_scores.topk(k=top_k).indices
 
         # Generate recommendations based on top-k courses
@@ -60,14 +60,31 @@ def recommend_for_new_user(new_user_features, data, model, graph, coursedata):
             course_oId = node_to_oId.get(course_id_node, None)  # Get the OID for the course
 
             # Find the course in the data
+            # Find the course in the data
             course = next((c for c in coursedata if c.get("course_id") == course_oId), None)
             if course:
+                specialization = course.get("specialization_name", "None")
+                
+                if isinstance(specialization, list):
+                    # If specialization_name is a list, extract the name and duration
+                    specialization_names = [item.get('name', 'N/A') for item in specialization]
+                    specialization_info  = specialization_names
+                    
+                    # Assuming there is only one duration for all specializations
+                    specialization_durations = [item.get('duration', 'N/A') for item in specialization]
+                    specialization_duration_info = specialization_durations
+                else:
+                    # If specialization_name is a string, use it directly
+                    specialization_info = specialization
+                    specialization_duration_info = f"{course.get('duration', 'N/A')} years" # Duration is not available if specialization is a string
+
                 course_info = {
                     "Course Code": course.get("course_code", "N/A"),
                     "Course Name": course.get("course_name", "N/A"),
                     "University": course.get("uni_name", "N/A"),
-                    "Specialization": course.get("specialization_name", "None"),
-                    "Duration": f"{course.get('duration', 'N/A')} years",
+                    "Specialization": specialization_info,
+                    "Duration": specialization_duration_info,
+                    
                 }
                 recommendations.append(course_info)
 
@@ -99,7 +116,7 @@ class NewUserDataCleaner(DataCleanerTemplate):
 
         # Encode locations, university, areas, and stream
         self.encode_and_expand_locations(user_df, user_df, "Locations")
-        self.apply_label_encoding(user_df, user_df, "Preferred University")
+        self.apply_label_encoding(user_df, user_df, "Preferred_University")
         area_encoder = self.fit_area_encoder(user_df, 'areas')
         self.encode_and_expand_areas(area_encoder, user_df, user_df, 'areas')
         self.process_stream(user_df, user_df, "Stream")

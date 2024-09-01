@@ -1,0 +1,84 @@
+.testimonial-carousel {
+  width: 100%;
+  max-width: 1200px; /* Adjust to accommodate 3 slides */
+  margin: auto;
+}
+
+.testimonial-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box; /* Ensure padding does not affect overall width */
+}
+
+.testimonial-card-content {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  width: 100%; /* Ensure the content takes up full width of the card */
+  height: 300px; /* Set a fixed height for the card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space between elements */
+}
+
+.testimonial-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.testimonial-card-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover; /* Ensure the image covers the space without distortion */
+  border-radius: 50%; /* Circular image */
+}
+
+.testimonial-card-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.testimonial-card-info span {
+  display: block;
+  font-size: 14px;
+  color: #777;
+}
+
+.testimonial-card-rating {
+  margin: 10px 0;
+}
+
+.testimonial-card-rating i {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.testimonial-card-rating .filled {
+  color: gold; /* Color for filled stars */
+}
+
+.testimonial-card-rating .unfilled {
+  color: #ddd; /* Color for unfilled stars */
+}
+
+.testimonial-card-quote {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+  overflow: hidden; /* Ensure text doesn't overflow */
+}
+
+.slick-dots {
+  bottom: -30px;
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 1;
+}

@@ -1,0 +1,19 @@
+/* src/HomePage.css */
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto !important;
+  padding-bottom: 50px !important;
+  margin-top: 20px !important;
+  max-width: 1500px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.full-page {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100vh;
+}

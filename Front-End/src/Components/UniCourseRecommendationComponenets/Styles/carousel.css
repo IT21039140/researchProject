@@ -1,0 +1,27 @@
+.carousel-item img {
+  height: 60vh; /* Adjust the height as needed */
+  object-fit: cover;
+}
+.uni-carousel-container .carousel-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.uni-carousel-container .carousel-caption h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.uni-carousel-container .carousel-caption p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.uni-carousel-container .carousel-caption .btn {
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+}

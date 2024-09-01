@@ -2,7 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './commonPages/LogIn/Login'
 import Dashboard from './commonPages/Dashboard/Dashboard'
-
+import RecommendationHome from './Pages/UniCourseRecommendationPages/RecommendationHome';
+import CourseCatalog from './Pages/UniCourseRecommendationPages/CourseCatalog'
+import SortableListComponent from './Components/UniCourseRecommendationComponenets/DragandDropForm';
+import SubjectResultSelector from './Components/UniCourseRecommendationComponenets/form';
 
 function App() {
   return (
@@ -12,6 +15,12 @@ function App() {
               {/* <Route path="/register" component={RegisterForm} /> */}
               <Route path="/dashboard" element={<Dashboard/>} />
               {/* <Route path="/" exact component={LoginForm} /> */}
+                <Route path="/recommendation" element={<RecommendationHome />} />
+                <Route path="/course-catalog" element={<CourseCatalog />} />
+                <Route path="/drag-and-drop" element={<SortableListComponent />} />
+                <Route path="/subject-result" element={<SubjectResultSelector />} />
+                
+
           </Routes>
       </Router>
   );

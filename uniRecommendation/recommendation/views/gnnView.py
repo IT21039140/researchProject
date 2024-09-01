@@ -15,6 +15,7 @@ from recommendation.models.GNN_model import CourseRecommendationGNN
 from recommendation.DataCleaning.dataFetcher import fetchData
 from recommendation.DataCleaning.CourseDataCleaner import CourseDataCleaner
 from recommendation.DataCleaning.UserDataCleaner import UserDataCleaner
+import json 
 
 # Define URLs for fetching data
 courses_url = 'http://localhost:8000/api/courses'
@@ -43,7 +44,7 @@ def initialize_resources():
             user_cleaner = UserDataCleaner()
             df_users_cleaned, unique_subjects, area_encoder = user_cleaner.clean_data(df_users)
             userdata = df_users_cleaned.to_dict(orient='records')
-            print(f"User data cleaned: {userdata[:2]}")  # Print a sample
+            
         else:
             print("User DataFrame not found.")
 
@@ -51,7 +52,7 @@ def initialize_resources():
             course_cleaner = CourseDataCleaner()
             df_courses_cleaned, column_names = course_cleaner.clean_data(df_courses, area_encoder)
             coursesdata = df_courses_cleaned.to_dict(orient='records')
-            print(f"Courses data cleaned: {coursesdata[:2]}")  # Print a sample
+            
         else:
             print("Courses DataFrame not found.")
 
@@ -97,14 +98,14 @@ class GNNViewSet(viewsets.ViewSet):
             initialize_resources()
 
             user_data = request.data
-            print(f"User data received: {user_data}")
+            
 
             if not user_data:
                 return Response({"error": "No user data provided"}, status=status.HTTP_400_BAD_REQUEST)
 
             cleaner = NewUserDataCleaner()
             user_features_tensor, _ = encode_new_user(unique_subjects, user_data, cleaner)
-            print(f"User features tensor: {user_features_tensor}")
+            
 
             if data is None:
                 return Response({"error": "Data not properly loaded"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
