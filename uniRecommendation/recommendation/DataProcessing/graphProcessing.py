@@ -47,19 +47,10 @@ def create_nodes(graph, userdata, coursesdata):
     return user_id_to_node, course_id_to_node
 
 def add_edges(graph, userdata, coursesdata, user_id_to_node, course_id_to_node):
-    """
-    Add edges between users and courses based on prerequisites and matching scores.
+    print(f"Number of users: {len(userdata)}")
+    print(f"Number of courses: {len(coursesdata)}")
+    counter = 0 
 
-    Args:
-        graph (nx.Graph): The graph to which edges will be added.
-        userdata (list): List of user data.
-        coursesdata (list): List of course data.
-        user_id_to_node (dict): Mapping from user IDs to node indices.
-        course_id_to_node (dict): Mapping from course IDs to node indices.
-
-    Returns:
-        nx.Graph: The graph with added edges.
-    """
     for user in userdata:
         user_id = int(user['user_id'])
         user_node = user_id_to_node.get(user_id)
@@ -72,6 +63,12 @@ def add_edges(graph, userdata, coursesdata, user_id_to_node, course_id_to_node):
                 if meets_prerequisites(user, course):
                     matching_score = calculate_matching_score(user, course)
                     graph.add_edge(user_node, course_node, weight=matching_score)
+                    print(user['Results'],course['stream'] )
+                else:
+                    print("Negative",user['Results'],course['stream'] )
+            counter += 1
+
+    print(f"Added {counter} edges to the graph.")
     return graph
 
 def remove_isolated_nodes(graph):

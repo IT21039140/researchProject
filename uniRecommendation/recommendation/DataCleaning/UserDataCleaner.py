@@ -3,14 +3,13 @@ import pandas as pd
 
 
 
+
 class UserDataCleaner(DataCleanerTemplate):
     """Specific implementation of data cleaning for user data."""
 
     def clean_data(self, df_users):
         """Applies data-cleaning operations on the user DataFrame."""
         df_users_cleaned = pd.DataFrame()
-
-       
 
         # Adding a column with unique 10-digit IDs
         initial_id = len(df_users_cleaned)
@@ -45,6 +44,7 @@ class UserDataCleaner(DataCleanerTemplate):
                 for r in res
             ]
         )
+        
 
         # Map subject grades and create columns for all unique subjects
         self.map_subject_grades(df_users_cleaned)
@@ -52,7 +52,6 @@ class UserDataCleaner(DataCleanerTemplate):
         # Handle NaN values in numeric columns
         self.handle_missing_values(df_users_cleaned)
 
-        pd.set_option('future.no_silent_downcasting', True)
         df_users_cleaned.fillna(0, inplace=True)
 
 

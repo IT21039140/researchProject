@@ -1,7 +1,5 @@
-import torch
-import sentence_transformers
-print(torch.__version__)
-print(sentence_transformers.__version__)
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
 
 def meets_prerequisites(user_info, course):
     user_results = {result['subject']: result['grade'] for result in user_info['Results']}
@@ -43,9 +41,15 @@ def meets_prerequisites(user_info, course):
     return prerequisites_met and english_requirement_met
 
 
-
 # Initialize Sentence-BERT model
 model = SentenceTransformer('all-MiniLM-L6-v2')
+
+# Function to safely convert a value to an integer
+def safe_int_conversion(value, default=0):
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        return default
 
 # Function to compute similarity between career and specialization
 def compute_similarity(career, specialization):
@@ -55,52 +59,52 @@ def compute_similarity(career, specialization):
 
     # Compute cosine similarity
     similarity_score = cosine_similarity(career_vec, specialization_vec)[0][0]
-    Print(similarity_score)
+    print(similarity_score)
 
     return similarity_score
 
-
 def calculate_matching_score(user, course):
     stream_score = 0
-    if user['Stream_encoded'] == course['stream_encoded']:
+    if safe_int_conversion(user['Stream_encoded']) == safe_int_conversion(course['stream_encoded']):
         stream_score += 30
 
     location_score = 0
     for i in range(1, 10):
-        user_location = user.get(f'Location_{i}', 0)
-        if user_location == course['province_encoded']:
-            location_score += 50*(10 - i)
+        user_location = safe_int_conversion(user.get(f'Location_{i}', 0))
+        if user_location == safe_int_conversion(course['province_encoded']):
+            location_score += 50 * (10 - i)
             break
-
 
     area_score = 0
     for i in range(1, 10):
-        user_area = user.get(f'Area_{i}', 0)
-        if user_area == course['area_encoded']:
-            area_score += 100*(10 - i)
+        user_area = safe_int_conversion(user.get(f'Area_{i}', 0))
+        if user_area == safe_int_conversion(course['area_encoded']):
+            area_score += 100 * (10 - i)
             break
-    duration_score = 0
 
-    if user['duration'] == course['duration']:
+    duration_score = 0
+    user_duration = safe_int_conversion(user['duration'])
+    course_duration = safe_int_conversion(course['duration'])
+
+    if user_duration == course_duration:
         duration_score += 3
-    elif user['duration'] > course['duration']:
+    elif user_duration > course_duration:
         duration_score += 2
     else:
         duration_score += 1
 
-      # Calculate career score
+    # Calculate career score
     career_score = 0
     for i in range(1, 5):
-        career = user.get(f'career_{i}', 0)
-        specialization = course['specialization_name']
-        course_name = course['course_name']
+        career = user.get(f'career_{i}', '')
+        specialization = course.get('specialization_name', '')
+        course_name = course.get('course_name', '')
         if career:
-          if specialization:
-              career_score += 50 * compute_similarity(career , specialization)
-          else:
-              career_score += 50 * compute_similarity(career , course_name)
+            if specialization:
+                career_score += 50 * compute_similarity(career, specialization)
+            else:
+                career_score += 50 * compute_similarity(career, course_name)
 
-    score = stream_score * 0.5 + location_score * 0.4+ area_score * 0.6 + duration_score*0.3 + career_score*0.7
-    print("Hello")
+    score = stream_score * 0.5 + location_score * 0.4 + area_score * 0.6 + duration_score * 0.3 + career_score * 0.7
 
     return score

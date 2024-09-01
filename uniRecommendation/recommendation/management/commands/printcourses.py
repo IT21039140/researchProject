@@ -33,7 +33,7 @@ class Command(BaseCommand):
                 df_users_cleaned, unique_subjects , area_encoder  = user_cleaner.clean_data(df_users)
                 userdata = df_users_cleaned.to_dict(orient='records')
     
-                print(df_users_cleaned)
+                #print(df_users_cleaned)
             else:
                 self.stdout.write("User DataFrame not found.")
                 df_users_cleaned = None
@@ -43,7 +43,7 @@ class Command(BaseCommand):
                 if df_users_cleaned is not None:
                     df_courses_cleaned, column_names = course_cleaner.clean_data(df_courses, area_encoder)
                     coursesdata = df_courses_cleaned.to_dict(orient='records')
-                    print(df_courses_cleaned)
+                    #print(df_courses_cleaned)
                 else:
                     self.stdout.write("User data not available for course cleaning.")
                     df_courses_cleaned = None
@@ -51,8 +51,8 @@ class Command(BaseCommand):
                 self.stdout.write("Courses DataFrame not found.")
                 df_courses_cleaned = None
 
-            graph = prepare_graph(userdata,coursesdata)
-            self.stdout.write("Graph prepared successfully")
+           # graph = prepare_graph(userdata,coursesdata)
+        #   self.stdout.write("Graph prepared successfully")
             
         except Exception as e:
             self.stderr.write(f"An error occurred: {str(e)}")

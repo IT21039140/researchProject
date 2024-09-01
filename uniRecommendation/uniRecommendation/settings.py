@@ -76,12 +76,7 @@ WSGI_APPLICATION = "uniRecommendation.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+
 
 
 # Password validation
@@ -155,4 +150,3 @@ def check_mongodb_connection():
 
 # Call the connection check function on startup
 check_mongodb_connection()
-
