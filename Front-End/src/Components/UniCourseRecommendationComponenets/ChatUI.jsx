@@ -2,53 +2,148 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Styles/chat.css";
 import chatImg from "../../icons/chat.png";
 import SubjectResultSelector from "./form";
+import SortableListComponent from "./DragandDropForm";
+import swal from "sweetalert";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ChatUI = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState({});
+  const [name, setName] = useState("User");
+  const [id, setId] = useState("102030");
+
+  const [answers, setAnswers] = useState({
+    welcome: "",
+    Year: "",
+    Stream: "",
+    English: "",
+    Preferred_University: "",
+    Career_Areas: [],
+    duration: "",
+    Locations: [],
+    areas: [],
+    Results: [],
+  });
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    // Format data to match API requirements
+    const formattedData = {
+      user_id: id,
+      Name: name,
+      Year: answers.Year,
+      Stream: answers.Stream,
+      English: answers.English,
+      Preferred_University: answers.Preferred_University,
+      Career_Areas: Array.isArray(answers.Career_Areas)
+        ? answers.Career_Areas
+        : [answers.Career_Areas],
+      duration: answers.duration,
+      Locations: answers.Locations,
+      areas: answers.areas,
+      Results: answers.Results.map((result) => ({
+        subject: result.subject,
+        grade: result.grade,
+      })),
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/users/",
+        formattedData
+      );
+      const { id } = response.data; // Ensure the API response contains an 'id'
+      navigate(`/myrecommendations/${id}`); // Navigate to the page with the returned id
+    } catch (error) {
+      console.error("There was an error submitting the form!", error);
+      alert("Submission failed. Please try again.");
+    }
+  };
+
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isBotTyping, setIsBotTyping] = useState(false);
   const [shouldAutoClose, setShouldAutoClose] = useState(false);
   const chatBodyRef = useRef(null);
   const endOfMessagesRef = useRef(null);
-  const handleSubjectResultChange = (newPairs) => {
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      subjectsResults: newPairs
-    }));
+  const [subjectResultPairs, setSubjectResultPairs] = useState([]);
+  const [message, setMessage] = useState("");
+  const [showQText, setShowQText] = useState(false);
+
+  const handleResultSubmit = (results) => {
+    console.log("Results from SubjectResultSelector:", results);
+    setSubjectResultPairs(results);
+    const hasEmptyField = subjectResultPairs.some(
+      (pair) => !pair.subject || !pair.grade
+    );
+
+    if (hasEmptyField) {
+      swal("Please fill in all subject and result fields.");
+      return; // Exit early if there's an error
+    } else {
+      setAnswers((prev) => ({
+        ...prev,
+        Results: results,
+      }));
+
+      goToNextQuestion();
+    }
   };
- 
+
+  const handleSortUpdate = (sortedList, type) => {
+    if (type === "areas") {
+      setAnswers((prev) => ({
+        ...prev,
+        areas: sortedList,
+      }));
+
+      if (answers.areas.length === 0) {
+        swal("Please rank areas");
+      } else {
+        goToNextQuestion();
+      }
+    } else if (type === "locations") {
+      setAnswers((prev) => ({
+        ...prev,
+        Locations: sortedList,
+      }));
+      if (answers.Locations.length === 0) {
+        swal("Please rank locations");
+      } else {
+        goToNextQuestion();
+      }
+    }
+  };
 
   const questions = [
     {
       type: "choice",
       text: (
         <div>
-          <p>Hello! 👋</p>
-          <p>Welcome to our personalized university course recommendation system.</p>
-          <p>I'm here to help you find the best university courses based on your interests and goals.</p>
+          <p>Hello {name}! 👋</p>
+          <p>
+            Welcome to our personalized university course recommendation system.
+          </p>
+          <p>
+            I'm here to help you find the best university courses based on your
+            interests and goals.
+          </p>
           <p>Shall we get started?</p>
         </div>
       ),
       options: ["Yes, let's go!", "Not right now"],
-    },
-    {
-      type: "text",
-      text: "No problem! When you’re ready for course recommendations, just let me know. Feel free to reach out anytime! 😊",
-    },
-    {
-      type: "text",
-      text: "Great! Let's start with a few questions to understand your preferences.",
+      name: "welcome",
     },
     {
       type: "input",
-      text: "In which year did you complete your A/L exam?",
+      text: "In which Year did you complete your A/L exam?",
       placeholder: "Type your answer here...",
+      name: "Year",
     },
     {
       type: "choice",
-      text: "In which stream did you take your A/L exam?",
+      text: "In which Stream did you take your A/L exam?",
       options: [
         "Biological Science Stream",
         "Physical Science Stream",
@@ -57,25 +152,67 @@ const ChatUI = () => {
         "Bio Technology Stream",
         "Engineering Technology Stream",
       ],
+      name: "Stream",
     },
     {
       type: "custom",
-      text: (  <div><SubjectResultSelector onChange={handleSubjectResultChange} /></div>), // Use SubjectResultSelector here
+      text: "Include your A/L results Here",
+      result: (
+        <div>
+          <SubjectResultSelector onSubmit={handleResultSubmit} />
+        </div>
+      ),
+      name: "Results",
     },
     {
       type: "choice",
-      text: "What is your preferred method of stress relief?",
-      options: ["Exercise", "Meditation", "Socializing", "Hobbies"],
+      text: "Select Your O/L English Grade",
+      options: ["A", "B", "C", "S", "W"],
+      name: "English",
     },
+    {
+      type: "choice",
+      text: "Whitch University type you prefer more",
+      options: ["Private", "Government"],
+      name: "Preferred_University",
+    },
+    {
+      type: "Rank",
+      text: "Rank your prefered areas of Study?",
+      rank: (
+        <SortableListComponent
+          stream="Biological Science Stream"
+          displayArea={true}
+          onSortUpdate={(sortedList) => handleSortUpdate(sortedList, "areas")} // Pass the sorted areas back to the parent
+        />
+      ),
+      name: "areas",
+    },
+    {
+      type: "Rank",
+      text: "Rank your prefered University Locations?",
+      rank: (
+        <SortableListComponent
+          displayLocations={true}
+          onSortUpdate={(sortedList) =>
+            handleSortUpdate(sortedList, "locations")
+          } // Pass the sorted locations back to the parent
+        />
+      ),
+      name: "Locations",
+    },
+
     {
       type: "input",
-      text: "Which of these do you struggle with the most?",
+      text: "Insert your prefered career areas",
       placeholder: "Type your answer here...",
+      name: "Career_Areas",
     },
     {
       type: "choice",
-      text: "How would you rate your overall stress level?",
-      options: ["Low", "Moderate", "High", "Extreme"],
+      text: "Choose your prefered duration",
+      options: ["2 years", "3 years", "4 years", "5 years"],
+      name: "duration",
     },
   ];
 
@@ -101,23 +238,15 @@ const ChatUI = () => {
     endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleOptionClick = (option) => {
+  const handleOptionClick = (option, name) => {
     setAnswers({
       ...answers,
-      [questionIndex]: option,
+      [name]: option,
     });
-
-    if (option === "Not right now") {
-      setQuestionIndex(1); // Move to the "Not right now" message
-      setShouldAutoClose(true); // Set to auto-close chat
-    } else {
-      // Check if the next question should be skipped or not
-      if (questionIndex === 0 && option === "Yes, let's go!") {
-        setQuestionIndex(2); // Skip directly to the next question
-      } else {
-        goToNextQuestion();
-      }
+    if (name === "welcome" && option === "Not right now") {
+      setShouldAutoClose(true);
     }
+    goToNextQuestion();
   };
 
   const handleInputChange = (e) => {
@@ -125,13 +254,14 @@ const ChatUI = () => {
   };
 
   const handleInputSubmit = () => {
-    if (inputValue.trim() === "") return;
-    setAnswers({
-      ...answers,
-      [questionIndex]: inputValue,
-    });
-    setInputValue("");
-    goToNextQuestion();
+    if (inputValue) {
+      setAnswers({
+        ...answers,
+        [questions[questionIndex].name]: inputValue,
+      });
+      setInputValue("");
+      goToNextQuestion();
+    }
   };
 
   const goToNextQuestion = () => {
@@ -150,13 +280,50 @@ const ChatUI = () => {
     goToNextQuestion();
   };
 
+  const handleEditClick = (name) => {
+    const questionIdx = questions.findIndex((q) => q.name === name);
+    setQuestionIndex(questionIdx);
+  };
+
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
   };
 
   const handleConfirm = () => {
-    console.log("All questions answered:", answers);
-    alert("Your responses have been submitted.");
+    // Define required fields and their human-readable labels
+    const requiredFields = {
+      Stream: "A/L Stream",
+      English: "O/L English Grade",
+      Preferred_University: "Preferred University Type",
+      Career_Areas: "Career Areas",
+      duration: "Preferred Course Duration",
+      Locations: "Preferred Locations",
+      areas: "Preferred Areas of Study",
+      Results: "A/L Results",
+    };
+
+    // Find missing fields
+    const missingFields = Object.keys(requiredFields).filter(
+      (field) =>
+        !answers[field] ||
+        (Array.isArray(answers[field]) && answers[field].length === 0)
+    );
+
+    if (missingFields.length === 0) {
+      // All required fields are answered
+      console.log("All questions answered:", answers);
+      swal("Your responses have been submitted.");
+      // Proceed with further actions
+      handleSubmit();
+    } else {
+      // Some fields are missing
+      const missingFieldsText = missingFields
+        .map((field) => requiredFields[field])
+        .join(", ");
+      swal(
+        `Please complete the following fields before submitting: ${missingFieldsText}`
+      );
+    }
   };
 
   const handleRefreshChat = () => {
@@ -175,9 +342,6 @@ const ChatUI = () => {
 
       {isChatOpen && (
         <div className="chat-popup">
-          <div className="nice-icon">
-            <img src={chatImg} alt="User" />
-          </div>
           <div className="chat-popup-header">
             <h3>Uni Course Advisor</h3>
             <div className="header-right-icons">
@@ -189,7 +353,7 @@ const ChatUI = () => {
               </button>
             </div>
           </div>
-          <div className="chat-popup-body">
+          <div className="chat-popup-body" ref={chatBodyRef}>
             <div className="chat-messages">
               {questions.slice(0, questionIndex + 1).map((q, idx) => (
                 <div key={idx} className="chat-message">
@@ -199,29 +363,86 @@ const ChatUI = () => {
                     </div>
                     <div className="message-content">
                       <div className="message-text">{q.text}</div>
+
                       {q.type === "choice" && idx === questionIndex && (
                         <div className="options-list">
-                          {q.options.map((option, optIdx) => (
+                          {q.options.map((option, index) => (
                             <div
-                              key={optIdx}
+                              key={index}
                               className={`option-item ${
                                 answers[idx] === option ? "selected" : ""
                               }`}
-                              onClick={() => handleOptionClick(option)}
+                              onClick={() => handleOptionClick(option, q.name)}
                             >
                               {option}
                             </div>
                           ))}
                         </div>
                       )}
-                      {q.type === "custom" && <div>{q.text}</div>}
+                      {q.type === "custom" && (
+                        <div>
+                          {q.result}
+                          <button
+                            className="send-btn"
+                            onClick={handleResultSubmit}
+                          >
+                            send
+                          </button>
+                        </div>
+                      )}
+                      {q.type === "Rank" && <div>{q.rank}</div>}
+
+                      {questionIndex === questions.length && (
+                        <div className="message-text">
+                          Thank you for answering all the questions! 🎉
+                          <br />
+                          Your preferences have been saved.
+                        </div>
+                      )}
                     </div>
                   </div>
 
-                  {answers[idx] && (
+                  {answers[q.name] && (
                     <div className="user-message">
                       <div className="message-content">
-                        <div className="message-text">{answers[idx]}</div>
+                        <div className="message-text">
+                          {q.type === "Rank" && (
+                            <div>
+                              {answers[q.name].map((item, index) => (
+                                <div key={index} className="ranked-item">
+                                  <span>{index + 1}.</span>
+                                  <span>{item}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {q.type === "custom" && (
+                            <div>
+                              {answers[q.name].map((pair, index) => (
+                                <div key={index}>
+                                  <span>{pair.subject}:</span>
+                                  <span>{pair.grade}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                          {q.type === "input" && (
+                            <div>
+                              {Array.isArray(answers[q.name])
+                                ? answers[q.name].join(", ")
+                                : answers[q.name]}{" "}
+                            </div>
+                          )}
+
+                          {q.type === "choice" && answers[q.name]}
+                        </div>
+                        <button
+                          className="edit-btn"
+                          onClick={() => handleEditClick(q.name)}
+                        >
+                          ✎
+                        </button>
                       </div>
                       <div className="user-icon">
                         <img src="/path-to-user-icon.png" alt="User" />
@@ -259,7 +480,7 @@ const ChatUI = () => {
                   onChange={handleInputChange}
                 />
                 <button className="send-btn" onClick={handleInputSubmit}>
-                  Send
+                  ➤
                 </button>
               </div>
             )}
@@ -275,7 +496,11 @@ const ChatUI = () => {
                   Skip
                 </button>
               ) : (
-                <button className="confirm-btn" onClick={handleConfirm}>
+                <button
+                  type="submit"
+                  className="confirm-btn"
+                  onClick={handleConfirm}
+                >
                   Confirm
                 </button>
               )}

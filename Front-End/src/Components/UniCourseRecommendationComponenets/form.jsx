@@ -1,75 +1,93 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "./Styles/SubjectResultSelector.css"; // Import the stylesheet
 
-const subjects = ['Math', 'Science', 'English', 'History', 'Geography'];
-const results = ['A', 'B', 'C', 'D', 'E'];
+const subjects = ["Math", "Science", "English", "History", "Geography"];
+const results = ["A", "B", "C", "D", "E"];
 
-const SubjectResultSelector = ({ onChange }) => {
-  const [pairs, setPairs] = useState([
-    { subject: '', result: '' },
-    { subject: '', result: '' },
-    { subject: '', result: '' }
+const SubjectResultSelector = ({ onSubmit }) => {
+  const [subjectPairs, setSubjectPairs] = useState([
+    "", // Initial empty subject pairs
+    "",
+    "",
+  ]);
+  const [resultPairs, setResultPairs] = useState([
+    "", // Initial empty grade pairs
+    "",
+    "",
   ]);
 
   const handleSubjectChange = (index, value) => {
-    const newPairs = [...pairs];
-    newPairs[index].subject = value;
-    setPairs(newPairs);
-    onChange(newPairs); // Notify parent of the update
+    const newSubjectPairs = [...subjectPairs];
+    newSubjectPairs[index] = value;
+    setSubjectPairs(newSubjectPairs);
   };
 
   const handleResultChange = (index, value) => {
-    const newPairs = [...pairs];
-    newPairs[index].result = value;
-    setPairs(newPairs);
-    onChange(newPairs); // Notify parent of the update
+    const newResultPairs = [...resultPairs];
+    newResultPairs[index] = value;
+    setResultPairs(newResultPairs);
   };
 
-  // Function to get filtered subjects and results for dropdowns
   const getAvailableSubjects = (index) => {
-    const selectedSubjects = pairs.map(pair => pair.subject).filter(subject => subject);
-    return subjects.filter(subject => !selectedSubjects.includes(subject));
+    const selectedSubjects = subjectPairs.filter((subject) => subject);
+    return subjects.filter(
+      (subject) =>
+        !selectedSubjects.includes(subject) || subject === subjectPairs[index]
+    );
   };
 
-  const getAvailableResults = (index) => {
-    return results;
+  const getAvailableResults = () => results;
+
+  const handleSubmit = () => {
+    // Combine subjects and results into pairs
+    const combinedPairs = subjectPairs.map((subject, index) => ({
+      subject: subject,
+      grade: resultPairs[index] || "", // Ensure each pair has a grade
+    }));
+    if (typeof onSubmit === "function") {
+      onSubmit(combinedPairs); // Pass combined pairs to parent
+    }
   };
 
   return (
-    <div>
-      {pairs.map((pair, index) => (
-        <div key={index} style={{ marginBottom: '10px' }}>
-          <div>
-            <label>
-              Subject {index + 1}:
-              <select
-                value={pair.subject}
-                onChange={(e) => handleSubjectChange(index, e.target.value)}
-              >
-                <option value="">Select Subject</option>
-                {getAvailableSubjects(index).map(subj => (
-                  <option key={subj} value={subj}>
-                    {subj}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label style={{ marginLeft: '10px' }}>
-              Result {index + 1}:
-              <select
-                value={pair.result}
-                onChange={(e) => handleResultChange(index, e.target.value)}
-              >
-                <option value="">Select Result</option>
-                {getAvailableResults(index).map(result => (
-                  <option key={result} value={result}>
-                    {result}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+    <div className="option-item">
+      {subjectPairs.map((subject, index) => (
+        <div key={index} className="subject-grade-pair">
+          <label className="form-label">
+            Subject {index + 1}:
+            <select
+              className="form-select"
+              value={subject}
+              onChange={(e) => handleSubjectChange(index, e.target.value)}
+            >
+              <option value="">Select Subject</option>
+              {getAvailableSubjects(index).map((subj) => (
+                <option key={subj} value={subj}>
+                  {subj}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="form-label">
+            Result {index + 1}:
+            <select
+              className="form-select"
+              value={resultPairs[index]}
+              onChange={(e) => handleResultChange(index, e.target.value)}
+            >
+              <option value="">Select Result</option>
+              {getAvailableResults().map((grade) => (
+                <option key={grade} value={grade}>
+                  {grade}
+                </option>
+              ))}
+            </select>
+          </label>
         </div>
       ))}
+      <button onClick={handleSubmit} className="submit-button">
+        Submit Results
+      </button>
     </div>
   );
 };

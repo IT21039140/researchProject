@@ -17,6 +17,7 @@ class UserSerializer(serializers.Serializer):
     areas = serializers.ListField(child=serializers.CharField())
     Career_Areas = serializers.ListField(child=serializers.CharField())
     duration = serializers.CharField(max_length=50)
+    user_id = serializers.CharField(max_length=200)
 
     def create(self, validated_data):
         results_data = validated_data.pop('Results', [])

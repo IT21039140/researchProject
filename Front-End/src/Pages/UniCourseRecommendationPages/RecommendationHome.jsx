@@ -17,11 +17,9 @@ const RecommendationHome = () => {
   return (
     <div className="full-page">
       <NavigationBar />
-
       <Container fluid className="main-content">
         <UniCarousel />
         <br />
-       
         <br />
         <RecommendationAbout />
         <br />

@@ -6,6 +6,7 @@ class Result(EmbeddedDocument):
 
 
 class User(Document):
+
     Name = fields.StringField(max_length=100)
     Year = fields.IntField()
     Stream = fields.StringField(max_length=100)
@@ -16,6 +17,7 @@ class User(Document):
     areas = fields.ListField(fields.StringField())  # List of areas
     Career_Areas = fields.ListField(fields.StringField())  # List of career areas
     duration = fields.StringField(max_length=50)
+    user_id = fields.StringField(max_length=50)
 
     meta = {'collection': 'NPreferences'}
 

@@ -2,50 +2,63 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import NotFound
-from recommendation.models.recommendation_model import recommendation
+from rest_framework.decorators import action
+from recommendation.models.recommendation_model import Recommendation, UserRecommendations
 from recommendation.serializers.recommendationSerializer import RecommendationSerializer
 
 class RecommendationViewSet(viewsets.ModelViewSet):
     serializer_class = RecommendationSerializer
 
     def get_queryset(self):
-        # Return the queryset without checking if it exists
-        return recommendation.objects.all()
+        return Recommendation.objects.all()
 
     def list(self, request):
         queryset = self.get_queryset()
-        if not queryset:  # Check for empty queryset
+        if not queryset:
             raise NotFound(detail="No recommendations found")
         serializer = RecommendationSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        recommendation = recommendation.objects.filter(id=pk).first()
-        if recommendation:
-            serializer = RecommendationSerializer(recommendation)
+        rec = Recommendation.objects.filter(id=pk).first()
+        if rec:
+            serializer = RecommendationSerializer(rec)
             return Response(serializer.data)
-        return Response({'error': 'recommendation not found'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'error': 'Recommendation not found'}, status=status.HTTP_404_NOT_FOUND)
 
     def create(self, request):
         serializer = RecommendationSerializer(data=request.data)
         if serializer.is_valid():
-            recommendation = serializer.save()
-            return Response(RecommendationSerializer(recommendation).data, status=status.HTTP_201_CREATED)
+            rec = serializer.save()
+            return Response(RecommendationSerializer(rec).data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def update(self, request, pk=None):
-        recommendation = recommendation.objects.filter(id=pk).first()
-        if recommendation:
-            serializer = RecommendationSerializer(recommendation, data=request.data, partial=True)
-            if serializer.is_valid():
-                updated_recommendation = serializer.save()
-                return Response(RecommendationSerializer(updated_recommendation).data)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        return Response({'error': 'recommendation not found'}, status=status.HTTP_404_NOT_FOUND)
+    @action(detail=False, methods=['put'], url_path='update-by-user/(?P<user_id>[^/.]+)')
+    def update_by_user_id(self, request, user_id=None):
+        recommendations_data = request.data.get('recommendations', [])
+        rec = Recommendation.objects.filter(user_id=user_id).first()
+        if rec:
+            rec.recommendations = []
+            for rec_data in recommendations_data:
+                user_recommendation = UserRecommendations(**rec_data)
+                rec.recommendations.append(user_recommendation)
+            rec.save()
+            serializer = RecommendationSerializer(rec)
+            return Response(serializer.data)
+        return Response({'error': 'Recommendation not found'}, status=status.HTTP_404_NOT_FOUND)
 
-    def destroy(self, request, pk=None):
-        recommendation = recommendation.objects.filter(id=pk).first()
-        if recommendation:
-            recommendation.delete()
+    @action(detail=False, methods=['delete'], url_path='delete-by-user/(?P<user_id>[^/.]+)')
+    def delete_by_user_id(self, request, user_id=None):
+        rec = Recommendation.objects.filter(user_id=user_id).first()
+        if rec:
+            rec.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
-        return Response({'error': 'recommendation not found'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'error': 'Recommendation not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    @action(detail=False, methods=['get'], url_path='get-by-user/(?P<user_id>[^/.]+)')
+    def get_by_user_id(self, request, user_id=None):
+        rec = Recommendation.objects.filter(user_id=user_id).first()
+        if rec:
+            serializer = RecommendationSerializer(rec)
+            return Response(serializer.data)
+        return Response({'error': 'Recommendation not found'}, status=status.HTTP_404_NOT_FOUND)

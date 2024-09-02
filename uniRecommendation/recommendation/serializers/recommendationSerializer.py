@@ -1,24 +1,33 @@
 from rest_framework import serializers
+from recommendation.models.recommendation_model import Recommendation, UserRecommendations
 
-from recommendation.models.recommendation_model import recommendation
-
-class RecommendationSerializer(serializers.Serializer):
-    id = serializers.CharField(read_only=True)
+class UserRecommendationsSerializer(serializers.Serializer):
     course_code = serializers.CharField(default="N/A")
     course_name = serializers.CharField(default="N/A")
     university = serializers.CharField(default="N/A")
     specialization = serializers.CharField(default="None")
     duration = serializers.CharField(default="N/A")
-    user_id = serializers.CharField()
+
+class RecommendationSerializer(serializers.Serializer):
+    id = serializers.CharField(read_only=True)
+    user_id = serializers.CharField(required=True)
+    recommendations = UserRecommendationsSerializer(many=True)
 
     def create(self, validated_data):
-        return recommendation.objects.create(**validated_data)
+        recommendations_data = validated_data.pop('recommendations', [])
+        rec = Recommendation.objects.create(**validated_data)
+        for rec_data in recommendations_data:
+            user_recommendation = UserRecommendations(**rec_data)
+            rec.recommendations.append(user_recommendation)
+        rec.save()
+        return rec
 
     def update(self, instance, validated_data):
-        instance.course_code = validated_data.get('course_code', instance.course_code)
-        instance.course_name = validated_data.get('course_name', instance.course_name)
-        instance.university = validated_data.get('university', instance.university)
-        instance.specialization = validated_data.get('specialization', instance.specialization)
-        instance.duration = f"{validated_data.get('duration', instance.duration)} years"
+        recommendations_data = validated_data.get('recommendations', [])
+        instance.user_id = validated_data.get('user_id', instance.user_id)
+        instance.recommendations = []
+        for rec_data in recommendations_data:
+            user_recommendation = UserRecommendations(**rec_data)
+            instance.recommendations.append(user_recommendation)
         instance.save()
         return instance

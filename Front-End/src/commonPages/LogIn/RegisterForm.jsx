@@ -22,7 +22,7 @@ const RegisterForm = ({ switchToLogin }) => {
     }
 
     try {
-      await axios.post('http://127.0.0.1:8000/api/register/', {
+      await axios.post('http://127.0.0.1:8001/api/register/', {
         email,
         first_name: firstName,
         last_name: lastName,
