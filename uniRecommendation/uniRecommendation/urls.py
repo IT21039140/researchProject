@@ -16,5 +16,5 @@ router.register(r'recommendations', RecommendationViewSet, basename='recommendat
 router.register(r'gnn', GNNViewSet, basename='gnn')
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('uni/', include(router.urls)),
 ]

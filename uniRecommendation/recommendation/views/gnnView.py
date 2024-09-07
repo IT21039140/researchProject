@@ -15,14 +15,17 @@ from recommendation.models.GNN_model import CourseRecommendationGNN
 from recommendation.DataCleaning.dataFetcher import fetchData
 from recommendation.DataCleaning.CourseDataCleaner import CourseDataCleaner
 from recommendation.DataCleaning.UserDataCleaner import UserDataCleaner
-import json 
+import json
+import requests
 
 # Define URLs for fetching data
-courses_url = 'http://localhost:8000/api/courses'
-users_url = 'http://localhost:8000/api/users'
+courses_url = 'http://localhost:8010/uni/courses'
+users_url = 'http://localhost:8010/uni/users'
 
-# Define base directory relative to current working directory
-base_dir = os.getcwd()
+# Define raw URLs for fetching files
+graph_url = 'https://github.com/IT21039140/researchProject/raw/fc378de8d438c213fc617baef1ead0f455c7de24/uniRecommendation/recommendation/DataProcessing/graph.graphml'
+model_url = 'https://github.com/IT21039140/researchProject/raw/fc378de8d438c213fc617baef1ead0f455c7de24/uniRecommendation/recommendation/DataProcessing/model_weights.pth'
+data_url = 'https://github.com/IT21039140/researchProject/raw/fc378de8d438c213fc617baef1ead0f455c7de24/uniRecommendation/recommendation/DataProcessing/data.pt'
 
 # Initialize global variables for graph, model, and data
 df_courses = df_users = None
@@ -32,8 +35,14 @@ model = None
 coursesdata = []
 unique_subjects = []
 
+def download_file(url, destination):
+    response = requests.get(url)
+    response.raise_for_status()  # Check for request errors
+    with open(destination, 'wb') as f:
+        f.write(response.content)
+
 def initialize_resources():
-    global df_courses, df_users, graph, data, model, coursesdata, unique_subjects
+    global df_courses, df_users, graph, data, model, coursesdata, unique_subjects, area_encoder
 
     try:
         # Fetch and clean data
@@ -56,28 +65,26 @@ def initialize_resources():
         else:
             print("Courses DataFrame not found.")
 
-        # Define paths for the graph, model, and data
-        graph_filename = os.path.join(base_dir, 'recommendation', 'DataProcessing', 'graph.graphml')
-        model_filename = os.path.join(base_dir, 'recommendation', 'DataProcessing', 'model_weights.pth')
-        data_filename = os.path.join(base_dir, 'recommendation', 'DataProcessing', 'data.pt')
-
-        print(f"Graph file path: {graph_filename}")
-        print(f"Model file path: {model_filename}")
-        print(f"Data file path: {data_filename}")
+        # Download and load the graph, model, and data
+        download_file(graph_url, 'graph.graphml')
+        download_file(model_url, 'model_weights.pth')
+        download_file(data_url, 'data.pt')
 
         # Load the graph
-        graph = nx.read_graphml(graph_filename)
+        global graph
+        graph = nx.read_graphml('graph.graphml')
         print(f"Graph loaded: {graph is not None}")
 
         # Load the model and data
-        data = torch.load(data_filename)  # Removed weights_only=True
+        global data, model
+        data = torch.load('data.pt')  # Removed weights_only=True
         print(f"Data loaded: {data is not None}")
 
         input_dim = 63  # Adjust based on your setup
         hidden_dim = 64
         output_dim = 32
         model = CourseRecommendationGNN(input_dim, hidden_dim, output_dim)
-        model.load_state_dict(torch.load(model_filename))  # Removed weights_only=True
+        model.load_state_dict(torch.load('model_weights.pth'))  # Removed weights_only=True
         model.eval()
         print("Model loaded and set to eval mode")
 
@@ -98,14 +105,12 @@ class GNNViewSet(viewsets.ViewSet):
             initialize_resources()
 
             user_data = request.data
-            
 
             if not user_data:
                 return Response({"error": "No user data provided"}, status=status.HTTP_400_BAD_REQUEST)
 
             cleaner = NewUserDataCleaner()
-            user_features_tensor, _ = encode_new_user(unique_subjects, user_data, cleaner)
-            
+            user_features_tensor, user_df, max_careers, max_areas = encode_new_user(unique_subjects, user_data, cleaner, area_encoder)
 
             if data is None:
                 return Response({"error": "Data not properly loaded"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -114,7 +119,7 @@ class GNNViewSet(viewsets.ViewSet):
             if graph is None:
                 return Response({"error": "Graph not properly loaded"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-            recommendations = recommend_for_new_user(user_features_tensor, data, model, graph, coursesdata)
+            recommendations = recommend_for_new_user(user_features_tensor, user_df, max_careers, data, model, graph, coursesdata, max_areas)
             print(f"Recommendations: {recommendations}")
 
             return Response(recommendations, status=status.HTTP_200_OK)

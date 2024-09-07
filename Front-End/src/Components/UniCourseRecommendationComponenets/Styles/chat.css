@@ -4,8 +4,25 @@
   overflow: visible;
 }
 
+.edit-btn {
+  padding: 2px 4px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 2px;
+  
+}
 
+.header-right-icons {
+  display: flex;
+  gap: 10px;
+}
 
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 .user-chat-icon {
   position: fixed;
   bottom: 20px;
@@ -199,14 +216,17 @@
 }
 
 .confirm-btn {
-  background-color: #28a745;
-  color: white;
+  background-color: #28a745 !important;
+  color: white !important;
 }
 
 .confirm-btn:hover {
   background-color: #218838;
 }
 
+.back-btn,.skip-btn {
+  background-color: #8dc1ee !important;
+}
 .refresh-chat-btn {
   background-color: #ffcc00;
   color: white;
@@ -214,6 +234,8 @@
   border-radius: 20px;
   border: none;
   cursor: pointer;
+  width: 35px;
+  height: 35px;
 }
 
 .refresh-chat-btn:hover {
@@ -223,10 +245,12 @@
 .close-chat-btn {
   background-color: #d9534f;
   color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
+  
+  border-radius: 50px;
   border: none;
   cursor: pointer;
+  width: 35px;
+  height: 35px;
 }
 
 .close-chat-btn:hover {

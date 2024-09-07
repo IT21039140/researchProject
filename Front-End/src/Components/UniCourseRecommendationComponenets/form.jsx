@@ -1,20 +1,77 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Styles/SubjectResultSelector.css"; // Import the stylesheet
 
-const subjects = ["Math", "Science", "English", "History", "Geography"];
-const results = ["A", "B", "C", "D", "E"];
+const subjects = [
+  "Accounting",
+  "Business Studies",
+  "Economics",
+  "Business Statistics",
+  "Geography",
+  "Political Science",
+  "History The logic and the scientific method",
+  "English",
+  "German",
+  "French",
+  "Agricultural Sciences",
+  "Combined Mathematics",
+  "Information and Communication Technology",
+  "Biology",
+  "Chemistry",
+  "Physics",
+  "Mathematics",
+  "Home Economics",
+  "Communication & Media Studies",
+  "Civil Technology",
+  "Electrical, Electronic and Information Technology",
+  "Agro Technology",
+  "Mechanical Technology",
+  "Food Technology",
+  "Bio-Resource Technology",
+  "Sinhala",
+  "Tamil",
+  "Arabic",
+  "Pali",
+  "Sanskrit",
+  "Buddhism",
+  "Hinduism",
+  "Christianity",
+  "Islam",
+  "Buddhist Civilization",
+  "Hindu Civilization",
+  "Christian Civilization",
+  "Islamic Civilization",
+  "Greek & Roman Civilization",
+  "Art",
+  "Dancing",
+  "Music",
+  "Drama & Theatre",
+  "Chinese",
+  "Hindi",
+  "Japanese",
+  "Malay",
+  "Russian",
+  "Korean",
+  "Biosystems Technology",
+  "Science for Technology",
+  "Engineering Technology",
+];
+const results = ["A", "B", "C", "S", "F","W"];
 
-const SubjectResultSelector = ({ onSubmit }) => {
-  const [subjectPairs, setSubjectPairs] = useState([
-    "", // Initial empty subject pairs
-    "",
-    "",
-  ]);
-  const [resultPairs, setResultPairs] = useState([
-    "", // Initial empty grade pairs
-    "",
-    "",
-  ]);
+const SubjectResultSelector = ({ initialResults = [], onSubmit }) => {
+  const [subjectPairs, setSubjectPairs] = useState(["", "", ""]); // Initial empty subjects
+  const [resultPairs, setResultPairs] = useState(["", "", ""]); // Initial empty results
+
+  // Update state when initialResults prop changes
+  useEffect(() => {
+    if (initialResults.length > 0) {
+      const subjectsFromInitial = initialResults.map(
+        (item) => item.subject || ""
+      );
+      const resultsFromInitial = initialResults.map((item) => item.grade || "");
+      setSubjectPairs(subjectsFromInitial);
+      setResultPairs(resultsFromInitial);
+    }
+  }, [initialResults]);
 
   const handleSubjectChange = (index, value) => {
     const newSubjectPairs = [...subjectPairs];
@@ -39,10 +96,9 @@ const SubjectResultSelector = ({ onSubmit }) => {
   const getAvailableResults = () => results;
 
   const handleSubmit = () => {
-    // Combine subjects and results into pairs
     const combinedPairs = subjectPairs.map((subject, index) => ({
       subject: subject,
-      grade: resultPairs[index] || "", // Ensure each pair has a grade
+      grade: resultPairs[index] || "",
     }));
     if (typeof onSubmit === "function") {
       onSubmit(combinedPairs); // Pass combined pairs to parent
@@ -85,9 +141,11 @@ const SubjectResultSelector = ({ onSubmit }) => {
           </label>
         </div>
       ))}
-      <button onClick={handleSubmit} className="submit-button">
-        Submit Results
-      </button>
+      <div className="profile-buttons">
+        <button onClick={handleSubmit} className="submit-button">
+          Submit Results
+        </button>
+      </div>
     </div>
   );
 };

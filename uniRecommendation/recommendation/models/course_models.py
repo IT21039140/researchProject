@@ -28,6 +28,8 @@ class Course(Document):
     universities = EmbeddedDocumentListField(University)
     area = fields.StringField(max_length=100)
     english_requirement = fields.StringField(max_length=20)
+    math_requirement = fields.StringField(max_length=20)    
+    science_requirement = fields.StringField(max_length=20)
     meta = {'collection': 'Government_Courses'}  # Collection name for courses
     important_note=fields.StringField(max_length=200)
     guidance_and_information = fields.StringField(max_length=200)

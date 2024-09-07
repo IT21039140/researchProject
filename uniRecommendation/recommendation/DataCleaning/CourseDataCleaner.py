@@ -29,12 +29,15 @@ class CourseDataCleaner(DataCleanerTemplate):
                         
                         uni_duration = ""  # Default value or handle accordingly
 
-                    if "specializations" in uni:
+                    specilizations = uni.get('specializations', [])
+
+                    if len(specilizations) > 0:
+                        print("Happy")
                         for spec in uni["specializations"]:
                             spec_name = spec.get("name", "Unknown") if isinstance(spec, dict) else spec
                             spec_duration = self.extract_years(spec.get("duration", "")) if isinstance(spec, dict) else None
 
-                            final_duration = uni_duration or spec_duration
+                            
 
                             uni_specializations.append({
                                 "course_name": str(row.get("course_name", "") or ""),
@@ -45,21 +48,21 @@ class CourseDataCleaner(DataCleanerTemplate):
                                 "area": str(row.get("area", "") or ""),
                                 "uni_name": str(uni.get("uni_name", "") or ""),
                                 "province": str(self.get_province(uni) or ""),
-                                "duration": str(final_duration or ""),
+                                "duration": str(spec_duration or ""),
                                 "specialization_name": str(spec_name or ""),
                             })
                     else:
-                        
+                        print("Hloooooooo")
                         uni_specializations.append({
                             "course_name": str(row.get("course_name", "") or ""),
                             "course_code": str(row.get("course_code", "") or ""),
                             "english_requirement": str(row.get("english_requirement", "") or ""),
-                            "minimum_eligibility_requirements": str(row.get("minimum_eligibility_requirements", "") or ""),
+                            "minimum_eligibility_requirements": row.get("minimum_eligibility_requirements", "") ,
                             "stream": str(row.get("stream", "") or ""),
                             "area": str(row.get("area", "") or ""),
                             "uni_name": str(uni.get("uni_name", "") or ""),
                             "province": str(self.get_province(uni) or ""),
-                            "duration": str(final_duration or ""),
+                            "duration": str(uni_duration or ""),
                             "specialization_name": str(""),
                         })
                         
@@ -70,7 +73,7 @@ class CourseDataCleaner(DataCleanerTemplate):
         # Adding a column with unique 10-digit IDs
         df_courses_cleaned['course_id'] = range(initial_id, initial_id + len(df_courses_cleaned))
         
-        print("Bbay")
+       
         # Fit the encoder using user data
        
 

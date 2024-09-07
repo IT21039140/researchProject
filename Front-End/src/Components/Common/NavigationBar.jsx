@@ -1,91 +1,78 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
-
+import { Navbar, Nav, Button } from "react-bootstrap";
+import { useLocation, Link } from "react-router-dom";
 import "./Styles/NavigationBar.css";
 
 const NavigationBar = () => {
+  const location = useLocation();
+
+  // Determine the active link based on the current path
+  const getNavLinkClass = (path) => location.pathname === path ? "nav-link active" : "nav-link";
+
   return (
     <header className="kider-header">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            Navbar
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Features
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Pricing
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown link
-                </a>
-                <ul
-                  class="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <form class="d-flex">
+      <Navbar expand="lg" bg="light" className="navbar">
+        <Navbar.Brand as={Link} to="/">Navbar</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarNavDropdown" />
+        <Navbar.Collapse id="navbarNavDropdown">
+          <Nav className="me-auto">
+            <Nav.Link
+              as={Link}
+              to="/Home"
+              className={getNavLinkClass("/Home")}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/recommendation"
+              className={getNavLinkClass("/recommendation")}
+            >
+              Uni Recommendation
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/career-guidance"
+              className={getNavLinkClass("/career-guidance")}
+            >
+              Career Guidance
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/quiz-generator"
+              className={getNavLinkClass("/quiz-generator")}
+            >
+              Quiz Generator
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/scholarship-bot"
+              className={getNavLinkClass("/scholarship-bot")}
+            >
+              Scholarship Bot
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/Dashboard"
+              className={getNavLinkClass("/Dashboard")}
+            >
+              Dashboard
+            </Nav.Link>
+          </Nav>
+          <form className="d-flex ms-auto">
             <input
-              class="form-control me-2"
+              className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit">
+            <Button variant="outline-success" type="submit">
               Search
-            </button>
+            </Button>
           </form>
-        </div>
-      </nav>
+          <Button className="ms-3" variant="primary" as={Link} to="/login">Login</Button>
+        </Navbar.Collapse>
+      </Navbar>
     </header>
   );
 };

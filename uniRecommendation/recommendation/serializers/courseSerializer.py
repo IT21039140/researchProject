@@ -22,6 +22,9 @@ class CourseSerializer(serializers.Serializer):
     minimum_eligibility_requirements = MinimumEligibilityRequirementSerializer(many=True)
     universities = UniversitySerializer(many=True)
     area = serializers.CharField(max_length=100)
+    english_requirement = serializers.CharField(max_length=20)
+    math_requirement = serializers.CharField(max_length=20)
+    science_requirement = serializers.CharField(max_length=20)
 
     def create(self, validated_data):
         min_eligibility_data = validated_data.pop('minimum_eligibility_requirements', [])
@@ -43,6 +46,9 @@ class CourseSerializer(serializers.Serializer):
         instance.course_code = validated_data.get('course_code', instance.course_code)
         instance.proposed_intake = validated_data.get('proposed_intake', instance.proposed_intake)
         instance.area = validated_data.get('area', instance.area)
+        instance.english_requirement = validated_data.get('english_requirement', instance.english_requirement)
+        instance.math_requirement = validated_data.get('math_requirement', instance.math_requirement)
+        instance.science_requirement = validated_data.get('science_requirement', instance.science_requirement)
         
         instance.minimum_eligibility_requirements.clear()
         for min_eligibility in min_eligibility_data:

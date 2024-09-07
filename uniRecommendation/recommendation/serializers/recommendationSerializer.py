@@ -7,6 +7,13 @@ class UserRecommendationsSerializer(serializers.Serializer):
     university = serializers.CharField(default="N/A")
     specialization = serializers.CharField(default="None")
     duration = serializers.CharField(default="N/A")
+    Stream_Score = serializers.FloatField(default=0)
+    Area_Score = serializers.FloatField(default= 0)
+    Location_Score = serializers.FloatField(default=0)
+    Career_Score = serializers.FloatField(default=0)
+    Duration_Score = serializers.FloatField(default=0)
+    Score = serializers.FloatField(default=0)
+
 
 class RecommendationSerializer(serializers.Serializer):
     id = serializers.CharField(read_only=True)

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Styles/chat.css";
 import chatImg from "../../icons/chat.png";
+import bot from "../../icons/bot.png";
+import boy from "../../icons/boy.png";
 import SubjectResultSelector from "./form";
 import SortableListComponent from "./DragandDropForm";
 import swal from "sweetalert";
@@ -27,6 +29,16 @@ const ChatUI = () => {
 
   const navigate = useNavigate();
 
+  const processCareerAreas = (input) => {
+    // Handle the case where input is a comma-separated string
+    if (typeof input === "string") {
+      return input.split(",").map((item) => item.trim());
+    }
+
+    // Handle the case where input is an array or a single value
+    return Array.isArray(input) ? input : [input];
+  };
+
   const handleSubmit = async () => {
     // Format data to match API requirements
     const formattedData = {
@@ -36,9 +48,7 @@ const ChatUI = () => {
       Stream: answers.Stream,
       English: answers.English,
       Preferred_University: answers.Preferred_University,
-      Career_Areas: Array.isArray(answers.Career_Areas)
-        ? answers.Career_Areas
-        : [answers.Career_Areas],
+      Career_Areas: processCareerAreas(answers.Career_Areas),
       duration: answers.duration,
       Locations: answers.Locations,
       areas: answers.areas,
@@ -50,7 +60,7 @@ const ChatUI = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/users/",
+        "http://localhost:8010/uni/users/",
         formattedData
       );
       const { id } = response.data; // Ensure the API response contains an 'id'
@@ -93,26 +103,29 @@ const ChatUI = () => {
 
   const handleSortUpdate = (sortedList, type) => {
     if (type === "areas") {
-      setAnswers((prev) => ({
-        ...prev,
-        areas: sortedList,
-      }));
+      setAnswers((prev) => {
+        const updatedAnswers = { ...prev, areas: sortedList };
 
-      if (answers.areas.length === 0) {
-        swal("Please rank areas");
-      } else {
-        goToNextQuestion();
-      }
+        if (updatedAnswers.areas.length === 0) {
+          swal("Please rank areas");
+        } else {
+          goToNextQuestion();
+        }
+
+        return updatedAnswers;
+      });
     } else if (type === "locations") {
-      setAnswers((prev) => ({
-        ...prev,
-        Locations: sortedList,
-      }));
-      if (answers.Locations.length === 0) {
-        swal("Please rank locations");
-      } else {
-        goToNextQuestion();
-      }
+      setAnswers((prev) => {
+        const updatedAnswers = { ...prev, Locations: sortedList };
+
+        if (updatedAnswers.Locations.length === 0) {
+          swal("Please rank locations");
+        } else {
+          goToNextQuestion();
+        }
+
+        return updatedAnswers;
+      });
     }
   };
 
@@ -148,7 +161,7 @@ const ChatUI = () => {
         "Biological Science Stream",
         "Physical Science Stream",
         "Commerce Stream",
-        "Art Stream",
+        "Arts Stream",
         "Bio Technology Stream",
         "Engineering Technology Stream",
       ],
@@ -159,7 +172,10 @@ const ChatUI = () => {
       text: "Include your A/L results Here",
       result: (
         <div>
-          <SubjectResultSelector onSubmit={handleResultSubmit} />
+          <SubjectResultSelector
+            initialResults={answers.Results}
+            onSubmit={handleResultSubmit}
+          />
         </div>
       ),
       name: "Results",
@@ -181,7 +197,7 @@ const ChatUI = () => {
       text: "Rank your prefered areas of Study?",
       rank: (
         <SortableListComponent
-          stream="Biological Science Stream"
+          stream={answers.Stream}
           displayArea={true}
           onSortUpdate={(sortedList) => handleSortUpdate(sortedList, "areas")} // Pass the sorted areas back to the parent
         />
@@ -213,6 +229,10 @@ const ChatUI = () => {
       text: "Choose your prefered duration",
       options: ["2 years", "3 years", "4 years", "5 years"],
       name: "duration",
+    },
+    {
+      type: "text",
+      text: "You have come to the end.Click Confirm button to get your personalized recommendations",
     },
   ];
 
@@ -359,7 +379,7 @@ const ChatUI = () => {
                 <div key={idx} className="chat-message">
                   <div className="bot-message">
                     <div className="bot-icon">
-                      <img src="/path-to-bot-icon.png" alt="Bot" />
+                      <img src={bot} alt="Bot" />
                     </div>
                     <div className="message-content">
                       <div className="message-text">{q.text}</div>
@@ -379,17 +399,7 @@ const ChatUI = () => {
                           ))}
                         </div>
                       )}
-                      {q.type === "custom" && (
-                        <div>
-                          {q.result}
-                          <button
-                            className="send-btn"
-                            onClick={handleResultSubmit}
-                          >
-                            send
-                          </button>
-                        </div>
-                      )}
+                      {q.type === "custom" && <div>{q.result}</div>}
                       {q.type === "Rank" && <div>{q.rank}</div>}
 
                       {questionIndex === questions.length && (
@@ -406,7 +416,7 @@ const ChatUI = () => {
                     <div className="user-message">
                       <div className="message-content">
                         <div className="message-text">
-                          {q.type === "Rank" && (
+                          {q.type === "Rank" && answers[q.name] && (
                             <div>
                               {answers[q.name].map((item, index) => (
                                 <div key={index} className="ranked-item">
@@ -417,7 +427,7 @@ const ChatUI = () => {
                             </div>
                           )}
 
-                          {q.type === "custom" && (
+                          {q.type === "custom" && answers[q.name] && (
                             <div>
                               {answers[q.name].map((pair, index) => (
                                 <div key={index}>
@@ -427,7 +437,7 @@ const ChatUI = () => {
                               ))}
                             </div>
                           )}
-                          {q.type === "input" && (
+                          {q.type === "input" && answers[q.name] && (
                             <div>
                               {Array.isArray(answers[q.name])
                                 ? answers[q.name].join(", ")
@@ -437,15 +447,17 @@ const ChatUI = () => {
 
                           {q.type === "choice" && answers[q.name]}
                         </div>
-                        <button
-                          className="edit-btn"
-                          onClick={() => handleEditClick(q.name)}
-                        >
-                          ✎
-                        </button>
+                        <div className="btn-container">
+                          <button
+                            className="edit-btn"
+                            onClick={() => handleEditClick(q.name)}
+                          >
+                            ✎
+                          </button>
+                        </div>
                       </div>
                       <div className="user-icon">
-                        <img src="/path-to-user-icon.png" alt="User" />
+                        <img src={boy} alt="User" />
                       </div>
                     </div>
                   )}

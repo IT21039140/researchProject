@@ -33,7 +33,7 @@ const RegisterForm = ({ switchToLogin }) => {
       setMessage('Registration successful! You can now log in.');
       setMessageType('success');
       setTimeout(() => {
-        navigate('/');
+        navigate('/login');
       }, 1000);
     } catch (error) {
       setMessage('Registration failed. Please check your details.');

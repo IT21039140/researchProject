@@ -24,42 +24,42 @@ const CoursesByStream = () => {
           title="Biological Science"
           description="Explore courses related to Biological Science."
           color="#e3f2fd"
-          link="courses/biological-science"
+          link="courses/Biological Science Stream"
           icon={bioScienceIcon}
         />
         <StreamCard
           title="Physical Science"
           description="Explore courses related to Physical Science."
           color="#fff3e0"
-          link="courses/physical-science"
+          link="courses/Physical Science Stream"
           icon={physicalScienceIcon}
         />
         <StreamCard
           title="Art"
           description="Explore courses related to Art."
           color="#f3e5f5"
-          link="courses/art"
+          link="courses/Arts Stream"
           icon={artIcon}
         />
         <StreamCard
           title="Commerce"
           description="Explore courses related to Commerce."
           color="#e8f5e9"
-          link="courses/commerce"
+          link="courses/Commerce Stream"
           icon={commerceIcon}
         />
         <StreamCard
           title="Bio Technology"
           description="Explore courses related to Bio Technology."
           color="#ffe0b2"
-          link="courses/bio-technology"
+          link="courses/Bio Technology Stream"
           icon={bioTechIcon}
         />
         <StreamCard
           title="Engineering Technology"
           description="Explore courses related to Engineering Technology."
           color="#f1f8e9"
-          link="courses/engineering-technology"
+          link="courses/Engineering Technology Stream"
           icon={engineeringIcon}
         />
       </div>

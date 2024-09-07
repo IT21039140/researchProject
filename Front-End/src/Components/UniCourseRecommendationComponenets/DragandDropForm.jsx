@@ -1,53 +1,11 @@
-import React, { useState, useEffect } from "react";
-import {
-  sortableContainer,
-  sortableElement,
-  sortableHandle,
-} from "react-sortable-hoc";
-
-// Custom arrayMove function
-function arrayMove(array, fromIndex, toIndex) {
-  const item = array[fromIndex];
-  const newArray = array.slice(); // Create a copy of the array
-  newArray.splice(fromIndex, 1); // Remove the item from the original position
-  newArray.splice(toIndex, 0, item); // Insert the item into the new position
-  return newArray;
-}
-
-// Drag handle component
-const DragHandle = sortableHandle(() => (
-  <span style={{ cursor: "grab", marginRight: "8px" }}>::</span>
-));
-
-// Sortable item component
-const SortableItem = sortableElement(({ value }) => (
-  <li
-    style={{
-      padding: "8px",
-      margin: "4px 0",
-      background: "#f9f9f9",
-      border: "1px solid #ddd",
-      borderRadius: "4px",
-      display: "flex",
-      alignItems: "center",
-    }}
-    className="option-item"
-  >
-    <DragHandle />
-    {value}
-  </li>
-));
-
-// Sortable container component
-const SortableList = sortableContainer(({ children }) => (
-  <ul style={{ padding: 0, margin: 0, listStyle: "none" }}>{children}</ul>
-));
+import { motion, AnimatePresence, Reorder } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const SortableListComponent = ({
   stream,
   displayArea,
   displayLocations,
-  onSortUpdate, // New prop to send sorted list back to parent
+  onSortUpdate,
 }) => {
   const areaOptions = {
     "Biological Science Stream": [
@@ -109,6 +67,17 @@ const SortableListComponent = ({
       "Arts & Humanities",
       "Architecture & Design",
     ],
+    "Arts Stream": [
+      "Arts & Humanities",
+      "Law",
+      "Education",
+      "Information Technology & Management",
+      "Architecture & Design",
+      "Science & Technology",
+      "Geographical & Environmental Sciences",
+      "Hospitality & Tourism",
+      "Business & Management",
+    ],
   };
 
   const locations = [
@@ -133,11 +102,6 @@ const SortableListComponent = ({
     }
   }, [stream, displayArea, displayLocations]);
 
-  const onSortEnd = ({ oldIndex, newIndex }) => {
-    const newItems = arrayMove(items, oldIndex, newIndex);
-    setItems(newItems);
-  };
-
   const handleDoneClick = () => {
     if (onSortUpdate) {
       onSortUpdate(items); // Send the final sorted list to the parent component
@@ -146,14 +110,42 @@ const SortableListComponent = ({
 
   return (
     <div>
-      <SortableList onSortEnd={onSortEnd} useDragHandle>
-        {items.map((value, index) => (
-          <SortableItem key={`item-${index}`} index={index} value={value} />
+      <Reorder.Group
+        axis="y"
+        values={items}
+        onReorder={setItems}
+        style={{ padding: 0, margin: 0 }}
+      >
+        {items.map((value) => (
+          <Reorder.Item
+            key={value}
+            value={value}
+            whileDrag={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
+            style={{
+              padding: "8px",
+              margin: "4px 0",
+              background: "#f9f9f9",
+              border: "1px solid #ddd",
+              borderRadius: "4px",
+              display: "flex",
+              alignItems: "center",
+              cursor: "grab",
+            }}
+          >
+            {value}
+          </Reorder.Item>
         ))}
-      </SortableList>
-      <button onClick={handleDoneClick} style={{ marginTop: "16px" }}>
-        Done
-      </button>
+      </Reorder.Group>
+      <div className="profile-buttons">
+        <button
+          className="submit-button"
+          onClick={handleDoneClick}
+          style={{ marginTop: "16px" }}
+        >
+          Done
+        </button>
+      </div>
     </div>
   );
 };

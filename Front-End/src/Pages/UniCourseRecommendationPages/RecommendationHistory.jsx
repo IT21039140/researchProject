@@ -4,23 +4,15 @@ import "./Styles/CourseCatalog.css"; // Ensure the path is correct
 import axios from "axios";
 import swal from "sweetalert";
 import { FaThList, FaTh } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+
 import PopupChart from "../../Components/UniCourseRecommendationComponenets/RadarChartApp";
-import {
-  checkUserExists,
-  updateUserRecommendations,
-  addUserRecommendations,
-} from "./apis/recomondationapi";
-import { fetchUserData, fetchRecommendations } from "./apis/courseapi";
 
 //http://localhost:5173/myrecommendations/66387dca157b0e532fea6106
-const CourseCatalog = () => {
-  const { id } = useParams();
-  const userId = "4090"; // Hardcoded user ID for now
+const RecommendationHistory = () => {
+  const userId = "1234"; // Hardcoded user ID for now
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isGridView, setIsGridView] = useState(true);
-  // State to manage selected course and popup visibility
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -32,77 +24,28 @@ const CourseCatalog = () => {
   });
   const [searchQuery, setSearchQuery] = useState("");
   const [groupBy, setGroupBy] = useState("");
-  const [userData, setUserData] = useState({
-    Name: "",
-    Year: "",
-    Stream: "",
-    Results: [
-      { subject: "", grade: "" },
-      { subject: "", grade: "" },
-      { subject: "", grade: "" },
-    ],
-    English: "",
-    Preferred_University: "",
-    Locations: [],
-    "Career Areas": [],
-    areas: [],
-    duration: "",
-  });
-
-  const CourseFormat = (courses) => {
-    return courses.map((course) => ({
-      course_code: course["Course Code"] || "N/A",
-      course_name: course["Course Name"] || "N/A",
-      university: course["University"] || "N/A",
-      specialization: course["Specialization"] || "None",
-      duration: course["Duration"] || "N/A",
-      Stream_Score: parseFloat(course["Stream Score"]) || 0, // Convert to float or use 0 as default
-      Area_Score: parseFloat(course["Area Score"]) || 0, // Convert to float or use 0 as default
-      Location_Score: parseFloat(course["Location Score"]) || 0, // Convert to float or use 0 as default
-      Career_Score: parseFloat(course["Career Score"]) || 0, // Convert to float or use 0 as default
-      Duration_Score: parseFloat(course["Duration Score"]) || 0, // Convert to float or use 0 as default
-      Score: parseFloat(course["Score"]) || 0, // Convert to float or use 0 as default
-    }));
-  };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const getRecommendations = async (userId) => {
       try {
-        const data = await fetchUserData(id);
-        setUserData(data);
-        const recommendations = await fetchRecommendations(data);
-        setCourses(recommendations);
+        setLoading(true);
+        const response = await axios.get(
+          `http://localhost:8010/uni/recommendations/get-by-user/${userId}/`
+        );
 
-        // Ensure saveRecommendations is defined and called correctly
+        const recommendationData = response.data.recommendations;
+        setCourses(recommendationData);
       } catch (error) {
-        console.log("Error", error.message, "error");
+        swal("Error fetching recommendations:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchData();
-  }, [id]); // Dependency array contains only id
-
-  useEffect(() => {
-    const saveRecommendations = async (courses) => {
-      try {
-        const userExists = await checkUserExists(userId);
-
-        if (userExists) {
-          await updateUserRecommendations(userId, courses);
-          console.log("Recommendations updated");
-        } else {
-          await addUserRecommendations(userId, courses);
-          console.log("Recommendations added");
-        }
-      } catch (error) {
-        console.error("Error handling recommendations:", error);
-      }
-    };
-    const courseFormat = CourseFormat(courses);
-    saveRecommendations(courseFormat);
-  }, [courses]);
+    if (userId) {
+      getRecommendations(userId);
+    }
+  }, [userId]);
 
   const handleToggleView = () => {
     setIsGridView(!isGridView);
@@ -129,12 +72,14 @@ const CourseCatalog = () => {
   }
 
   const uniqueValues = (key) => {
+    if (!Array.isArray(courses)) return [];
     return [...new Set(courses.map((course) => course[key]))].filter(
       (value) => value !== undefined && value !== null
     );
   };
 
   const uniqueSpecializations = () => {
+    if (!Array.isArray(courses)) return [];
     const specializations = courses.flatMap((course) => {
       return Array.isArray(course["Specialization"])
         ? course["Specialization"]
@@ -168,118 +113,120 @@ const CourseCatalog = () => {
       ? { "": filteredCourses }
       : filteredCourses.reduce((acc, course) => {
           const key = course[groupBy];
-          if (!acc[key]) acc[key] = [];
-          acc[key].push(course);
+          if (!key) {
+            if (!acc["Unknown"]) acc["Unknown"] = [];
+            acc["Unknown"].push(course);
+          } else {
+            if (!acc[key]) acc[key] = [];
+            acc[key].push(course);
+          }
           return acc;
         }, {});
 
-  // Function to handle course selection and show the radar chart modal
-
-  // Function to handle course selection and show the radar chart popup
   const handleCourseClick = (course) => {
     setSelectedCourse(course);
-    setIsPopupOpen(true); // Open the popup
+    setIsPopupOpen(true);
   };
 
-  // Close popup handler
   const closePopup = () => {
     setIsPopupOpen(false);
   };
 
   const renderCourses = (coursesToRender) => {
-    return Object.keys(coursesToRender).map((key, index) => (
-      <div
-        key={key}
-        className={
-          isGridView
-            ? "grid-view"
-            : `list-view ${
-                index % 4 === 0
-                  ? "green"
-                  : index % 4 === 1
-                  ? "blue"
-                  : index % 4 === 2
-                  ? "yellow"
-                  : "orange"
-              }`
-        }
-      >
-        {groupBy && <h2>{key}</h2>}
-        {isGridView ? (
-          coursesToRender[key].map((course, i) => (
-            <div className="course-card" key={course["Course Code"] + i}>
-              <div className="course-number">{index * 10 + i + 1}</div>
-              <img
-                src={`https://via.placeholder.com/80?text=${course["Course Name"][0]}`}
-                alt="Course Thumbnail"
-              />
-              <div className="course-info">
-                <h3>{course["Course Name"]}</h3>
-                <p>University: {course["University"]}</p>
-                <p>Specialization: {course["Specialization"] || "N/A"}</p>
-                <p>Duration: {course["Duration"]}</p>
-                <p>Course_code:{course["Course Code"]}</p>
-                <button
-                  className="submit-button"
-                  onClick={() => handleCourseClick(course)}
-                >
-                  View Radar Chart
-                </button>
+    return Object.keys(coursesToRender).map((key, index) => {
+      const courses = coursesToRender[key] || [];
+
+      return (
+        <div
+          key={key}
+          className={
+            isGridView
+              ? "grid-view"
+              : `list-view ${
+                  index % 4 === 0
+                    ? "green"
+                    : index % 4 === 1
+                    ? "blue"
+                    : index % 4 === 2
+                    ? "yellow"
+                    : "orange"
+                }`
+          }
+        >
+          {groupBy && <h2>{key || "All Courses"}</h2>}
+          {isGridView ? (
+            courses.map((course, i) => (
+              <div className="course-card" key={course["course_code"] + i}>
+                <div className="course-number">{index * 10 + i + 1}</div>
+                <img
+                  src={`https://via.placeholder.com/80?text=${course["course_name"][0]}`}
+                  alt="Course Thumbnail"
+                />
+                <div className="course-info">
+                  <h3>{course["course_name"]}</h3>
+                  <p>University: {course["university"]}</p>
+                  <p>Specialization: {course["specialization"] || "N/A"}</p>
+                  <p>Duration: {course["duration"]}</p>
+                  <p>Course Code: {course["course_code"]}</p>
+                  <button
+                    className="submit-button"
+                    onClick={() => handleCourseClick(course)}
+                  >
+                    View Radar Chart
+                  </button>
+                </div>
               </div>
-            </div>
-          ))
-        ) : (
-          <table className="list-view-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Thumbnail</th>
-                <th>Course Name</th>
-                <th>Course Code</th>
-                <th>University</th>
-                <th>Specialization</th>
-                <th>Duration</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {coursesToRender[key].map((course, i) => (
-                <tr key={course["Course Code"] + i}>
-                  <td>{index * 10 + i + 1}</td>
-                  <td>
-                    <img
-                      src={`https://via.placeholder.com/80?text=${course["Course Name"][0]}`}
-                      alt="Course Thumbnail"
-                    />
-                  </td>
-                  <td>{course["Course Name"]}</td>
-                  <td>{course["Course Code"]}</td>
-                  <td>{course["University"]}</td>
-                  <td>{course["Specialization"] || "N/A"}</td>
-                  <td>{course["Duration"] || "N/A"}</td>
-                  <td>
-                    {" "}
-                    <button
-                      className="submit-button"
-                      onClick={() => handleCourseClick(course)}
-                    >
-                      View Radar Chart
-                    </button>
-                  </td>
+            ))
+          ) : (
+            <table className="list-view-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Thumbnail</th>
+                  <th>Course Name</th>
+                  <th>Course Code</th>
+                  <th>University</th>
+                  <th>Specialization</th>
+                  <th>Duration</th>
+                  <th>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </div>
-    ));
+              </thead>
+              <tbody>
+                {courses.map((course, i) => (
+                  <tr key={course["course_code"] + i}>
+                    <td>{index * 10 + i + 1}</td>
+                    <td>
+                      <img
+                        src={`https://via.placeholder.com/80?text=${course["course_name"][0]}`}
+                        alt="Course Thumbnail"
+                      />
+                    </td>
+                    <td>{course["course_name"]}</td>
+                    <td>{course["course_code"]}</td>
+                    <td>{course["university"]}</td>
+                    <td>{course["specialization"] || "N/A"}</td>
+                    <td>{course["duration"] || "N/A"}</td>
+                    <td>
+                      <button
+                        className="submit-button"
+                        onClick={() => handleCourseClick(course)}
+                      >
+                        View Radar Chart
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
+      );
+    });
   };
 
   return (
-    <div className="course-catalog">
-      {/* make below center */}
-
-      <h1>Course Catalog</h1>
+    <div className="dashboard-content">
+      <h1 className="title">Course Catalog</h1>
       <div className="filters">
         <input
           type="text"
@@ -380,4 +327,4 @@ const CourseCatalog = () => {
   );
 };
 
-export default CourseCatalog;
+export default RecommendationHistory;

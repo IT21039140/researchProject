@@ -6,20 +6,39 @@ import RecommendationHome from "./Pages/UniCourseRecommendationPages/Recommendat
 import CourseCatalog from "./Pages/UniCourseRecommendationPages/CourseCatalog";
 import SortableListComponent from "./Components/UniCourseRecommendationComponenets/DragandDropForm";
 import SubjectResultSelector from "./Components/UniCourseRecommendationComponenets/form";
+import RankingAnimation from "./Pages/RankingAnimation";
+import Leaderboard from "./Pages/UniCourseRecommendationPages/LeaderBoard";
+import UserProfile from "./Components/UniCourseRecommendationComponenets/UserProfile";
+import RecommendationHistory from "./Pages/UniCourseRecommendationPages/RecommendationHistory";
+import  CourseByStream from "./Pages/UniCourseRecommendationPages/CourseByStream";
+
+import MainContent from "./commonPages/Dashboard/MainContent";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         {/* <Route path="/register" component={RegisterForm} /> */}
-        <Route path="/dashboard" element={<Dashboard />} />
+
         {/* <Route path="/" exact component={LoginForm} /> */}
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route index element={<MainContent />} />
+        </Route>
+        <Route path="/user-profile" element={<Dashboard />}>
+          <Route index element={<UserProfile />} />
+        </Route>
+        <Route path="/recommendation-History" element={<Dashboard />}>
+          <Route index element={<RecommendationHistory />} />
+        </Route>
         <Route path="/recommendation" element={<RecommendationHome />} />
         <Route path="/course-catalog" element={<CourseCatalog />} />
         <Route path="/drag-and-drop" element={<SortableListComponent />} />
         <Route path="/subject-result" element={<SubjectResultSelector />} />
         <Route path="/myrecommendations/:id" element={<CourseCatalog />} />
+        <Route path="/ranking" element={<RankingAnimation />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/recommendation/courses/:stream" element={<CourseByStream />} />
       </Routes>
     </Router>
   );

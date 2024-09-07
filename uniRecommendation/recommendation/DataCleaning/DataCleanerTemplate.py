@@ -55,6 +55,7 @@ class DataCleanerTemplate:
             "Bio Technology Stream",
             "Engineering Technology Stream",
             "Technology",
+            "Any"
         ]
         self.unique_career_areas = set()
 
@@ -206,7 +207,7 @@ class DataCleanerTemplate:
 
         encoded_lists = corrected_areas.apply(encode_list)
 
-        max_areas = 10  # Using max_areas to determine max areas
+        max_areas = 11 # Using max_areas to determine max areas
         expanded_df = pd.DataFrame(index=df.index, columns=[f"Area_{i + 1}" for i in range(max_areas)])
         expanded_df[:] = float('nan')
 
