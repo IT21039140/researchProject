@@ -11,7 +11,7 @@ import {
   updateUserRecommendations,
   addUserRecommendations,
 } from "./apis/recomondationapi";
-import { fetchUserData, fetchRecommendations } from "./apis/courseapi";
+import { fetchUserDataN, fetchRecommendations } from "./apis/courseapi";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -22,7 +22,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 //http://localhost:5173/myrecommendations/66387dca157b0e532fea6106
-const CourseCatalog = () => {
+const CourseCatalogHistory = () => {
   const uId = localStorage.getItem("uId");
   const navigate = useNavigate();
 
@@ -95,8 +95,8 @@ const CourseCatalog = () => {
     } else {
       // Set user details to state if found
       setUserDetails(storedUserDetails);
-      console.log(storedUserDetails);
-      fetchData(uId);
+      const id = storedUserDetails.id;
+      fetchData(id);
     }
   }, [navigate]);
 
@@ -108,9 +108,9 @@ const CourseCatalog = () => {
   // Destructure user details
   const { id, first_name, last_name } = userDetails;
 
-  const fetchData = async (uId) => {
+  const fetchData = async (id) => {
     try {
-      const data = await fetchUserData(uId);
+      const data = await fetchUserDataN(id);
       setUserData(data);
       const recommendations = await fetchRecommendations(data);
       setCourses(recommendations);
@@ -122,26 +122,6 @@ const CourseCatalog = () => {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    const saveRecommendations = async (courses) => {
-      try {
-        const userExists = await checkUserExists(id);
-
-        if (userExists) {
-          await updateUserRecommendations(id, courses);
-          console.log("Recommendations updated");
-        } else {
-          await addUserRecommendations(id, courses);
-          console.log("Recommendations added");
-        }
-      } catch (error) {
-        console.error("Error handling recommendations:", error);
-      }
-    };
-    const courseFormat = CourseFormat(courses);
-    saveRecommendations(courseFormat);
-  }, [courses]);
 
   const handleToggleView = () => {
     setIsGridView(!isGridView);
@@ -491,4 +471,4 @@ const CourseCatalog = () => {
   );
 };
 
-export default CourseCatalog;
+export default CourseCatalogHistory;

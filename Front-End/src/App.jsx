@@ -6,11 +6,13 @@ import RecommendationHome from "./Pages/UniCourseRecommendationPages/Recommendat
 import CourseCatalog from "./Pages/UniCourseRecommendationPages/CourseCatalog";
 import SortableListComponent from "./Components/UniCourseRecommendationComponenets/DragandDropForm";
 import SubjectResultSelector from "./Components/UniCourseRecommendationComponenets/form";
-import RankingAnimation from "./Pages/RankingAnimation";
+
 import Leaderboard from "./Pages/UniCourseRecommendationPages/LeaderBoard";
 import UserProfile from "./Components/UniCourseRecommendationComponenets/UserProfile";
 import RecommendationHistory from "./Pages/UniCourseRecommendationPages/RecommendationHistory";
-import  CourseByStream from "./Pages/UniCourseRecommendationPages/CourseByStream";
+import CourseByStream from "./Pages/UniCourseRecommendationPages/CourseByStream";
+import NavigationBar from "./Components/Common/NavigationBar";
+import CourseCatalogHistory from "./Pages/UniCourseRecommendationPages/CourseCatalogHistory";
 
 import MainContent from "./commonPages/Dashboard/MainContent";
 
@@ -31,14 +33,48 @@ function App() {
         <Route path="/recommendation-History" element={<Dashboard />}>
           <Route index element={<RecommendationHistory />} />
         </Route>
-        <Route path="/recommendation" element={<RecommendationHome />} />
+        <Route path="/my-recommendation" element={<Dashboard />}>
+          <Route
+            index
+            element={
+              <div className="dashboard-content">
+                <CourseCatalogHistory />{" "}
+              </div>
+            }
+          />
+        </Route>
+        <Route
+          path="/recommendation"
+          element={
+            <div className="full-page">
+              <NavigationBar />
+              <RecommendationHome />
+            </div>
+          }
+        />
         <Route path="/course-catalog" element={<CourseCatalog />} />
         <Route path="/drag-and-drop" element={<SortableListComponent />} />
         <Route path="/subject-result" element={<SubjectResultSelector />} />
-        <Route path="/myrecommendations/:id" element={<CourseCatalog />} />
-        <Route path="/ranking" element={<RankingAnimation />} />
+        <Route
+          path="/myrecommendations/"
+          element={
+            <div className="full-page">
+              <NavigationBar />
+              <CourseCatalog />
+            </div>
+          }
+        />
+
         <Route path="/leaderboard" element={<Leaderboard />} />
-        <Route path="/recommendation/courses/:stream" element={<CourseByStream />} />
+        <Route
+          path="/recommendation/courses/:stream"
+          element={
+            <div className="full-page">
+              <NavigationBar />
+              <CourseByStream />
+            </div>
+          }
+        />
       </Routes>
     </Router>
   );

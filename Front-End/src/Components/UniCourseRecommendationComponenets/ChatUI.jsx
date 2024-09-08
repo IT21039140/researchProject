@@ -11,8 +11,8 @@ import { useNavigate } from "react-router-dom";
 
 const ChatUI = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [name, setName] = useState("User");
-  const [id, setId] = useState("102030");
+  const [userDetails, setUserDetails] = useState([]);
+  const { id, first_name, last_name } = userDetails;
 
   const [answers, setAnswers] = useState({
     welcome: "",
@@ -43,7 +43,7 @@ const ChatUI = () => {
     // Format data to match API requirements
     const formattedData = {
       user_id: id,
-      Name: name,
+      Name: first_name + " " + last_name,
       Year: answers.Year,
       Stream: answers.Stream,
       English: answers.English,
@@ -63,8 +63,11 @@ const ChatUI = () => {
         "http://localhost:8010/uni/users/",
         formattedData
       );
-      const { id } = response.data; // Ensure the API response contains an 'id'
-      navigate(`/myrecommendations/${id}`); // Navigate to the page with the returned id
+      localStorage.removeItem("uId");
+      const uId = response.data.id; // Ensure the API response contains an 'id'
+      localStorage.setItem("uId", uId);
+      console.log("User ID:", uId);
+      navigate(`/myrecommendations/`); // Navigate to the page with the returned id
     } catch (error) {
       console.error("There was an error submitting the form!", error);
       alert("Submission failed. Please try again.");
@@ -134,7 +137,7 @@ const ChatUI = () => {
       type: "choice",
       text: (
         <div>
-          <p>Hello {name}! 👋</p>
+          <p>Hello {answers.Name}! 👋</p>
           <p>
             Welcome to our personalized university course recommendation system.
           </p>
@@ -353,6 +356,21 @@ const ChatUI = () => {
     setIsBotTyping(false);
     scrollToBottom();
   };
+
+  useEffect(() => {
+    // Retrieve and parse user details from localStorage
+    const storedUserDetails = JSON.parse(localStorage.getItem("user_details"));
+
+    if (!storedUserDetails) {
+      // Redirect to login page if user details are not found
+      swal("Please Login to get Personalization Recommendations");
+      navigate("/login");
+    } else {
+      // Set user details to state if found
+      setUserDetails(storedUserDetails);
+      console.log(storedUserDetails);
+    }
+  }, [navigate]);
 
   return (
     <div className="chat-container">

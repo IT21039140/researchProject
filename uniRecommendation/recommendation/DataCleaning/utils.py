@@ -154,7 +154,7 @@ def recommend_for_new_user(new_user_features, user_df,max_careers, data, model, 
 
         # Generate recommendations based on sorted indices
         recommendations = []
-        for idx in sorted_indices[:top_k]:
+        for idx in sorted_indices:
             course_index = idx.item()
             course_id_node = course_nodes[course_index]  # Get the node ID for the course
             course_oId = node_to_oId.get(course_id_node, None)  # Get the OID for the course

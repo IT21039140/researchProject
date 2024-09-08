@@ -172,7 +172,7 @@ const RecommendationHistory = () => {
                     className="submit-button"
                     onClick={() => handleCourseClick(course)}
                   >
-                    View Radar Chart
+                    View
                   </button>
                 </div>
               </div>
@@ -211,7 +211,7 @@ const RecommendationHistory = () => {
                         className="submit-button"
                         onClick={() => handleCourseClick(course)}
                       >
-                        View Radar Chart
+                        View
                       </button>
                     </td>
                   </tr>

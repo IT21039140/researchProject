@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import "./Styles/raderChart.css"; // Import the CSS file
 
 ChartJS.register(
   RadialLinearScale,

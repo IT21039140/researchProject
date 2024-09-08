@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import "./Styles/about.css"; // Import custom CSS
 import vedio from "../../img/intro.mp4";
+import girl from "../../icons/girl.png";
 
 const AboutUs = () => {
   const videoRef = useRef(null);
@@ -49,13 +50,13 @@ const AboutUs = () => {
             <Col sm={6}>
               <div className="d-flex align-items-center about-ceo">
                 <Image
-                  src="img/user.jpg"
+                  src={girl}
                   roundedCircle
                   style={{ width: "45px", height: "45px" }}
                 />
                 <div className="ms-3">
-                  <h6 className="text-primary mb-1">Jhon Doe</h6>
-                  <small>CEO &amp; Founder</small>
+                  <h6 className="text-primary mb-1">Kavindya Udunuwara</h6>
+                  <small>Developer</small>
                 </div>
               </div>
             </Col>

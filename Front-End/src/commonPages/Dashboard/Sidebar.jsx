@@ -92,9 +92,9 @@ function Sidebar() {
           </li>
           <li>
             <a
-              href="/recommendation-History"
+              href="/my-recommendation"
               className={`nav-link ${
-                isActive("/recommendation-History") ? "active" : ""
+                isActive("/my-recommendation") ? "active" : ""
               }`}
             >
               My Recommendations
@@ -113,6 +113,16 @@ function Sidebar() {
           <li>
             <a href="#" className="nav-link">
               Question Generator
+            </a>
+          </li>
+          <li>
+            <a
+              href="/recommendation/"
+              className={`nav-link ${
+                isActive("/recommendation/") ? "active" : ""
+              }`}
+            >
+              Home
             </a>
           </li>
         </ul>

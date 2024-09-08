@@ -18,6 +18,7 @@ class UserSerializer(serializers.Serializer):
     Career_Areas = serializers.ListField(child=serializers.CharField())
     duration = serializers.CharField(max_length=50)
     user_id = serializers.CharField(max_length=200)
+    created_at = serializers.DateTimeField(read_only=True)  # Read-only field
 
     def create(self, validated_data):
         results_data = validated_data.pop('Results', [])

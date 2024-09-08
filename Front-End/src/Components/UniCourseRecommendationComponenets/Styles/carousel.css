@@ -1,18 +1,27 @@
 .carousel-item img {
   height: 60vh; /* Adjust the height as needed */
-  object-fit: cover;
+  
 }
 .uni-carousel-container .carousel-caption {
+  
   position: absolute;
-  bottom: 20px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+  color: #fffefe;
+  background-color: rgba(0, 0, 0, 0.5);
+  width:250%;
+  height: 100%;
 }
 
-.uni-carousel-container .carousel-caption h3 {
+
+
+.carousel-caption h3 {
+  margin-top: 100px;
   font-size: 2rem;
   font-weight: bold;
+ 
 }
 
 .uni-carousel-container .carousel-caption p {

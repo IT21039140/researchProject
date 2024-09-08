@@ -12,11 +12,12 @@ import SupportChat from "../../Components/UniCourseRecommendationComponenets/Sup
 import ChatUI from "../../Components/UniCourseRecommendationComponenets/ChatUI.jsx";
 import DragDropForm from "../../Components/UniCourseRecommendationComponenets/DragandDropForm.jsx";
 import RankingForm from "../../Components/UniCourseRecommendationComponenets/DragandDropForm.jsx";
+ 
 
 const RecommendationHome = () => {
   return (
-    <div className="full-page">
-      <NavigationBar />
+   
+    
       <Container fluid className="main-content">
         <UniCarousel />
         <br />
@@ -28,7 +29,7 @@ const RecommendationHome = () => {
         <UniFeedback />
         <ChatUI />
       </Container>
-    </div>
+  
   );
 };
 

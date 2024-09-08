@@ -4,10 +4,11 @@
 
   background: linear-gradient(
     90deg,
-    rgba(57, 27, 112, 1) 0%,
-    rgb(118, 149, 179) 100%
+    rgb(15, 114, 252) 0%,
+    rgb(6, 49, 92) 100%
   ) !important;
   padding-top: 60px !important;
+  margin-bottom: 20px;
 }
 
 .navbar {

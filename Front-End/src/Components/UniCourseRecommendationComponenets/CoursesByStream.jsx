@@ -1,6 +1,7 @@
 import React from "react";
 import StreamCard from "./StreamCard";
 import "./Styles/coursesByStream.css";
+import Any from "../../img/Any.jpg";
 
 // Assuming you have icons saved in a folder called "icons" in your project directory
 import bioScienceIcon from "../../icons/biological.png";
@@ -58,9 +59,16 @@ const CoursesByStream = () => {
         <StreamCard
           title="Engineering Technology"
           description="Explore courses related to Engineering Technology."
-          color="#f1f8e9"
+          color="#d0f5e5"
           link="courses/Engineering Technology Stream"
           icon={engineeringIcon}
+        />
+        <StreamCard
+          title="Common "
+          description="Explore a range of courses across various streams including Art, Physical, Bio, Technology, and Commerce."
+          color="#ffebee"
+          link="courses/Any"
+          icon={Any} // Assuming artIcon is a representative icon; you may want to use a more general icon or adjust accordingly
         />
       </div>
     </Container>

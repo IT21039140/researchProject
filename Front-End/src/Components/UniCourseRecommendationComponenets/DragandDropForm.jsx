@@ -25,7 +25,7 @@ const SortableListComponent = ({
       "Architecture & Design",
       "Statistics & Mathematics",
       "Business & Management",
-      "Computer Science & Information Technology",
+      "Information Technology & Management",
       "Arts & Humanities",
       "Science & Technology",
       "Geographical & Environmental Sciences",

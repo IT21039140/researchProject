@@ -81,11 +81,11 @@ def calculate_career_score(user, course, max_careers):
         if career:
             if specialization:
                 # Add the similarity score and adjust it using (max_careers - i) as a weight
-                career_score += compute_similarity(career, specialization) * (5- i)
+                career_score += compute_similarity(career, specialization) * ( max_careers + 1- i)
                 break
             elif course_name:
                 # Add the similarity score and adjust it using (max_careers - i) as a weight
-                career_score += compute_similarity(career, course_name) * (5 - i)
+                career_score += compute_similarity(career, course_name) * ( max_careers + 1 - i)
                 break
 
     # Normalize career score to fit within a 0 to 10 scale
@@ -102,6 +102,8 @@ def calculate_matching_score(user, course, max_areas):
     stream_score = 0
     if safe_int_conversion(user['Stream_encoded']) == safe_int_conversion(course['stream_encoded']):
         stream_score += 1  # Original was 10, now scaled to 1
+    else:
+        stream_score += 0.5  # Original was 5, now scaled to 0.5
 
     # Location score: normalize it to 0-1 range based on matching location
     location_score = 0

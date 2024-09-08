@@ -12,7 +12,8 @@ class CourseDataCleaner(DataCleanerTemplate):
         self.fit_area_encoder(df_users, areas_col)
 
     def clean_data(self, df_courses, df_users):
-
+          
+        print(df_courses['course_name'])
         """Applies data-cleaning operations on the course DataFrame."""
         # Create a DataFrame from university-specialization pairs
         uni_specializations = []
