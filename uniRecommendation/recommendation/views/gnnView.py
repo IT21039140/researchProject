@@ -23,9 +23,9 @@ courses_url = 'http://localhost:8010/uni/courses'
 users_url = 'http://localhost:8010/uni/users'
 
 # Define raw URLs for fetching files
-graph_url = 'https://github.com/IT21039140/researchProject/raw/fc378de8d438c213fc617baef1ead0f455c7de24/uniRecommendation/recommendation/DataProcessing/graph.graphml'
-model_url = 'https://github.com/IT21039140/researchProject/raw/fc378de8d438c213fc617baef1ead0f455c7de24/uniRecommendation/recommendation/DataProcessing/model_weights.pth'
-data_url = 'https://github.com/IT21039140/researchProject/raw/fc378de8d438c213fc617baef1ead0f455c7de24/uniRecommendation/recommendation/DataProcessing/data.pt'
+graph_url = 'https://github.com/IT21039140/researchProject/raw/a61f9f28df456c635737aa353c1f3e3e22a76165/uniRecommendation/recommendation/DataProcessing/graphN.graphml'
+model_url = 'https://github.com/IT21039140/researchProject/raw/a61f9f28df456c635737aa353c1f3e3e22a76165/uniRecommendation/recommendation/DataProcessing/model.pth'
+data_url = 'https://github.com/IT21039140/researchProject/raw/a61f9f28df456c635737aa353c1f3e3e22a76165/uniRecommendation/recommendation/DataProcessing/dataN.pt'
 
 # Initialize global variables for graph, model, and data
 df_courses = df_users = None
@@ -61,6 +61,7 @@ def initialize_resources():
             course_cleaner = CourseDataCleaner()
             df_courses_cleaned, column_names = course_cleaner.clean_data(df_courses, area_encoder)
             coursesdata = df_courses_cleaned.to_dict(orient='records')
+            print(coursesdata)
             
         else:
             print("Courses DataFrame not found.")
@@ -80,11 +81,11 @@ def initialize_resources():
         data = torch.load('data.pt')  # Removed weights_only=True
         print(f"Data loaded: {data is not None}")
 
-        input_dim = 63  # Adjust based on your setup
+        input_dim = 66  # Adjust based on your setup
         hidden_dim = 64
         output_dim = 32
         model = CourseRecommendationGNN(input_dim, hidden_dim, output_dim)
-        model.load_state_dict(torch.load('model_weights.pth'))  # Removed weights_only=True
+        model.load_state_dict(torch.load('model_weights.pth'),)  # Removed weights_only=True
         model.eval()
         print("Model loaded and set to eval mode")
 
