@@ -2,11 +2,7 @@
   position: relative !important;
   padding-bottom: 60px !important;
 
-  background: linear-gradient(
-    90deg,
-    rgb(15, 114, 252) 0%,
-    rgb(6, 49, 92) 100%
-  ) !important;
+  background: linear-gradient(90deg, rgb(15, 114, 252) 0%, #4e46b4) !important;
   padding-top: 60px !important;
   margin-bottom: 20px;
 }

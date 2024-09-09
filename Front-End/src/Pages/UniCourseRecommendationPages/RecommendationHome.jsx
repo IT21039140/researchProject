@@ -1,6 +1,7 @@
 // src/HomePage.js
 
 import React from "react";
+import { useState } from "react";
 import { Container } from "react-bootstrap";
 import UniFeedback from "../../Components/UniCourseRecommendationComponenets/UniFeedback.jsx";
 import NavigationBar from "../../Components/Common/NavigationBar.jsx";
@@ -12,24 +13,19 @@ import SupportChat from "../../Components/UniCourseRecommendationComponenets/Sup
 import ChatUI from "../../Components/UniCourseRecommendationComponenets/ChatUI.jsx";
 import DragDropForm from "../../Components/UniCourseRecommendationComponenets/DragandDropForm.jsx";
 import RankingForm from "../../Components/UniCourseRecommendationComponenets/DragandDropForm.jsx";
- 
 
 const RecommendationHome = () => {
   return (
-   
-    
-      <Container fluid className="main-content">
-        <UniCarousel />
-        <br />
-        <br />
-        <RecommendationAbout />
-        <br />
-        <CoursesByStream />
-        <br />
-        <UniFeedback />
-        <ChatUI />
-      </Container>
-  
+    <Container fluid className="main-content">
+      <ChatUI />
+      <br />
+      <br />
+      <RecommendationAbout />
+      <br />
+      <CoursesByStream />
+      <br />
+      <UniFeedback />
+    </Container>
   );
 };
 

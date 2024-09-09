@@ -8,6 +8,7 @@ import SortableListComponent from "./DragandDropForm";
 import swal from "sweetalert";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import UniCarosal from "./UniCarosal";
 
 const ChatUI = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -78,6 +79,7 @@ const ChatUI = () => {
   const [inputValue, setInputValue] = useState("");
   const [isBotTyping, setIsBotTyping] = useState(false);
   const [shouldAutoClose, setShouldAutoClose] = useState(false);
+  const [isBouncing, setIsBouncing] = useState(true); // Add this line
   const chatBodyRef = useRef(null);
   const endOfMessagesRef = useRef(null);
   const [subjectResultPairs, setSubjectResultPairs] = useState([]);
@@ -153,7 +155,7 @@ const ChatUI = () => {
     },
     {
       type: "input",
-      text: "In which Year did you complete your A/L exam?",
+      text: "In which year did you face your A/L exam?",
       placeholder: "Type your answer here...",
       name: "Year",
     },
@@ -172,7 +174,7 @@ const ChatUI = () => {
     },
     {
       type: "custom",
-      text: "Include your A/L results Here",
+      text: "Could you share your A/L exam results? Please fill them in below.",
       result: (
         <div>
           <SubjectResultSelector
@@ -185,19 +187,19 @@ const ChatUI = () => {
     },
     {
       type: "choice",
-      text: "Select Your O/L English Grade",
+      text: "Please select your O/L English grade.",
       options: ["A", "B", "C", "S", "W"],
       name: "English",
     },
     {
       type: "choice",
-      text: "Whitch University type you prefer more",
+      text: "Which type of university do you mostly prefer?",
       options: ["Private", "Government"],
       name: "Preferred_University",
     },
     {
       type: "Rank",
-      text: "Rank your prefered areas of Study?",
+      text: "Please rank your preferred areas of study by dragging and dropping them.",
       rank: (
         <SortableListComponent
           stream={answers.Stream}
@@ -209,7 +211,7 @@ const ChatUI = () => {
     },
     {
       type: "Rank",
-      text: "Rank your prefered University Locations?",
+      text: "Please rank your preferred university locations by dragging and dropping them.",
       rank: (
         <SortableListComponent
           displayLocations={true}
@@ -223,13 +225,13 @@ const ChatUI = () => {
 
     {
       type: "input",
-      text: "Insert your prefered career areas",
+      text: "Type your preferred career areas here, separating each with a comma.",
       placeholder: "Type your answer here...",
       name: "Career_Areas",
     },
     {
       type: "choice",
-      text: "Choose your prefered duration",
+      text: "Choose your preferred duration",
       options: ["2 years", "3 years", "4 years", "5 years"],
       name: "duration",
     },
@@ -310,6 +312,7 @@ const ChatUI = () => {
 
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
+    setIsBouncing(!isBouncing);
   };
 
   const handleConfirm = () => {
@@ -373,172 +376,183 @@ const ChatUI = () => {
   }, [navigate]);
 
   return (
-    <div className="chat-container">
-      <div className="user-chat-icon" onClick={toggleChat}>
-        <img src={chatImg} alt="User" />
-      </div>
+    <>
+      <UniCarosal toggleChat={toggleChat} />
+      <div className="chat-container">
+        <div
+          onClick={toggleChat}
+          className={`user-chat-icon ${!isBouncing ? "stopped" : ""}`}
+        >
+          <img src={chatImg} alt="User" />
+        </div>
 
-      {isChatOpen && (
-        <div className="chat-popup">
-          <div className="chat-popup-header">
-            <h3>Uni Course Advisor</h3>
-            <div className="header-right-icons">
-              <button className="refresh-chat-btn" onClick={handleRefreshChat}>
-                ⟳
-              </button>
-              <button className="close-chat-btn" onClick={toggleChat}>
-                ✖
-              </button>
-            </div>
-          </div>
-          <div className="chat-popup-body" ref={chatBodyRef}>
-            <div className="chat-messages">
-              {questions.slice(0, questionIndex + 1).map((q, idx) => (
-                <div key={idx} className="chat-message">
-                  <div className="bot-message">
-                    <div className="bot-icon">
-                      <img src={bot} alt="Bot" />
-                    </div>
-                    <div className="message-content">
-                      <div className="message-text">{q.text}</div>
-
-                      {q.type === "choice" && idx === questionIndex && (
-                        <div className="options-list">
-                          {q.options.map((option, index) => (
-                            <div
-                              key={index}
-                              className={`option-item ${
-                                answers[idx] === option ? "selected" : ""
-                              }`}
-                              onClick={() => handleOptionClick(option, q.name)}
-                            >
-                              {option}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      {q.type === "custom" && <div>{q.result}</div>}
-                      {q.type === "Rank" && <div>{q.rank}</div>}
-
-                      {questionIndex === questions.length && (
-                        <div className="message-text">
-                          Thank you for answering all the questions! 🎉
-                          <br />
-                          Your preferences have been saved.
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {answers[q.name] && (
-                    <div className="user-message">
-                      <div className="message-content">
-                        <div className="message-text">
-                          {q.type === "Rank" && answers[q.name] && (
-                            <div>
-                              {answers[q.name].map((item, index) => (
-                                <div key={index} className="ranked-item">
-                                  <span>{index + 1}.</span>
-                                  <span>{item}</span>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-
-                          {q.type === "custom" && answers[q.name] && (
-                            <div>
-                              {answers[q.name].map((pair, index) => (
-                                <div key={index}>
-                                  <span>{pair.subject}:</span>
-                                  <span>{pair.grade}</span>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                          {q.type === "input" && answers[q.name] && (
-                            <div>
-                              {Array.isArray(answers[q.name])
-                                ? answers[q.name].join(", ")
-                                : answers[q.name]}{" "}
-                            </div>
-                          )}
-
-                          {q.type === "choice" && answers[q.name]}
-                        </div>
-                        <div className="btn-container">
-                          <button
-                            className="edit-btn"
-                            onClick={() => handleEditClick(q.name)}
-                          >
-                            ✎
-                          </button>
-                        </div>
-                      </div>
-                      <div className="user-icon">
-                        <img src={boy} alt="User" />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-
-              {isBotTyping && (
-                <div className="bot-message typing-indicator">
-                  <div className="bot-icon">
-                    <img src="/path-to-bot-icon.png" alt="Bot" />
-                  </div>
-                  <div className="message-content">
-                    <div className="message-text typing-dots">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div ref={endOfMessagesRef} />
-            </div>
-
-            {questions[questionIndex]?.type === "input" && (
-              <div className="input-area">
-                <input
-                  type="text"
-                  className="input-box"
-                  placeholder={questions[questionIndex].placeholder}
-                  value={inputValue}
-                  onChange={handleInputChange}
-                />
-                <button className="send-btn" onClick={handleInputSubmit}>
-                  ➤
+        {isChatOpen && (
+          <div className="chat-popup">
+            <div className="chat-popup-header">
+              <h3>Uni Course Advisor</h3>
+              <div className="header-right-icons">
+                <button
+                  className="refresh-chat-btn"
+                  onClick={handleRefreshChat}
+                >
+                  ⟳
+                </button>
+                <button className="close-chat-btn" onClick={toggleChat}>
+                  ✖
                 </button>
               </div>
-            )}
+            </div>
+            <div className="chat-popup-body" ref={chatBodyRef}>
+              <div className="chat-messages">
+                {questions.slice(0, questionIndex + 1).map((q, idx) => (
+                  <div key={idx} className="chat-message">
+                    <div className="bot-message">
+                      <div className="bot-icon">
+                        <img src={bot} alt="Bot" />
+                      </div>
+                      <div className="message-content">
+                        <div className="message-text">{q.text}</div>
 
-            <div className="nav-buttons-container">
-              {questionIndex > 0 && (
-                <button className="back-btn" onClick={goToPreviousQuestion}>
-                  Back
-                </button>
+                        {q.type === "choice" && idx === questionIndex && (
+                          <div className="options-list">
+                            {q.options.map((option, index) => (
+                              <div
+                                key={index}
+                                className={`option-item ${
+                                  answers[idx] === option ? "selected" : ""
+                                }`}
+                                onClick={() =>
+                                  handleOptionClick(option, q.name)
+                                }
+                              >
+                                {option}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        {q.type === "custom" && <div>{q.result}</div>}
+                        {q.type === "Rank" && <div>{q.rank}</div>}
+
+                        {questionIndex === questions.length && (
+                          <div className="message-text">
+                            Thank you for answering all the questions! 🎉
+                            <br />
+                            Your preferences have been saved.
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {answers[q.name] && (
+                      <div className="user-message">
+                        <div className="message-content">
+                          <div className="message-text">
+                            {q.type === "Rank" && answers[q.name] && (
+                              <div>
+                                {answers[q.name].map((item, index) => (
+                                  <div key={index} className="ranked-item">
+                                    <span>{index + 1}.</span>
+                                    <span>{item}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+
+                            {q.type === "custom" && answers[q.name] && (
+                              <div>
+                                {answers[q.name].map((pair, index) => (
+                                  <div key={index}>
+                                    <span>{pair.subject}:</span>
+                                    <span>{pair.grade}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                            {q.type === "input" && answers[q.name] && (
+                              <div>
+                                {Array.isArray(answers[q.name])
+                                  ? answers[q.name].join(", ")
+                                  : answers[q.name]}{" "}
+                              </div>
+                            )}
+
+                            {q.type === "choice" && answers[q.name]}
+                          </div>
+                          <div className="btn-container">
+                            <button
+                              className="edit-btn"
+                              onClick={() => handleEditClick(q.name)}
+                            >
+                              ✎
+                            </button>
+                          </div>
+                        </div>
+                        <div className="user-icon">
+                          <img src={boy} alt="User" />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                {isBotTyping && (
+                  <div className="bot-message typing-indicator">
+                    <div className="bot-icon">
+                      <img src="/path-to-bot-icon.png" alt="Bot" />
+                    </div>
+                    <div className="message-content">
+                      <div className="message-text typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div ref={endOfMessagesRef} />
+              </div>
+
+              {questions[questionIndex]?.type === "input" && (
+                <div className="input-area">
+                  <input
+                    type="text"
+                    className="input-box"
+                    placeholder={questions[questionIndex].placeholder}
+                    value={inputValue}
+                    onChange={handleInputChange}
+                  />
+                  <button className="send-btn" onClick={handleInputSubmit}>
+                    ➤
+                  </button>
+                </div>
               )}
-              {questionIndex < questions.length - 1 ? (
-                <button className="skip-btn" onClick={skipQuestion}>
-                  Skip
-                </button>
-              ) : (
-                <button
-                  type="submit"
-                  className="confirm-btn"
-                  onClick={handleConfirm}
-                >
-                  Confirm
-                </button>
-              )}
+
+              <div className="nav-buttons-container">
+                {questionIndex > 0 && (
+                  <button className="back-btn" onClick={goToPreviousQuestion}>
+                    Back
+                  </button>
+                )}
+                {questionIndex < questions.length - 1 ? (
+                  <button className="skip-btn" onClick={skipQuestion}>
+                    Skip
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    className="confirm-btn"
+                    onClick={handleConfirm}
+                  >
+                    Confirm
+                  </button>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

@@ -13,7 +13,7 @@ class CourseDataCleaner(DataCleanerTemplate):
 
     def clean_data(self, df_courses, df_users):
           
-        print(df_courses['course_name'])
+        
         """Applies data-cleaning operations on the course DataFrame."""
         # Create a DataFrame from university-specialization pairs
         uni_specializations = []
@@ -23,22 +23,16 @@ class CourseDataCleaner(DataCleanerTemplate):
                 for uni in universities:
 
                     # Extract duration with validation
-                    uni_duration = self.extract_years(uni.get("duration", "")) if isinstance(uni, dict) else ""
-
-                    
-                    if uni_duration is None:
-                        
-                        uni_duration = ""  # Default value or handle accordingly
+                    uni_duration = self.extract_years(uni.get("duration")) if isinstance(uni, dict) else ""
+                                  
 
                     specilizations = uni.get('specializations', [])
 
                     if len(specilizations) > 0:
-                        print("Happy")
+                      
                         for spec in uni["specializations"]:
                             spec_name = spec.get("name", "Unknown") if isinstance(spec, dict) else spec
                             spec_duration = self.extract_years(spec.get("duration", "")) if isinstance(spec, dict) else None
-
-                            
 
                             uni_specializations.append({
                                 "course_name": str(row.get("course_name", "") or ""),
@@ -49,11 +43,11 @@ class CourseDataCleaner(DataCleanerTemplate):
                                 "area": str(row.get("area", "") or ""),
                                 "uni_name": str(uni.get("uni_name", "") or ""),
                                 "province": str(self.get_province(uni) or ""),
-                                "duration": str(spec_duration or ""),
+                                "duration": str(spec_duration or uni_duration or ""),
                                 "specialization_name": str(spec_name or ""),
                             })
                     else:
-                        print("Hloooooooo")
+                       
                         uni_specializations.append({
                             "course_name": str(row.get("course_name", "") or ""),
                             "course_code": str(row.get("course_code", "") or ""),
@@ -77,7 +71,7 @@ class CourseDataCleaner(DataCleanerTemplate):
        
         # Fit the encoder using user data
        
-
+        
 
         # Encode course areas
         self.encode_areas(df_users,df_courses_cleaned, df_courses_cleaned, 'area')

@@ -4,7 +4,7 @@ import pic1 from "../../img/pic1.jpg";
 import pic4 from "../../img/pic4.jpg";
 import pic5 from "../../img/pic5.jpg";
 
-const UniCarosal = () => {
+const UniCarosal = ({ toggleChat }) => {
   return (
     <div className="uni-carousel-container">
       <Carousel>
@@ -16,7 +16,7 @@ const UniCarosal = () => {
               Discover courses that match your interests, academic background,
               and career goals with our advanced recommendation system.
             </p>
-            <Button variant="primary" href="#get-started">
+            <Button variant="primary" onClick={toggleChat}>
               Get Started
             </Button>
           </Carousel.Caption>

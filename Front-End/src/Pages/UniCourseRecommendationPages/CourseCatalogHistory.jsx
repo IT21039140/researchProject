@@ -37,6 +37,7 @@ const CourseCatalogHistory = () => {
   console.log(uId);
 
   const [courses, setCourses] = useState([]);
+  console.log(courses);
   const [loading, setLoading] = useState(true);
   const [isGridView, setIsGridView] = useState(true);
   // State to manage selected course and popup visibility
@@ -213,17 +214,17 @@ const CourseCatalogHistory = () => {
         const parsed = JSON.parse(specialization.replace(/'/g, '"'));
         return {
           name: parsed.name || specialization,
-          duration: parsed.duration || "N/A",
+          duration: parsed.duration || "",
         };
       } catch {
         // If parsing fails, return as is
         return {
           name: specialization,
-          duration: "N/A",
+          duration: "",
         };
       }
     };
-
+  
     // Function to get the display duration
     const getDisplayDuration = (course) => {
       const specializationList = course["Specialization"] || [];
@@ -232,139 +233,193 @@ const CourseCatalogHistory = () => {
       }
       return course["Duration"] || "N/A";
     };
-
+  
+    // Function to get background color based on index
+    const getBackgroundColor = (index) => {
+      const colorIndex = Math.floor(index / 10);
+      switch (colorIndex) {
+        case 0:
+          return "#49ffff"; // Light Cyan
+        case 1:
+          return "hwb(166 22% 9%)"; // Dark Blue
+        case 2:
+          return "lightyellow"; // Light Yellow
+        case 3:
+          return "hwb(28 50% 11%)"; // Light Orange
+        case 4:
+          return "#ee5a5a"; // Light Red
+        default:
+          return "hwb(326 50% 9%)"; // Dark Pink
+      }
+    };
+  
+    // Check if there are any courses to render
+    const hasCourses = Object.values(coursesToRender).some((courses) => courses.length > 0);
+  
+    if (!hasCourses) {
+      return <p>No course found</p>;
+    }
+  
     // Map over courses and render them
-    return Object.keys(coursesToRender).map((key, index) => (
-      <div
-        key={key}
-        className={
-          isGridView
-            ? "grid-view"
-            : `list-view ${
-                index % 4 === 0
-                  ? "green"
-                  : index % 4 === 1
-                  ? "blue"
-                  : index % 4 === 2
-                  ? "yellow"
-                  : "orange"
-              }`
-        }
-      >
-        {groupBy && <h2>{key}</h2>}
-        {isGridView ? (
-          coursesToRender[key].map((course, i) => {
-            const specializationList = course["Specialization"] || [];
-            const specializationDetails =
-              typeof specializationList === "string"
-                ? [parseSpecialization(specializationList)]
-                : specializationList.map((spec) => parseSpecialization(spec));
-
-            return (
-              <div className="course-card" key={course["Course Code"] + i}>
-                <div className="course-number">{index * 10 + i + 1}</div>
-                <img
-                  src={`https://via.placeholder.com/80?text=${course["Course Name"][0]}`}
-                  alt="Course Thumbnail"
-                />
-                <div className="course-info">
-                  <h3>{course["Course Name"]}</h3>
-                  <p>
-                    <FontAwesomeIcon icon={faUniversity} /> University:{" "}
-                    {course["University"]}
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faGraduationCap} /> Specializations:
-                    <ul>
-                      {specializationDetails.map((spec, j) => (
-                        <li key={j}>
-                          {spec.name}
-                          <br />
-                          <small>{spec.duration}</small>
-                        </li>
-                      ))}
-                    </ul>
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faCalendarAlt} /> Duration:{" "}
-                    {getDisplayDuration(course)}
-                  </p>
-                  <p>Course Code: {course["Course Code"]}</p>
-                  <button
-                    className="submit-button"
-                    onClick={() => handleCourseClick(course)}
-                  >
-                    View
-                  </button>
-                </div>
-              </div>
-            );
-          })
-        ) : (
-          <table className="list-view-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Thumbnail</th>
-                <th>Course Name</th>
-                <th>Course Code</th>
-                <th>University</th>
-                <th>Specializations</th>
-                <th>Duration</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {coursesToRender[key].map((course, i) => {
+    return Object.keys(coursesToRender).map((key, index) => {
+      const courses = coursesToRender[key] || [];
+  
+      return (
+        <div
+          key={key}
+          className={
+            isGridView
+              ? "grid-view"
+              : `list-view ${
+                  index % 4 === 0
+                    ? "green"
+                    : index % 4 === 1
+                    ? "blue"
+                    : index % 4 === 2
+                    ? "yellow"
+                    : "orange"
+                }`
+          }
+        >
+          {groupBy && <h2>{key}</h2>}
+          {isGridView ? (
+            courses.length > 0 ? (
+              courses.map((course, i) => {
                 const specializationList = course["Specialization"] || [];
                 const specializationDetails =
                   typeof specializationList === "string"
                     ? [parseSpecialization(specializationList)]
-                    : specializationList.map((spec) =>
-                        parseSpecialization(spec)
-                      );
-
+                    : specializationList.map((spec) => parseSpecialization(spec));
+  
                 return (
-                  <tr key={course["Course Code"] + i}>
-                    <td>{index * 10 + i + 1}</td>
-                    <td>
-                      <img
-                        src={`https://via.placeholder.com/80?text=${course["Course Name"][0]}`}
-                        alt="Course Thumbnail"
-                      />
-                    </td>
-                    <td>{course["Course Name"]}</td>
-                    <td>{course["Course Code"]}</td>
-                    <td>{course["University"]}</td>
-                    <td>
-                      <ul>
-                        {specializationDetails.map((spec, j) => (
-                          <li key={j}>
-                            {spec.name}
-                            <br />
-                            <small>{spec.duration}</small>
-                          </li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td>{getDisplayDuration(course)}</td>
-                    <td>
+                  <div
+                    className="course-card"
+                    key={course["Course Code"] + i}
+                    style={{ backgroundColor: getBackgroundColor(index * 10 + i) }}
+                  >
+                    <div className="course-number">{index * 10 + i + 1}</div>
+                    <img
+                      src={`https://via.placeholder.com/80/000000/FFFFFF?text=${course["Course Name"][0]}`}
+                      alt="Course Thumbnail"
+                    />
+                    <div className="course-info">
+                      <h3>{course["Course Name"]}</h3>
+                      <p>
+                        <FontAwesomeIcon icon={faUniversity} /> University:{" "}
+                        {course["University"]}
+                      </p>
+                      <p>
+                        <FontAwesomeIcon icon={faGraduationCap} /> Specializations:
+                        <ul>
+                          {specializationDetails.map((spec, j) => (
+                            <li key={j}>
+                              {spec.name}
+                              <br />
+                              <small>{spec.duration}</small>
+                            </li>
+                          ))}
+                        </ul>
+                      </p>
+                      <p>
+                        <FontAwesomeIcon icon={faCalendarAlt} /> Duration:{" "}
+                        {getDisplayDuration(course)}
+                      </p>
+                      <p>Course Code: {course["Course Code"]}</p>
                       <button
-                        className="submit-button"
+                        className="sub-button"
                         onClick={() => handleCourseClick(course)}
                       >
                         View
                       </button>
-                    </td>
-                  </tr>
+                    </div>
+                  </div>
                 );
-              })}
-            </tbody>
-          </table>
-        )}
-      </div>
-    ));
+              })
+            ) : (
+              <p>No course found</p>
+            )
+          ) : (
+            <table className="list-view-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Thumbnail</th>
+                  <th>Course Name</th>
+                  <th>Course Code</th>
+                  <th>University</th>
+                  <th>Specializations</th>
+                  <th>Duration</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {courses.length > 0 ? (
+                  courses.map((course, i) => {
+                    const specializationList = course["Specialization"] || [];
+                    const specializationDetails =
+                      typeof specializationList === "string"
+                        ? [parseSpecialization(specializationList)]
+                        : specializationList.map((spec) =>
+                            parseSpecialization(spec)
+                          );
+  
+                    return (
+                      <tr
+                        key={course["Course Code"] + i}
+                        style={{
+                          backgroundColor: getBackgroundColor(index * 10 + i),
+                        }}
+                      >
+                        <td>
+                          <span className="course-number">
+                            {index * 10 + i + 1}
+                          </span>
+                        </td>
+                        <td>
+                          <img
+                            src={`https://via.placeholder.com/80/000000/FFFFFF?text=${course["Course Name"][0]}`}
+                            alt="Course Thumbnail"
+                          />
+                        </td>
+                        <td>{course["Course Name"]}</td>
+                        <td>{course["Course Code"]}</td>
+                        <td>{course["University"]}</td>
+                        <td>
+                          <ul>
+                            {specializationDetails.map((spec, j) => (
+                              <li key={j}>
+                                {spec.name}
+                                <br />
+                                <small>{spec.duration}</small>
+                              </li>
+                            ))}
+                          </ul>
+                        </td>
+                        <td>{getDisplayDuration(course)}</td>
+                        <td>
+                          <button
+                            className="sub-button"
+                            onClick={() => handleCourseClick(course)}
+                          >
+                            View
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <tr>
+                    <td colSpan="8">No course found</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          )}
+        </div>
+      );
+    });
   };
+  
 
   return (
     <div className="course-catalog">

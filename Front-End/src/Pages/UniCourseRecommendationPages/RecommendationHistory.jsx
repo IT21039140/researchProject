@@ -169,7 +169,7 @@ const RecommendationHistory = () => {
                   <p>Duration: {course["duration"]}</p>
                   <p>Course Code: {course["course_code"]}</p>
                   <button
-                    className="submit-button"
+                    className="sub-button"
                     onClick={() => handleCourseClick(course)}
                   >
                     View
@@ -208,7 +208,7 @@ const RecommendationHistory = () => {
                     <td>{course["duration"] || "N/A"}</td>
                     <td>
                       <button
-                        className="submit-button"
+                        className="sub-button"
                         onClick={() => handleCourseClick(course)}
                       >
                         View

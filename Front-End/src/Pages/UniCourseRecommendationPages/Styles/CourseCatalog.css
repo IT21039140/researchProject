@@ -73,7 +73,7 @@
 
 .view-toggle button {
   padding: 8px 10px;
-  background-color: #28a745;
+  background-color: #024dfc;
   color: white;
   border: none;
   border-radius: 4px;
@@ -192,20 +192,24 @@
   border-collapse: collapse;
   margin: 20px 0;
   font-size: 16px;
-  background-color: #f9f9f9;
-  border-radius: 50%;
+  background-color: #f4f6f9;
 }
 
 .list-view-table th,
 .list-view-table td {
-  border: 1px solid #ddd;
+  margin: 5px;
   padding: 12px;
   text-align: left;
 }
 
 .list-view-table th {
-  background-color: #2377ff;
+  background-color: #000000;
   color: white;
+}
+
+.list-view-table tr {
+  border: 10px solid #f4f6f9;
+  border-radius: 100%;
 }
 
 .list-view-table tr:nth-child(even) {
@@ -213,7 +217,7 @@
 }
 
 .list-view-table tr:hover {
-  background-color: #ddd;
+  background-color: #fdf2f2;
 }
 
 .list-view-table img {
@@ -233,4 +237,13 @@
 
 .course-info p {
   margin: 0;
+}
+
+.sub-button {
+  background-color: #000306;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px 10px;
 }

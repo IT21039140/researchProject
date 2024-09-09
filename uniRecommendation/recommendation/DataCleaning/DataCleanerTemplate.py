@@ -187,7 +187,7 @@ class DataCleanerTemplate:
         
         area_encoder.fit([[area] for area in unique_areas])
         
-        print("Area encoder fitted with categories:", unique_areas)
+        
         return area_encoder
 
     def encode_and_expand_areas(self, area_encoder,df, df_cleaned, areas_col):

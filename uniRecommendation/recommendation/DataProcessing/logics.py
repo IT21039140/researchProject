@@ -56,43 +56,49 @@ from sklearn.metrics.pairwise import cosine_similarity
 # Suppress the specific FutureWarning
 warnings.filterwarnings("ignore", category=FutureWarning, message=".*clean_up_tokenization_spaces.*")
 
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+
 # Initialize Sentence-BERT model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-def compute_similarity(career, specialization):
-    # Encode career and specialization
-    career_vec = model.encode([career])
-    specialization_vec = model.encode([specialization])
+def encode_texts(texts):
+    return model.encode(texts)
 
+def compute_similarity(career_vec, specialization_vec):
     # Compute cosine similarity
-    similarity_score = cosine_similarity(career_vec, specialization_vec)[0][0]
-
+    similarity_score = cosine_similarity([career_vec], [specialization_vec])[0][0]
     return similarity_score * 10
 
 def calculate_career_score(user, course, max_careers):
     # Initialize career score
     career_score = 0
 
-    for i in range(1, max_careers + 1):  # Ensure the loop includes max_careers
-        career = user.get(f'Career_{i}', None)
-        specialization = course.get('specialization_name', None)
-        course_name = course.get('course_name', None)
-
-        if career:
-            if specialization:
-                # Add the similarity score and adjust it using (max_careers - i) as a weight
-                career_score += compute_similarity(career, specialization) * ( max_careers + 1- i)
-                break
-            elif course_name:
-                # Add the similarity score and adjust it using (max_careers - i) as a weight
-                career_score += compute_similarity(career, course_name) * ( max_careers + 1 - i)
-                break
+    # Encode all relevant careers and course details in one batch
+    careers = [user.get(f'Career_{i}', '') for i in range(1, max_careers + 1)]
+    specializations = [course.get('specialization_name', '')] if course.get('specialization_name') else [course.get('course_name', '')]
+    
+    # Get vectors for all careers and specializations
+    career_vectors = encode_texts(careers)
+    specialization_vectors = encode_texts(specializations * max_careers)
+    
+    for i in range(max_careers):
+        career = careers[i]
+        career_vec = career_vectors[i]
+        
+        for j in range(len(specializations)):
+            specialization_vec = specialization_vectors[j]
+            similarity = compute_similarity(career_vec, specialization_vec)
+            weight = (max_careers + 1 - i)
+            career_score += similarity * weight
 
     # Normalize career score to fit within a 0 to 10 scale
     max_score = max_careers * 10  # The maximum possible score
     career_score = min((career_score / max_score) * 10, 10)  # Scale it to a range of 0 to 10
 
     return career_score
+
 
 
 

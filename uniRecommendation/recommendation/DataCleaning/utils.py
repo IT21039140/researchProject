@@ -142,7 +142,7 @@ def recommend_for_new_user(new_user_features, user_df,max_careers, data, model, 
         similarity_scores = torch.matmul(embeddings[course_indices], new_user_embedding.unsqueeze(1)).squeeze()
 
         # Print out similarity scores for debugging
-        print("Similarity Scores:", similarity_scores)
+        #print("Similarity Scores:", similarity_scores)
 
         # Set a threshold to filter out low-confidence scores
         threshold = 0.1  # Lower threshold to ensure scores are not zeroed out
@@ -163,6 +163,7 @@ def recommend_for_new_user(new_user_features, user_df,max_careers, data, model, 
             course = next((course for course in coursedata if course.get("course_id") == course_oId), None)
             if course:
                 if meets_prerequisites(new_user, course):
+                    
                     matching_score, stream_score, location_score, area_score, duration_score = calculate_matching_score(new_user, course, max_areas)
                     career_score = calculate_career_score(new_user, course, max_careers)
                     course_info = {
@@ -170,7 +171,7 @@ def recommend_for_new_user(new_user_features, user_df,max_careers, data, model, 
                         "Course Name": course.get("course_name", "N/A"),
                         "University": course.get("uni_name", "N/A"),
                         "Specialization": course.get("specialization_name", "None"),
-                        "Duration": f"{course.get('duration', 'N/A')} years",
+                        "Duration": f"{course.get('duration', '4')} years",
                         "Score": matching_score + career_score,  # Add score to recommendation
                         "Area Score": area_score,
                         "Location Score": location_score,
@@ -179,8 +180,8 @@ def recommend_for_new_user(new_user_features, user_df,max_careers, data, model, 
                         "Stream Score": stream_score
                     }
                     recommendations.append(course_info)
-                else:
-                    print(f"Course {course.get('course_name')} does not meet prerequisites for user")
+                #else:
+                    #print(f"Course {course.get('course_name')} does not meet prerequisites for user")
 
         # Sort recommendations first by area_score, then by location_score, then by duration_score
         recommendations.sort(key=lambda x: (x["Score"],x["Career Score"],x["Area Score"], x["Location Score"], x["Duration Score"]), reverse=True)

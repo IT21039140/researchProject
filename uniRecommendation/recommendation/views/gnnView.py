@@ -61,7 +61,7 @@ def initialize_resources():
             course_cleaner = CourseDataCleaner()
             df_courses_cleaned, column_names = course_cleaner.clean_data(df_courses, area_encoder)
             coursesdata = df_courses_cleaned.to_dict(orient='records')
-            print(coursesdata)
+            
             
         else:
             print("Courses DataFrame not found.")
@@ -121,7 +121,7 @@ class GNNViewSet(viewsets.ViewSet):
                 return Response({"error": "Graph not properly loaded"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
             recommendations = recommend_for_new_user(user_features_tensor, user_df, max_careers, data, model, graph, coursesdata, max_areas)
-            print(f"Recommendations: {recommendations}")
+            
 
             return Response(recommendations, status=status.HTTP_200_OK)
 
