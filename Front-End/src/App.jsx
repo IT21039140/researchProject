@@ -13,71 +13,75 @@ import RecommendationHistory from "./Pages/UniCourseRecommendationPages/Recommen
 import CourseByStream from "./Pages/UniCourseRecommendationPages/CourseByStream";
 import NavigationBar from "./Components/Common/NavigationBar";
 import CourseCatalogHistory from "./Pages/UniCourseRecommendationPages/CourseCatalogHistory";
+import CareerGuidance from "./Pages/CareerGuidance/CareerGuidance.jsx";
 
 import MainContent from "./commonPages/Dashboard/MainContent";
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        {/* <Route path="/register" component={RegisterForm} /> */}
+    return (
+        <Router>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                {/* <Route path="/register" component={RegisterForm} /> */}
 
-        {/* <Route path="/" exact component={LoginForm} /> */}
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route index element={<MainContent />} />
-        </Route>
-        <Route path="/user-profile" element={<Dashboard />}>
-          <Route index element={<UserProfile />} />
-        </Route>
-        <Route path="/recommendation-History" element={<Dashboard />}>
-          <Route index element={<RecommendationHistory />} />
-        </Route>
-        <Route path="/my-recommendation" element={<Dashboard />}>
-          <Route
-            index
-            element={
-              <div className="dashboard-content">
-                <CourseCatalogHistory />{" "}
-              </div>
-            }
-          />
-        </Route>
-        <Route
-          path="/recommendation"
-          element={
-            <div className="full-page">
-              <NavigationBar />
-              <RecommendationHome />
-            </div>
-          }
-        />
-        <Route path="/course-catalog" element={<CourseCatalog />} />
-        <Route path="/drag-and-drop" element={<SortableListComponent />} />
-        <Route path="/subject-result" element={<SubjectResultSelector />} />
-        <Route
-          path="/myrecommendations/"
-          element={
-            <div className="full-page">
-              <NavigationBar />
-              <CourseCatalog />
-            </div>
-          }
-        />
+                {/* <Route path="/" exact component={LoginForm} /> */}
+                <Route path="/dashboard" element={<Dashboard />}>
+                    <Route index element={<MainContent />} />
+                </Route>
+                <Route path="/user-profile" element={<Dashboard />}>
+                    <Route index element={<UserProfile />} />
+                </Route>
+                <Route path="/recommendation-History" element={<Dashboard />}>
+                    <Route index element={<RecommendationHistory />} />
+                </Route>
+                <Route path="/career_guidance" element={<Dashboard />}>
+                    <Route index element={<CareerGuidance />} />
+                </Route>
+                <Route path="/my-recommendation" element={<Dashboard />}>
+                    <Route
+                        index
+                        element={
+                            <div className="dashboard-content">
+                                <CourseCatalogHistory />{" "}
+                            </div>
+                        }
+                    />
+                </Route>
+                <Route
+                    path="/recommendation"
+                    element={
+                        <div className="full-page">
+                            <NavigationBar />
+                            <RecommendationHome />
+                        </div>
+                    }
+                />
+                <Route path="/course-catalog" element={<CourseCatalog />} />
+                <Route path="/drag-and-drop" element={<SortableListComponent />} />
+                <Route path="/subject-result" element={<SubjectResultSelector />} />
+                <Route
+                    path="/myrecommendations/"
+                    element={
+                        <div className="full-page">
+                            <NavigationBar />
+                            <CourseCatalog />
+                        </div>
+                    }
+                />
 
-        <Route path="/leaderboard" element={<Leaderboard />} />
-        <Route
-          path="/recommendation/courses/:stream"
-          element={
-            <div className="full-page">
-              <NavigationBar />
-              <CourseByStream />
-            </div>
-          }
-        />
-      </Routes>
-    </Router>
-  );
+                <Route path="/leaderboard" element={<Leaderboard />} />
+                <Route
+                    path="/recommendation/courses/:stream"
+                    element={
+                        <div className="full-page">
+                            <NavigationBar />
+                            <CourseByStream />
+                        </div>
+                    }
+                />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
