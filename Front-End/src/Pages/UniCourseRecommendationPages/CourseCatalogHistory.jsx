@@ -425,7 +425,7 @@ const CourseCatalogHistory = () => {
     <div className="course-catalog">
       {/* make below center */}
 
-      <h1>Course Catalog</h1>
+      <h1>Personalized University Recommendation List</h1>
       <div className="filters">
         <input
           type="text"

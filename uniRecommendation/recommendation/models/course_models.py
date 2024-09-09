@@ -16,9 +16,6 @@ class University(EmbeddedDocument):
     degree_offered = fields.StringField(max_length=100)
     medium = fields.StringField(max_length=100)
     
-
-
-
 class Course(Document):
     stream = fields.StringField(max_length=100)
     course_name = fields.StringField(max_length=200)

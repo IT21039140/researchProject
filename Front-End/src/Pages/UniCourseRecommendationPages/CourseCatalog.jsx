@@ -243,7 +243,7 @@ const CourseCatalog = () => {
         };
       }
     };
-  
+
     // Function to get the display duration
     const getDisplayDuration = (course) => {
       const specializationList = course["Specialization"] || [];
@@ -252,7 +252,7 @@ const CourseCatalog = () => {
       }
       return course["Duration"] || "N/A";
     };
-  
+
     // Function to get background color based on index
     const getBackgroundColor = (index) => {
       const colorIndex = Math.floor(index / 10);
@@ -271,18 +271,20 @@ const CourseCatalog = () => {
           return "hwb(326 50% 9%)"; // Dark Pink
       }
     };
-  
+
     // Check if there are any courses to render
-    const hasCourses = Object.values(coursesToRender).some((courses) => courses.length > 0);
-  
+    const hasCourses = Object.values(coursesToRender).some(
+      (courses) => courses.length > 0
+    );
+
     if (!hasCourses) {
       return <p>No course found</p>;
     }
-  
+
     // Map over courses and render them
     return Object.keys(coursesToRender).map((key, index) => {
       const courses = coursesToRender[key] || [];
-  
+
       return (
         <div
           key={key}
@@ -308,13 +310,17 @@ const CourseCatalog = () => {
                 const specializationDetails =
                   typeof specializationList === "string"
                     ? [parseSpecialization(specializationList)]
-                    : specializationList.map((spec) => parseSpecialization(spec));
-  
+                    : specializationList.map((spec) =>
+                        parseSpecialization(spec)
+                      );
+
                 return (
                   <div
                     className="course-card"
                     key={course["Course Code"] + i}
-                    style={{ backgroundColor: getBackgroundColor(index * 10 + i) }}
+                    style={{
+                      backgroundColor: getBackgroundColor(index * 10 + i),
+                    }}
                   >
                     <div className="course-number">{index * 10 + i + 1}</div>
                     <img
@@ -328,7 +334,8 @@ const CourseCatalog = () => {
                         {course["University"]}
                       </p>
                       <p>
-                        <FontAwesomeIcon icon={faGraduationCap} /> Specializations:
+                        <FontAwesomeIcon icon={faGraduationCap} />{" "}
+                        Specializations:
                         <ul>
                           {specializationDetails.map((spec, j) => (
                             <li key={j}>
@@ -381,7 +388,7 @@ const CourseCatalog = () => {
                         : specializationList.map((spec) =>
                             parseSpecialization(spec)
                           );
-  
+
                     return (
                       <tr
                         key={course["Course Code"] + i}
@@ -438,13 +445,12 @@ const CourseCatalog = () => {
       );
     });
   };
-  
 
   return (
     <div className="course-catalog">
       {/* make below center */}
 
-      <h1>Course Catalog</h1>
+      <h1>Personalized University Recommendation List</h1>
       <div className="filters">
         <input
           type="text"
