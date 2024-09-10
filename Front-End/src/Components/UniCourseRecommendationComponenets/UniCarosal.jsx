@@ -29,7 +29,7 @@ const UniCarosal = ({ toggleChat }) => {
               Our system uses cutting-edge Graph Neural Networks to align
               courses with your unique preferences and goals.
             </p>
-            <Button variant="primary" href="#get-started">
+            <Button variant="primary"  onClick={toggleChat}>
               Get Started
             </Button>
           </Carousel.Caption>
@@ -42,7 +42,7 @@ const UniCarosal = ({ toggleChat }) => {
               Receive tailored course suggestions that enhance your learning
               experience and support your academic journey.
             </p>
-            <Button variant="primary" href="#get-started">
+            <Button variant="primary"  onClick={toggleChat}>
               Get Started
             </Button>
           </Carousel.Caption>
