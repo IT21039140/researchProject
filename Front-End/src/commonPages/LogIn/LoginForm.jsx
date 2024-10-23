@@ -22,7 +22,8 @@ const LoginForm = ({ switchToRegister }) => {
       console.log(response)
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
-      localStorage.setItem("email", email)
+      localStorage.setItem('email',email)
+
 
       setTimeout(() => {
         navigate('/dashboard');

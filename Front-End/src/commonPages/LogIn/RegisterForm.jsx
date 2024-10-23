@@ -22,7 +22,7 @@ const RegisterForm = ({ switchToLogin }) => {
     }
 
     try {
-      await axios.post('http://127.0.0.1:8000/api/register/', {
+      const response = await axios.post('http://127.0.0.1:8000/api/register/', {
         email,
         first_name: firstName,
         last_name: lastName,
@@ -30,11 +30,14 @@ const RegisterForm = ({ switchToLogin }) => {
         password_confirm: passwordConfirm,
       });
 
-      setMessage('Registration successful! You can now log in.');
-      setMessageType('success');
-      setTimeout(() => {
+      if (response.data.email) {
+        setMessage('Registration successful! Proceed to payment.');
+        setMessageType('success');
+
         navigate('/');
-      }, 1000);
+        // Redirect or call the payment flow using the registered email
+        // navigate('/subscribe', { state: { email: response.data.email } });
+      }
     } catch (error) {
       setMessage('Registration failed. Please check your details.');
       setMessageType('error');
@@ -108,36 +111,3 @@ const RegisterForm = ({ switchToLogin }) => {
 };
 
 export default RegisterForm;
-
-
-
-// import React from 'react';
-
-// const RegisterForm = ({ switchToLogin }) => {
-//   return (
-//     <div className="login-form">
-//       <h2>Register</h2>
-//       <p>Already have an account? <a href="#" onClick={switchToLogin}>Log In</a></p>
-//       <form>
-//         <label htmlFor="email">Email Address</label>
-//         <input type="email" id="email" placeholder="you@example.com" required />
-
-//         <label htmlFor="first_name">First Name</label>
-//         <input type="text" id="first_name" placeholder="First Name" required />
-
-//         <label htmlFor="last_name">Last Name</label>
-//         <input type="text" id="last_name" placeholder="Last Name" required />
-
-//         <label htmlFor="password">Password</label>
-//         <input type="password" id="password" placeholder="Enter a password" required />
-
-//         <label htmlFor="password_confirm">Confirm Password</label>
-//         <input type="password" id="password_confirm" placeholder="Confirm your password" required />
-
-//         <button type="submit">REGISTER</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default RegisterForm;

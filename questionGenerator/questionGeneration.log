@@ -16,3 +16,429 @@ ERROR 2024-08-11 20:44:18,131 basehttp basehttp.py:187 "GET /qizGenerator/genera
 INFO 2024-08-11 20:45:39,446 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper HTTP/1.1" 301 0
 INFO 2024-08-11 20:46:05,809 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper/ HTTP/1.1" 200 5820
 ERROR 2024-08-11 20:46:05,825 basehttp basehttp.py:187 "GET /qizGenerator/generate-model-paper/ HTTP/1.1" 500 59
+INFO 2024-08-12 20:23:05,775 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-17 22:31:06,272 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\urls.py changed, reloading.
+INFO 2024-08-17 22:31:08,407 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-17 22:51:43,180 basehttp basehttp.py:187 "GET /qizGenerator/generate-ITmodel-paper HTTP/1.1" 301 0
+INFO 2024-08-17 22:52:15,084 basehttp basehttp.py:187 "GET /qizGenerator/generate-ITmodel-paper/ HTTP/1.1" 200 6262
+ERROR 2024-08-17 22:52:15,169 basehttp basehttp.py:187 "GET /qizGenerator/generate-ITmodel-paper/ HTTP/1.1" 500 59
+INFO 2024-08-17 23:11:12,191 basehttp basehttp.py:187 "GET /qizGenerator/generate-ITmodel-paper HTTP/1.1" 301 0
+INFO 2024-08-17 23:11:40,149 basehttp basehttp.py:187 "GET /qizGenerator/generate-ITmodel-paper/ HTTP/1.1" 200 6110
+ERROR 2024-08-17 23:11:40,166 basehttp basehttp.py:187 "GET /qizGenerator/generate-ITmodel-paper/ HTTP/1.1" 500 59
+INFO 2024-08-18 21:30:13,327 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\models.py changed, reloading.
+INFO 2024-08-18 21:30:14,983 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 21:30:38,762 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\models.py changed, reloading.
+INFO 2024-08-18 21:30:39,742 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 21:31:14,131 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-18 21:31:15,177 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 21:34:12,542 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\researchProject\settings.py changed, reloading.
+INFO 2024-08-18 21:34:58,490 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 21:49:47,295 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\models.py changed, reloading.
+INFO 2024-08-18 21:49:48,878 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 21:58:14,344 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\models.py changed, reloading.
+INFO 2024-08-18 21:58:15,925 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 22:09:29,885 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-18 22:09:31,806 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 22:10:31,686 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-18 22:10:33,481 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 22:11:01,504 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-18 22:11:02,909 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 22:11:32,828 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-18 22:11:34,328 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 22:12:51,037 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-18 22:12:52,596 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 22:13:38,893 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-18 22:13:40,605 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 22:29:28,132 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-18 22:29:30,154 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 22:29:43,731 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\urls.py changed, reloading.
+INFO 2024-08-18 22:29:45,214 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 22:40:39,019 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-18 22:40:40,595 autoreload autoreload.py:677 Watching for file changes with StatReloader
+ERROR 2024-08-18 22:42:02,921 log log.py:241 Internal Server Error: /qizGenerator/generate-ITmodel-paper
+Traceback (most recent call last):
+  File "J:\research project new 2\researchProject\questionGenerator\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\questionGenerator\venv\Lib\site-packages\django\utils\deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\questionGenerator\venv\Lib\site-packages\django\middleware\common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\questionGenerator\venv\Lib\site-packages\django\middleware\common.py", line 88, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8001/qizGenerator/generate-ITmodel-paper/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2024-08-18 22:42:02,931 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 72469
+INFO 2024-08-18 22:44:47,786 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\urls.py changed, reloading.
+INFO 2024-08-18 22:44:49,395 autoreload autoreload.py:677 Watching for file changes with StatReloader
+ERROR 2024-08-18 22:44:59,742 views views.py:31 Error generating unique paperId: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+ERROR 2024-08-18 22:44:59,743 log log.py:241 Internal Server Error: /qizGenerator/generate-ITmodel-paper
+ERROR 2024-08-18 22:44:59,744 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 48
+ERROR 2024-08-18 22:53:29,082 views views.py:31 Error generating unique paperId: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+ERROR 2024-08-18 22:53:29,090 log log.py:241 Internal Server Error: /qizGenerator/generate-ITmodel-paper
+ERROR 2024-08-18 22:53:29,091 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 48
+INFO 2024-08-18 22:56:42,635 autoreload autoreload.py:677 Watching for file changes with StatReloader
+ERROR 2024-08-18 22:56:49,054 views views.py:31 Error generating unique paperId: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+ERROR 2024-08-18 22:56:49,056 log log.py:241 Internal Server Error: /qizGenerator/generate-ITmodel-paper
+ERROR 2024-08-18 22:56:49,056 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 48
+INFO 2024-08-18 23:05:00,468 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\researchProject\settings.py changed, reloading.
+INFO 2024-08-18 23:05:01,796 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 23:07:22,931 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\migrations\0001_initial.py changed, reloading.
+INFO 2024-08-18 23:07:24,186 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 23:12:04,845 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\venv\Lib\site-packages\djongo\base.py changed, reloading.
+INFO 2024-08-18 23:12:06,255 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-18 23:13:23,890 views views.py:29 Generated unique paperId: 1
+INFO 2024-08-18 23:13:24,187 views views.py:45 UserPaper created with paperId: 1 for userId: user001
+INFO 2024-08-18 23:13:47,356 views views.py:78 Saved question 1 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:47,539 views views.py:78 Saved question 2 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:47,723 views views.py:78 Saved question 3 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:47,923 views views.py:78 Saved question 4 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:48,114 views views.py:78 Saved question 5 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:48,296 views views.py:78 Saved question 6 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:48,494 views views.py:78 Saved question 7 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:48,670 views views.py:78 Saved question 8 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:48,869 views views.py:78 Saved question 9 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:49,049 views views.py:78 Saved question 10 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:49,227 views views.py:78 Saved question 11 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:49,388 views views.py:78 Saved question 12 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:49,548 views views.py:78 Saved question 13 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:49,706 views views.py:78 Saved question 14 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:49,889 views views.py:78 Saved question 15 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:50,070 views views.py:78 Saved question 16 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:50,265 views views.py:78 Saved question 17 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:50,429 views views.py:78 Saved question 18 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:50,596 views views.py:78 Saved question 19 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:50,767 views views.py:78 Saved question 20 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:50,937 views views.py:78 Saved question 21 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:51,116 views views.py:78 Saved question 22 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:51,296 views views.py:78 Saved question 23 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:51,470 views views.py:78 Saved question 24 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:51,646 views views.py:78 Saved question 25 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:51,837 views views.py:78 Saved question 26 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:52,019 views views.py:78 Saved question 27 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:52,188 views views.py:78 Saved question 28 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:52,369 views views.py:78 Saved question 29 to GeneratedITQuestions with paperId: 1
+INFO 2024-08-18 23:13:52,469 views views.py:90 Updated UserPaper with paperId: 1 with number_of_questions: 29
+INFO 2024-08-18 23:13:52,474 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 200 6093
+INFO 2024-08-19 10:26:22,528 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 10:26:23,457 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 10:33:24,693 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\researchProject\settings.py changed, reloading.
+INFO 2024-08-19 10:33:25,898 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 10:34:28,345 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\researchProject\settings.py changed, reloading.
+INFO 2024-08-19 10:34:29,782 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 11:32:06,130 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 11:32:07,825 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 11:33:52,796 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 11:33:53,780 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 11:34:35,237 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 11:34:35,988 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 11:39:39,936 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 11:39:40,741 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 11:39:56,838 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 11:39:57,675 autoreload autoreload.py:677 Watching for file changes with StatReloader
+ERROR 2024-08-19 11:40:49,429 views views.py:106 Unexpected error in GenerateITModelPaperAPIView: 'Settings' object has no attribute 'SERVICE_SECRET_KEY'
+ERROR 2024-08-19 11:40:49,430 log log.py:241 Internal Server Error: /qizGenerator/generate-ITmodel-paper
+ERROR 2024-08-19 11:40:49,430 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 41
+INFO 2024-08-19 11:43:07,201 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 11:43:08,474 autoreload autoreload.py:677 Watching for file changes with StatReloader
+ERROR 2024-08-19 11:43:27,601 views views.py:23 Error acsessing user details: 'Settings' object has no attribute 'SERVICE_SECRET_KEY'
+ERROR 2024-08-19 11:43:27,603 log log.py:241 Internal Server Error: /qizGenerator/generate-ITmodel-paper
+ERROR 2024-08-19 11:43:27,604 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 45
+ERROR 2024-08-19 11:43:42,647 views views.py:23 Error acsessing user details: 'Settings' object has no attribute 'SERVICE_SECRET_KEY'
+ERROR 2024-08-19 11:43:42,648 log log.py:241 Internal Server Error: /qizGenerator/generate-ITmodel-paper
+ERROR 2024-08-19 11:43:42,649 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 45
+INFO 2024-08-19 11:44:47,720 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\ServiceClient.py changed, reloading.
+INFO 2024-08-19 11:44:49,054 autoreload autoreload.py:677 Watching for file changes with StatReloader
+ERROR 2024-08-19 11:44:54,203 ServiceClient ServiceClient.py:26 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/None/
+INFO 2024-08-19 11:44:54,204 views views.py:21 User details retrieved: None
+ERROR 2024-08-19 11:44:54,205 views views.py:30 Missing userId in request payload.
+WARNING 2024-08-19 11:44:54,206 log log.py:241 Bad Request: /qizGenerator/generate-ITmodel-paper
+WARNING 2024-08-19 11:44:54,208 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 400 31
+ERROR 2024-08-19 11:46:06,045 ServiceClient ServiceClient.py:26 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/None/
+INFO 2024-08-19 11:46:06,046 views views.py:21 User details retrieved: None
+ERROR 2024-08-19 11:46:06,046 views views.py:30 Missing userId in request payload.
+WARNING 2024-08-19 11:46:06,046 log log.py:241 Bad Request: /qizGenerator/generate-ITmodel-paper
+WARNING 2024-08-19 11:46:06,048 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 400 31
+ERROR 2024-08-19 11:46:43,743 ServiceClient ServiceClient.py:26 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/None/
+INFO 2024-08-19 11:46:43,744 views views.py:21 User details retrieved: None
+ERROR 2024-08-19 11:46:43,745 views views.py:30 Missing userId in request payload.
+WARNING 2024-08-19 11:46:43,745 log log.py:241 Bad Request: /qizGenerator/generate-ITmodel-paper
+WARNING 2024-08-19 11:46:43,746 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 400 31
+ERROR 2024-08-19 11:46:54,624 ServiceClient ServiceClient.py:26 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/None/
+INFO 2024-08-19 11:46:54,625 views views.py:21 User details retrieved: None
+ERROR 2024-08-19 11:46:54,625 views views.py:30 Missing userId in request payload.
+WARNING 2024-08-19 11:46:54,626 log log.py:241 Bad Request: /qizGenerator/generate-ITmodel-paper
+WARNING 2024-08-19 11:46:54,628 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 400 31
+ERROR 2024-08-19 11:47:56,871 ServiceClient ServiceClient.py:26 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/None/
+INFO 2024-08-19 11:47:56,873 views views.py:21 User details retrieved: None
+ERROR 2024-08-19 11:47:56,874 views views.py:30 Missing userId in request payload.
+WARNING 2024-08-19 11:47:56,875 log log.py:241 Bad Request: /qizGenerator/generate-ITmodel-paper
+WARNING 2024-08-19 11:47:56,876 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 400 31
+INFO 2024-08-19 11:49:14,419 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\ServiceClient.py changed, reloading.
+INFO 2024-08-19 11:49:15,744 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 11:49:41,828 ServiceClient ServiceClient.py:15 User email None
+ERROR 2024-08-19 11:49:41,836 ServiceClient ServiceClient.py:27 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/None/
+INFO 2024-08-19 11:49:41,836 views views.py:21 User details retrieved: None
+ERROR 2024-08-19 11:49:41,838 views views.py:30 Missing userId in request payload.
+WARNING 2024-08-19 11:49:41,839 log log.py:241 Bad Request: /qizGenerator/generate-ITmodel-paper
+WARNING 2024-08-19 11:49:41,840 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 400 31
+INFO 2024-08-19 11:50:08,459 ServiceClient ServiceClient.py:15 User email testuser2@example.com
+ERROR 2024-08-19 11:50:08,465 ServiceClient ServiceClient.py:27 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/testuser2@example.com/
+INFO 2024-08-19 11:50:08,465 views views.py:21 User details retrieved: None
+INFO 2024-08-19 11:50:08,557 views views.py:40 Generated unique paperId: 2
+INFO 2024-08-19 11:50:08,827 views views.py:56 UserPaper created with paperId: 2 for userId: testuser2@example.com
+INFO 2024-08-19 11:50:32,821 views views.py:89 Saved question 1 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:33,020 views views.py:89 Saved question 2 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:33,186 views views.py:89 Saved question 3 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:33,359 views views.py:89 Saved question 4 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:33,555 views views.py:89 Saved question 5 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:33,719 views views.py:89 Saved question 6 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:33,901 views views.py:89 Saved question 7 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:34,078 views views.py:89 Saved question 8 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:34,287 views views.py:89 Saved question 9 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:34,454 views views.py:89 Saved question 10 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:34,638 views views.py:89 Saved question 11 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:34,799 views views.py:89 Saved question 12 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:34,974 views views.py:89 Saved question 13 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:35,157 views views.py:89 Saved question 14 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:35,340 views views.py:89 Saved question 15 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:35,507 views views.py:89 Saved question 16 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:35,700 views views.py:89 Saved question 17 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:35,879 views views.py:89 Saved question 18 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:36,061 views views.py:89 Saved question 19 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:36,250 views views.py:89 Saved question 20 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:36,435 views views.py:89 Saved question 21 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:36,600 views views.py:89 Saved question 22 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:36,762 views views.py:89 Saved question 23 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:36,934 views views.py:89 Saved question 24 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:37,100 views views.py:89 Saved question 25 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:37,285 views views.py:89 Saved question 26 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:37,478 views views.py:89 Saved question 27 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:37,658 views views.py:89 Saved question 28 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:37,852 views views.py:89 Saved question 29 to GeneratedITQuestions with paperId: 2
+INFO 2024-08-19 11:50:37,953 views views.py:101 Updated UserPaper with paperId: 2 with number_of_questions: 29
+INFO 2024-08-19 11:50:37,965 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 200 6378
+INFO 2024-08-19 11:51:14,552 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\ServiceClient.py changed, reloading.
+INFO 2024-08-19 11:51:15,712 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 11:51:29,669 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\ServiceClient.py changed, reloading.
+INFO 2024-08-19 11:51:30,940 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 11:51:33,781 ServiceClient ServiceClient.py:15 User email testuser2@example.com
+ERROR 2024-08-19 11:51:33,787 ServiceClient ServiceClient.py:27 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/testuser2@example.com/
+INFO 2024-08-19 11:51:33,787 views views.py:21 User details retrieved: None
+INFO 2024-08-19 11:51:33,871 views views.py:40 Generated unique paperId: 3
+INFO 2024-08-19 11:51:34,109 views views.py:56 UserPaper created with paperId: 3 for userId: testuser2@example.com
+INFO 2024-08-19 11:51:56,769 views views.py:89 Saved question 1 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:56,946 views views.py:89 Saved question 2 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:57,127 views views.py:89 Saved question 3 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:57,316 views views.py:89 Saved question 4 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:57,485 views views.py:89 Saved question 5 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:57,658 views views.py:89 Saved question 6 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:57,829 views views.py:89 Saved question 7 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:57,999 views views.py:89 Saved question 8 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:58,160 views views.py:89 Saved question 9 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:58,367 views views.py:89 Saved question 10 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:58,540 views views.py:89 Saved question 11 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:58,754 views views.py:89 Saved question 12 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:58,941 views views.py:89 Saved question 13 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:59,134 views views.py:89 Saved question 14 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:59,308 views views.py:89 Saved question 15 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:59,479 views views.py:89 Saved question 16 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:59,646 views views.py:89 Saved question 17 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:51:59,810 views views.py:89 Saved question 18 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:00,008 views views.py:89 Saved question 19 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:00,175 views views.py:89 Saved question 20 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:00,347 views views.py:89 Saved question 21 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:00,526 views views.py:89 Saved question 22 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:00,702 views views.py:89 Saved question 23 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:00,881 views views.py:89 Saved question 24 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:01,062 views views.py:89 Saved question 25 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:01,232 views views.py:89 Saved question 26 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:01,399 views views.py:89 Saved question 27 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:01,576 views views.py:89 Saved question 28 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:01,742 views views.py:89 Saved question 29 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:01,920 views views.py:89 Saved question 30 to GeneratedITQuestions with paperId: 3
+INFO 2024-08-19 11:52:02,021 views views.py:101 Updated UserPaper with paperId: 3 with number_of_questions: 30
+INFO 2024-08-19 11:52:02,025 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 200 6019
+INFO 2024-08-19 11:52:51,975 ServiceClient ServiceClient.py:15 User email testuser2@example.com
+ERROR 2024-08-19 11:52:51,982 ServiceClient ServiceClient.py:27 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/testuser2@example.com/
+INFO 2024-08-19 11:52:51,982 views views.py:21 User details retrieved: None
+ERROR 2024-08-19 11:52:51,985 views views.py:42 Error generating unique paperId: 
+ERROR 2024-08-19 11:52:51,986 log log.py:241 Internal Server Error: /qizGenerator/generate-ITmodel-paper
+ERROR 2024-08-19 11:52:51,987 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 48
+INFO 2024-08-19 11:53:48,690 ServiceClient ServiceClient.py:15 User email testuser2@example.com
+ERROR 2024-08-19 11:53:48,701 ServiceClient ServiceClient.py:27 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/testuser2@example.com/
+INFO 2024-08-19 11:53:48,702 views views.py:21 User details retrieved: None
+ERROR 2024-08-19 11:53:48,707 views views.py:42 Error generating unique paperId: 
+ERROR 2024-08-19 11:53:48,708 log log.py:241 Internal Server Error: /qizGenerator/generate-ITmodel-paper
+ERROR 2024-08-19 11:53:48,709 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 48
+INFO 2024-08-19 11:54:30,717 ServiceClient ServiceClient.py:15 User email testuser2@example.com
+ERROR 2024-08-19 11:54:30,723 ServiceClient ServiceClient.py:27 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/testuser2@example.com/
+INFO 2024-08-19 11:54:30,724 views views.py:21 User details retrieved: None
+ERROR 2024-08-19 11:54:30,728 views views.py:42 Error generating unique paperId: 
+ERROR 2024-08-19 11:54:30,729 log log.py:241 Internal Server Error: /qizGenerator/generate-ITmodel-paper
+ERROR 2024-08-19 11:54:30,729 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 48
+INFO 2024-08-19 11:56:42,188 ServiceClient ServiceClient.py:15 User email testuser2@example.com
+ERROR 2024-08-19 11:56:42,195 ServiceClient ServiceClient.py:27 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/testuser2@example.com/
+INFO 2024-08-19 11:56:42,196 views views.py:21 User details retrieved: None
+ERROR 2024-08-19 11:56:42,198 views views.py:42 Error generating unique paperId: 
+ERROR 2024-08-19 11:56:42,199 log log.py:241 Internal Server Error: /qizGenerator/generate-ITmodel-paper
+ERROR 2024-08-19 11:56:42,200 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 48
+INFO 2024-08-19 11:57:47,541 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\ServiceClient.py changed, reloading.
+INFO 2024-08-19 11:57:48,379 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 11:57:54,811 ServiceClient ServiceClient.py:15 User email testuser2@example.com
+INFO 2024-08-19 11:57:54,811 ServiceClient ServiceClient.py:16 GATEWAY_SECRET_KEY  django-insecure-&y+5k$*1^l=*)#4exz=l3761-9rafw-%umps0t!ye4=duu*t)_
+ERROR 2024-08-19 11:57:54,828 ServiceClient ServiceClient.py:28 HTTP error occurred: 403 Client Error: Forbidden for url: http://127.0.0.1:8000/api/users/testuser2@example.com/
+INFO 2024-08-19 11:57:54,829 views views.py:21 User details retrieved: None
+INFO 2024-08-19 11:57:54,929 views views.py:40 Generated unique paperId: 4
+INFO 2024-08-19 11:57:55,191 views views.py:56 UserPaper created with paperId: 4 for userId: testuser2@example.com
+INFO 2024-08-19 11:58:18,438 views views.py:89 Saved question 1 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:18,608 views views.py:89 Saved question 2 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:18,804 views views.py:89 Saved question 3 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:19,005 views views.py:89 Saved question 4 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:19,186 views views.py:89 Saved question 5 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:19,380 views views.py:89 Saved question 6 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:19,569 views views.py:89 Saved question 7 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:19,754 views views.py:89 Saved question 8 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:19,947 views views.py:89 Saved question 9 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:20,119 views views.py:89 Saved question 10 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:20,310 views views.py:89 Saved question 11 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:20,498 views views.py:89 Saved question 12 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:20,656 views views.py:89 Saved question 13 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:20,840 views views.py:89 Saved question 14 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:21,017 views views.py:89 Saved question 15 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:21,202 views views.py:89 Saved question 16 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:21,371 views views.py:89 Saved question 17 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:21,566 views views.py:89 Saved question 18 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:21,738 views views.py:89 Saved question 19 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:21,897 views views.py:89 Saved question 20 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:22,052 views views.py:89 Saved question 21 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:22,253 views views.py:89 Saved question 22 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:22,420 views views.py:89 Saved question 23 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:22,605 views views.py:89 Saved question 24 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:22,778 views views.py:89 Saved question 25 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:22,959 views views.py:89 Saved question 26 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:23,139 views views.py:89 Saved question 27 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:23,343 views views.py:89 Saved question 28 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:23,519 views views.py:89 Saved question 29 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:23,717 views views.py:89 Saved question 30 to GeneratedITQuestions with paperId: 4
+INFO 2024-08-19 11:58:23,816 views views.py:101 Updated UserPaper with paperId: 4 with number_of_questions: 30
+INFO 2024-08-19 11:58:23,818 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 200 5851
+INFO 2024-08-19 15:26:53,988 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\researchProject\settings.py changed, reloading.
+INFO 2024-08-19 15:26:54,977 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 15:28:15,457 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\ServiceClient.py changed, reloading.
+INFO 2024-08-19 15:28:16,561 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 15:37:26,693 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 15:37:27,728 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 15:37:49,974 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\ServiceClient.py changed, reloading.
+INFO 2024-08-19 15:37:51,276 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 15:39:07,931 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\ServiceClient.py changed, reloading.
+INFO 2024-08-19 15:39:09,225 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 15:40:18,122 ServiceClient ServiceClient.py:14 Fetching details for user email: testuser2@example.com
+INFO 2024-08-19 15:40:18,278 ServiceClient ServiceClient.py:24 Successfully retrieved details for email: testuser2@example.com
+INFO 2024-08-19 15:40:18,278 views views.py:31 User details retrieved: {'email': 'testuser2@example.com', 'first_name': 'Test', 'last_name': 'User'}
+INFO 2024-08-19 15:40:18,365 views views.py:50 Generated unique paperId: 5
+INFO 2024-08-19 15:40:18,627 views views.py:66 UserPaper created with paperId: 5 for userId: testuser2@example.com
+INFO 2024-08-19 15:40:41,431 views views.py:99 Saved question 1 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:41,620 views views.py:99 Saved question 2 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:41,823 views views.py:99 Saved question 3 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:42,009 views views.py:99 Saved question 4 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:42,170 views views.py:99 Saved question 5 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:42,361 views views.py:99 Saved question 6 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:42,534 views views.py:99 Saved question 7 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:42,711 views views.py:99 Saved question 8 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:42,879 views views.py:99 Saved question 9 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:43,084 views views.py:99 Saved question 10 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:43,287 views views.py:99 Saved question 11 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:43,479 views views.py:99 Saved question 12 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:43,659 views views.py:99 Saved question 13 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:43,831 views views.py:99 Saved question 14 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:44,020 views views.py:99 Saved question 15 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:44,194 views views.py:99 Saved question 16 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:44,369 views views.py:99 Saved question 17 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:44,547 views views.py:99 Saved question 18 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:44,750 views views.py:99 Saved question 19 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:44,907 views views.py:99 Saved question 20 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:45,067 views views.py:99 Saved question 21 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:45,225 views views.py:99 Saved question 22 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:45,431 views views.py:99 Saved question 23 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:45,591 views views.py:99 Saved question 24 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:45,770 views views.py:99 Saved question 25 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:45,932 views views.py:99 Saved question 26 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:46,110 views views.py:99 Saved question 27 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:46,292 views views.py:99 Saved question 28 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:46,478 views views.py:99 Saved question 29 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:46,650 views views.py:99 Saved question 30 to GeneratedITQuestions with paperId: 5
+INFO 2024-08-19 15:40:46,726 views views.py:111 Updated UserPaper with paperId: 5 with number_of_questions: 30
+INFO 2024-08-19 15:40:46,728 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 200 5782
+INFO 2024-08-19 15:50:52,500 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 15:50:53,369 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 15:51:28,693 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\researchProject\settings.py changed, reloading.
+INFO 2024-08-19 15:53:35,544 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 15:54:30,992 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 15:56:48,159 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 15:57:06,088 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 15:58:38,767 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 16:09:02,683 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 16:09:55,729 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 16:12:08,013 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 17:57:26,978 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 17:57:41,309 ServiceClient ServiceClient.py:14 Fetching details for user email: testuser2@example.com
+INFO 2024-08-19 17:57:41,467 ServiceClient ServiceClient.py:24 Successfully retrieved details for email: testuser2@example.com
+INFO 2024-08-19 17:57:41,467 views views.py:48 User details retrieved: {'email': 'testuser2@example.com', 'first_name': 'Test', 'last_name': 'User'}
+INFO 2024-08-19 17:57:41,553 views views.py:67 Generated unique paperId: 6
+INFO 2024-08-19 17:57:41,814 views views.py:83 UserPaper created with paperId: 6 for userId: testuser2@example.com
+INFO 2024-08-19 17:58:12,200 views views.py:116 Saved question 1 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:12,375 views views.py:116 Saved question 2 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:12,545 views views.py:116 Saved question 3 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:12,731 views views.py:116 Saved question 4 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:12,897 views views.py:116 Saved question 5 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:13,065 views views.py:116 Saved question 6 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:13,238 views views.py:116 Saved question 7 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:13,416 views views.py:116 Saved question 8 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:13,599 views views.py:116 Saved question 9 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:13,775 views views.py:116 Saved question 10 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:13,970 views views.py:116 Saved question 11 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:14,145 views views.py:116 Saved question 12 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:14,339 views views.py:116 Saved question 13 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:14,508 views views.py:116 Saved question 14 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:14,680 views views.py:116 Saved question 15 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:14,851 views views.py:116 Saved question 16 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:15,037 views views.py:116 Saved question 17 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:15,199 views views.py:116 Saved question 18 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:15,401 views views.py:116 Saved question 19 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:15,612 views views.py:116 Saved question 20 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:15,787 views views.py:116 Saved question 21 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:16,015 views views.py:116 Saved question 22 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:16,195 views views.py:116 Saved question 23 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:16,365 views views.py:116 Saved question 24 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:16,566 views views.py:116 Saved question 25 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:16,764 views views.py:116 Saved question 26 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:16,957 views views.py:116 Saved question 27 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:17,133 views views.py:116 Saved question 28 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:17,326 views views.py:116 Saved question 29 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:17,497 views views.py:116 Saved question 30 to GeneratedITQuestions with paperId: 6
+INFO 2024-08-19 17:58:17,609 views views.py:128 Updated UserPaper with paperId: 6 with number_of_questions: 30
+INFO 2024-08-19 17:58:17,611 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 200 5852
+ERROR 2024-08-19 17:58:17,642 basehttp basehttp.py:187 "POST /qizGenerator/generate-ITmodel-paper HTTP/1.1" 500 59
+INFO 2024-08-19 21:42:09,467 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 21:42:11,139 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 21:55:49,870 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\models.py changed, reloading.
+INFO 2024-08-19 21:55:51,252 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 21:56:15,581 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\models.py changed, reloading.
+INFO 2024-08-19 21:56:16,686 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 22:05:51,463 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 22:06:53,317 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\urls.py changed, reloading.
+INFO 2024-08-19 22:06:54,369 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 22:07:49,984 views views.py:221 User response saved successfully for email: testuser2@example.com, paperId: 123
+INFO 2024-08-19 22:07:49,989 basehttp basehttp.py:187 "POST /qizGenerator/save-response HTTP/1.1" 201 47
+INFO 2024-08-19 22:09:05,191 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 22:09:05,929 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 22:15:48,676 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\views.py changed, reloading.
+INFO 2024-08-19 22:15:49,949 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 22:16:08,046 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\urls.py changed, reloading.
+INFO 2024-08-19 22:16:09,306 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 22:16:40,757 autoreload autoreload.py:266 J:\research project new 2\researchProject\questionGenerator\question_generator\urls.py changed, reloading.
+INFO 2024-08-19 22:16:41,463 autoreload autoreload.py:677 Watching for file changes with StatReloader
+INFO 2024-08-19 22:17:55,774 views views.py:295 User response retrieved successfully for email: testuser2@example.com, paperId: 123
+INFO 2024-08-19 22:17:55,779 basehttp basehttp.py:187 "POST /qizGenerator/get-response HTTP/1.1" 200 780
