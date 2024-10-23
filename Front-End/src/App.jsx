@@ -4,7 +4,8 @@ import Login from './commonPages/LogIn/Login';
 import Dashboard from './commonPages/Dashboard/Dashboard';
 import QuestionGenerator from './commonPages/QuestionGenComponent/QuestionGenerator';
 import StaticPage from './static/StaticPage';
-import SubscriptionPage from './commonPages/LogIn/SubscriptionForm'
+import SubscriptionPage from './commonPages/LogIn/SubscriptionForm';
+import ChatBot from './commonPages/ChatBot/index';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/question-generator" element={<Dashboard isQuestionGenerator={true} />} />
         <Route path="/subscribe" element={<SubscriptionPage />} />
+        <Route path="/chat" element={<ChatBot/>} />
       </Routes>
     </Router>
   );

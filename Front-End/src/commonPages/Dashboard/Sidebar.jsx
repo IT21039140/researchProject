@@ -76,6 +76,7 @@ function Sidebar({ onCollapse }) {
           <li><a href="#" className="nav-link">Option 1</a></li>
           <li><a href="#" className="nav-link">Option 2</a></li>
           <li><a href="#" className="nav-link">Option 3</a></li>
+          <li><a href="/chat" className="nav-link">EduGuideBot</a></li>
           <li><a href="#" className={`nav-link ${isActive('/question-generator') ? 'active' : ''}`} onClick={() => navigate('/question-generator')}>Question Generator</a></li>
         </ul>
       </nav>
