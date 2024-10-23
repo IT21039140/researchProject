@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function ChatHistory({ onSelectSession }) {
   const [chatHistory, setChatHistory] = useState([]);
-  const [userEmail, setUserEmail] = useState('lahiru@gmail.com');
+  const [userEmail, setUserEmail] = useState(localStorage.getItem('email'));
 
   useEffect(() => {
     async function fetchChatHistory() {
@@ -23,13 +23,13 @@ function ChatHistory({ onSelectSession }) {
     <div
       style={{
         width: '300px',
-        backgroundColor: '#343a40',
+        backgroundColor: '#5C6BC0',//#343a40
         color: '#fff',
         padding: '20px',
         overflowY: 'auto',
       }}
     >
-      <h2>Chat History</h2>
+      <h2>EduGuideBot</h2>
       {chatHistory.length > 0 ? (
         <ul style={{ listStyleType: 'none', padding: 0 }}>
           {chatHistory.map((sessionID, index) => (
@@ -39,7 +39,7 @@ function ChatHistory({ onSelectSession }) {
                 style={{
                   width: '100%',
                   padding: '10px',
-                  backgroundColor: '#007bff',
+                  backgroundColor: '#0D47A1',//#007bff
                   color: '#fff',
                   border: 'none',
                   borderRadius: '4px',

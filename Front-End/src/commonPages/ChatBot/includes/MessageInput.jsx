@@ -32,7 +32,7 @@ function MessageInput({ onSend, loading }) {
         />
         <button
           type="submit"
-          style={{ padding: '10px 20px', marginLeft: '10px', borderRadius: '10px', border: '1px solid #007bff', backgroundColor: '#007bff', color: 'white' }}
+          style={{ padding: '10px 20px', marginLeft: '10px', borderRadius: '10px', border: '1px solid #00BCD4', backgroundColor: '#00BCD4', color: 'white' }}
           disabled={loading}
         >
           {loading ? 'Sending...' : 'Send'}
@@ -62,7 +62,7 @@ const styles = {
     padding: '10px 20px',
     border: 'none',
     borderRadius: '20px',
-    backgroundColor: '#007BFF',
+    backgroundColor: '#00BCD4',//007BFF
     color: 'white',
     cursor: 'pointer',
   },
@@ -70,7 +70,7 @@ const styles = {
     textAlign: 'center',
     padding: '5px',
     fontSize: '14px',
-    color: '#007BFF',
+    color: '#007BFF',//#007BFF
   },
 };
 

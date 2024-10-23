@@ -9,6 +9,8 @@ from langchain.schema.output_parser import StrOutputParser
 import pinecone
 from dotenv import load_dotenv
 from langchain.llms import HuggingFaceHub
+from langchain_huggingface import HuggingFaceEndpoint
+
 import os
 
 

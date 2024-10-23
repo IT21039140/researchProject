@@ -24,7 +24,7 @@ body {
     width: 100vw;
 }
 
-/* Sidebar (Top Navigation Bar on Small Screens) */
+/* Sidebar */
 .dashboard-sidebar {
     width: 250px;
     background-color: #6c63ff;
@@ -120,40 +120,39 @@ body {
     border-radius: 5px;
     padding: 10px;
     width: 150px;
-    z-index: 2000;
-    right: 20px; /* Adjusts the position near the profile pic */
-    bottom: 60px; /* Move the dropdown above the profile picture */
-    right: 10px;   /* Adjusts the position near the profile pic */
+    z-index: 9999; /* Ensure the dropdown is above other elements */
+    right: 0; /* Aligns with the right side of the user-profile */
+    top: 100%; /* Aligns just below the user-profile */
     display: flex;
     flex-direction: column;
-  }
-  
-  .dropdown-menu.collapsed-menu {
-    top: 60px; /* Position adjustment for when the sidebar is collapsed */
-  }
-  
-  .dropdown-menu ul {
+}
+.user-profile.collapsed .dropdown-menu {
+    right: auto; /* Remove the auto-right position */
+    left: calc(100% - 150px); /* Adjust position to align with the left side when collapsed */
+}
+
+.dropdown-menu ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .dropdown-menu li {
+}
+
+.dropdown-menu li {
     margin-bottom: 10px;
-  }
-  
-  .dropdown-menu li:last-child {
+}
+
+.dropdown-menu li:last-child {
     margin-bottom: 0;
-  }
-  
-  .dropdown-menu a {
+}
+
+.dropdown-menu a {
     color: #333;
     text-decoration: none;
-  }
-  
-  .dropdown-menu a:hover {
+}
+
+.dropdown-menu a:hover {
     text-decoration: underline;
-  }
+}
 
 .profile-image {
     width: 40px;
@@ -184,19 +183,6 @@ body {
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
-    .dropdown-menu {
-        position: absolute;
-        background-color: white;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        padding: 10px;
-        width: 150px;
-        z-index: 2000;
-        right: 20px; /* Adjusts the position near the profile pic */
-        bottom: 60px;   /* Adjusts the position near the profile pic */
-        display: flex;
-        flex-direction: column;
-    }
     .dashboard-container {
         flex-direction: column;
         height: auto;

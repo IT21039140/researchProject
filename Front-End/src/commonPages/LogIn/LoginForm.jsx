@@ -19,8 +19,10 @@ const LoginForm = ({ switchToRegister }) => {
 
       setMessage('Login successful!');
       setMessageType('success');
+      console.log(response)
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
+      localStorage.setItem("email", email)
 
       setTimeout(() => {
         navigate('/dashboard');

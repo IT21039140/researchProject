@@ -9,7 +9,7 @@ function ChatWindow({ messages, loading }) {
           style={{
             ...styles.message,
             alignSelf: message.sender === 'user' ? 'flex-end' : 'flex-start',
-            backgroundColor: message.sender === 'user' ? '#007BFF' : '#837c7c', // Blue for user, default for bot
+            backgroundColor: message.sender === 'user' ? '#00BCD4' : '#BBDEFB', // Blue for user, default for bot 
             textAlign: message.sender === 'user' ? 'right' : 'left',
             marginLeft: message.sender === 'user' ? 'auto' : '10px', // Align user messages to the right with margin
             marginRight: message.sender === 'user' ? '10px' : 'auto', // Align bot messages to the left with margin
@@ -27,8 +27,10 @@ const styles = {
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    padding: '10px',
+    padding: '70px',
     overflowY: 'auto',
+    backgroundColor: '#E3F2FD',
+    
   },
   message: {
     maxWidth: '60%',
@@ -36,7 +38,7 @@ const styles = {
     marginBottom: '10px',
     borderRadius: '10px', // Slightly curved ends
     boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)',
-    color: '#FFFFFF', // Text color for the user message (white on blue)
+    color: '#0D47A1', // Text color for the user message (white on blue)
   },
   loader: {
     textAlign: 'center',

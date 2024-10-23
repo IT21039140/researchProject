@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function Index() {
   // let usermail = localStorage.getItem("user")
-  const [email, setEmail] = useState('lahiru@gmail.com');
+  const [email, setEmail] = useState(localStorage.getItem('email'));
   const [sessionID, setSessionID] = useState('');
   const [messages, setMessages] = useState([
     { text: 'Hi! How can I help you today?', sender: 'bot' }
