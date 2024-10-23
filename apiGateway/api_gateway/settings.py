@@ -18,6 +18,7 @@ from dotenv import load_dotenv
 from datetime import timedelta
 
 
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -50,6 +51,10 @@ JWT_SECRET_KEY = env('JWT_SECRET_KEY')
 JWT_ALGORITHM = 'HS256'
 ACCESS_TOKEN_LIFETIME = timedelta(days=1)
 REFRESH_TOKEN_LIFETIME = timedelta(days=1)
+
+# stripe api key
+STRIPE_SECRET_KEY = env('STRIPE_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -246,6 +251,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

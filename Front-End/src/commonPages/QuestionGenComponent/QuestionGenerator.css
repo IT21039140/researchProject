@@ -1,166 +1,316 @@
 /* Existing styles */
 .question-generator-container {
-    padding: 20px;
-    transition: margin-left 0.3s ease; /* Smooth transition */
-    margin-left: 550px; /* Default margin for expanded sidebar */
-  }
-  
-  .question-generator-container.collapsed {
-    margin-left: 60px; /* Adjust based on the collapsed sidebar */
-  }
-  
-  .tabs {
-    display: flex;
-    justify-content: center; /* Center the tabs in the container */
-    margin-bottom: 20px;
-  }
-  
-  .tab {
-    padding: 10px 20px;
-    margin: 0 10px;
-    background-color: #6a5acd;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .tab:hover {
-    background-color: #483d8b;
-  }
-  
-  .tab.active {
-    background-color: #483d8b;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .tab-content {
-    font-size: 18px;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    background-color: #f5f5f5;
-    max-width: 100%;
-    text-align: center; /* Center text in content area */
-  }
-  
-  /* for question generation*/
-  .additional-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center; /* Center the buttons below the main tabs */
-  }
-  
-  .additional-button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    background-color: #6a5acd;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .additional-button:hover {
-    background-color: #483d8b;
-  }
-  
-  /* Dropdown container to hold the button and dropdown together */
-  .dropdown-container {
-    position: relative; /* Position relative for dropdown alignment */
-  }
-  
-  .dropdown-content {
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    top: 100%; /* Position below the button */
-    left: 0; /* Align to the left of the button */
-    border-radius: 10px; /* Rounded corners for dropdown */
-    color:#483d8b;
-  }
-  
-  .dropdown-content ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .dropdown-content li {
-    padding: 12px 16px;
-    cursor: pointer;
-    background-color: #fff;
-  }
-  
-  .dropdown-content li:hover {
-    background-color: #ddd;
-  }
-  
-  .additional-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
+  padding: 20px;
+  transition: margin-left 0.3s ease; /* Smooth transition */
+  margin-left: 400px; /* Default margin for expanded sidebar */
+}
 
-  /* for questions */
-  .additional-button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    background-color: #6a5acd;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .additional-button:hover {
-    background-color: #483d8b;
-  }
-  
-  .quiz-container {
-    margin-top: 20px;
-  }
-  
-  .question-item {
-    margin-bottom: 20px;
-  }
-  
-  .options {
-    margin-top: 10px;
-  }
-  
-  .option-item {
-    margin-bottom: 5px;
-  }
-  
-  .submit-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #45a049;
-  }
-  
-  .result {
-    margin-top: 10px;
-  }
-  
-  .score {
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    color: #333;
-  }
-  
+.question-generator-container.collapsed {
+  margin-left: 60px; /* Adjust based on the collapsed sidebar */
+}
+
+.tabs {
+  display: flex;
+  justify-content: center; /* Center the tabs in the container */
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #6a5acd;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+  background-color: #483d8b;
+}
+
+.tab.active {
+  background-color: #483d8b;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content {
+  font-size: 18px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  max-width: 100%;
+  text-align: center; /* Center text in content area */
+}
+
+/* for question generation */
+.additional-buttons {
+  margin-bottom: 60px; /* Increased space between buttons and quiz section */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #e0e0e0; /* Light background color to distinguish this section */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for emphasis */
+}
+
+.additional-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #6a5acd;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.additional-button:hover {
+  background-color: #483d8b;
+}
+
+/* Dropdown container to hold the button and dropdown together */
+.dropdown-container {
+  position: relative; /* Position relative for dropdown alignment */
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 100%; /* Position below the button */
+  left: 0; /* Align to the left of the button */
+  border-radius: 10px; /* Rounded corners for dropdown */
+  color: #483d8b;
+}
+
+.dropdown-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-content li {
+  padding: 12px 16px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.dropdown-content li:hover {
+  background-color: #ddd;
+}
+
+/* for quiz questions */
+.quiz-container {
+  text-align: left;
+  margin-top: 40px; /* Increased margin to detach it from the buttons */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for emphasis */
+}
+
+.question-item {
+  margin-bottom: 20px;
+}
+
+.options {
+  margin-top: 10px;
+}
+
+.option-item {
+  margin-bottom: 5px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.result {
+  margin-top: 10px;
+}
+
+.score {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+/* for response save massage */
+.message {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.message.success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.message.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/* Container for both tables side by side */
+.tables-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.answered-questions-table, .unanswered-questions-table {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 48%;
+}
+
+.answered-questions-table h3, .unanswered-questions-table h3 {
+  text-align: center;
+  color: #483d8b;
+  margin-bottom: 15px;
+}
+
+.answered-questions-table table, .unanswered-questions-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.answered-questions-table table th, .unanswered-questions-table table th,
+.answered-questions-table table td, .unanswered-questions-table table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.answered-questions-table table th {
+  background-color: #6a5acd;
+  color: white;
+}
+
+.unanswered-questions-table table th {
+  background-color: #f5a623;
+  color: white;
+}
+
+.view-paper-button {
+  background-color: transparent;
+  border: none;
+  color: #6a5acd;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.view-paper-button i {
+  margin-right: 5px;
+}
+
+.view-paper-button:hover {
+  color: #483d8b;
+}
+
+.answered-questions-table table tbody tr:hover, 
+.unanswered-questions-table table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.selected-paper-container {
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* This ensures all text is left-aligned */
+  max-width: 100%; /* Adjust as necessary */
+}
+
+.selected-paper-container h3, .selected-paper-container p {
+  text-align: left; /* Ensure that headers and paragraphs are also left-aligned */
+}
+
+.question-item {
+  margin-bottom: 20px;
+}
+
+.questions-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.questions-list li {
+  margin: 5px 0;
+}
+
+/* for law question  */
+
+.law-paper-container {
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.question-set {
+  margin-bottom: 20px;
+}
+
+.question-set-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #6a5acd;
+  padding-bottom: 5px;
+}
+
+.questions-block {
+  padding-left: 20px;
+}
+
+.question-line {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.question-line::before {
+  content: "• "; /* Add a bullet point before each question */
+  color: #6a5acd;
+  font-weight: bold;
+}
+
+.question-set-title {
+  font-weight: bold;
+  color: #483d8b;
+}

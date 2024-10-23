@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-import mongoengine
+import pymongo
+# import mongoengine
 
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
@@ -143,6 +144,11 @@ DATABASES = {
         }
     }
 }
+
+MONGO_URI = os.getenv('MONGO_URI')
+
+client = pymongo.MongoClient(MONGO_URI)
+db = client['test']
 
 # mongoengine.connect(
 #     db='test',

@@ -1,4 +1,6 @@
 #gateway/views.py
+import datetime
+
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import requests
@@ -6,15 +8,22 @@ from requests.exceptions import RequestException
 from django.conf import settings
 from django.http import JsonResponse
 from rest_framework import status
-from .models import UserEdu
+from stripe import StripeErrorWithParamCode
+from django.views import View
+from .models import UserEdu, SubscriptionDetails, PaymentHistory, SubscriptionPlan
 from .serializers import UserSerializer, LoginSerializer
 from .authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
+from rest_framework.permissions import AllowAny
 import jwt
 import logging
+# import stripe
+import stripe
 
 log = logging.getLogger('gateway')
+# Set Stripe secret key
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 @api_view(['POST'])
 def register(request):
@@ -158,3 +167,276 @@ def user_detail(request, email):
         user.delete()
         log.info(f'user_detail DELETE successful for email: {email}')
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def create_subscription(request):
+    email = request.data.get('email')
+    stripe_token = request.data.get('stripe_token')
+
+    if not email or not stripe_token:
+        return Response({"error": "Email and Stripe token are required."}, status=status.HTTP_400_BAD_REQUEST)
+
+    # Retrieve the user
+    try:
+        user = UserEdu.objects.get(email=email)
+    except UserEdu.DoesNotExist:
+        return Response({"error": "User not found."}, status=status.HTTP_404_NOT_FOUND)
+
+    # Retrieve the subscription plan (assuming only one plan exists)
+    try:
+        plan = SubscriptionPlan.objects.first()
+    except SubscriptionPlan.DoesNotExist:
+        return Response({"error": "Subscription plan not found."}, status=status.HTTP_404_NOT_FOUND)
+
+    try:
+        # Create a new Stripe customer if not already created
+        if not user.stripe_customer_id:
+            customer = stripe.Customer.create(
+                email=email,
+                source=stripe_token  # Stripe token from frontend
+            )
+            user.stripe_customer_id = customer['id']
+            user.save()
+
+        # Create a subscription for the customer
+        subscription = stripe.Subscription.create(
+            customer=user.stripe_customer_id,
+            items=[{'plan': plan.plan_id}],
+            expand=["latest_invoice.payment_intent"],
+        )
+
+        # Save subscription details in the database
+        SubscriptionDetails.objects.create(
+            email=email,
+            stripe_subscription_id=subscription['id'],
+            subscription_status=subscription['status'],
+            plan_id=plan.plan_id,
+            start_date=datetime.datetime.utcnow()
+        )
+
+        # Mark the user as subscribed
+        user.is_subscribed = True
+        user.save()
+
+        return Response({"message": "Subscription created successfully."}, status=status.HTTP_201_CREATED)
+
+    except StripeErrorWithParamCode as e:
+        log.error(f"Stripe error: {str(e)}")
+        return Response({"error": "An error occurred with the payment gateway."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    except Exception as e:
+        log.error(f"Unexpected error: {str(e)}")
+        return Response({"error": "An unexpected error occurred."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def cancel_subscription(request):
+    email = request.data.get('email')
+
+    if not email:
+        return Response({"error": "Email is required."}, status=status.HTTP_400_BAD_REQUEST)
+
+    # Retrieve the user's subscription
+    try:
+        subscription = SubscriptionDetails.objects.get(email=email)
+    except SubscriptionDetails.DoesNotExist:
+        return Response({"error": "Subscription not found."}, status=status.HTTP_404_NOT_FOUND)
+
+    try:
+        # Cancel the subscription on Stripe
+        stripe.Subscription.delete(subscription.stripe_subscription_id)
+
+        # Update subscription status in the database
+        subscription.subscription_status = "canceled"
+        subscription.end_date = datetime.datetime.utcnow()
+        subscription.save()
+
+        # Update user subscription status
+        try:
+            user = UserEdu.objects.get(email=email)
+            user.is_subscribed = False
+            user.save()
+        except UserEdu.DoesNotExist:
+            return Response({"error": "User not found."}, status=status.HTTP_404_NOT_FOUND)
+
+        return Response({"message": "Subscription canceled successfully."}, status=status.HTTP_200_OK)
+
+    except StripeErrorWithParamCode as e:
+        log.error(f"Stripe error: {str(e)}")
+        return Response({"error": "An error occurred with the payment gateway."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    except Exception as e:
+        log.error(f"Unexpected error: {str(e)}")
+        return Response({"error": "An unexpected error occurred."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def retrieve_subscription(request, email):
+    if not email:
+        return Response({"error": "Email is required."}, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        # Retrieve the subscription details for the user
+        subscription = SubscriptionDetails.objects.get(email=email)
+        subscription_data = {
+            "email": subscription.email,
+            "stripe_subscription_id": subscription.stripe_subscription_id,
+            "subscription_status": subscription.subscription_status,
+            "plan_id": subscription.plan_id,
+            "start_date": subscription.start_date,
+            "end_date": subscription.end_date
+        }
+        return Response(subscription_data, status=status.HTTP_200_OK)
+    except SubscriptionDetails.DoesNotExist:
+        return Response({"error": "Subscription not found."}, status=status.HTTP_404_NOT_FOUND)
+    except Exception as e:
+        log.error(f"Unexpected error: {str(e)}")
+        return Response({"error": "An unexpected error occurred."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def retrieve_payment_history(request, email):
+    if not email:
+        return Response({"error": "Email is required."}, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        # Retrieve the payment history for the user
+        payments = PaymentHistory.objects(email=email)
+
+        if not payments:
+            return Response({"error": "No payment history found for this user."}, status=status.HTTP_404_NOT_FOUND)
+
+        payment_history = [{
+            "payment_id": payment.payment_id,
+            "amount": payment.amount,
+            "currency": payment.currency,
+            "payment_date": payment.payment_date,
+            "payment_status": payment.payment_status
+        } for payment in payments]
+
+        return Response({"payment_history": payment_history}, status=status.HTTP_200_OK)
+    except Exception as e:
+        log.error(f"Unexpected error: {str(e)}")
+        return Response({"error": "An unexpected error occurred."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['POST'])
+def add_subscription_plan(request):
+    try:
+        # Extract data from the request payload
+        name = request.data.get('name')
+        price = request.data.get('price')
+        currency = request.data.get('currency', 'usd')
+        interval = request.data.get('interval', 'month')
+        description = request.data.get('description', '')
+
+        if not name or not price:
+            return Response({"error": "Name and price are required fields."}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Create the plan on Stripe
+        try:
+            stripe_plan = stripe.Plan.create(
+                amount=int(float(price) * 100),  # Stripe requires the amount in cents
+                currency=currency,
+                interval=interval,
+                product={"name": name},
+            )
+        except stripe.error.StripeError as e:
+            log.error(f"Stripe error: {str(e)}")
+            return Response({"error": "Failed to create the plan on Stripe."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        # Save the subscription plan in the database
+        plan = SubscriptionPlan(
+            plan_id=stripe_plan['id'],
+            name=name,
+            price=price,
+            currency=currency,
+            interval=interval,
+            description=description
+        )
+        plan.save()
+
+        return Response({"message": "Subscription plan created successfully."}, status=status.HTTP_201_CREATED)
+
+    except Exception as e:
+        log.error(f"Unexpected error: {str(e)}")
+        return Response({"error": "An unexpected error occurred."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class StripeWebhookView(View):
+    def post(self, request):
+        payload = request.body
+        sig_header = request.META.get('HTTP_STRIPE_SIGNATURE')
+        event = None
+
+        try:
+            event = stripe.Webhook.construct_event(
+                payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
+            )
+        except ValueError as e:
+            log.error(f"Invalid payload: {str(e)}")
+            return JsonResponse({"error": "Invalid payload"}, status=400)
+        except stripe.error.SignatureVerificationError as e:
+            log.error(f"Invalid signature: {str(e)}")
+            return JsonResponse({"error": "Invalid signature"}, status=400)
+
+        if event['type'] == 'invoice.payment_succeeded':
+            payment_intent = event['data']['object']
+            log.info(f"Payment succeeded: {payment_intent['id']}")
+            self.handle_payment_success(payment_intent)
+
+        elif event['type'] == 'invoice.payment_failed':
+            payment_intent = event['data']['object']
+            log.error(f"Payment failed: {payment_intent['id']}")
+            self.handle_payment_failure(payment_intent)
+
+        return JsonResponse({'status': 'success'})
+
+    def handle_payment_success(self, payment_intent):
+        stripe_subscription_id = payment_intent['subscription']
+        email = payment_intent['customer_email']
+
+        subscription = stripe.Subscription.objects(email=email, stripe_subscription_id=stripe_subscription_id).first()
+
+        if subscription:
+            subscription.subscription_status = "active"
+            subscription.save()
+
+            PaymentHistory(
+                email=email,
+                amount=payment_intent['amount_paid'],
+                currency=payment_intent['currency'],
+                payment_status='succeeded',
+                payment_id=payment_intent['id'],
+                payment_date=datetime.datetime.now()
+            ).save()
+
+            log.info(f"Subscription activated for {email}")
+        else:
+            log.error(f"Subscription not found for {email}")
+
+    def handle_payment_failure(self, payment_intent):
+        stripe_subscription_id = payment_intent['subscription']
+        email = payment_intent['customer_email']
+
+        subscription = stripe.Subscription.objects(email=email, stripe_subscription_id=stripe_subscription_id).first()
+
+        if subscription:
+            subscription.subscription_status = "failed"
+            subscription.save()
+
+            PaymentHistory(
+                email=email,
+                amount=payment_intent['amount_paid'],
+                currency=payment_intent['currency'],
+                payment_status='failed',
+                payment_id=payment_intent['id'],
+                payment_date=datetime.datetime.now()
+            ).save()
+
+            log.error(f"Payment failed for {email}")
+        else:
+            log.error(f"Subscription not found for {email}")
+
+
+
