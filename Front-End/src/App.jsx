@@ -1,19 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './commonPages/LogIn/Login'
-import Dashboard from './commonPages/Dashboard/Dashboard'
-
+import Login from './commonPages/LogIn/Login';
+import Dashboard from './commonPages/Dashboard/Dashboard';
+import QuestionGenerator from './commonPages/QuestionGenComponent/QuestionGenerator';
+import StaticPage from './static/StaticPage';
+import SubscriptionPage from './commonPages/LogIn/SubscriptionForm'
 
 function App() {
   return (
-      <Router>
-          <Routes>
-              <Route path="/" element={<Login/>} />
-              {/* <Route path="/register" component={RegisterForm} /> */}
-              <Route path="/dashboard" element={<Dashboard/>} />
-              {/* <Route path="/" exact component={LoginForm} /> */}
-          </Routes>
-      </Router>
+    <Router>
+      <Routes>
+        {/* <Route path="/" element={<StaticPage/>}/>
+        <Route path="/login" element={<Login />} /> */}
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/question-generator" element={<Dashboard isQuestionGenerator={true} />} />
+        <Route path="/subscribe" element={<SubscriptionPage />} />
+      </Routes>
+    </Router>
   );
 }
 
