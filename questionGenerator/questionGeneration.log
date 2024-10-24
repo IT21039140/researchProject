@@ -442,3 +442,4 @@ INFO 2024-08-19 22:16:40,757 autoreload autoreload.py:266 J:\research project ne
 INFO 2024-08-19 22:16:41,463 autoreload autoreload.py:677 Watching for file changes with StatReloader
 INFO 2024-08-19 22:17:55,774 views views.py:295 User response retrieved successfully for email: testuser2@example.com, paperId: 123
 INFO 2024-08-19 22:17:55,779 basehttp basehttp.py:187 "POST /qizGenerator/get-response HTTP/1.1" 200 780
+INFO 2024-10-23 21:21:00,876 autoreload autoreload.py:677 Watching for file changes with StatReloader
