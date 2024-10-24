@@ -498,7 +498,7 @@ const ChatUI = () => {
                 {isBotTyping && (
                   <div className="bot-message typing-indicator">
                     <div className="bot-icon">
-                      <img src="/path-to-bot-icon.png" alt="Bot" />
+                      <img src={bot} alt="Bot" />
                     </div>
                     <div className="message-content">
                       <div className="message-text typing-dots">

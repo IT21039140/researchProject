@@ -1,34 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import profilePic from "../../assets/profilePic2.webp";
+//Sidenbar.jsx
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import profilePic from '../../assets/profilePic2.webp';
 
+function Sidebar({ onCollapse }) {
+  const [collapsed, setCollapsed] = useState(localStorage.getItem('sidebar-collapsed') === 'true');
 
-function Sidebar() {
-  const [collapsed, setCollapsed] = useState(
-      localStorage.getItem("sidebar-collapsed") === "true"
-  );
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
+  const profileRef = useRef(null);
   const navigate = useNavigate();
-  const location = useLocation(); // Get the current location (route)
+  const location = useLocation();
+
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {
         setCollapsed(true);
+        onCollapse(true);
       } else {
         setCollapsed(false);
+        onCollapse(false);
       }
     };
 
     window.addEventListener("resize", handleResize);
     handleResize(); // Check initial size
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [onCollapse]);
 
   const toggleSidebar = () => {
-    setCollapsed(!collapsed);
-    localStorage.setItem("sidebar-collapsed", !collapsed);
+    const newCollapsedState = !collapsed;
+    setCollapsed(newCollapsedState);
+    localStorage.setItem('sidebar-collapsed', newCollapsedState);
+    onCollapse(newCollapsedState);
   };
 
   const toggleDropdown = () => {
@@ -36,7 +42,9 @@ function Sidebar() {
   };
 
   const handleOutsideClick = (e) => {
-    if (!e.target.closest(".user-profile")) {
+
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target) && !profileRef.current.contains(e.target)) {
+
       setDropdownVisible(false);
     }
   };
@@ -56,61 +64,26 @@ function Sidebar() {
     navigate("/");
   };
 
-  // Helper function to check if the route is active
   const isActive = (path) => location.pathname === path;
 
   return (
-      <aside
-          className={`dashboard-sidebar ${collapsed ? "collapsed" : ""}`}
-          id="sidebar"
-      >
-        <div className="sidebar-header">
-          <h2 className="app-logo">My App</h2>
-          <button id="sidebar-toggle-btn" onClick={toggleSidebar}>
-            &#9776;
-          </button>
-        </div>
-        <nav className="sidebar-navigation">
-          <ul className="nav-list">
-            <li>
-              <a
-                  href="/dashboard"
-                  className={`nav-link ${isActive("/dashboard") ? "active" : ""}`}
-              >
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a
-                  href="/user-profile"
-                  className={`nav-link ${
-                      isActive("/user-profile") ? "active" : ""
-                  }`}
-              >
-                User Profile
-              </a>
-            </li>
-            <li>
-              <a
-                  href="/my-recommendation"
-                  className={`nav-link ${
-                      isActive("/my-recommendation") ? "active" : ""
-                  }`}
-              >
-                My Recommendations
-              </a>
-            </li>
-            <li>
-              <a href="#" className="nav-link">
-                Option 2
-              </a>
-            </li>
-            <li>
-              <a href="#" className="nav-link">
-                Option 3
-              </a>
-            </li>
-            <li>
+    <aside
+      className={`dashboard-sidebar ${collapsed ? "collapsed" : ""}`}
+      id="sidebar"
+    >
+      <div className="sidebar-header">
+        <h2 className="app-logo">My App</h2>
+        <button id="sidebar-toggle-btn" onClick={toggleSidebar}>
+          &#9776;
+        </button>
+      </div>
+      <nav className="sidebar-navigation">
+        <ul className="nav-list">
+
+          <li><a href="#" className={`nav-link ${isActive('/dashboard') ? 'active' : ''}`} onClick={() => navigate('/dashboard')}>Dashboard</a></li>
+          <li><a href="#" className="nav-link">Option 1</a></li>
+          <li><a href="#" className="nav-link">Option 2</a></li>
+          <li>
               <a
                   href="/career_guidance"
                   className={`nav-link ${
@@ -120,24 +93,12 @@ function Sidebar() {
                 Career Guidance
               </a>
             </li>
-            <li>
-              <a href="#" className="nav-link">
-                Question Generator
-              </a>
-            </li>
-            <li>
-              <a
-                  href="/recommendation/"
-                  className={`nav-link ${
-                      isActive("/recommendation/") ? "active" : ""
-                  }`}
-              >
-                Home
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div className="user-profile" onClick={toggleDropdown}>
+          <li><a href="/chat" className="nav-link">EduGuideBot</a></li>
+          <li><a href="#" className={`nav-link ${isActive('/question-generator') ? 'active' : ''}`} onClick={() => navigate('/question-generator')}>Question Generator</a></li>
+
+        </ul>
+      </nav>
+      <div className="user-profile" onClick={toggleDropdown}>
           <img src={profilePic} alt="Profile Icon" className="profile-image" />
           <a href="#" className="profile-name">
             My Profile
@@ -159,7 +120,22 @@ function Sidebar() {
               </div>
           )}
         </div>
-      </aside>
+//       <div className="user-profile" ref={profileRef} onClick={toggleDropdown}>
+//         <img src={profilePic} alt="Profile Icon" className="profile-image" />
+//         <a href="#" className="profile-name">
+//           My Profile
+//         </a>
+//         {dropdownVisible && (
+
+//           <div ref={dropdownRef} className={`dropdown-menu ${collapsed ? 'collapsed-menu' : ''}`}>
+//             <ul>
+//               <li><a  onClick={() => navigate('/settings')}>Settings</a></li>
+//               <li><a  onClick={handleLogout}>Log Out</a></li>
+//             </ul>
+//           </div>
+//         )}
+//       </div>
+    </aside>
   );
 }
 

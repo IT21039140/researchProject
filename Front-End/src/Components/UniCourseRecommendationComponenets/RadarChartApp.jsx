@@ -53,7 +53,7 @@ const PopupChart = ({ isOpen, closePopup, scores }) => {
     scales: {
       r: {
         min: 0,
-        max: 10,
+        max: 9,
         ticks: {
           stepSize: 1,
         },
