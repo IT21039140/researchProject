@@ -1,3 +1,4 @@
+//MainContaint.jsx
 import React from 'react';
 
 function MainContent() {
@@ -10,3 +11,6 @@ function MainContent() {
 }
 
 export default MainContent;
+
+
+
