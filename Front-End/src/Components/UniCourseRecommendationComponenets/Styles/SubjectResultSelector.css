@@ -1,0 +1,14 @@
+/* SubjectResultSelector.css */
+
+.form-select {
+  padding: 8px;
+  border: 1px solid #0428dd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 150px;
+  margin: 2px;
+}
+
+.option-item {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,40 @@
+.kider-header {
+  position: relative !important;
+  padding-bottom: 60px !important;
+
+  background: linear-gradient(90deg, rgb(15, 114, 252) 0%, #4e46b4) !important;
+  padding-top: 60px !important;
+  margin-bottom: 20px;
+}
+
+.navbar {
+  position: relative !important;
+  z-index: 2 !important;
+  margin: auto !important;
+  padding: 10px !important;
+}
+
+.kider-logo {
+  height: 30px !important;
+  margin-right: 10px !important;
+}
+
+.kider-join-btn {
+  background-color: #f15a29 !important;
+  border: none !important;
+  color: #fff !important;
+}
+
+.kider-nav-link {
+  color: #333 !important;
+  margin-right: 15px !important;
+}
+
+.kider-nav-link.active {
+  color: #f15a29 !important;
+  font-weight: bold !important;
+}
+
+.kider-nav-link:hover {
+  color: #f15a29 !important;
+}

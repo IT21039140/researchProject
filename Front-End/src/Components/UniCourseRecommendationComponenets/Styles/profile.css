@@ -1,0 +1,179 @@
+/* Profile container */
+.profile-container {
+  margin: auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Grid layout for profile sections */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+/* Personal Data Column */
+.profile-personal-data {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-header {
+
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center; /* Center the text horizontally */
+  margin: 0 auto; /* Center the div itself if it has a set width */
+  padding: 10px; /* Optional: Add padding for better spacing */
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  margin-right: 20px;
+}
+
+/* Education Data Column */
+.profile-education-data,
+.profile-preference-data {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width:550px;
+  margin-right: 10px;
+}
+
+/* Read-only view styles */
+.profile-readonly {
+  margin-bottom: 16px;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.profile-readonly p {
+  margin: 0;
+}
+
+.profile-readonly ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.profile-readonly li {
+  margin: 4px 0;
+}
+
+/* Editable view styles */
+.question-choice {
+  margin-bottom: 16px;
+}
+
+.question-choice button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.question-choice button.selected {
+  background-color: #0056b3;
+}
+
+.question-input {
+  margin-bottom: 16px;
+}
+
+.question-input input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.question-custom {
+  margin-bottom: 16px;
+}
+
+.question-rank {
+  margin-bottom: 16px;
+}
+
+/* Buttons */
+.edit-button,
+.submit-button,
+.back-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.edit-button {
+  background-color: #007bff;
+}
+
+.submit-button {
+  background-color: #28a745;
+}
+
+.back-button {
+  background-color: #6c757d;
+}
+
+.edit-button:hover,
+.submit-button:hover,
+.back-button:hover {
+  opacity: 0.8;
+}
+
+/* Loading styles */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.profile-editable .question-text {
+  font-weight: bold;
+}
+
+.profile-readonly .question-text {
+  font-weight: bold;
+  color: #007bff; /* Change to your preferred color */
+}
+
+.profile-readonly-content ul {
+  list-style-type: disc;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

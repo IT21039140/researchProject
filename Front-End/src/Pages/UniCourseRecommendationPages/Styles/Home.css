@@ -1,0 +1,55 @@
+/* src/HomePage.css */
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto !important;
+  padding-bottom: 50px !important;
+  margin-top: 20px !important;
+  max-width: 1500px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 2750px;
+}
+
+.full-page {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100vh;
+}
+.courses-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+.courses-table th,
+.courses-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.courses-table th {
+  background-color: #f4f4f4;
+}
+
+.courses-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.courses-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.courses-table ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.courses-table ul li {
+  margin-bottom: 8px;
+}
