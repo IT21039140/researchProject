@@ -1,4 +1,4 @@
-.container {
+/* .container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,3 +40,197 @@
 .button:hover {
     background-color: #0056b3;
 }
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 5px;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 2 / 2; }
+    .div2 { grid-area: 1 / 2 / 2 / 3; }
+    .div3 { grid-area: 1 / 3 / 3 / 4; }
+    .div4 { grid-area: 2 / 1 / 3 / 2; }
+    .div5 { grid-area: 3 / 1 / 4 / 2; }
+    .div6 { grid-area: 2 / 2 / 4 / 3; }
+    .div7 { grid-area: 3 / 3 / 4 / 4; }
+    .div8 { grid-area: 4 / 1 / 5 / 4; } */
+
+
+/* Form styling */
+.form-container {
+    display: flex;
+    justify-content: space-between; /* Spread out the form groups */
+    align-items: flex-start; /* Align items to the top */
+    padding: 20px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: row; /* Row layout for form groups */
+    width: 100%;
+    gap: 20px; /* Space between left and right form groups */
+  }
+  
+  .form-group {
+    flex: 1; /* Allow each form group to grow equally */
+    min-width: 250px; /* Minimum width for each form group */
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .submit-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Add space above the button */
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  /* Box container styling */
+  .box-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    height: 400px; /* Increased height for better image visibility */
+  }
+  
+  .box h3 {
+    margin-bottom: 10px;
+  }
+    /* Background image for the first box */
+    .box:first-of-type {
+        background-image: url('../img/cp4.png'); /* Make sure this is the correct path */
+        background-size: cover;
+        
+        height: 100%; /* Ensure the background image covers the full box height */
+      }
+      /* Background image for the second box */
+    .box:nth-of-type(2) {
+        background-image: url('../img/certification2.png'); /* Make sure this is the correct path */
+        background-size: cover;
+        
+    }
+    .box:nth-of-type(3) {
+        background-image: url('../img/skillgapanalysis.png'); /* Make sure this is the correct path */
+        background-size: cover;
+        
+    }
+    .box:nth-of-type(4) {
+        background-image: url('../img/skills.png'); /* Make sure this is the correct path */
+        background-size: cover;
+        
+    }
+    .box:nth-of-type(5) {
+        background-image: url('../img/mentoringstd.png'); /* Make sure this is the correct path */
+        background-size: cover;
+        
+    }
+    .box:nth-of-type(6) {
+        background-image: url('../img/ecactivities.png'); /* Make sure this is the correct path */
+        background-size: cover;
+        
+    }
+    .box:nth-of-type(7) {
+        background-image: url('../img/mentor.png'); /* Make sure this is the correct path */
+        background-size: cover;
+        
+    }
+    .box:nth-of-type(8) {
+        background-image: url('../img/onlinecourses.png'); /* Make sure this is the correct path */
+        background-size: cover;
+        
+    }
+  /* Ensuring all the boxes are responsive */
+  @media (max-width: 768px) {
+    .box-container {
+      grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+  
+    .form-container {
+      flex-direction: column; /* Stack form groups on smaller screens */
+    }
+  }
+
+  .loading-text {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #333; /* You can customize the color */
+  }
+
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .loading-spinner {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  .loading-text {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #333; /* You can customize the color */
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .enhanced-text {
+    text-align: center; /* Center align the text */
+    font-size: 1.5em; /* Increase font size */
+    margin: 10px 0; /* Add margin for spacing */
+    font-weight: bold; /* Make the text bold */
+    color: #4CAF50;
+    padding: 10px 20px; /* Add padding like a button */
+    border: 2px solid #4CAF50; /* Add border */
+    border-radius: 20px; /* Round corners */
+    display: inline-block; /* Keep the element inline like a button */
+    background-color: white; /* Button background color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    width: 100%; /* Make the element full width */
+    
+  }
+
+  /* Hover effect */
+.enhanced-text:hover {
+    background-color: #4CAF50; /* Change background on hover */
+    color: white; /* Change text color on hover */
+  }
+  
