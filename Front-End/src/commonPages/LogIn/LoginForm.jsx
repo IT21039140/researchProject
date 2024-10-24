@@ -14,19 +14,21 @@ const LoginForm = ({ switchToRegister }) => {
     e.preventDefault();
     try {
       // Request to login and get tokens
-      const response = await axios.post('http://127.0.0.1:8001/api/login/', {
+      const response = await axios.post('http://127.0.0.1:8000/api/login/', {
         email,
         password,
       });
 
       swal('Login successful!', '', 'success');
 
-      // Store tokens in localStorage
+
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
+      localStorage.setItem('email',email)
+
 
       // Fetch user details using the access token
-      const userResponse = await axios.get('http://127.0.0.1:8001/api/users/'+email, {
+      const userResponse = await axios.get('http://127.0.0.1:8000/api/users/'+email, {
         headers: {
           Authorization: `Bearer ${response.data.access}`,
         },

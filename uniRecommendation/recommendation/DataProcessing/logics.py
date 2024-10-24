@@ -69,7 +69,7 @@ def encode_texts(texts):
 def compute_similarity(career_vec, specialization_vec):
     # Compute cosine similarity
     similarity_score = cosine_similarity([career_vec], [specialization_vec])[0][0]
-    return similarity_score * 10
+    return similarity_score * 5
 
 def calculate_career_score(user, course, max_careers):
     # Initialize career score
@@ -90,7 +90,10 @@ def calculate_career_score(user, course, max_careers):
         for j in range(len(specializations)):
             specialization_vec = specialization_vectors[j]
             similarity = compute_similarity(career_vec, specialization_vec)
-            weight = (max_careers + 1 - i)
+            if max_careers == 1:
+                weight = 2
+            else:
+                weight = (max_careers + 1 - i)
             career_score += similarity * weight
 
     # Normalize career score to fit within a 0 to 10 scale
@@ -145,4 +148,4 @@ def calculate_matching_score(user, course, max_areas):
     score = (stream_score + location_score + area_score + duration_score) * 4
 
     # Return the total score and individual component scores, all in the 0-4 range
-    return score, stream_score * 10, location_score * 10, area_score * 10, duration_score * 10
+    return score, stream_score * 9, location_score * 9, area_score * 9, duration_score * 9

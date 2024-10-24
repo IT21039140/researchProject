@@ -29,13 +29,13 @@ INFO 2024-08-08 14:01:17,359 autoreload autoreload.py:266 J:\research project ne
 INFO 2024-08-08 14:01:19,786 autoreload autoreload.py:668 Watching for file changes with StatReloader
 INFO 2024-08-08 14:01:30,146 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
 INFO 2024-08-08 14:01:32,389 autoreload autoreload.py:668 Watching for file changes with StatReloader
-INFO 2024-08-08 14:01:50,069 basehttp basehttp.py:212 code 400, message Bad request version ('À\x13À')
+INFO 2024-08-08 14:01:50,069 basehttp basehttp.py:212 code 400, message Bad request version ('Ã€\x13Ã€')
 ERROR 2024-08-08 14:01:50,070 basehttp basehttp.py:192 You're accessing the development server over HTTPS, but it only supports HTTP.
-INFO 2024-08-08 14:02:00,927 basehttp basehttp.py:212 code 400, message Bad request syntax ('\x16\x03\x01\x00å\x01\x00\x00á\x03\x03$áo»Y')
+INFO 2024-08-08 14:02:00,927 basehttp basehttp.py:212 code 400, message Bad request syntax ('\x16\x03\x01\x00Ã¥\x01\x00\x00Ã¡\x03\x03$Ã¡oÂ»Y')
 ERROR 2024-08-08 14:02:00,928 basehttp basehttp.py:192 You're accessing the development server over HTTPS, but it only supports HTTP.
 INFO 2024-08-08 14:03:24,719 autoreload autoreload.py:266 J:\research project new\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
 INFO 2024-08-08 14:03:26,637 autoreload autoreload.py:668 Watching for file changes with StatReloader
-INFO 2024-08-11 20:35:32,996 basehttp basehttp.py:212 code 400, message Bad request version ('À\x13À')
+INFO 2024-08-11 20:35:32,996 basehttp basehttp.py:212 code 400, message Bad request version ('Ã€\x13Ã€')
 ERROR 2024-08-11 20:35:33,007 basehttp basehttp.py:192 You're accessing the development server over HTTPS, but it only supports HTTP.
 INFO 2024-08-11 20:36:59,802 middleware middleware.py:13 Request: POST /api/login/
 INFO 2024-08-11 20:36:59,815 views views.py:35 Started login in gateWay view
@@ -153,6 +153,102 @@ INFO 2024-08-12 16:47:53,907 views views.py:35 Started login in gateWay view
 INFO 2024-08-12 16:47:55,727 views views.py:43 End login in gateWay view: Successful
 INFO 2024-08-12 16:47:55,728 middleware middleware.py:20 Response: 200 OK (1.82s)
 INFO 2024-08-12 16:47:55,729 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-12 21:56:45,427 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-12 22:04:30,869 middleware middleware.py:13 Request: OPTIONS /api/register/
+INFO 2024-08-12 22:04:30,869 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-12 22:04:30,870 basehttp basehttp.py:212 "OPTIONS /api/register/ HTTP/1.1" 200 0
+INFO 2024-08-12 22:04:30,880 middleware middleware.py:13 Request: POST /api/register/
+INFO 2024-08-12 22:04:30,881 views views.py:20 Started register in gateWay view
+INFO 2024-08-12 22:04:31,606 views views.py:25 End register in gateWay view: Successful
+INFO 2024-08-12 22:04:31,608 middleware middleware.py:20 Response: 201 Created (0.73s)
+INFO 2024-08-12 22:04:31,608 basehttp basehttp.py:212 "POST /api/register/ HTTP/1.1" 201 93
+INFO 2024-08-12 22:04:46,172 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-08-12 22:04:46,173 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-12 22:04:46,175 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-08-12 22:04:46,183 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-12 22:04:46,184 views views.py:35 Started login in gateWay view
+INFO 2024-08-12 22:04:46,544 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-12 22:04:46,544 middleware middleware.py:20 Response: 200 OK (0.36s)
+INFO 2024-08-12 22:04:46,545 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-15 23:57:22,571 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-16 00:02:20,858 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-16 12:31:21,137 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-20 13:14:48,250 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-20 13:56:57,399 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-20 15:01:03,681 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-07 20:09:54,299 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-09 13:39:57,202 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-09 14:57:11,551 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-09 15:46:57,065 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-09 19:20:52,049 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-09 19:46:00,007 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-09 19:47:19,335 middleware middleware.py:13 Request: OPTIONS /api/register/
+INFO 2024-09-09 19:47:19,336 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-09-09 19:47:19,338 basehttp basehttp.py:212 "OPTIONS /api/register/ HTTP/1.1" 200 0
+INFO 2024-09-09 19:47:19,345 middleware middleware.py:13 Request: POST /api/register/
+INFO 2024-09-09 19:47:19,345 views views.py:20 Started register in gateWay view
+INFO 2024-09-09 19:47:20,807 views views.py:25 End register in gateWay view: Successful
+INFO 2024-09-09 19:47:20,807 middleware middleware.py:20 Response: 201 Created (1.46s)
+INFO 2024-09-09 19:47:20,807 basehttp basehttp.py:212 "POST /api/register/ HTTP/1.1" 201 79
+INFO 2024-09-09 19:48:15,626 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-09-09 19:48:15,627 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-09-09 19:48:15,628 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-09-09 19:48:15,639 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-09 19:48:15,641 views views.py:35 Started login in gateWay view
+INFO 2024-09-09 19:48:16,074 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-09 19:48:16,074 middleware middleware.py:20 Response: 200 OK (0.43s)
+INFO 2024-09-09 19:48:16,074 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-09-09 21:50:05,339 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-09-09 21:50:05,342 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-09-09 21:50:05,343 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-09-09 21:50:05,349 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-09 21:50:05,353 views views.py:35 Started login in gateWay view
+INFO 2024-09-09 21:50:06,195 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-09 21:50:06,196 middleware middleware.py:20 Response: 200 OK (0.85s)
+INFO 2024-09-09 21:50:06,198 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-09-09 21:56:04,582 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-09 21:56:04,584 views views.py:35 Started login in gateWay view
+INFO 2024-09-09 21:56:05,040 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-09 21:56:05,042 middleware middleware.py:20 Response: 200 OK (0.46s)
+INFO 2024-09-09 21:56:05,043 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-09-09 22:00:05,960 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-09 22:00:05,961 views views.py:35 Started login in gateWay view
+INFO 2024-09-09 22:00:06,379 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-09 22:00:06,381 middleware middleware.py:20 Response: 200 OK (0.42s)
+INFO 2024-09-09 22:00:06,382 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-09-09 22:10:53,831 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-09 22:11:14,952 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-09 22:11:14,953 views views.py:35 Started login in gateWay view
+INFO 2024-09-09 22:11:16,027 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-09 22:11:16,028 middleware middleware.py:20 Response: 200 OK (1.08s)
+INFO 2024-09-09 22:11:16,029 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-09-09 23:04:50,191 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-09 23:04:50,193 views views.py:35 Started login in gateWay view
+INFO 2024-09-09 23:04:50,646 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-09 23:04:50,647 middleware middleware.py:20 Response: 200 OK (0.46s)
+INFO 2024-09-09 23:04:50,649 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-09-10 08:53:00,173 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-10 08:54:13,250 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-09-10 08:54:13,250 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-09-10 08:54:13,250 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-09-10 08:54:13,258 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 08:54:13,258 views views.py:35 Started login in gateWay view
+INFO 2024-09-10 08:54:20,238 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 08:54:20,238 views views.py:35 Started login in gateWay view
+INFO 2024-09-10 08:54:24,378 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 08:54:24,378 views views.py:35 Started login in gateWay view
+INFO 2024-09-10 08:54:26,687 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 08:54:26,687 views views.py:35 Started login in gateWay view
+ERROR 2024-09-10 08:54:33,513 log log.py:241 Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1695, in connect
+    sock = _configured_socket(self.address, self.opts)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1313, in _configured_socket
+    sock = _create_connection(address, options)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1297, in _create_connection
+    raise err
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1290, in _create_connection
+=======
 INFO 2024-08-12 20:23:55,504 autoreload autoreload.py:668 Watching for file changes with StatReloader
 INFO 2024-08-12 20:25:05,840 autoreload autoreload.py:668 Watching for file changes with StatReloader
 INFO 2024-08-12 20:28:28,036 middleware middleware.py:13 Request: OPTIONS /api/login/
@@ -163,3 +259,1255 @@ INFO 2024-08-12 20:28:28,040 views views.py:35 Started login in gateWay view
 INFO 2024-08-12 20:28:29,389 views views.py:43 End login in gateWay view: Successful
 INFO 2024-08-12 20:28:29,389 middleware middleware.py:20 Response: 200 OK (1.35s)
 INFO 2024-08-12 20:28:29,389 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-13 11:50:39,332 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-13 11:50:44,379 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-08-13 11:50:44,381 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-13 11:50:44,382 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-08-13 11:50:44,384 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-13 11:50:44,386 views views.py:35 Started login in gateWay view
+INFO 2024-08-13 11:50:46,555 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-13 11:50:46,557 middleware middleware.py:20 Response: 200 OK (2.17s)
+INFO 2024-08-13 11:50:46,559 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-13 12:02:28,361 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-13 12:02:28,364 views views.py:35 Started login in gateWay view
+INFO 2024-08-13 12:02:29,735 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-13 12:02:29,735 middleware middleware.py:20 Response: 200 OK (1.37s)
+INFO 2024-08-13 12:02:29,735 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-13 21:21:08,336 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-08-13 21:21:08,341 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-13 21:21:08,342 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-08-13 21:21:08,344 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-13 21:21:08,349 views views.py:35 Started login in gateWay view
+INFO 2024-08-13 21:21:09,615 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-13 21:21:09,618 middleware middleware.py:20 Response: 200 OK (1.27s)
+INFO 2024-08-13 21:21:09,619 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-17 22:43:30,457 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 22:43:30,520 middleware middleware.py:20 Response: 403 Forbidden (0.05s)
+WARNING 2024-08-17 22:43:30,520 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 22:43:30,529 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 58
+INFO 2024-08-17 22:47:34,098 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-08-17 22:47:34,099 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-17 22:47:34,101 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-08-17 22:47:34,106 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-17 22:47:34,108 views views.py:35 Started login in gateWay view
+INFO 2024-08-17 22:47:35,476 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-17 22:47:35,478 middleware middleware.py:20 Response: 200 OK (1.37s)
+INFO 2024-08-17 22:47:35,480 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-17 22:47:41,432 middleware middleware.py:13 Request: OPTIONS /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 22:47:41,435 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-08-17 22:47:41,438 basehttp basehttp.py:212 "OPTIONS /api/service1/generate-ITmodel-paper/ HTTP/1.1" 200 0
+INFO 2024-08-17 22:47:41,442 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 22:47:41,450 middleware middleware.py:20 Response: 403 Forbidden (0.01s)
+WARNING 2024-08-17 22:47:41,452 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 22:47:41,455 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 26
+INFO 2024-08-17 22:49:08,961 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 22:49:08,964 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-17 22:49:08,965 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 22:49:08,966 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 26
+INFO 2024-08-17 22:51:43,023 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 22:52:15,092 views views.py:103 gateway_view success for service: service1, endpoint: generate-ITmodel-paper
+INFO 2024-08-17 22:52:15,094 middleware middleware.py:20 Response: 200 OK (32.07s)
+INFO 2024-08-17 22:52:15,095 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 200 6262
+INFO 2024-08-17 23:04:21,569 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 23:04:21,573 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-17 23:04:21,574 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 23:04:21,576 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 26
+INFO 2024-08-17 23:05:06,154 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-17 23:05:06,155 views views.py:35 Started login in gateWay view
+INFO 2024-08-17 23:05:07,082 views views.py:49 End login in gateWay view: Fail: Invalid credentials
+INFO 2024-08-17 23:05:07,083 middleware middleware.py:20 Response: 401 Unauthorized (0.93s)
+WARNING 2024-08-17 23:05:07,084 log log.py:241 Unauthorized: /api/login/
+WARNING 2024-08-17 23:05:07,084 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 401 32
+INFO 2024-08-17 23:05:14,164 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-17 23:05:14,166 views views.py:35 Started login in gateWay view
+INFO 2024-08-17 23:05:14,856 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-17 23:05:14,856 middleware middleware.py:20 Response: 200 OK (0.69s)
+INFO 2024-08-17 23:05:14,857 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-17 23:05:21,167 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 23:05:21,169 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-17 23:05:21,170 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 23:05:21,171 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 26
+INFO 2024-08-17 23:05:56,379 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 23:05:56,384 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-17 23:05:56,386 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 23:05:56,388 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 26
+INFO 2024-08-17 23:06:50,476 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-17 23:06:50,478 views views.py:35 Started login in gateWay view
+INFO 2024-08-17 23:06:51,070 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-17 23:06:51,070 middleware middleware.py:20 Response: 200 OK (0.59s)
+INFO 2024-08-17 23:06:51,071 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-17 23:07:18,068 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 23:07:18,071 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-17 23:07:18,073 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 23:07:18,074 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 26
+INFO 2024-08-17 23:07:51,603 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 23:07:51,607 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-17 23:07:51,608 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 23:07:51,610 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 26
+INFO 2024-08-17 23:08:12,983 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 23:08:12,987 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-17 23:08:12,988 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 23:08:12,991 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 26
+INFO 2024-08-17 23:08:54,696 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 23:08:54,697 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-17 23:08:54,698 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 23:08:54,698 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 26
+INFO 2024-08-17 23:09:13,269 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-17 23:09:13,271 views views.py:35 Started login in gateWay view
+INFO 2024-08-17 23:09:13,801 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-17 23:09:13,805 middleware middleware.py:20 Response: 200 OK (0.53s)
+INFO 2024-08-17 23:09:13,806 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-17 23:09:23,637 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 23:09:23,640 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-17 23:09:23,641 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 23:09:23,642 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 26
+INFO 2024-08-17 23:10:25,643 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-17 23:10:25,644 views views.py:35 Started login in gateWay view
+INFO 2024-08-17 23:10:26,152 views views.py:49 End login in gateWay view: Fail: Invalid credentials
+INFO 2024-08-17 23:10:26,153 middleware middleware.py:20 Response: 401 Unauthorized (0.51s)
+WARNING 2024-08-17 23:10:26,153 log log.py:241 Unauthorized: /api/login/
+WARNING 2024-08-17 23:10:26,154 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 401 32
+INFO 2024-08-17 23:10:36,323 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-17 23:10:36,325 views views.py:35 Started login in gateWay view
+INFO 2024-08-17 23:10:36,848 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-17 23:10:36,853 middleware middleware.py:20 Response: 200 OK (0.53s)
+INFO 2024-08-17 23:10:36,854 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-17 23:10:47,788 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 23:10:47,790 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-17 23:10:47,791 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-17 23:10:47,792 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 26
+INFO 2024-08-17 23:11:12,102 middleware middleware.py:13 Request: GET /api/service1/generate-ITmodel-paper/
+INFO 2024-08-17 23:11:40,155 views views.py:103 gateway_view success for service: service1, endpoint: generate-ITmodel-paper
+INFO 2024-08-17 23:11:40,157 middleware middleware.py:20 Response: 200 OK (28.05s)
+INFO 2024-08-17 23:11:40,158 basehttp basehttp.py:212 "GET /api/service1/generate-ITmodel-paper/ HTTP/1.1" 200 6110
+INFO 2024-08-18 22:41:39,624 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-18 22:41:39,629 views views.py:35 Started login in gateWay view
+INFO 2024-08-18 22:41:40,972 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-18 22:41:40,974 middleware middleware.py:20 Response: 200 OK (1.35s)
+INFO 2024-08-18 22:41:40,974 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-18 22:42:02,560 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-18 22:42:02,934 views views.py:107 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-18 22:42:02,937 middleware middleware.py:20 Response: 500 Internal Server Error (0.38s)
+ERROR 2024-08-18 22:42:02,938 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-18 22:42:02,940 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 119
+INFO 2024-08-18 22:44:59,644 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-18 22:44:59,744 views views.py:107 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-18 22:44:59,745 middleware middleware.py:20 Response: 500 Internal Server Error (0.10s)
+ERROR 2024-08-18 22:44:59,745 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-18 22:44:59,746 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 119
+INFO 2024-08-18 22:53:06,221 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-18 22:53:06,224 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-18 22:53:06,224 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-18 22:53:06,224 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 37
+INFO 2024-08-18 22:53:14,092 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-18 22:53:14,094 views views.py:35 Started login in gateWay view
+INFO 2024-08-18 22:53:15,056 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-18 22:53:15,056 middleware middleware.py:20 Response: 200 OK (0.96s)
+INFO 2024-08-18 22:53:15,058 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-18 22:53:28,974 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-18 22:53:29,092 views views.py:107 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-18 22:53:29,093 middleware middleware.py:20 Response: 500 Internal Server Error (0.12s)
+ERROR 2024-08-18 22:53:29,093 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-18 22:53:29,093 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 119
+INFO 2024-08-18 22:56:48,936 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-18 22:56:49,056 views views.py:107 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-18 22:56:49,057 middleware middleware.py:20 Response: 500 Internal Server Error (0.12s)
+ERROR 2024-08-18 22:56:49,058 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-18 22:56:49,059 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 119
+INFO 2024-08-18 23:13:04,031 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-18 23:13:04,032 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-18 23:13:04,032 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-18 23:13:04,032 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 37
+INFO 2024-08-18 23:13:09,828 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-18 23:13:09,829 views views.py:35 Started login in gateWay view
+INFO 2024-08-18 23:13:11,468 views views.py:43 End login in gateWay view: Successful
+INFO 2024-08-18 23:13:11,469 middleware middleware.py:20 Response: 200 OK (1.64s)
+INFO 2024-08-18 23:13:11,469 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-18 23:13:23,714 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-18 23:13:52,474 views views.py:103 gateway_view success for service: service1, endpoint: generate-ITmodel-paper
+INFO 2024-08-18 23:13:52,475 middleware middleware.py:20 Response: 200 OK (28.76s)
+INFO 2024-08-18 23:13:52,476 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 200 6093
+INFO 2024-08-19 09:53:12,988 autoreload autoreload.py:266 J:\research project new 2\researchProject\apiGateway\gateway\urls.py changed, reloading.
+INFO 2024-08-19 09:53:15,383 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-19 09:53:36,400 autoreload autoreload.py:266 J:\research project new 2\researchProject\apiGateway\gateway\views.py changed, reloading.
+INFO 2024-08-19 09:53:38,002 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-19 09:54:02,135 autoreload autoreload.py:266 J:\research project new 2\researchProject\apiGateway\gateway\views.py changed, reloading.
+INFO 2024-08-19 09:54:03,717 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-19 10:22:45,171 autoreload autoreload.py:266 J:\research project new 2\researchProject\apiGateway\gateway\views.py changed, reloading.
+INFO 2024-08-19 10:22:46,910 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-19 10:23:33,214 autoreload autoreload.py:266 J:\research project new 2\researchProject\apiGateway\gateway\views.py changed, reloading.
+INFO 2024-08-19 10:23:34,526 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-19 10:24:59,882 autoreload autoreload.py:266 J:\research project new 2\researchProject\apiGateway\gateway\views.py changed, reloading.
+INFO 2024-08-19 10:25:01,615 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-19 10:34:55,169 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-19 10:34:55,171 views views.py:37 Started login in gateWay view
+ERROR 2024-08-19 10:35:15,556 log log.py:241 Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\pool.py", line 1695, in connect
+    sock = _configured_socket(self.address, self.opts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\pool.py", line 1313, in _configured_socket
+    sock = _create_connection(address, options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\pool.py", line 1297, in _create_connection
+    raise err
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\pool.py", line 1290, in _create_connection
+
+    sock.connect(sa)
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\gateway\views.py", line 39, in login
+    user = UserEdu.objects.get(email=serializer.validated_data['email'])
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\manager.py", line 38, in __get__
+    queryset = queryset_class(owner, owner._get_collection())
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\document.py", line 232, in _get_collection
+    cls.ensure_indexes()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\document.py", line 916, in ensure_indexes
+    collection.create_index(fields, background=background, **opts)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\collection.py", line 2120, in create_index
+    return self.__create_indexes([index], session, **cmd_options)[0]
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\collection.py", line 1973, in __create_indexes
+    with self._conn_for_writes(session, operation=_Op.CREATE_INDEXES) as conn:
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1266, in _checkout
+    with server.checkout(handler=err_handler) as conn:
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1767, in checkout
+    conn = self._get_conn(checkout_started_time, handler=handler)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1926, in _get_conn
+    conn = self.connect(handler=handler)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1715, in connect
+    _raise_connection_failure(self.address, error, timeout_details=details)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 419, in _raise_connection_failure
+    raise NetworkTimeout(msg) from error
+pymongo.errors.NetworkTimeout: ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: timed out (configured timeouts: connectTimeoutMS: 20000.0ms)
+INFO 2024-09-10 08:54:33,529 middleware middleware.py:20 Response: 500 Internal Server Error (20.27s)
+ERROR 2024-09-10 08:54:33,529 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 500 185757
+INFO 2024-09-10 08:54:46,667 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 08:54:46,667 views views.py:35 Started login in gateWay view
+INFO 2024-09-10 08:55:07,141 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 08:55:07,141 views views.py:35 Started login in gateWay view
+INFO 2024-09-10 08:55:21,135 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 08:55:21,136 views views.py:35 Started login in gateWay view
+ERROR 2024-09-10 08:55:24,793 log log.py:241 Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\gateway\views.py", line 39, in login
+    user = UserEdu.objects.get(email=serializer.validated_data['email'])
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 274, in get
+    result = next(queryset)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 1629, in __next__
+    raw_doc = next(self._cursor)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1243, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1160, in _refresh
+    self.__send_message(q)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1039, in __send_message
+    response = client._run_operation(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1431, in _run_operation
+    return self._retryable_read(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1540, in _retryable_read
+    return self._retry_internal(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1507, in _retry_internal
+    ).run()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2353, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2483, in _read
+    self._server = self._get_server()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2439, in _get_server
+    return self._client._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1322, in _select_server
+    server = topology.select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 368, in select_server
+    server = self._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 346, in _select_server
+    servers = self.select_servers(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 253, in select_servers
+    server_descriptions = self._select_servers_loop(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 303, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 66dfbb93a7f906c7e9781a2f, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+INFO 2024-09-10 08:55:24,793 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 08:55:24,824 middleware middleware.py:20 Response: 500 Internal Server Error (60.45s)
+INFO 2024-09-10 08:55:24,824 views views.py:35 Started login in gateWay view
+ERROR 2024-09-10 08:55:24,831 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 500 200241
+INFO 2024-09-10 08:55:25,529 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 08:55:25,533 views views.py:35 Started login in gateWay view
+ERROR 2024-09-10 08:55:27,342 log log.py:241 Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\gateway\views.py", line 39, in login
+    user = UserEdu.objects.get(email=serializer.validated_data['email'])
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 274, in get
+    result = next(queryset)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 1629, in __next__
+    raw_doc = next(self._cursor)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1243, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1160, in _refresh
+    self.__send_message(q)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1039, in __send_message
+    response = client._run_operation(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1431, in _run_operation
+    return self._retryable_read(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1540, in _retryable_read
+    return self._retry_internal(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1507, in _retry_internal
+    ).run()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2353, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2483, in _read
+    self._server = self._get_server()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2439, in _get_server
+    return self._client._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1322, in _select_server
+    server = topology.select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 368, in select_server
+    server = self._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 346, in _select_server
+    servers = self.select_servers(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 253, in select_servers
+    server_descriptions = self._select_servers_loop(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 303, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 66dfbb93a7f906c7e9781a2f, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+INFO 2024-09-10 08:55:27,369 middleware middleware.py:20 Response: 500 Internal Server Error (60.68s)
+ERROR 2024-09-10 08:55:27,369 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 500 200240
+INFO 2024-09-10 08:55:28,059 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 08:55:28,059 views views.py:35 Started login in gateWay view
+ERROR 2024-09-10 08:55:30,388 log log.py:241 Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1695, in connect
+    sock = _configured_socket(self.address, self.opts)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1313, in _configured_socket
+    sock = _create_connection(address, options)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1266, in _create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\gateway\views.py", line 39, in login
+    user = UserEdu.objects.get(email=serializer.validated_data['email'])
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 274, in get
+    result = next(queryset)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 1629, in __next__
+    raw_doc = next(self._cursor)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1243, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1160, in _refresh
+    self.__send_message(q)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1039, in __send_message
+    response = client._run_operation(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1431, in _run_operation
+    return self._retryable_read(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1540, in _retryable_read
+    return self._retry_internal(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1507, in _retry_internal
+    ).run()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2358, in run
+    self._check_last_error()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2432, in _check_last_error
+    raise self._last_error
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2353, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2485, in _read
+    with self._client._conn_from_server(self._read_pref, self._server, self._session) as (
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1357, in _conn_from_server
+    with self._checkout(server, session) as conn:
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1266, in _checkout
+    with server.checkout(handler=err_handler) as conn:
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1767, in checkout
+    conn = self._get_conn(checkout_started_time, handler=handler)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1926, in _get_conn
+    conn = self.connect(handler=handler)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 1715, in connect
+    _raise_connection_failure(self.address, error, timeout_details=details)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\pool.py", line 427, in _raise_connection_failure
+    raise AutoReconnect(msg) from error
+pymongo.errors.AutoReconnect: ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: connectTimeoutMS: 20000.0ms)
+INFO 2024-09-10 08:55:30,413 middleware middleware.py:20 Response: 500 Internal Server Error (70.18s)
+ERROR 2024-09-10 08:55:30,414 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 500 225114
+ERROR 2024-09-10 08:55:47,468 log log.py:241 Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\gateway\views.py", line 39, in login
+    user = UserEdu.objects.get(email=serializer.validated_data['email'])
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 274, in get
+    result = next(queryset)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 1629, in __next__
+    raw_doc = next(self._cursor)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1243, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1160, in _refresh
+    self.__send_message(q)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1039, in __send_message
+    response = client._run_operation(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1431, in _run_operation
+    return self._retryable_read(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1540, in _retryable_read
+    return self._retry_internal(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1507, in _retry_internal
+    ).run()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2353, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2483, in _read
+    self._server = self._get_server()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2439, in _get_server
+    return self._client._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1322, in _select_server
+    server = topology.select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 368, in select_server
+    server = self._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 346, in _select_server
+    servers = self.select_servers(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 253, in select_servers
+    server_descriptions = self._select_servers_loop(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 303, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 66dfbb93a7f906c7e9781a2f, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+INFO 2024-09-10 08:55:47,482 middleware middleware.py:20 Response: 500 Internal Server Error (60.82s)
+ERROR 2024-09-10 08:55:47,482 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 500 200241
+ERROR 2024-09-10 08:56:07,696 log log.py:241 Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\gateway\views.py", line 39, in login
+    user = UserEdu.objects.get(email=serializer.validated_data['email'])
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 274, in get
+    result = next(queryset)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 1629, in __next__
+    raw_doc = next(self._cursor)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1243, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1160, in _refresh
+    self.__send_message(q)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1039, in __send_message
+    response = client._run_operation(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1431, in _run_operation
+    return self._retryable_read(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1540, in _retryable_read
+    return self._retry_internal(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1507, in _retry_internal
+    ).run()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2353, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2483, in _read
+    self._server = self._get_server()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2439, in _get_server
+    return self._client._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1322, in _select_server
+    server = topology.select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 368, in select_server
+    server = self._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 346, in _select_server
+    servers = self.select_servers(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 253, in select_servers
+    server_descriptions = self._select_servers_loop(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 303, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 66dfbb93a7f906c7e9781a2f, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+INFO 2024-09-10 08:56:07,706 middleware middleware.py:20 Response: 500 Internal Server Error (60.57s)
+ERROR 2024-09-10 08:56:07,708 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 500 200241
+ERROR 2024-09-10 08:56:15,365 log log.py:241 Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\gateway\views.py", line 39, in login
+    user = UserEdu.objects.get(email=serializer.validated_data['email'])
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 274, in get
+    result = next(queryset)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 1629, in __next__
+    raw_doc = next(self._cursor)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1243, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1160, in _refresh
+    self.__send_message(q)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1039, in __send_message
+    response = client._run_operation(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1431, in _run_operation
+    return self._retryable_read(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1540, in _retryable_read
+    return self._retry_internal(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1507, in _retry_internal
+    ).run()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2353, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2483, in _read
+    self._server = self._get_server()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2439, in _get_server
+    return self._client._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1322, in _select_server
+    server = topology.select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 368, in select_server
+    server = self._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 346, in _select_server
+    servers = self.select_servers(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 253, in select_servers
+    server_descriptions = self._select_servers_loop(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 303, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 66dfbb93a7f906c7e9781a2f, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+INFO 2024-09-10 08:56:15,377 middleware middleware.py:20 Response: 500 Internal Server Error (54.24s)
+ERROR 2024-09-10 08:56:15,377 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 500 196236
+ERROR 2024-09-10 08:56:15,448 log log.py:241 Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\gateway\views.py", line 39, in login
+    user = UserEdu.objects.get(email=serializer.validated_data['email'])
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 274, in get
+    result = next(queryset)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 1629, in __next__
+    raw_doc = next(self._cursor)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1243, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1160, in _refresh
+    self.__send_message(q)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1039, in __send_message
+    response = client._run_operation(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1431, in _run_operation
+    return self._retryable_read(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1540, in _retryable_read
+    return self._retry_internal(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1507, in _retry_internal
+    ).run()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2353, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2483, in _read
+    self._server = self._get_server()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2439, in _get_server
+    return self._client._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1322, in _select_server
+    server = topology.select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 368, in select_server
+    server = self._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 346, in _select_server
+    servers = self.select_servers(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 253, in select_servers
+    server_descriptions = self._select_servers_loop(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 303, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 66dfbb93a7f906c7e9781a2f, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+INFO 2024-09-10 08:56:15,462 middleware middleware.py:20 Response: 500 Internal Server Error (49.93s)
+ERROR 2024-09-10 08:56:15,463 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 500 196235
+ERROR 2024-09-10 08:56:15,913 log log.py:241 Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\gateway\views.py", line 39, in login
+    user = UserEdu.objects.get(email=serializer.validated_data['email'])
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 274, in get
+    result = next(queryset)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 1629, in __next__
+    raw_doc = next(self._cursor)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1243, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1160, in _refresh
+    self.__send_message(q)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1039, in __send_message
+    response = client._run_operation(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1431, in _run_operation
+    return self._retryable_read(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1540, in _retryable_read
+    return self._retry_internal(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1507, in _retry_internal
+    ).run()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2353, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2483, in _read
+    self._server = self._get_server()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2439, in _get_server
+    return self._client._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1322, in _select_server
+    server = topology.select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 368, in select_server
+    server = self._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 346, in _select_server
+    servers = self.select_servers(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 253, in select_servers
+    server_descriptions = self._select_servers_loop(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 303, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 66dfbb93a7f906c7e9781a2f, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+ERROR 2024-09-10 08:56:15,944 log log.py:241 Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\gateway\views.py", line 39, in login
+    user = UserEdu.objects.get(email=serializer.validated_data['email'])
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 274, in get
+    result = next(queryset)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\mongoengine\queryset\base.py", line 1629, in __next__
+    raw_doc = next(self._cursor)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1243, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1160, in _refresh
+    self.__send_message(q)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\cursor.py", line 1039, in __send_message
+    response = client._run_operation(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1431, in _run_operation
+    return self._retryable_read(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1540, in _retryable_read
+    return self._retry_internal(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1507, in _retry_internal
+    ).run()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2353, in run
+    return self._read() if self._is_read else self._write()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2483, in _read
+    self._server = self._get_server()
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 2439, in _get_server
+    return self._client._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\mongo_client.py", line 1322, in _select_server
+    server = topology.select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 368, in select_server
+    server = self._select_server(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 346, in _select_server
+    servers = self.select_servers(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 253, in select_servers
+    server_descriptions = self._select_servers_loop(
+  File "C:\Users\ASUS\Documents\GitHub\researchProject\apiGateway\Venv\lib\site-packages\pymongo\topology.py", line 303, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 66dfbb93a7f906c7e9781a2f, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-00.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-lbxu2ew-shard-00-02.8grcvgo.mongodb.net:27017: [Errno 11001] getaddrinfo failed (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+INFO 2024-09-10 08:56:15,944 middleware middleware.py:20 Response: 500 Internal Server Error (47.88s)
+INFO 2024-09-10 08:56:15,951 middleware middleware.py:20 Response: 500 Internal Server Error (51.13s)
+ERROR 2024-09-10 08:56:15,951 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 500 196235
+ERROR 2024-09-10 08:56:15,954 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 500 196235
+INFO 2024-09-10 09:30:33,441 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-10 09:31:43,249 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 09:31:43,249 views views.py:35 Started login in gateWay view
+INFO 2024-09-10 09:31:44,309 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-10 09:31:44,309 middleware middleware.py:20 Response: 200 OK (1.06s)
+INFO 2024-09-10 09:31:44,309 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-09-10 09:37:33,555 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-10 09:38:58,604 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 09:38:58,604 views views.py:35 Started login in gateWay view
+INFO 2024-09-10 09:38:59,688 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-10 09:38:59,704 middleware middleware.py:20 Response: 200 OK (1.10s)
+INFO 2024-09-10 09:38:59,704 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-09-10 09:46:20,134 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 09:46:20,134 views views.py:35 Started login in gateWay view
+INFO 2024-09-10 09:46:20,514 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-10 09:46:20,514 middleware middleware.py:20 Response: 200 OK (0.38s)
+INFO 2024-09-10 09:46:20,514 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-09-10 09:49:32,752 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-10 09:49:32,752 views views.py:35 Started login in gateWay view
+INFO 2024-09-10 09:49:33,068 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-10 09:49:33,068 middleware middleware.py:20 Response: 200 OK (0.32s)
+INFO 2024-09-10 09:49:33,068 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-09-12 23:30:03,559 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-09-12 23:30:48,023 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-09-12 23:30:48,024 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-09-12 23:30:48,025 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-09-12 23:30:48,028 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-12 23:30:48,028 views views.py:35 Started login in gateWay view
+INFO 2024-09-12 23:30:48,974 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-12 23:30:48,974 middleware middleware.py:20 Response: 200 OK (0.95s)
+INFO 2024-09-12 23:30:48,974 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-09-12 23:34:26,100 middleware middleware.py:13 Request: OPTIONS /api/register/
+INFO 2024-09-12 23:34:26,101 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-09-12 23:34:26,102 basehttp basehttp.py:212 "OPTIONS /api/register/ HTTP/1.1" 200 0
+INFO 2024-09-12 23:34:26,110 middleware middleware.py:13 Request: POST /api/register/
+INFO 2024-09-12 23:34:26,111 views views.py:20 Started register in gateWay view
+INFO 2024-09-12 23:34:26,582 views views.py:25 End register in gateWay view: Successful
+INFO 2024-09-12 23:34:26,582 middleware middleware.py:20 Response: 201 Created (0.47s)
+INFO 2024-09-12 23:34:26,582 basehttp basehttp.py:212 "POST /api/register/ HTTP/1.1" 201 69
+INFO 2024-09-12 23:34:43,723 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-09-12 23:34:43,725 views views.py:35 Started login in gateWay view
+INFO 2024-09-12 23:34:44,101 views views.py:43 End login in gateWay view: Successful
+INFO 2024-09-12 23:34:44,116 middleware middleware.py:20 Response: 200 OK (0.39s)
+INFO 2024-09-12 23:34:44,116 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-21 21:01:46,383 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-10-21 21:03:38,455 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-10-21 21:03:38,456 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-10-21 21:03:38,457 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-10-21 21:03:38,459 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-10-21 21:03:38,460 views views.py:35 Started login in gateWay view
+INFO 2024-10-21 21:03:39,066 views views.py:43 End login in gateWay view: Successful
+INFO 2024-10-21 21:03:39,066 middleware middleware.py:20 Response: 200 OK (0.61s)
+INFO 2024-10-21 21:03:39,066 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-21 21:07:43,558 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-10-21 21:07:43,559 views views.py:35 Started login in gateWay view
+INFO 2024-10-21 21:07:43,786 views views.py:43 End login in gateWay view: Successful
+INFO 2024-10-21 21:07:43,787 middleware middleware.py:20 Response: 200 OK (0.23s)
+INFO 2024-10-21 21:07:43,788 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-21 22:02:07,323 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-10-21 22:03:05,699 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-10-21 22:03:05,699 views views.py:35 Started login in gateWay view
+INFO 2024-10-21 22:03:06,310 views views.py:43 End login in gateWay view: Successful
+INFO 2024-10-21 22:03:06,311 middleware middleware.py:20 Response: 200 OK (0.61s)
+INFO 2024-10-21 22:03:06,312 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-22 11:35:16,670 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-10-22 11:36:21,510 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-10-22 11:36:21,511 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-10-22 11:36:21,512 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-10-22 11:36:21,514 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-10-22 11:36:21,516 views views.py:35 Started login in gateWay view
+INFO 2024-10-22 11:36:22,124 views views.py:43 End login in gateWay view: Successful
+INFO 2024-10-22 11:36:22,124 middleware middleware.py:20 Response: 200 OK (0.61s)
+INFO 2024-10-22 11:36:22,124 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-22 11:57:15,400 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-10-22 11:58:57,971 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-10-22 11:58:57,974 views views.py:35 Started login in gateWay view
+INFO 2024-10-22 11:58:58,689 views views.py:43 End login in gateWay view: Successful
+INFO 2024-10-22 11:58:58,689 middleware middleware.py:20 Response: 200 OK (0.72s)
+INFO 2024-10-22 11:58:58,689 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-22 12:14:53,999 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-10-22 12:15:35,502 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-10-22 12:15:35,505 views views.py:35 Started login in gateWay view
+INFO 2024-10-22 12:15:36,210 views views.py:43 End login in gateWay view: Successful
+INFO 2024-10-22 12:15:36,211 middleware middleware.py:20 Response: 200 OK (0.71s)
+INFO 2024-10-22 12:15:36,213 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-22 17:37:17,964 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-10-22 17:39:10,642 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-10-22 17:39:10,644 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-10-22 17:39:10,644 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-10-22 17:39:10,646 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-10-22 17:39:10,647 views views.py:35 Started login in gateWay view
+INFO 2024-10-22 17:39:11,473 views views.py:43 End login in gateWay view: Successful
+INFO 2024-10-22 17:39:11,474 middleware middleware.py:20 Response: 200 OK (0.83s)
+INFO 2024-10-22 17:39:11,475 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-22 17:57:58,618 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-10-22 17:57:58,619 views views.py:35 Started login in gateWay view
+INFO 2024-10-22 17:57:58,982 views views.py:43 End login in gateWay view: Successful
+INFO 2024-10-22 17:57:58,982 middleware middleware.py:20 Response: 200 OK (0.36s)
+INFO 2024-10-22 17:57:58,982 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-23 20:43:16,788 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-10-23 20:44:05,680 middleware middleware.py:13 Request: OPTIONS /api/login/
+INFO 2024-10-23 20:44:05,682 middleware middleware.py:20 Response: 200 OK (0.00s)
+INFO 2024-10-23 20:44:05,684 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-10-23 20:44:05,688 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-10-23 20:44:05,692 views views.py:35 Started login in gateWay view
+INFO 2024-10-23 20:44:06,398 views views.py:43 End login in gateWay view: Successful
+INFO 2024-10-23 20:44:06,398 middleware middleware.py:20 Response: 200 OK (0.71s)
+INFO 2024-10-23 20:44:06,398 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+=======
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\gateway\views.py", line 41, in login
+    user = UserEdu.objects.get(email=serializer.validated_data['email'])
+           ^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\mongoengine\queryset\manager.py", line 38, in __get__
+    queryset = queryset_class(owner, owner._get_collection())
+                                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\mongoengine\document.py", line 232, in _get_collection
+    cls.ensure_indexes()
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\mongoengine\document.py", line 916, in ensure_indexes
+    collection.create_index(fields, background=background, **opts)
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\collection.py", line 2120, in create_index
+    return self.__create_indexes([index], session, **cmd_options)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\_csot.py", line 108, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\collection.py", line 1973, in __create_indexes
+    with self._conn_for_writes(session, operation=_Op.CREATE_INDEXES) as conn:
+  File "C:\Program Files\Python\Python311\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\mongo_client.py", line 1266, in _checkout
+    with server.checkout(handler=err_handler) as conn:
+  File "C:\Program Files\Python\Python311\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\pool.py", line 1767, in checkout
+    conn = self._get_conn(checkout_started_time, handler=handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\pool.py", line 1926, in _get_conn
+    conn = self.connect(handler=handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\pool.py", line 1715, in connect
+    _raise_connection_failure(self.address, error, timeout_details=details)
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\pymongo\pool.py", line 419, in _raise_connection_failure
+    raise NetworkTimeout(msg) from error
+pymongo.errors.NetworkTimeout: ac-lbxu2ew-shard-00-01.8grcvgo.mongodb.net:27017: timed out (configured timeouts: connectTimeoutMS: 20000.0ms)
+INFO 2024-08-19 10:35:15,575 middleware middleware.py:20 Response: 500 Internal Server Error (20.40s)
+ERROR 2024-08-19 10:35:15,576 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 500 186436
+INFO 2024-08-19 10:36:05,837 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-19 10:36:05,838 views views.py:37 Started login in gateWay view
+INFO 2024-08-19 10:36:07,037 views views.py:45 End login in gateWay view: Successful
+INFO 2024-08-19 10:36:07,040 middleware middleware.py:20 Response: 200 OK (1.20s)
+INFO 2024-08-19 10:36:07,041 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-19 10:36:52,227 middleware middleware.py:13 Request: GET /api/users/testuser2@example.com/
+INFO 2024-08-19 10:36:52,321 views views.py:127 user_detail called for email: testuser2@example.com
+INFO 2024-08-19 10:36:52,411 views views.py:168 user_detail GET successful for email: testuser2@example.com
+INFO 2024-08-19 10:36:52,415 middleware middleware.py:20 Response: 200 OK (0.19s)
+INFO 2024-08-19 10:36:52,418 basehttp basehttp.py:212 "GET /api/users/testuser2@example.com/ HTTP/1.1" 200 72
+INFO 2024-08-19 11:40:35,593 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-19 11:40:35,595 views views.py:37 Started login in gateWay view
+INFO 2024-08-19 11:40:36,730 views views.py:45 End login in gateWay view: Successful
+INFO 2024-08-19 11:40:36,731 middleware middleware.py:20 Response: 200 OK (1.14s)
+INFO 2024-08-19 11:40:36,733 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-19 11:40:49,306 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:40:49,430 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:40:49,438 middleware middleware.py:20 Response: 500 Internal Server Error (0.13s)
+ERROR 2024-08-19 11:40:49,440 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:40:49,443 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 119
+INFO 2024-08-19 11:43:27,486 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:43:27,605 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:43:27,606 middleware middleware.py:20 Response: 500 Internal Server Error (0.12s)
+ERROR 2024-08-19 11:43:27,607 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:43:27,607 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 119
+INFO 2024-08-19 11:43:42,554 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:43:42,650 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:43:42,651 middleware middleware.py:20 Response: 500 Internal Server Error (0.10s)
+ERROR 2024-08-19 11:43:42,652 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:43:42,652 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 119
+INFO 2024-08-19 11:44:54,090 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:44:54,196 middleware middleware.py:13 Request: GET /api/users/None/
+INFO 2024-08-19 11:44:54,200 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:44:54,201 log log.py:241 Forbidden: /api/users/None/
+WARNING 2024-08-19 11:44:54,202 basehttp basehttp.py:212 "GET /api/users/None/ HTTP/1.1" 403 58
+ERROR 2024-08-19 11:44:54,208 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:44:54,209 middleware middleware.py:20 Response: 500 Internal Server Error (0.12s)
+ERROR 2024-08-19 11:44:54,210 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:44:54,210 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 109
+INFO 2024-08-19 11:45:37,361 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:45:37,362 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:45:37,363 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-19 11:45:37,363 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 37
+INFO 2024-08-19 11:45:43,434 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-19 11:45:43,435 views views.py:37 Started login in gateWay view
+INFO 2024-08-19 11:45:44,200 views views.py:45 End login in gateWay view: Successful
+INFO 2024-08-19 11:45:44,200 middleware middleware.py:20 Response: 200 OK (0.77s)
+INFO 2024-08-19 11:45:44,202 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-19 11:46:05,952 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:46:06,041 middleware middleware.py:13 Request: GET /api/users/None/
+INFO 2024-08-19 11:46:06,043 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:46:06,043 log log.py:241 Forbidden: /api/users/None/
+WARNING 2024-08-19 11:46:06,044 basehttp basehttp.py:212 "GET /api/users/None/ HTTP/1.1" 403 58
+ERROR 2024-08-19 11:46:06,048 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:46:06,049 middleware middleware.py:20 Response: 500 Internal Server Error (0.10s)
+ERROR 2024-08-19 11:46:06,050 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:46:06,050 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 109
+INFO 2024-08-19 11:46:18,692 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper
+ERROR 2024-08-19 11:46:18,746 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper
+Traceback (most recent call last):
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "J:\research project new 2\researchProject\apiGateway\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/service1/generate-ITmodel-paper/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+INFO 2024-08-19 11:46:18,753 middleware middleware.py:20 Response: 500 Internal Server Error (0.06s)
+ERROR 2024-08-19 11:46:18,754 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper HTTP/1.1" 500 75267
+INFO 2024-08-19 11:46:43,648 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:46:43,740 middleware middleware.py:13 Request: GET /api/users/None/
+INFO 2024-08-19 11:46:43,742 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:46:43,742 log log.py:241 Forbidden: /api/users/None/
+WARNING 2024-08-19 11:46:43,743 basehttp basehttp.py:212 "GET /api/users/None/ HTTP/1.1" 403 58
+ERROR 2024-08-19 11:46:43,746 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:46:43,747 middleware middleware.py:20 Response: 500 Internal Server Error (0.10s)
+ERROR 2024-08-19 11:46:43,747 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:46:43,748 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 109
+INFO 2024-08-19 11:46:54,521 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:46:54,620 middleware middleware.py:13 Request: GET /api/users/None/
+INFO 2024-08-19 11:46:54,623 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:46:54,623 log log.py:241 Forbidden: /api/users/None/
+WARNING 2024-08-19 11:46:54,624 basehttp basehttp.py:212 "GET /api/users/None/ HTTP/1.1" 403 58
+ERROR 2024-08-19 11:46:54,628 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:46:54,628 middleware middleware.py:20 Response: 500 Internal Server Error (0.11s)
+ERROR 2024-08-19 11:46:54,629 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:46:54,630 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 109
+INFO 2024-08-19 11:47:56,773 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:47:56,865 middleware middleware.py:13 Request: GET /api/users/None/
+INFO 2024-08-19 11:47:56,868 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:47:56,869 log log.py:241 Forbidden: /api/users/None/
+WARNING 2024-08-19 11:47:56,870 basehttp basehttp.py:212 "GET /api/users/None/ HTTP/1.1" 403 58
+ERROR 2024-08-19 11:47:56,877 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:47:56,879 middleware middleware.py:20 Response: 500 Internal Server Error (0.11s)
+ERROR 2024-08-19 11:47:56,880 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:47:56,881 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 109
+INFO 2024-08-19 11:49:31,643 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-19 11:49:31,643 views views.py:37 Started login in gateWay view
+INFO 2024-08-19 11:49:32,250 views views.py:45 End login in gateWay view: Successful
+INFO 2024-08-19 11:49:32,250 middleware middleware.py:20 Response: 200 OK (0.61s)
+INFO 2024-08-19 11:49:32,250 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-19 11:49:41,740 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:49:41,829 middleware middleware.py:13 Request: GET /api/users/None/
+INFO 2024-08-19 11:49:41,834 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:49:41,835 log log.py:241 Forbidden: /api/users/None/
+WARNING 2024-08-19 11:49:41,835 basehttp basehttp.py:212 "GET /api/users/None/ HTTP/1.1" 403 58
+ERROR 2024-08-19 11:49:41,841 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 400 Client Error: Bad Request for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:49:41,842 middleware middleware.py:20 Response: 500 Internal Server Error (0.10s)
+ERROR 2024-08-19 11:49:41,843 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:49:41,843 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 109
+INFO 2024-08-19 11:50:08,366 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:50:08,462 middleware middleware.py:13 Request: GET /api/users/testuser2@example.com/
+INFO 2024-08-19 11:50:08,463 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:50:08,464 log log.py:241 Forbidden: /api/users/testuser2@example.com/
+WARNING 2024-08-19 11:50:08,464 basehttp basehttp.py:212 "GET /api/users/testuser2@example.com/ HTTP/1.1" 403 58
+INFO 2024-08-19 11:50:37,967 views views.py:105 gateway_view success for service: service1, endpoint: generate-ITmodel-paper
+INFO 2024-08-19 11:50:37,972 middleware middleware.py:20 Response: 200 OK (29.61s)
+INFO 2024-08-19 11:50:37,974 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 200 6378
+INFO 2024-08-19 11:51:33,684 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:51:33,784 middleware middleware.py:13 Request: GET /api/users/testuser2@example.com/
+INFO 2024-08-19 11:51:33,785 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:51:33,786 log log.py:241 Forbidden: /api/users/testuser2@example.com/
+WARNING 2024-08-19 11:51:33,787 basehttp basehttp.py:212 "GET /api/users/testuser2@example.com/ HTTP/1.1" 403 58
+INFO 2024-08-19 11:52:02,026 views views.py:105 gateway_view success for service: service1, endpoint: generate-ITmodel-paper
+INFO 2024-08-19 11:52:02,028 middleware middleware.py:20 Response: 200 OK (28.34s)
+INFO 2024-08-19 11:52:02,029 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 200 6019
+INFO 2024-08-19 11:52:51,872 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:52:51,977 middleware middleware.py:13 Request: GET /api/users/testuser2@example.com/
+INFO 2024-08-19 11:52:51,979 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:52:51,980 log log.py:241 Forbidden: /api/users/testuser2@example.com/
+WARNING 2024-08-19 11:52:51,980 basehttp basehttp.py:212 "GET /api/users/testuser2@example.com/ HTTP/1.1" 403 58
+ERROR 2024-08-19 11:52:51,988 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:52:51,989 middleware middleware.py:20 Response: 500 Internal Server Error (0.12s)
+ERROR 2024-08-19 11:52:51,990 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:52:51,991 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 119
+INFO 2024-08-19 11:53:48,596 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:53:48,696 middleware middleware.py:13 Request: GET /api/users/testuser2@example.com/
+INFO 2024-08-19 11:53:48,698 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:53:48,699 log log.py:241 Forbidden: /api/users/testuser2@example.com/
+WARNING 2024-08-19 11:53:48,700 basehttp basehttp.py:212 "GET /api/users/testuser2@example.com/ HTTP/1.1" 403 58
+ERROR 2024-08-19 11:53:48,709 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:53:48,711 middleware middleware.py:20 Response: 500 Internal Server Error (0.11s)
+ERROR 2024-08-19 11:53:48,712 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:53:48,712 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 119
+INFO 2024-08-19 11:54:16,483 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-19 11:54:16,484 views views.py:37 Started login in gateWay view
+INFO 2024-08-19 11:54:17,195 views views.py:45 End login in gateWay view: Successful
+INFO 2024-08-19 11:54:17,196 middleware middleware.py:20 Response: 200 OK (0.71s)
+INFO 2024-08-19 11:54:17,196 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-19 11:54:30,635 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:54:30,720 middleware middleware.py:13 Request: GET /api/users/testuser2@example.com/
+INFO 2024-08-19 11:54:30,722 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:54:30,722 log log.py:241 Forbidden: /api/users/testuser2@example.com/
+WARNING 2024-08-19 11:54:30,723 basehttp basehttp.py:212 "GET /api/users/testuser2@example.com/ HTTP/1.1" 403 58
+ERROR 2024-08-19 11:54:30,730 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:54:30,731 middleware middleware.py:20 Response: 500 Internal Server Error (0.10s)
+ERROR 2024-08-19 11:54:30,731 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:54:30,732 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 119
+INFO 2024-08-19 11:56:42,118 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:56:42,191 middleware middleware.py:13 Request: GET /api/users/testuser2@example.com/
+INFO 2024-08-19 11:56:42,193 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:56:42,193 log log.py:241 Forbidden: /api/users/testuser2@example.com/
+WARNING 2024-08-19 11:56:42,194 basehttp basehttp.py:212 "GET /api/users/testuser2@example.com/ HTTP/1.1" 403 58
+ERROR 2024-08-19 11:56:42,201 views views.py:109 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/qizGenerator/generate-ITmodel-paper
+INFO 2024-08-19 11:56:42,202 middleware middleware.py:20 Response: 500 Internal Server Error (0.08s)
+ERROR 2024-08-19 11:56:42,202 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 11:56:42,202 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 119
+INFO 2024-08-19 11:57:54,710 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 11:57:54,826 middleware middleware.py:13 Request: GET /api/users/testuser2@example.com/
+INFO 2024-08-19 11:57:54,827 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 11:57:54,827 log log.py:241 Forbidden: /api/users/testuser2@example.com/
+WARNING 2024-08-19 11:57:54,828 basehttp basehttp.py:212 "GET /api/users/testuser2@example.com/ HTTP/1.1" 403 58
+INFO 2024-08-19 11:58:23,818 views views.py:105 gateway_view success for service: service1, endpoint: generate-ITmodel-paper
+INFO 2024-08-19 11:58:23,819 middleware middleware.py:20 Response: 200 OK (29.11s)
+INFO 2024-08-19 11:58:23,820 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 200 5851
+INFO 2024-08-19 12:01:23,654 autoreload autoreload.py:266 J:\research project new 2\researchProject\apiGateway\gateway\views.py changed, reloading.
+INFO 2024-08-19 12:01:25,354 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-19 15:26:30,688 autoreload autoreload.py:266 J:\research project new 2\researchProject\apiGateway\gateway\views.py changed, reloading.
+INFO 2024-08-19 15:39:34,132 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-19 15:39:50,662 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-19 15:39:50,663 views views.py:36 Started login in gateWay view
+INFO 2024-08-19 15:39:51,979 views views.py:44 End login in gateWay view: Successful
+INFO 2024-08-19 15:39:51,980 middleware middleware.py:20 Response: 200 OK (1.32s)
+INFO 2024-08-19 15:39:51,980 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-19 15:40:18,021 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 15:40:18,127 middleware middleware.py:13 Request: GET /api/users/testuser2@example.com/
+INFO 2024-08-19 15:40:18,197 views views.py:136 user_detail called for email: testuser2@example.com
+INFO 2024-08-19 15:40:18,276 views views.py:145 user_detail GET successful for email: testuser2@example.com
+INFO 2024-08-19 15:40:18,277 middleware middleware.py:20 Response: 200 OK (0.15s)
+INFO 2024-08-19 15:40:18,277 basehttp basehttp.py:212 "GET /api/users/testuser2@example.com/ HTTP/1.1" 200 72
+INFO 2024-08-19 15:40:46,728 views views.py:113 gateway_view success for service: service1, endpoint: generate-ITmodel-paper
+INFO 2024-08-19 15:40:46,729 middleware middleware.py:20 Response: 200 OK (28.71s)
+INFO 2024-08-19 15:40:46,730 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 200 5782
+INFO 2024-08-19 15:53:20,630 autoreload autoreload.py:266 J:\research project new 2\researchProject\apiGateway\api_gateway\settings.py changed, reloading.
+INFO 2024-08-19 15:53:22,158 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-08-19 15:59:23,545 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 15:59:23,547 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 15:59:23,547 log log.py:241 Forbidden: /api/service1/generate-ITmodel-paper/
+WARNING 2024-08-19 15:59:23,548 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 403 37
+INFO 2024-08-19 15:59:31,786 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-19 15:59:31,787 views views.py:36 Started login in gateWay view
+INFO 2024-08-19 15:59:33,243 views views.py:44 End login in gateWay view: Successful
+INFO 2024-08-19 15:59:33,246 middleware middleware.py:20 Response: 200 OK (1.46s)
+INFO 2024-08-19 15:59:33,246 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-19 15:59:43,550 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 15:59:45,693 views views.py:117 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: HTTPConnectionPool(host='127.0.0.1', port=8001): Max retries exceeded with url: /qizGenerator/generate-ITmodel-paper (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000218D7377610>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+INFO 2024-08-19 15:59:45,695 middleware middleware.py:20 Response: 500 Internal Server Error (2.14s)
+ERROR 2024-08-19 15:59:45,696 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 15:59:45,697 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 359
+INFO 2024-08-19 16:00:27,166 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 16:00:29,284 views views.py:117 gateway_view RequestException for service: service1, endpoint: generate-ITmodel-paper, error: HTTPConnectionPool(host='127.0.0.1', port=8001): Max retries exceeded with url: /qizGenerator/generate-ITmodel-paper (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000218D73A1BD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+INFO 2024-08-19 16:00:29,287 middleware middleware.py:20 Response: 500 Internal Server Error (2.12s)
+ERROR 2024-08-19 16:00:29,288 log log.py:241 Internal Server Error: /api/service1/generate-ITmodel-paper/
+ERROR 2024-08-19 16:00:29,289 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 500 359
+INFO 2024-08-19 17:57:40,709 middleware middleware.py:13 Request: POST /api/service1/generate-ITmodel-paper/
+INFO 2024-08-19 17:57:41,325 middleware middleware.py:13 Request: GET /api/users/testuser2@example.com/
+INFO 2024-08-19 17:57:41,401 views views.py:136 user_detail called for email: testuser2@example.com
+INFO 2024-08-19 17:57:41,461 views views.py:145 user_detail GET successful for email: testuser2@example.com
+INFO 2024-08-19 17:57:41,465 middleware middleware.py:20 Response: 200 OK (0.14s)
+INFO 2024-08-19 17:57:41,466 basehttp basehttp.py:212 "GET /api/users/testuser2@example.com/ HTTP/1.1" 200 72
+INFO 2024-08-19 17:58:17,613 views views.py:113 gateway_view success for service: service1, endpoint: generate-ITmodel-paper
+INFO 2024-08-19 17:58:17,614 middleware middleware.py:20 Response: 200 OK (36.91s)
+INFO 2024-08-19 17:58:17,615 basehttp basehttp.py:212 "POST /api/service1/generate-ITmodel-paper/ HTTP/1.1" 200 5852
+INFO 2024-08-19 22:07:27,991 middleware middleware.py:13 Request: POST /api/login/
+INFO 2024-08-19 22:07:28,014 views views.py:36 Started login in gateWay view
+INFO 2024-08-19 22:07:29,349 views views.py:44 End login in gateWay view: Successful
+INFO 2024-08-19 22:07:29,352 middleware middleware.py:20 Response: 200 OK (1.36s)
+INFO 2024-08-19 22:07:29,357 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-08-19 22:07:49,027 middleware middleware.py:13 Request: POST /api/service1/save-response/
+INFO 2024-08-19 22:07:49,992 views views.py:113 gateway_view success for service: service1, endpoint: save-response
+INFO 2024-08-19 22:07:50,001 middleware middleware.py:20 Response: 201 Created (0.97s)
+INFO 2024-08-19 22:07:50,002 basehttp basehttp.py:212 "POST /api/service1/save-response/ HTTP/1.1" 201 47
+INFO 2024-08-19 22:17:21,081 middleware middleware.py:13 Request: POST /api/service1/get-response/
+INFO 2024-08-19 22:17:21,086 middleware middleware.py:20 Response: 403 Forbidden (0.00s)
+WARNING 2024-08-19 22:17:21,086 log log.py:241 Forbidden: /api/service1/get-response/
+WARNING 2024-08-19 22:17:21,087 basehttp basehttp.py:212 "POST /api/service1/get-response/ HTTP/1.1" 403 58
+INFO 2024-08-19 22:17:55,476 middleware middleware.py:13 Request: POST /api/service1/get-response/
+INFO 2024-08-19 22:17:55,779 views views.py:113 gateway_view success for service: service1, endpoint: get-response
+INFO 2024-08-19 22:17:55,787 middleware middleware.py:20 Response: 200 OK (0.31s)
+INFO 2024-08-19 22:17:55,789 basehttp basehttp.py:212 "POST /api/service1/get-response/ HTTP/1.1" 200 78

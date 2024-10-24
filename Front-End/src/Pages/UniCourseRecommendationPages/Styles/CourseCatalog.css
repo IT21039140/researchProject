@@ -73,7 +73,7 @@
 
 .view-toggle button {
   padding: 8px 10px;
-  background-color: #024dfc;
+  background-color: #000000;
   color: white;
   border: none;
   border-radius: 4px;
@@ -203,7 +203,7 @@
 }
 
 .list-view-table th {
-  background-color: #000000;
+  background-color: #133aea;
   color: white;
 }
 
