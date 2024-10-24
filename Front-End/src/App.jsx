@@ -6,7 +6,7 @@ import QuestionGenerator from './commonPages/QuestionGenComponent/QuestionGenera
 import StaticPage from './static/StaticPage';
 import SubscriptionPage from './commonPages/LogIn/SubscriptionForm';
 import ChatBot from './commonPages/ChatBot/index';
-
+import CareerGuidance from "./Pages/CareerGuidance/CareerGuidance.jsx";
 
 function App() {
   return (
@@ -20,6 +20,9 @@ function App() {
         <Route path="/question-generator" element={<Dashboard isQuestionGenerator={true} />} />
         <Route path="/subscribe" element={<SubscriptionPage />} />
         <Route path="/chat" element={<ChatBot/>} />
+        <Route path="/career_guidance" element={<Dashboard />}>
+             <Route index element={<CareerGuidance />} />
+        </Route>
 
       </Routes>
     </Router>
