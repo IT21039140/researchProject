@@ -1,20 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
 
-body {
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #333;
-}
 
-.container {
+.login-container {
+    margin-top: 50px !important;
     display: flex;
     justify-content: space-between;
     background-color: #fff;
@@ -23,6 +10,7 @@ body {
     overflow: hidden;
     max-width: 1200px; /* Increase max-width for the container */
     width: 100%;
+    margin: auto;
 }
 
 .login-form {

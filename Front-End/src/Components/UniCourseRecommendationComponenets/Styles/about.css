@@ -1,0 +1,63 @@
+.about-us-section {
+    padding: 60px !important;
+    margin: auto !important;
+    margin-bottom: 20px !important;
+    
+}
+
+.about-text {
+    padding-right: 30px !important;
+}
+
+.about-title {
+    font-size: 2.5rem !important;
+    color: var(--dark) !important;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    color: var(--dark);
+}
+
+.about-details {
+    font-size: 1rem;
+    color: var(--dark);
+}
+
+.about-buttons .btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.about-buttons .btn-primary:hover {
+    background-color: var(--dark);
+    border-color: var(--dark);
+}
+
+.about-ceo {
+    margin-top: 20px;
+}
+
+.about-img-container {
+    position: relative;
+}
+
+.about-img {
+    transition: background 0.5s ease;
+}
+
+.about-img:hover {
+    background: var(--primary) !important;
+}
+
+.about-img-side {
+    margin-top: -150px;
+}
+
+.about-video {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* styles.css */
+/* styles.css */

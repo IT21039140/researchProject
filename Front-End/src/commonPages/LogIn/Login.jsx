@@ -11,7 +11,7 @@ const Login = () => {
   const switchToLogin = () => setIsLogin(true);
 
   return (
-    <div className="container">
+    <div className="login-container">
       {isLogin ? (
         <LoginForm switchToRegister={switchToRegister} />
       ) : (

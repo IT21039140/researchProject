@@ -7,10 +7,12 @@ import StaticPage from './static/StaticPage';
 import SubscriptionPage from './commonPages/LogIn/SubscriptionForm';
 import ChatBot from './commonPages/ChatBot/index';
 
+
 function App() {
   return (
     <Router>
       <Routes>
+
         {/* <Route path="/" element={<StaticPage/>}/>
         <Route path="/login" element={<Login />} /> */}
         <Route path="/" element={<Login />} />
@@ -18,6 +20,7 @@ function App() {
         <Route path="/question-generator" element={<Dashboard isQuestionGenerator={true} />} />
         <Route path="/subscribe" element={<SubscriptionPage />} />
         <Route path="/chat" element={<ChatBot/>} />
+
       </Routes>
     </Router>
   );
@@ -64,4 +67,3 @@ export default App;
 //     </>
 //   )
 // }
-

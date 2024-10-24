@@ -1,0 +1,151 @@
+.course-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.course-content h1 {
+  margin-bottom: 30px;
+}
+
+.filters1 {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.filters1 input,
+.filters1 select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px;
+  flex-grow: 1;
+}
+
+.filters1 button {
+  padding: 8px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filters1 button:hover {
+  background-color: #0056b3;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  width: 250px;
+}
+
+.search-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.search-icon {
+  margin-right: 8px;
+}
+
+.reset-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.reset-button svg {
+  margin-right: 5px;
+}
+
+.course-catalog1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-left: 100px;
+}
+
+.course-card1 {
+  background-color: hwb(0 100% 0%);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.course-card1 h3 {
+  color: #007bff;
+}
+
+.university-card {
+  background-color: #e3f2fd;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.university-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #007bff;
+}
+
+.university-info {
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.university-info .icon {
+  margin-right: 5px;
+  color: #007bff;
+}
+
+.specializations {
+  margin-top: 10px;
+}
+
+.specialization-badge {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-size: 0.85rem;
+}
+.specializations-section {
+  margin-top: 10px;
+}
+
+.specializations-list {
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0;
+}
+
+.specialization-item {
+  background-color: #f7f7f7; /* Light background for better readability */
+  margin-bottom: 8px; /* Add space between items */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.specialization-item strong {
+  color: #007bff; /* Make the specialization name stand out */
+}
+
+.specialization-item span {
+  color: #555; /* Softer color for duration */
+}
