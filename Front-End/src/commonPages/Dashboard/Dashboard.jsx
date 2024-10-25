@@ -4,6 +4,7 @@ import Sidebar from './Sidebar';
 import MainContent from './MainContent';
 import QuestionGenerator from '../QuestionGenComponent/QuestionGenerator';
 import RecommendationDashboard from '../../Pages/UniCourseRecommendationPages/RecommendationDashboard';
+import CareerGuidance from "../../Pages/CareerGuidance/CareerGuidance";
 import './Dashboard.css';
 
 function Dashboard({ view }) {
@@ -16,6 +17,8 @@ function Dashboard({ view }) {
         return <QuestionGenerator sidebarCollapsed={sidebarCollapsed} />;
       case 'recommendationDashboard':
         return <RecommendationDashboard sidebarCollapsed={sidebarCollapsed} />;
+      case 'career_guidance':
+         return <CareerGuidance sidebarCollapsed={sidebarCollapsed} />;
       default:
         return <MainContent />;
     }
