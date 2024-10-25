@@ -4,9 +4,11 @@ import { useNavigate, useLocation } from "react-router-dom";
 import profilePic from "../../assets/profilePic2.webp";
 
 function Sidebar({ onCollapse }) {
+
   const [collapsed, setCollapsed] = useState(
     localStorage.getItem("sidebar-collapsed") === "true"
   );
+
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
   const profileRef = useRef(null);
@@ -81,11 +83,13 @@ function Sidebar({ onCollapse }) {
         </button>
       </div>
       <nav className="sidebar-navigation">
+
       <img
         src="/src/assets/logInImage.png"
         alt="Logo Icon"
         className="logo-image"
       />
+
 
         <ul className="nav-list">
           <li>
@@ -108,10 +112,15 @@ function Sidebar({ onCollapse }) {
             </a>
           </li>
           <li>
-            <a href="#" className="nav-link">
-              Option 2
-            </a>
-          </li>
+              <a
+                  href="/career_guidance"
+                  className={`nav-link ${
+                      isActive("/career_guidance") ? "active" : ""
+                  }`}
+              >
+                Career Guidance
+              </a>
+            </li>
           <li>
             <a href="#" className="nav-link">
               Option 3
@@ -135,27 +144,45 @@ function Sidebar({ onCollapse }) {
           </li>
         </ul>
       </nav>
-      <div className="user-profile" ref={profileRef} onClick={toggleDropdown}>
-        <img src={profilePic} alt="Profile Icon" className="profile-image" />
-        <a href="#" className="profile-name">
-          My Profile
-        </a>
-        {dropdownVisible && (
-          <div
-            ref={dropdownRef}
-            className={`dropdown-menu ${collapsed ? "collapsed-menu" : ""}`}
-          >
-            <ul>
-              <li>
-                <a onClick={() => navigate("/settings")}>Settings</a>
-              </li>
-              <li>
-                <a onClick={handleLogout}>Log Out</a>
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
+
+      <div className="user-profile" onClick={toggleDropdown}>
+          <img src={profilePic} alt="Profile Icon" className="profile-image" />
+          <a href="#" className="profile-name">
+            My Profile
+          </a>
+          {dropdownVisible && (
+              <div className={`dropdown-menu ${collapsed ? "collapsed-menu" : ""}`}>
+                <ul>
+                  <li>
+                    <a href="#" onClick={() => navigate("/settings")}>
+                      Settings
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" onClick={handleLogout}>
+                      Log Out
+                    </a>
+                  </li>
+                </ul>
+              </div>
+          )}
+        </div>
+//       <div className="user-profile" ref={profileRef} onClick={toggleDropdown}>
+//         <img src={profilePic} alt="Profile Icon" className="profile-image" />
+//         <a href="#" className="profile-name">
+//           My Profile
+//         </a>
+//         {dropdownVisible && (
+
+//           <div ref={dropdownRef} className={`dropdown-menu ${collapsed ? 'collapsed-menu' : ''}`}>
+//             <ul>
+//               <li><a  onClick={() => navigate('/settings')}>Settings</a></li>
+//               <li><a  onClick={handleLogout}>Log Out</a></li>
+//             </ul>
+//           </div>
+//         )}
+//       </div>
+
     </aside>
   );
 }
