@@ -6512,3 +6512,20 @@ INFO 2024-10-25 18:52:59,280 middleware middleware.py:22 Response: 403 Forbidden
 WARNING 2024-10-25 18:52:59,281 log log.py:241 Forbidden: /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/
 WARNING 2024-10-25 18:52:59,281 basehttp basehttp.py:212 "PUT /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/ HTTP/1.1" 403 58
 INFO 2024-10-25 19:16:06,041 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-10-25 19:17:08,578 middleware middleware.py:16 Request: POST /api/login/
+INFO 2024-10-25 19:17:08,579 views views.py:45 Started login in gateWay view
+INFO 2024-10-25 19:17:09,863 views views.py:53 End login in gateWay view: Successful
+INFO 2024-10-25 19:17:09,864 middleware middleware.py:22 Response: 200 OK (1.29s)
+INFO 2024-10-25 19:17:09,865 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-25 19:17:09,876 middleware middleware.py:16 Request: GET /api/users/chathurangiudunuwara@gmail.com/
+INFO 2024-10-25 19:17:09,943 views views.py:146 user_detail called for email: chathurangiudunuwara@gmail.com
+INFO 2024-10-25 19:17:10,011 views views.py:155 user_detail GET successful for email: chathurangiudunuwara@gmail.com
+INFO 2024-10-25 19:17:10,013 middleware middleware.py:22 Response: 200 OK (0.14s)
+INFO 2024-10-25 19:17:10,014 basehttp basehttp.py:212 "GET /api/users/chathurangiudunuwara@gmail.com/ HTTP/1.1" 200 125
+INFO 2024-10-25 19:22:14,760 middleware middleware.py:16 Request: OPTIONS /recommendation/
+INFO 2024-10-25 19:22:14,762 middleware middleware.py:22 Response: 200 OK (0.00s)
+INFO 2024-10-25 19:22:14,763 basehttp basehttp.py:212 "OPTIONS /recommendation/ HTTP/1.1" 200 0
+INFO 2024-10-25 19:22:14,764 middleware middleware.py:16 Request: POST /recommendation/
+INFO 2024-10-25 19:22:14,897 middleware middleware.py:22 Response: 404 Not Found (0.13s)
+WARNING 2024-10-25 19:22:14,898 log log.py:241 Not Found: /recommendation/
+WARNING 2024-10-25 19:22:14,899 basehttp basehttp.py:212 "POST /recommendation/ HTTP/1.1" 404 2232
