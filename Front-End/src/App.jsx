@@ -1,13 +1,12 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./commonPages/LogIn/Login";
+import Dashboard from "./commonPages/Dashboard/Dashboard";
 
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './commonPages/LogIn/Login';
-import Dashboard from './commonPages/Dashboard/Dashboard';
-import QuestionGenerator from './commonPages/QuestionGenComponent/QuestionGenerator';
-import StaticPage from './static/StaticPage';
-import SubscriptionPage from './commonPages/LogIn/SubscriptionForm';
-import ChatBot from './commonPages/ChatBot/index';
-import CareerGuidance from "./Pages/CareerGuidance/CareerGuidance.jsx";
+import StaticPage from "./static/StaticPage";
+import SubscriptionPage from "./commonPages/LogIn/SubscriptionForm";
+import ChatBot from "./commonPages/ChatBot/index";
+
 import CourseByStream from "./Pages/UniCourseRecommendationPages/CourseByStream";
 
 function App() {
@@ -25,10 +24,7 @@ function App() {
         />
 
         <Route path="/subscribe" element={<SubscriptionPage />} />
-        <Route path="/chat" element={<ChatBot/>} />
-        <Route path="/career_guidance" element={<Dashboard />}>
-             <Route index element={<CareerGuidance />} />
-        </Route>
+        <Route path="/chat" element={<ChatBot />} />
 
         <Route path="/subscribe" element={<SubscriptionPage />} />
         <Route path="/chat" element={<ChatBot />} />
@@ -37,6 +33,11 @@ function App() {
           path="/recommendation-dashboard"
           element={<Dashboard view="recommendationDashboard" />}
         />
+        <Route
+          path="/career_guidance"
+          element={<Dashboard view="career_guidance" />}
+        />
+
         <Route
           path="/recommendation-dashboard/courses/:stream"
           element={<CourseByStream />}

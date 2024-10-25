@@ -294,12 +294,12 @@
 }
 
 .option-item:hover {
-  background-color: #007bff;
+  background-color: #6c63ff;
   color: #fff;
 }
 
 /* Highlight selected option */
 .option-item.selected {
-  background-color: #007bff;
+  background-color: #6c63ff;
   color: #fff;
 }
