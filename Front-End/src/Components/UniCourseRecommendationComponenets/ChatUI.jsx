@@ -61,14 +61,18 @@ const ChatUI = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8010/uni/users/",
-        formattedData
+        "http://127.0.0.1:8000/api/service3/users//",
+        formattedData,{
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+          },
+        }
       );
       localStorage.removeItem("uId");
       const uId = response.data.id; // Ensure the API response contains an 'id'
       localStorage.setItem("uId", uId);
       console.log("User ID:", uId);
-      navigate(`/myrecommendations/`); // Navigate to the page with the returned id
+      navigate("/recommendation-dashboard?tab=MyRecommendations");; // Navigate to the page with the returned id
     } catch (error) {
       console.error("There was an error submitting the form!", error);
       alert("Submission failed. Please try again.");

@@ -1,0 +1,73 @@
+/* Container for the recommendation system */
+.recommendation-system-container-unique {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Collapsed state when sidebar is minimized */
+  .recommendation-system-container-unique.collapsed-unique .tab-content-unique {
+    margin-left: 0;
+  }
+  
+  /* Tab styles */
+  .tabs-unique {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    align-items: center;
+  }
+  
+  /* Style for each tab button */
+  .tab-unique {
+    padding: 10px 20px;
+    margin: auto;
+    background-color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Icon inside the tab */
+  .tab-unique i {
+    margin-right: 10px;
+  }
+  
+  /* Active tab styles */
+  .tab-unique.active-unique {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Hover effect for tabs */
+  .tab-unique:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Tab content area */
+  .tab-content-unique {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  
+  /* Additional responsive styling if needed */
+  @media (max-width: 768px) {
+    .recommendation-system-container-unique {
+      padding: 10px;
+    }
+  
+    .tab-unique {
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+  }
+  
