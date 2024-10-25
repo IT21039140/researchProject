@@ -8,14 +8,14 @@
   background-color: #f4f6f9;
   text-align: center; /* Center the text horizontally */
   margin: 0 auto; /* Center the div itself if it has a set width */
-  padding: 10px; /* Optional: Add padding for better spacing */
+  padding: 20px; /* Optional: Add padding for better spacing */
   width: 98%;
 }
 
 .course-catalog h1 {
   font-size: 32px;
   color: #093460;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 /* Loading screen styling */

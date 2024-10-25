@@ -6,14 +6,15 @@ import {
   FaSearch,
   FaUndoAlt,
   FaMapMarkerAlt,
-} from "react-icons/fa"; // <-- Added FaMapMarkerAlt import
+} from "react-icons/fa";
 import axios from "axios";
 import swal from "sweetalert";
 import { useParams } from "react-router-dom";
-import "./Styles/course.css"; // Ensure the path is correct
+import "./Styles/course.css";
 
 const CourseByStream = () => {
-  const { stream } = useParams();
+  const { stream } = useParams() || "Biological Science";
+  console.log(stream);
 
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,29 +25,64 @@ const CourseByStream = () => {
     Duration: "",
   });
   const [searchQuery, setSearchQuery] = useState("");
+
   const parseSpecializations = (specializations) => {
-    return specializations
-      .map((spec) => {
-        try {
-          // Attempt to parse the string into an object
-          return JSON.parse(spec.replace(/'/g, '"'));
-        } catch {
-          // Handle cases where parsing fails
-          console.error("Failed to parse specialization:", spec);
-          return null;
+    return specializations.map((spec) => {
+      if (typeof spec === 'string') {
+        // Trim whitespace and check if the string resembles a JSON object
+        const trimmedSpec = spec.trim();
+  
+        // Try parsing as JSON if it looks like an object
+        if (trimmedSpec.startsWith('{') && trimmedSpec.endsWith('}')) {
+          try {
+            const parsedSpec = JSON.parse(trimmedSpec.replace(/'/g, '"'));
+            return {
+              name: parsedSpec.name || "",
+              duration: parsedSpec.duration || "",
+            };
+          } catch (error) {
+            console.error("Failed to parse specialization JSON:", spec, error);
+            return null; // Return null if parsing fails
+          }
         }
-      })
-      .filter((spec) => spec !== null);
+  
+        // If it's a plain string (not JSON), return an object with name and default duration
+        return {
+          name: trimmedSpec,
+          duration: "", // Modify as needed
+        };
+      } else {
+        console.error("Unexpected type encountered:", spec);
+        return null; // Return null for unexpected types
+      }
+    }).filter((spec) => spec !== null); // Filter out any null entries
   };
+  
+  
+
+  const uniqueValues = (key) => {
+    return [
+      ...new Set(
+        courses.flatMap((course) =>
+          course.universities.flatMap((uni) =>
+            key === "specializations" ? uni.specializations : uni[key]
+          )
+        )
+      ),
+    ].filter((value) => value);
+  };
+
+
   useEffect(() => {
     const getCourses = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:8010/uni/courses/`);
-        const filteredCourses = response.data.filter(
-          (course) => course.stream === stream
-        );
-        setCourses(filteredCourses);
+        const response = await axios.get(`http://127.0.0.1:8000/api/service3/courses/`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+          },
+        });
+        setCourses(response.data); // Store all courses initially
       } catch (error) {
         swal("Error fetching courses:", error.message);
       } finally {
@@ -55,7 +91,7 @@ const CourseByStream = () => {
     };
 
     getCourses();
-  }, [stream]);
+  }, []);
 
   const handleResetFilters = () => {
     setFilters({
@@ -76,20 +112,11 @@ const CourseByStream = () => {
     );
   }
 
-  const uniqueValues = (key) => {
-    return [
-      ...new Set(
-        courses.flatMap((course) =>
-          course.universities.flatMap((uni) =>
-            key === "specializations" ? uni.specializations : uni[key]
-          )
-        )
-      ),
-    ].filter((value) => value);
-  };
-
-  const filteredCourses = courses.filter(
-    (course) =>
+  const filteredCourses = courses.filter((course) => {
+    const isInStream =
+      stream === "ALL" || (stream ? course.stream === stream : true);
+    return (
+      isInStream &&
       (!filters["Course Code"] ||
         course.course_code === filters["Course Code"]) &&
       (!filters["University"] ||
@@ -106,7 +133,8 @@ const CourseByStream = () => {
         )) &&
       (!searchQuery ||
         course.course_name.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
+    );
+  });
 
   const renderCourses = () => {
     return (
@@ -114,44 +142,27 @@ const CourseByStream = () => {
         {filteredCourses.map((course) => (
           <div className="course-card1" key={course.id}>
             <h3 className="course-name">{course.course_name}</h3>
-            <p className="course-code">
-              <strong>Code:</strong> {course.course_code}
-            </p>
-            <p className="course-intake">
-              <strong>Intake:</strong> {course.proposed_intake}
-            </p>
-            <p className="course-area">
-              <strong>Area:</strong> {course.area}
-            </p>
-            <p className="course-english">
-              <strong>English Requirement:</strong> {course.english_requirement}
-            </p>
+            <p className="course-code"><strong>Code:</strong> {course.course_code}</p>
+            <p className="course-intake"><strong>Intake:</strong> {course.proposed_intake}</p>
+            <p className="course-area"><strong>Area:</strong> {course.area}</p>
+            <p className="course-english"><strong>English Requirement:</strong> {course.english_requirement}</p>
 
             <div className="universities-section">
               <strong>Universities:</strong>
               <div className="university-list">
                 {course.universities.map((uni, i) => (
                   <div key={i} className="university-card">
-                    <h4>
-                      <FaUniversity /> {uni.uni_name}
-                    </h4>
-                    <p className="university-info">
-                      <FaMapMarkerAlt className="icon" /> {uni.province}
-                    </p>
-                    <p className="university-info">
-                      <FaClock className="icon" /> {uni.duration}
-                    </p>
+                    <h4><FaUniversity /> {uni.uni_name}</h4>
+                    <p className="university-info"><FaMapMarkerAlt className="icon" /> {uni.province}</p>
+                    <p className="university-info"><FaClock className="icon" /> {uni.duration}</p>
                     <div className="specializations-section">
                       <h4>Specializations:</h4>
                       <ul className="specializations-list">
-                        {parseSpecializations(uni.specializations).map(
-                          (spec, index) => (
-                            <li key={index} className="specialization-item">
-                              <strong>{spec.name}</strong> -{" "}
-                              <span>{spec.duration}</span>
-                            </li>
-                          )
-                        )}
+                        {parseSpecializations(uni.specializations).map((spec, index) => (
+                          <li key={index} className="specialization-item">
+                            <strong>{spec.name}</strong> - <span>{spec.duration}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -182,9 +193,7 @@ const CourseByStream = () => {
         <div className="filter-group">
           <select
             name="Course Code"
-            onChange={(e) =>
-              setFilters({ ...filters, "Course Code": e.target.value })
-            }
+            onChange={(e) => setFilters({ ...filters, "Course Code": e.target.value })}
             value={filters["Course Code"]}
           >
             <option value="">All Course Codes</option>
@@ -199,9 +208,7 @@ const CourseByStream = () => {
         <div className="filter-group">
           <select
             name="University"
-            onChange={(e) =>
-              setFilters({ ...filters, University: e.target.value })
-            }
+            onChange={(e) => setFilters({ ...filters, University: e.target.value })}
             value={filters["University"]}
           >
             <option value="">All Universities</option>
@@ -216,9 +223,7 @@ const CourseByStream = () => {
         <div className="filter-group">
           <select
             name="Specialization"
-            onChange={(e) =>
-              setFilters({ ...filters, Specialization: e.target.value })
-            }
+            onChange={(e) => setFilters({ ...filters, Specialization: e.target.value })}
             value={filters["Specialization"]}
           >
             <option value="">All Specializations</option>
@@ -233,9 +238,7 @@ const CourseByStream = () => {
         <div className="filter-group">
           <select
             name="Duration"
-            onChange={(e) =>
-              setFilters({ ...filters, Duration: e.target.value })
-            }
+            onChange={(e) => setFilters({ ...filters, Duration: e.target.value })}
             value={filters["Duration"]}
           >
             <option value="">All Durations</option>

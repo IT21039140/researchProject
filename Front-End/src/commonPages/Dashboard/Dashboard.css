@@ -1,4 +1,5 @@
 
+
 .dashboard-container {
     display: flex;
     height: 100vh;
@@ -25,7 +26,7 @@
     width: 60px;
 }
 
-.dashboard-sidebar.collapsed .app-logo,
+.dashboard-sidebar.collapsed .app-logo,.dashboard-sidebar.collapsed .logo-image,
 .dashboard-sidebar.collapsed .nav-link,
 .dashboard-sidebar.collapsed .profile-name {
     display: none;
@@ -43,10 +44,28 @@
     background-color: #5a54d6;
 }
 
-.app-logo {
-    font-size: 20px;
-}
 
+.app-logo {
+    margin-top:10px ;
+    font-size: 1.5em;
+    margin: auto;
+    
+    text-align: center;
+    color:white;
+    margin-bottom: 10px;
+    font-style: italic;
+    font-family: 'Kablammo', cursive;
+  }
+  
+  .logo-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 10px;
+    display: block;
+      margin: auto;
+      margin-bottom: 10px;
+  }
 #sidebar-toggle-btn {
     background-color: transparent;
     border: none;
@@ -57,6 +76,7 @@
 
 .sidebar-navigation {
     flex-grow: 1;
+    padding :10px;
 }
 
 .nav-list {
@@ -77,9 +97,11 @@
 }
 
 .nav-link.active {
-    background-color: #4e46b4;
+    background-color: #f5f5f5;
+    padding :10px;
     border-radius: 5px;
-}
+    color : black;
+};
 
 .nav-link:hover {
     background-color: #5a54d6;

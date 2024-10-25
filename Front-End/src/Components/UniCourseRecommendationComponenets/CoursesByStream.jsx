@@ -25,50 +25,64 @@ const CoursesByStream = () => {
           title="Biological Science"
           description="Explore courses related to Biological Science."
           color="#e3f2fd"
-          link="courses/Biological Science Stream"
+          link={`/recommendation-dashboard?tab=CoursesByStream&stream=${encodeURIComponent(
+            "Biological Science Stream"
+          )}`}
           icon={bioScienceIcon}
         />
         <StreamCard
           title="Physical Science"
           description="Explore courses related to Physical Science."
           color="#fff3e0"
-          link="courses/Physical Science Stream"
+          link={`/recommendation-dashboard?tab=CoursesByStream&stream=${encodeURIComponent(
+            "Physical Science Stream"
+          )}`}
           icon={physicalScienceIcon}
         />
         <StreamCard
           title="Art"
           description="Explore courses related to Art."
           color="#f3e5f5"
-          link="courses/Arts Stream"
+          link={`/recommendation-dashboard?tab=CoursesByStream&stream=${encodeURIComponent(
+            "Arts Stream"
+          )}`}
           icon={artIcon}
         />
         <StreamCard
           title="Commerce"
           description="Explore courses related to Commerce."
           color="#e8f5e9"
-          link="courses/Commerce Stream"
+          link={`/recommendation-dashboard?tab=CoursesByStream&stream=${encodeURIComponent(
+            "Commerce Stream"
+          )}`}
           icon={commerceIcon}
         />
         <StreamCard
           title="Bio Technology"
           description="Explore courses related to Bio Technology."
           color="#ffe0b2"
-          link="courses/Bio Technology Stream"
+          link={`/recommendation-dashboard?tab=CoursesByStream&stream=${encodeURIComponent(
+            "Bio Technology Stream"
+          )}`}
           icon={bioTechIcon}
         />
         <StreamCard
           title="Engineering Technology"
           description="Explore courses related to Engineering Technology."
           color="#d0f5e5"
-          link="courses/Engineering Technology Stream"
+          link={`/recommendation-dashboard?tab=CoursesByStream&stream=${encodeURIComponent(
+            "Engineering Technology Stream"
+          )}`}
           icon={engineeringIcon}
         />
         <StreamCard
-          title="Common "
+          title="Common"
           description="Explore a range of courses across various streams including Art, Physical, Bio, Technology, and Commerce."
           color="#ffebee"
-          link="courses/Any"
-          icon={Any} // Assuming artIcon is a representative icon; you may want to use a more general icon or adjust accordingly
+          link={`/recommendation-dashboard?tab=CoursesByStream&stream=${encodeURIComponent(
+            "Any"
+          )}`}
+          icon={Any} // Replace Any with a suitable icon if needed
         />
       </div>
     </Container>

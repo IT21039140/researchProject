@@ -11,7 +11,11 @@ import {
   updateUserRecommendations,
   addUserRecommendations,
 } from "./apis/recomondationapi";
-import { fetchUserData, fetchRecommendations } from "./apis/courseapi";
+import {
+  fetchUserData,
+  fetchRecommendations,
+  fetchProfileData,
+} from "./apis/courseapi";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -23,18 +27,49 @@ import {
 
 //http://localhost:5173/myrecommendations/66387dca157b0e532fea6106
 const CourseCatalog = () => {
-  const uId = localStorage.getItem("uId");
   const navigate = useNavigate();
+  const [userDetails, setUserDetails] = useState([]);
+  // Destructure user details
+  const { id, first_name, last_name } = userDetails;
 
   useEffect(() => {
-    if (!uId) {
+    // Retrieve and parse user details from localStorage
+    const storedUserDetails = JSON.parse(localStorage.getItem("user_details"));
+
+    if (!storedUserDetails) {
+      // Redirect to login page if user details are not found
+      swal("Please login to view this page");
+      navigate("/login");
+    } else {
+      // Set user details to state if found
+      setUserDetails(storedUserDetails);
+      console.log(storedUserDetails);
+      fetchProfile(id);
+    }
+  }, [navigate, id]);
+
+  // Check if userDetails is still null, indicating redirection might still be occurring
+  if (!userDetails) {
+    return <p>Redirecting...</p>;
+  }
+
+
+
+  const fetchProfile = async (id) => {
+    const result = await fetchProfileData(id); // Await the fetch result
+    console.log (result);
+    const userId = result.id; // Extract user ID from result
+
+    if (!userId) {
       swal("Please Create Preference profile first").then(() => {
         navigate("/recommendation/");
       });
+    } else {
+      fetchData(userId);
     }
-  }, [uId, navigate]);
+  };
 
-  console.log(uId);
+  // Only re-run effect if id or navigate changes
 
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -42,7 +77,6 @@ const CourseCatalog = () => {
   // State to manage selected course and popup visibility
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [userDetails, setUserDetails] = useState([]);
 
   const [filters, setFilters] = useState({
     "Course Code": "",
@@ -84,29 +118,6 @@ const CourseCatalog = () => {
       Score: parseFloat(course["Score"]) || 0, // Convert to float or use 0 as default
     }));
   };
-  useEffect(() => {
-    // Retrieve and parse user details from localStorage
-    const storedUserDetails = JSON.parse(localStorage.getItem("user_details"));
-
-    if (!storedUserDetails) {
-      // Redirect to login page if user details are not found
-      swal("Please login to view this page");
-      navigate("/login");
-    } else {
-      // Set user details to state if found
-      setUserDetails(storedUserDetails);
-      console.log(storedUserDetails);
-      fetchData(uId);
-    }
-  }, [navigate]);
-
-  // Check if userDetails is still null, indicating redirection might still be occurring
-  if (!userDetails) {
-    return <p>Redirecting...</p>;
-  }
-
-  // Destructure user details
-  const { id, first_name, last_name } = userDetails;
 
   const fetchData = async (uId) => {
     try {
@@ -324,6 +335,7 @@ const CourseCatalog = () => {
                   >
                     <div className="course-number">{index * 10 + i + 1}</div>
                     <img
+                    
                       src={`https://via.placeholder.com/80/000000/FFFFFF?text=${course["Course Name"][0]}`}
                       alt="Course Thumbnail"
                     />
