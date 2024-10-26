@@ -23,9 +23,9 @@ courses_url = 'http://localhost:8010/uni/courses'
 users_url = 'http://localhost:8010/uni/users'
 
 # Define raw URLs for fetching files
-graph_url = 'https://github.com/IT21039140/researchProject/raw/a61f9f28df456c635737aa353c1f3e3e22a76165/uniRecommendation/recommendation/DataProcessing/graphN.graphml'
-model_url = 'https://github.com/IT21039140/researchProject/raw/a61f9f28df456c635737aa353c1f3e3e22a76165/uniRecommendation/recommendation/DataProcessing/model.pth'
-data_url = 'https://github.com/IT21039140/researchProject/raw/a61f9f28df456c635737aa353c1f3e3e22a76165/uniRecommendation/recommendation/DataProcessing/dataN.pt'
+graph_url = 'https://github.com/IT21039140/researchProject/raw/Chathurangi/uniRecommendation/recommendation/DataProcessing/graph.graphml'
+model_url = 'https://github.com/IT21039140/researchProject/raw/Chathurangi/uniRecommendation/recommendation/DataProcessing/model_weights.pth'
+data_url = 'https://github.com/IT21039140/researchProject/raw/Chathurangi/uniRecommendation/recommendation/DataProcessing/data.pt'
 
 # Initialize global variables for graph, model, and data
 df_courses = df_users = None
