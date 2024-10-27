@@ -7041,3 +7041,430 @@ INFO 2024-10-26 11:00:29,805 middleware middleware.py:16 Request: PUT /api/servi
 INFO 2024-10-26 11:00:29,808 middleware middleware.py:22 Response: 403 Forbidden (0.00s)
 WARNING 2024-10-26 11:00:29,809 log log.py:241 Forbidden: /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/
 WARNING 2024-10-26 11:00:29,811 basehttp basehttp.py:212 "PUT /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/ HTTP/1.1" 403 58
+INFO 2024-10-26 11:14:25,612 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-26 11:14:25,696 views views.py:110 Accessing URL: http://localhost:8010/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 11:14:55,134 views views.py:123 gateway_view success for service: service3, endpoint: gnn/
+INFO 2024-10-26 11:14:55,139 middleware middleware.py:22 Response: 200 OK (29.53s)
+INFO 2024-10-26 11:14:55,140 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 200 71476
+INFO 2024-10-26 11:16:01,239 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=undefined
+INFO 2024-10-26 11:16:01,254 middleware middleware.py:16 Request: GET /api/service3/recommendations/get-by-user/undefined/
+INFO 2024-10-26 11:16:01,257 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=66de88734a9b1f34cb584831
+INFO 2024-10-26 11:16:01,318 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 11:16:01,334 views views.py:110 Accessing URL: http://localhost:8010/uni/recommendations/get-by-user/undefined with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 11:16:01,343 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+ERROR 2024-10-26 11:16:05,516 views views.py:127 gateway_view RequestException for service: service3, endpoint: users, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/users/?user_id=undefined
+INFO 2024-10-26 11:16:05,524 middleware middleware.py:22 Response: 500 Internal Server Error (4.28s)
+ERROR 2024-10-26 11:16:05,525 log log.py:241 Internal Server Error: /api/service3/users/
+ERROR 2024-10-26 11:16:05,527 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=undefined HTTP/1.1" 500 100
+INFO 2024-10-26 11:16:05,530 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=undefined
+INFO 2024-10-26 11:16:05,603 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+ERROR 2024-10-26 11:16:06,109 views views.py:127 gateway_view RequestException for service: service3, endpoint: recommendations/get-by-user/undefined, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/recommendations/get-by-user/undefined/
+INFO 2024-10-26 11:16:06,112 middleware middleware.py:22 Response: 500 Internal Server Error (4.85s)
+ERROR 2024-10-26 11:16:06,113 log log.py:241 Internal Server Error: /api/service3/recommendations/get-by-user/undefined/
+ERROR 2024-10-26 11:16:06,115 basehttp basehttp.py:212 "GET /api/service3/recommendations/get-by-user/undefined/ HTTP/1.1" 500 114
+INFO 2024-10-26 11:16:06,119 middleware middleware.py:16 Request: GET /api/service3/recommendations/get-by-user/undefined/
+INFO 2024-10-26 11:16:06,189 views views.py:110 Accessing URL: http://localhost:8010/uni/recommendations/get-by-user/undefined with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 11:16:06,196 views views.py:123 gateway_view success for service: service3, endpoint: users
+INFO 2024-10-26 11:16:06,199 middleware middleware.py:22 Response: 200 OK (4.94s)
+INFO 2024-10-26 11:16:06,200 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=66de88734a9b1f34cb584831 HTTP/1.1" 200 6829
+INFO 2024-10-26 11:16:06,208 middleware middleware.py:16 Request: GET /api/service3/users/671b6b23afb9caa8b0febefd/
+INFO 2024-10-26 11:16:06,287 views views.py:110 Accessing URL: http://localhost:8010/uni/users/671b6b23afb9caa8b0febefd with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+ERROR 2024-10-26 11:16:09,876 views views.py:127 gateway_view RequestException for service: service3, endpoint: users, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/users/?user_id=undefined
+INFO 2024-10-26 11:16:09,878 middleware middleware.py:22 Response: 500 Internal Server Error (4.35s)
+ERROR 2024-10-26 11:16:09,879 log log.py:241 Internal Server Error: /api/service3/users/
+ERROR 2024-10-26 11:16:09,880 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=undefined HTTP/1.1" 500 100
+ERROR 2024-10-26 11:16:10,385 views views.py:127 gateway_view RequestException for service: service3, endpoint: recommendations/get-by-user/undefined, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/recommendations/get-by-user/undefined/
+INFO 2024-10-26 11:16:10,387 middleware middleware.py:22 Response: 500 Internal Server Error (4.27s)
+ERROR 2024-10-26 11:16:10,388 log log.py:241 Internal Server Error: /api/service3/recommendations/get-by-user/undefined/
+ERROR 2024-10-26 11:16:10,390 basehttp basehttp.py:212 "GET /api/service3/recommendations/get-by-user/undefined/ HTTP/1.1" 500 114
+INFO 2024-10-26 11:16:10,499 views views.py:123 gateway_view success for service: service3, endpoint: users/671b6b23afb9caa8b0febefd
+INFO 2024-10-26 11:16:10,501 middleware middleware.py:22 Response: 200 OK (4.29s)
+INFO 2024-10-26 11:16:10,503 basehttp basehttp.py:212 "GET /api/service3/users/671b6b23afb9caa8b0febefd/ HTTP/1.1" 200 845
+INFO 2024-10-26 11:16:10,506 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-26 11:16:10,592 views views.py:110 Accessing URL: http://localhost:8010/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 11:16:44,815 views views.py:123 gateway_view success for service: service3, endpoint: gnn/
+INFO 2024-10-26 11:16:44,820 middleware middleware.py:22 Response: 200 OK (34.31s)
+INFO 2024-10-26 11:16:44,821 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 200 37207
+INFO 2024-10-26 11:16:45,272 middleware middleware.py:16 Request: GET /api/service3/recommendations/get-by-user/66de88734a9b1f34cb584831/
+INFO 2024-10-26 11:16:45,345 views views.py:110 Accessing URL: http://localhost:8010/uni/recommendations/get-by-user/66de88734a9b1f34cb584831 with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 11:16:49,692 views views.py:123 gateway_view success for service: service3, endpoint: recommendations/get-by-user/66de88734a9b1f34cb584831
+INFO 2024-10-26 11:16:49,696 middleware middleware.py:22 Response: 200 OK (4.42s)
+INFO 2024-10-26 11:16:49,698 basehttp basehttp.py:212 "GET /api/service3/recommendations/get-by-user/66de88734a9b1f34cb584831/ HTTP/1.1" 200 30563
+INFO 2024-10-26 11:16:49,709 middleware middleware.py:16 Request: PUT /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/
+INFO 2024-10-26 11:16:49,713 middleware middleware.py:22 Response: 403 Forbidden (0.00s)
+WARNING 2024-10-26 11:16:49,714 log log.py:241 Forbidden: /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/
+WARNING 2024-10-26 11:16:49,716 basehttp basehttp.py:212 "PUT /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/ HTTP/1.1" 403 58
+INFO 2024-10-26 12:01:15,670 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-26 12:01:15,926 views views.py:110 Accessing URL: http://localhost:8010/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:01:47,566 views views.py:123 gateway_view success for service: service3, endpoint: gnn/
+INFO 2024-10-26 12:01:47,579 middleware middleware.py:22 Response: 200 OK (31.89s)
+INFO 2024-10-26 12:01:47,580 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 200 37207
+INFO 2024-10-26 12:01:48,044 middleware middleware.py:16 Request: GET /api/service3/recommendations/get-by-user/66de88734a9b1f34cb584831/
+INFO 2024-10-26 12:01:48,636 views views.py:110 Accessing URL: http://localhost:8010/uni/recommendations/get-by-user/66de88734a9b1f34cb584831 with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:01:53,853 views views.py:123 gateway_view success for service: service3, endpoint: recommendations/get-by-user/66de88734a9b1f34cb584831
+INFO 2024-10-26 12:01:53,859 middleware middleware.py:22 Response: 200 OK (5.81s)
+INFO 2024-10-26 12:01:53,860 basehttp basehttp.py:212 "GET /api/service3/recommendations/get-by-user/66de88734a9b1f34cb584831/ HTTP/1.1" 200 30563
+INFO 2024-10-26 12:01:53,873 middleware middleware.py:16 Request: PUT /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/
+INFO 2024-10-26 12:01:53,877 middleware middleware.py:22 Response: 403 Forbidden (0.00s)
+WARNING 2024-10-26 12:01:53,877 log log.py:241 Forbidden: /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/
+WARNING 2024-10-26 12:01:53,878 basehttp basehttp.py:212 "PUT /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/ HTTP/1.1" 403 58
+INFO 2024-10-26 12:02:29,557 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=66de88734a9b1f34cb584831
+INFO 2024-10-26 12:02:29,654 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:02:34,966 views views.py:123 gateway_view success for service: service3, endpoint: users
+INFO 2024-10-26 12:02:34,968 middleware middleware.py:22 Response: 200 OK (5.40s)
+INFO 2024-10-26 12:02:34,969 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=66de88734a9b1f34cb584831 HTTP/1.1" 200 6829
+INFO 2024-10-26 12:02:34,973 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=66de88734a9b1f34cb584831
+INFO 2024-10-26 12:02:34,977 middleware middleware.py:16 Request: GET /api/service3/users/671b6b23afb9caa8b0febefd/
+INFO 2024-10-26 12:02:35,569 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:02:35,570 views views.py:110 Accessing URL: http://localhost:8010/uni/users/671b6b23afb9caa8b0febefd with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:02:40,078 views views.py:123 gateway_view success for service: service3, endpoint: users/671b6b23afb9caa8b0febefd
+INFO 2024-10-26 12:02:40,080 middleware middleware.py:22 Response: 200 OK (5.10s)
+INFO 2024-10-26 12:02:40,081 basehttp basehttp.py:212 "GET /api/service3/users/671b6b23afb9caa8b0febefd/ HTTP/1.1" 200 845
+INFO 2024-10-26 12:02:40,090 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-26 12:02:40,191 views views.py:110 Accessing URL: http://localhost:8010/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:02:40,208 views views.py:123 gateway_view success for service: service3, endpoint: users
+INFO 2024-10-26 12:02:40,210 middleware middleware.py:22 Response: 200 OK (5.23s)
+INFO 2024-10-26 12:02:40,211 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=66de88734a9b1f34cb584831 HTTP/1.1" 200 6829
+INFO 2024-10-26 12:02:40,220 middleware middleware.py:16 Request: GET /api/service3/users/671b6b23afb9caa8b0febefd/
+INFO 2024-10-26 12:02:40,296 views views.py:110 Accessing URL: http://localhost:8010/uni/users/671b6b23afb9caa8b0febefd with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:02:44,489 views views.py:123 gateway_view success for service: service3, endpoint: users/671b6b23afb9caa8b0febefd
+INFO 2024-10-26 12:02:44,490 middleware middleware.py:22 Response: 200 OK (4.27s)
+INFO 2024-10-26 12:02:44,491 basehttp basehttp.py:212 "GET /api/service3/users/671b6b23afb9caa8b0febefd/ HTTP/1.1" 200 845
+INFO 2024-10-26 12:02:44,497 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-26 12:02:44,586 views views.py:110 Accessing URL: http://localhost:8010/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:20,965 middleware middleware.py:16 Request: PUT /api/service3/users/671b6b23afb9caa8b0febefd//
+INFO 2024-10-26 12:03:21,763 views views.py:110 Accessing URL: http://localhost:8010/uni/users/671b6b23afb9caa8b0febefd/ with method: PUT and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:26,323 views views.py:123 gateway_view success for service: service3, endpoint: users/671b6b23afb9caa8b0febefd/
+INFO 2024-10-26 12:03:26,325 middleware middleware.py:22 Response: 200 OK (5.36s)
+INFO 2024-10-26 12:03:26,326 basehttp basehttp.py:212 "PUT /api/service3/users/671b6b23afb9caa8b0febefd// HTTP/1.1" 200 855
+INFO 2024-10-26 12:03:27,629 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=66de88734a9b1f34cb584831
+INFO 2024-10-26 12:03:28,268 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:32,528 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=undefined
+INFO 2024-10-26 12:03:32,537 middleware middleware.py:16 Request: GET /api/service3/recommendations/get-by-user/undefined/
+INFO 2024-10-26 12:03:33,195 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:33,207 views views.py:110 Accessing URL: http://localhost:8010/uni/recommendations/get-by-user/undefined with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:33,720 views views.py:123 gateway_view success for service: service3, endpoint: users
+INFO 2024-10-26 12:03:33,723 middleware middleware.py:22 Response: 200 OK (6.09s)
+INFO 2024-10-26 12:03:33,724 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=66de88734a9b1f34cb584831 HTTP/1.1" 200 6839
+INFO 2024-10-26 12:03:33,727 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=66de88734a9b1f34cb584831
+INFO 2024-10-26 12:03:33,734 middleware middleware.py:16 Request: GET /api/service3/users/671b6b23afb9caa8b0febefd/
+INFO 2024-10-26 12:03:34,286 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:34,286 views views.py:110 Accessing URL: http://localhost:8010/uni/users/671b6b23afb9caa8b0febefd with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:34,982 views views.py:123 gateway_view success for service: service3, endpoint: gnn/
+INFO 2024-10-26 12:03:34,986 middleware middleware.py:22 Response: 200 OK (54.89s)
+INFO 2024-10-26 12:03:34,989 basehttp basehttp.py:81 - Broken pipe from ('127.0.0.1', 60987)
+ERROR 2024-10-26 12:03:37,954 views views.py:127 gateway_view RequestException for service: service3, endpoint: recommendations/get-by-user/undefined, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/recommendations/get-by-user/undefined/
+ERROR 2024-10-26 12:03:37,956 views views.py:127 gateway_view RequestException for service: service3, endpoint: users, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/users/?user_id=undefined
+INFO 2024-10-26 12:03:37,957 middleware middleware.py:22 Response: 500 Internal Server Error (5.42s)
+ERROR 2024-10-26 12:03:37,958 log log.py:241 Internal Server Error: /api/service3/recommendations/get-by-user/undefined/
+INFO 2024-10-26 12:03:37,959 middleware middleware.py:22 Response: 500 Internal Server Error (5.43s)
+ERROR 2024-10-26 12:03:37,959 log log.py:241 Internal Server Error: /api/service3/users/
+ERROR 2024-10-26 12:03:37,960 basehttp basehttp.py:212 "GET /api/service3/recommendations/get-by-user/undefined/ HTTP/1.1" 500 114
+ERROR 2024-10-26 12:03:37,960 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=undefined HTTP/1.1" 500 100
+INFO 2024-10-26 12:03:37,962 middleware middleware.py:16 Request: GET /api/service3/recommendations/get-by-user/undefined/
+INFO 2024-10-26 12:03:37,964 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=undefined
+INFO 2024-10-26 12:03:38,557 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:38,558 views views.py:110 Accessing URL: http://localhost:8010/uni/recommendations/get-by-user/undefined with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:39,134 views views.py:123 gateway_view success for service: service3, endpoint: users/671b6b23afb9caa8b0febefd
+INFO 2024-10-26 12:03:39,138 middleware middleware.py:22 Response: 200 OK (5.40s)
+INFO 2024-10-26 12:03:39,139 basehttp basehttp.py:212 "GET /api/service3/users/671b6b23afb9caa8b0febefd/ HTTP/1.1" 200 855
+INFO 2024-10-26 12:03:39,143 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-26 12:03:39,443 views views.py:110 Accessing URL: http://localhost:8010/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:39,561 views views.py:123 gateway_view success for service: service3, endpoint: users
+INFO 2024-10-26 12:03:39,563 middleware middleware.py:22 Response: 200 OK (5.84s)
+INFO 2024-10-26 12:03:39,564 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=66de88734a9b1f34cb584831 HTTP/1.1" 200 6839
+INFO 2024-10-26 12:03:39,566 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=66de88734a9b1f34cb584831
+INFO 2024-10-26 12:03:39,575 middleware middleware.py:16 Request: GET /api/service3/users/671b6b23afb9caa8b0febefd/
+INFO 2024-10-26 12:03:40,182 views views.py:110 Accessing URL: http://localhost:8010/uni/users/671b6b23afb9caa8b0febefd with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:40,183 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+ERROR 2024-10-26 12:03:42,745 views views.py:127 gateway_view RequestException for service: service3, endpoint: recommendations/get-by-user/undefined, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/recommendations/get-by-user/undefined/
+INFO 2024-10-26 12:03:42,747 middleware middleware.py:22 Response: 500 Internal Server Error (4.78s)
+ERROR 2024-10-26 12:03:42,747 log log.py:241 Internal Server Error: /api/service3/recommendations/get-by-user/undefined/
+ERROR 2024-10-26 12:03:42,748 views views.py:127 gateway_view RequestException for service: service3, endpoint: users, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/users/?user_id=undefined
+ERROR 2024-10-26 12:03:42,749 basehttp basehttp.py:212 "GET /api/service3/recommendations/get-by-user/undefined/ HTTP/1.1" 500 114
+INFO 2024-10-26 12:03:42,751 middleware middleware.py:22 Response: 500 Internal Server Error (4.78s)
+ERROR 2024-10-26 12:03:42,751 log log.py:241 Internal Server Error: /api/service3/users/
+ERROR 2024-10-26 12:03:42,752 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=undefined HTTP/1.1" 500 100
+INFO 2024-10-26 12:03:44,440 views views.py:123 gateway_view success for service: service3, endpoint: users/671b6b23afb9caa8b0febefd
+INFO 2024-10-26 12:03:44,442 middleware middleware.py:22 Response: 200 OK (4.87s)
+INFO 2024-10-26 12:03:44,444 basehttp basehttp.py:212 "GET /api/service3/users/671b6b23afb9caa8b0febefd/ HTTP/1.1" 200 855
+INFO 2024-10-26 12:03:44,452 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-26 12:03:44,621 views views.py:110 Accessing URL: http://localhost:8010/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:44,653 views views.py:123 gateway_view success for service: service3, endpoint: users
+INFO 2024-10-26 12:03:44,656 middleware middleware.py:22 Response: 200 OK (5.09s)
+INFO 2024-10-26 12:03:44,657 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=66de88734a9b1f34cb584831 HTTP/1.1" 200 6839
+INFO 2024-10-26 12:03:44,667 middleware middleware.py:16 Request: GET /api/service3/users/671b6b23afb9caa8b0febefd/
+INFO 2024-10-26 12:03:44,780 views views.py:110 Accessing URL: http://localhost:8010/uni/users/671b6b23afb9caa8b0febefd with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:03:47,134 views views.py:123 gateway_view success for service: service3, endpoint: gnn/
+INFO 2024-10-26 12:03:47,137 middleware middleware.py:22 Response: 200 OK (62.64s)
+INFO 2024-10-26 12:03:47,138 basehttp basehttp.py:81 - Broken pipe from ('127.0.0.1', 60976)
+INFO 2024-10-26 12:03:49,102 views views.py:123 gateway_view success for service: service3, endpoint: users/671b6b23afb9caa8b0febefd
+INFO 2024-10-26 12:03:49,103 middleware middleware.py:22 Response: 200 OK (4.44s)
+INFO 2024-10-26 12:03:49,104 basehttp basehttp.py:212 "GET /api/service3/users/671b6b23afb9caa8b0febefd/ HTTP/1.1" 200 855
+INFO 2024-10-26 12:03:49,109 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-26 12:03:49,180 views views.py:110 Accessing URL: http://localhost:8010/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:04:44,255 views views.py:123 gateway_view success for service: service3, endpoint: gnn/
+INFO 2024-10-26 12:04:44,268 middleware middleware.py:22 Response: 200 OK (65.12s)
+INFO 2024-10-26 12:04:44,269 basehttp basehttp.py:81 - Broken pipe from ('127.0.0.1', 61124)
+INFO 2024-10-26 12:04:48,534 views views.py:123 gateway_view success for service: service3, endpoint: gnn/
+INFO 2024-10-26 12:04:48,542 middleware middleware.py:22 Response: 200 OK (64.09s)
+INFO 2024-10-26 12:04:48,543 basehttp basehttp.py:81 - Broken pipe from ('127.0.0.1', 61171)
+INFO 2024-10-26 12:04:49,543 views views.py:123 gateway_view success for service: service3, endpoint: gnn/
+INFO 2024-10-26 12:04:49,547 middleware middleware.py:22 Response: 200 OK (60.44s)
+INFO 2024-10-26 12:04:49,548 basehttp basehttp.py:81 - Broken pipe from ('127.0.0.1', 61096)
+INFO 2024-10-26 12:20:50,149 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=undefined
+INFO 2024-10-26 12:20:50,155 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=66de88734a9b1f34cb584831
+INFO 2024-10-26 12:20:50,167 middleware middleware.py:16 Request: GET /api/service3/recommendations/get-by-user/undefined/
+INFO 2024-10-26 12:20:50,722 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:20:50,750 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:20:51,239 views views.py:110 Accessing URL: http://localhost:8010/uni/recommendations/get-by-user/undefined with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+ERROR 2024-10-26 12:20:55,543 views views.py:127 gateway_view RequestException for service: service3, endpoint: users, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/users/?user_id=undefined
+INFO 2024-10-26 12:20:55,544 middleware middleware.py:22 Response: 500 Internal Server Error (5.39s)
+ERROR 2024-10-26 12:20:55,545 log log.py:241 Internal Server Error: /api/service3/users/
+ERROR 2024-10-26 12:20:55,546 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=undefined HTTP/1.1" 500 100
+INFO 2024-10-26 12:20:55,548 middleware middleware.py:16 Request: GET /api/service3/users/?user_id=undefined
+INFO 2024-10-26 12:20:55,615 views views.py:123 gateway_view success for service: service3, endpoint: users
+INFO 2024-10-26 12:20:55,616 views views.py:110 Accessing URL: http://localhost:8010/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:20:55,616 middleware middleware.py:22 Response: 200 OK (5.46s)
+INFO 2024-10-26 12:20:55,618 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=66de88734a9b1f34cb584831 HTTP/1.1" 200 6839
+INFO 2024-10-26 12:20:55,624 middleware middleware.py:16 Request: GET /api/service3/users/671b6b23afb9caa8b0febefd/
+INFO 2024-10-26 12:20:55,693 views views.py:110 Accessing URL: http://localhost:8010/uni/users/671b6b23afb9caa8b0febefd with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+ERROR 2024-10-26 12:20:55,948 views views.py:127 gateway_view RequestException for service: service3, endpoint: recommendations/get-by-user/undefined, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/recommendations/get-by-user/undefined/
+INFO 2024-10-26 12:20:55,950 middleware middleware.py:22 Response: 500 Internal Server Error (5.78s)
+ERROR 2024-10-26 12:20:55,950 log log.py:241 Internal Server Error: /api/service3/recommendations/get-by-user/undefined/
+ERROR 2024-10-26 12:20:55,951 basehttp basehttp.py:212 "GET /api/service3/recommendations/get-by-user/undefined/ HTTP/1.1" 500 114
+INFO 2024-10-26 12:20:55,952 middleware middleware.py:16 Request: GET /api/service3/recommendations/get-by-user/undefined/
+INFO 2024-10-26 12:20:56,016 views views.py:110 Accessing URL: http://localhost:8010/uni/recommendations/get-by-user/undefined with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+ERROR 2024-10-26 12:20:59,828 views views.py:127 gateway_view RequestException for service: service3, endpoint: users, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/users/?user_id=undefined
+INFO 2024-10-26 12:20:59,830 middleware middleware.py:22 Response: 500 Internal Server Error (4.28s)
+ERROR 2024-10-26 12:20:59,831 log log.py:241 Internal Server Error: /api/service3/users/
+ERROR 2024-10-26 12:20:59,831 basehttp basehttp.py:212 "GET /api/service3/users/?user_id=undefined HTTP/1.1" 500 100
+INFO 2024-10-26 12:20:59,880 views views.py:123 gateway_view success for service: service3, endpoint: users/671b6b23afb9caa8b0febefd
+INFO 2024-10-26 12:20:59,881 middleware middleware.py:22 Response: 200 OK (4.26s)
+INFO 2024-10-26 12:20:59,882 basehttp basehttp.py:212 "GET /api/service3/users/671b6b23afb9caa8b0febefd/ HTTP/1.1" 200 855
+INFO 2024-10-26 12:20:59,888 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-26 12:20:59,963 views views.py:110 Accessing URL: http://localhost:8010/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+ERROR 2024-10-26 12:21:00,195 views views.py:127 gateway_view RequestException for service: service3, endpoint: recommendations/get-by-user/undefined, error: 404 Client Error: Not Found for url: http://localhost:8010/uni/recommendations/get-by-user/undefined/
+INFO 2024-10-26 12:21:00,196 middleware middleware.py:22 Response: 500 Internal Server Error (4.24s)
+ERROR 2024-10-26 12:21:00,196 log log.py:241 Internal Server Error: /api/service3/recommendations/get-by-user/undefined/
+ERROR 2024-10-26 12:21:00,196 basehttp basehttp.py:212 "GET /api/service3/recommendations/get-by-user/undefined/ HTTP/1.1" 500 114
+INFO 2024-10-26 12:21:27,683 views views.py:123 gateway_view success for service: service3, endpoint: gnn/
+INFO 2024-10-26 12:21:27,687 middleware middleware.py:22 Response: 200 OK (27.80s)
+INFO 2024-10-26 12:21:27,688 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 200 71656
+INFO 2024-10-26 12:21:28,296 middleware middleware.py:16 Request: GET /api/service3/recommendations/get-by-user/66de88734a9b1f34cb584831/
+INFO 2024-10-26 12:21:28,432 views views.py:110 Accessing URL: http://localhost:8010/uni/recommendations/get-by-user/66de88734a9b1f34cb584831 with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkZTg4NzM0YTliMWYzNGNiNTg0ODMxIiwiZXhwIjoxNzI5OTUwNDI5LCJpYXQiOjE3Mjk4NjQwMjl9.6o8OJkyyrh_8_-dxJmK65egbiaD8j3ef0_-q-EL2_GM'}
+INFO 2024-10-26 12:21:32,731 views views.py:123 gateway_view success for service: service3, endpoint: recommendations/get-by-user/66de88734a9b1f34cb584831
+INFO 2024-10-26 12:21:32,737 middleware middleware.py:22 Response: 200 OK (4.44s)
+INFO 2024-10-26 12:21:32,738 basehttp basehttp.py:212 "GET /api/service3/recommendations/get-by-user/66de88734a9b1f34cb584831/ HTTP/1.1" 200 30563
+INFO 2024-10-26 12:21:32,749 middleware middleware.py:16 Request: PUT /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/
+INFO 2024-10-26 12:21:32,758 middleware middleware.py:22 Response: 403 Forbidden (0.01s)
+WARNING 2024-10-26 12:21:32,759 log log.py:241 Forbidden: /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/
+WARNING 2024-10-26 12:21:32,760 basehttp basehttp.py:212 "PUT /api/service3/recommendations/update-by-user/66de88734a9b1f34cb584831/ HTTP/1.1" 403 58
+INFO 2024-10-26 12:30:48,252 basehttp basehttp.py:81 - Broken pipe from ('127.0.0.1', 55748)
+INFO 2024-10-26 12:30:48,254 basehttp basehttp.py:81 - Broken pipe from ('127.0.0.1', 53452)
+INFO 2024-10-26 12:30:48,271 basehttp basehttp.py:81 - Broken pipe from ('127.0.0.1', 52567)
+INFO 2024-10-26 12:30:48,272 basehttp basehttp.py:81 - Broken pipe from ('127.0.0.1', 52668)
+INFO 2024-10-27 03:11:00,796 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-10-27 03:11:14,557 middleware middleware.py:16 Request: GET /api/service3/users
+INFO 2024-10-27 03:11:14,798 middleware middleware.py:22 Response: 301 Moved Permanently (0.24s)
+INFO 2024-10-27 03:11:14,800 basehttp basehttp.py:212 "GET /api/service3/users HTTP/1.1" 301 0
+INFO 2024-10-27 03:11:14,812 middleware middleware.py:16 Request: GET /api/service3/users/
+INFO 2024-10-27 03:11:14,816 middleware middleware.py:22 Response: 403 Forbidden (0.00s)
+WARNING 2024-10-27 03:11:14,817 log log.py:241 Forbidden: /api/service3/users/
+WARNING 2024-10-27 03:11:14,818 basehttp basehttp.py:212 "GET /api/service3/users/ HTTP/1.1" 403 37
+INFO 2024-10-27 03:12:12,390 middleware middleware.py:16 Request: GET /login
+INFO 2024-10-27 03:12:12,403 middleware middleware.py:22 Response: 404 Not Found (0.01s)
+WARNING 2024-10-27 03:12:12,405 log log.py:241 Not Found: /login
+WARNING 2024-10-27 03:12:12,407 basehttp basehttp.py:212 "GET /login HTTP/1.1" 404 2201
+INFO 2024-10-27 03:12:20,822 middleware middleware.py:16 Request: POST /login
+INFO 2024-10-27 03:12:20,837 middleware middleware.py:22 Response: 404 Not Found (0.01s)
+WARNING 2024-10-27 03:12:20,838 log log.py:241 Not Found: /login
+WARNING 2024-10-27 03:12:20,840 basehttp basehttp.py:212 "POST /login HTTP/1.1" 404 2202
+INFO 2024-10-27 03:13:09,103 middleware middleware.py:16 Request: POST /api/login
+ERROR 2024-10-27 03:13:09,267 log log.py:241 Internal Server Error: /api/login
+Traceback (most recent call last):
+  File "C:\Users\kavin\OneDrive\Documents\GitHub\researchProject\apiGateway\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kavin\OneDrive\Documents\GitHub\researchProject\apiGateway\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kavin\OneDrive\Documents\GitHub\researchProject\apiGateway\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kavin\OneDrive\Documents\GitHub\researchProject\apiGateway\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+INFO 2024-10-27 03:13:09,281 middleware middleware.py:22 Response: 500 Internal Server Error (0.18s)
+ERROR 2024-10-27 03:13:09,284 basehttp basehttp.py:212 "POST /api/login HTTP/1.1" 500 78875
+INFO 2024-10-27 03:14:08,064 middleware middleware.py:16 Request: POST /api/login/
+INFO 2024-10-27 03:14:08,068 middleware middleware.py:22 Response: 403 Forbidden (0.00s)
+WARNING 2024-10-27 03:14:08,069 log log.py:241 Forbidden: /api/login/
+WARNING 2024-10-27 03:14:08,070 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 403 37
+INFO 2024-10-27 03:14:42,967 middleware middleware.py:16 Request: POST /api/login/
+INFO 2024-10-27 03:14:42,969 middleware middleware.py:22 Response: 403 Forbidden (0.00s)
+WARNING 2024-10-27 03:14:42,970 log log.py:241 Forbidden: /api/login/
+WARNING 2024-10-27 03:14:42,971 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 403 37
+INFO 2024-10-27 03:14:57,573 middleware middleware.py:16 Request: POST /api/login/
+INFO 2024-10-27 03:14:57,575 views views.py:45 Started login in gateWay view
+ERROR 2024-10-27 03:14:57,582 views views.py:64 End login in gateWay view: Invalid login data
+INFO 2024-10-27 03:14:57,583 middleware middleware.py:22 Response: 400 Bad Request (0.01s)
+WARNING 2024-10-27 03:14:57,584 log log.py:241 Bad Request: /api/login/
+WARNING 2024-10-27 03:14:57,585 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 400 40
+INFO 2024-10-27 03:15:05,557 middleware middleware.py:16 Request: POST /api/login/
+INFO 2024-10-27 03:15:05,559 views views.py:45 Started login in gateWay view
+INFO 2024-10-27 03:15:07,816 views views.py:53 End login in gateWay view: Successful
+INFO 2024-10-27 03:15:07,817 middleware middleware.py:22 Response: 200 OK (2.26s)
+INFO 2024-10-27 03:15:07,820 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-27 03:15:37,756 middleware middleware.py:16 Request: GET /api/service3/users
+INFO 2024-10-27 03:15:37,781 middleware middleware.py:22 Response: 301 Moved Permanently (0.02s)
+INFO 2024-10-27 03:15:37,783 basehttp basehttp.py:212 "GET /api/service3/users HTTP/1.1" 301 0
+INFO 2024-10-27 03:15:37,788 middleware middleware.py:16 Request: GET /api/service3/users/
+INFO 2024-10-27 03:15:37,791 middleware middleware.py:22 Response: 403 Forbidden (0.00s)
+WARNING 2024-10-27 03:15:37,792 log log.py:241 Forbidden: /api/service3/users/
+WARNING 2024-10-27 03:15:37,794 basehttp basehttp.py:212 "GET /api/service3/users/ HTTP/1.1" 403 26
+INFO 2024-10-27 03:15:49,424 middleware middleware.py:16 Request: GET /api/service3/users
+INFO 2024-10-27 03:15:49,440 middleware middleware.py:22 Response: 301 Moved Permanently (0.02s)
+INFO 2024-10-27 03:15:49,442 basehttp basehttp.py:212 "GET /api/service3/users HTTP/1.1" 301 0
+INFO 2024-10-27 03:15:49,445 middleware middleware.py:16 Request: GET /api/service3/users/
+INFO 2024-10-27 03:15:49,496 views views.py:110 Accessing URL: http://34.93.234.163/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+INFO 2024-10-27 03:15:50,767 views views.py:123 gateway_view success for service: service3, endpoint: users
+INFO 2024-10-27 03:15:50,792 middleware middleware.py:22 Response: 200 OK (1.35s)
+INFO 2024-10-27 03:15:50,794 basehttp basehttp.py:212 "GET /api/service3/users/ HTTP/1.1" 200 488204
+INFO 2024-10-27 03:20:08,451 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-27 03:20:08,498 views views.py:110 Accessing URL: http://34.93.234.163/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+ERROR 2024-10-27 03:20:16,754 views views.py:127 gateway_view RequestException for service: service3, endpoint: gnn/, error: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+INFO 2024-10-27 03:20:16,756 middleware middleware.py:22 Response: 500 Internal Server Error (8.30s)
+ERROR 2024-10-27 03:20:16,757 log log.py:241 Internal Server Error: /api/service3/gnn//
+ERROR 2024-10-27 03:20:16,757 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 500 149
+INFO 2024-10-27 03:20:42,796 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-10-27 03:22:09,434 middleware middleware.py:16 Request: GET /api/service3/users
+INFO 2024-10-27 03:22:09,481 middleware middleware.py:22 Response: 301 Moved Permanently (0.05s)
+INFO 2024-10-27 03:22:09,483 basehttp basehttp.py:212 "GET /api/service3/users HTTP/1.1" 301 0
+INFO 2024-10-27 03:22:09,487 middleware middleware.py:16 Request: GET /api/service3/users/
+INFO 2024-10-27 03:22:10,044 views views.py:110 Accessing URL: http://34.93.234.163/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+INFO 2024-10-27 03:22:11,276 views views.py:123 gateway_view success for service: service3, endpoint: users
+INFO 2024-10-27 03:22:11,306 middleware middleware.py:22 Response: 200 OK (1.82s)
+INFO 2024-10-27 03:22:11,309 basehttp basehttp.py:212 "GET /api/service3/users/ HTTP/1.1" 200 488204
+INFO 2024-10-27 03:22:31,479 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-27 03:22:31,533 views views.py:110 Accessing URL: http://34.93.234.163/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+ERROR 2024-10-27 03:22:39,523 views views.py:127 gateway_view RequestException for service: service3, endpoint: gnn/, error: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+INFO 2024-10-27 03:22:39,524 middleware middleware.py:22 Response: 500 Internal Server Error (8.05s)
+ERROR 2024-10-27 03:22:39,525 log log.py:241 Internal Server Error: /api/service3/gnn//
+ERROR 2024-10-27 03:22:39,525 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 500 149
+INFO 2024-10-27 03:29:38,885 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-27 03:29:38,938 views views.py:110 Accessing URL: http://34.93.234.163/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+ERROR 2024-10-27 03:29:46,774 views views.py:127 gateway_view RequestException for service: service3, endpoint: gnn/, error: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+INFO 2024-10-27 03:29:46,776 middleware middleware.py:22 Response: 500 Internal Server Error (7.89s)
+ERROR 2024-10-27 03:29:46,777 log log.py:241 Internal Server Error: /api/service3/gnn//
+ERROR 2024-10-27 03:29:46,779 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 500 149
+INFO 2024-10-27 03:42:41,930 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-27 03:42:41,988 views views.py:110 Accessing URL: http://34.93.234.163/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+ERROR 2024-10-27 03:42:49,802 views views.py:127 gateway_view RequestException for service: service3, endpoint: gnn/, error: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+INFO 2024-10-27 03:42:49,805 middleware middleware.py:22 Response: 500 Internal Server Error (7.87s)
+ERROR 2024-10-27 03:42:49,806 log log.py:241 Internal Server Error: /api/service3/gnn//
+ERROR 2024-10-27 03:42:49,808 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 500 149
+INFO 2024-10-27 03:42:54,684 middleware middleware.py:16 Request: POST /api/service3/gnn/
+INFO 2024-10-27 03:42:54,738 views views.py:110 Accessing URL: http://34.93.234.163/uni/gnn with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+ERROR 2024-10-27 03:42:55,264 views views.py:127 gateway_view RequestException for service: service3, endpoint: gnn, error: 500 Server Error: Internal Server Error for url: http://34.93.234.163/uni/gnn
+INFO 2024-10-27 03:42:55,265 middleware middleware.py:22 Response: 500 Internal Server Error (0.58s)
+ERROR 2024-10-27 03:42:55,266 log log.py:241 Internal Server Error: /api/service3/gnn/
+ERROR 2024-10-27 03:42:55,266 basehttp basehttp.py:212 "POST /api/service3/gnn/ HTTP/1.1" 500 90
+INFO 2024-10-27 03:43:00,500 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-27 03:43:00,553 views views.py:110 Accessing URL: http://34.93.234.163/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+ERROR 2024-10-27 03:43:06,192 views views.py:127 gateway_view RequestException for service: service3, endpoint: gnn/, error: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+INFO 2024-10-27 03:43:06,193 middleware middleware.py:22 Response: 500 Internal Server Error (5.69s)
+ERROR 2024-10-27 03:43:06,194 log log.py:241 Internal Server Error: /api/service3/gnn//
+ERROR 2024-10-27 03:43:06,195 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 500 105
+INFO 2024-10-27 03:52:01,930 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-27 03:52:01,983 views views.py:110 Accessing URL: http://34.93.234.163/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+ERROR 2024-10-27 03:52:09,310 views views.py:127 gateway_view RequestException for service: service3, endpoint: gnn/, error: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+INFO 2024-10-27 03:52:09,311 middleware middleware.py:22 Response: 500 Internal Server Error (7.38s)
+ERROR 2024-10-27 03:52:09,312 log log.py:241 Internal Server Error: /api/service3/gnn//
+ERROR 2024-10-27 03:52:09,313 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 500 149
+INFO 2024-10-27 08:59:19,921 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-27 08:59:20,688 views views.py:110 Accessing URL: http://34.93.234.163/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+ERROR 2024-10-27 08:59:31,105 views views.py:127 gateway_view RequestException for service: service3, endpoint: gnn/, error: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+INFO 2024-10-27 08:59:31,107 middleware middleware.py:22 Response: 500 Internal Server Error (11.19s)
+ERROR 2024-10-27 08:59:31,108 log log.py:241 Internal Server Error: /api/service3/gnn//
+ERROR 2024-10-27 08:59:31,109 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 500 149
+INFO 2024-10-27 13:45:58,929 middleware middleware.py:16 Request: POST /api/service3/gnn
+ERROR 2024-10-27 13:45:59,201 log log.py:241 Internal Server Error: /api/service3/gnn
+Traceback (most recent call last):
+  File "C:\Users\kavin\OneDrive\Documents\GitHub\researchProject\apiGateway\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kavin\OneDrive\Documents\GitHub\researchProject\apiGateway\venv\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kavin\OneDrive\Documents\GitHub\researchProject\apiGateway\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kavin\OneDrive\Documents\GitHub\researchProject\apiGateway\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/service3/gnn/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+INFO 2024-10-27 13:45:59,216 middleware middleware.py:22 Response: 500 Internal Server Error (0.29s)
+ERROR 2024-10-27 13:45:59,218 basehttp basehttp.py:212 "POST /api/service3/gnn HTTP/1.1" 500 78988
+INFO 2024-10-27 13:46:14,345 middleware middleware.py:16 Request: GET /api/service3/users
+INFO 2024-10-27 13:46:14,363 middleware middleware.py:22 Response: 301 Moved Permanently (0.02s)
+INFO 2024-10-27 13:46:14,365 basehttp basehttp.py:212 "GET /api/service3/users HTTP/1.1" 301 0
+INFO 2024-10-27 13:46:14,372 middleware middleware.py:16 Request: GET /api/service3/users/
+INFO 2024-10-27 13:46:15,004 views views.py:110 Accessing URL: http://34.93.234.163/uni/users with method: GET and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+INFO 2024-10-27 13:46:18,247 views views.py:123 gateway_view success for service: service3, endpoint: users
+INFO 2024-10-27 13:46:18,278 middleware middleware.py:22 Response: 200 OK (3.91s)
+INFO 2024-10-27 13:46:18,281 basehttp basehttp.py:212 "GET /api/service3/users/ HTTP/1.1" 200 488204
+INFO 2024-10-27 13:46:40,903 middleware middleware.py:16 Request: POST /api/service3/gnn/
+INFO 2024-10-27 13:46:40,973 views views.py:110 Accessing URL: http://34.93.234.163/uni/gnn with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+ERROR 2024-10-27 13:46:42,879 views views.py:127 gateway_view RequestException for service: service3, endpoint: gnn, error: 500 Server Error: Internal Server Error for url: http://34.93.234.163/uni/gnn
+INFO 2024-10-27 13:46:42,881 middleware middleware.py:22 Response: 500 Internal Server Error (1.98s)
+ERROR 2024-10-27 13:46:42,882 log log.py:241 Internal Server Error: /api/service3/gnn/
+ERROR 2024-10-27 13:46:42,883 basehttp basehttp.py:212 "POST /api/service3/gnn/ HTTP/1.1" 500 90
+INFO 2024-10-27 13:46:50,096 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-27 13:46:50,172 views views.py:110 Accessing URL: http://34.93.234.163/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+ERROR 2024-10-27 13:47:00,020 views views.py:127 gateway_view RequestException for service: service3, endpoint: gnn/, error: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+INFO 2024-10-27 13:47:00,022 middleware middleware.py:22 Response: 500 Internal Server Error (9.93s)
+ERROR 2024-10-27 13:47:00,023 log log.py:241 Internal Server Error: /api/service3/gnn//
+ERROR 2024-10-27 13:47:00,025 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 500 149
+INFO 2024-10-27 13:50:12,038 middleware middleware.py:16 Request: POST /api/service3/gnn//
+INFO 2024-10-27 13:50:12,118 views views.py:110 Accessing URL: http://34.93.234.163/uni/gnn/ with method: POST and headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjZkNTRiMDRkNDA5YWNmNTFhODg4YzdjIiwiZXhwIjoxNzMwMDY1NTA3LCJpYXQiOjE3Mjk5NzkxMDd9.k8d8r4dgd6utQHbRJTSKaTy9sV6QpNNV15dyl4NBKsU'}
+ERROR 2024-10-27 13:50:19,660 views views.py:127 gateway_view RequestException for service: service3, endpoint: gnn/, error: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+INFO 2024-10-27 13:50:19,662 middleware middleware.py:22 Response: 500 Internal Server Error (7.62s)
+ERROR 2024-10-27 13:50:19,663 log log.py:241 Internal Server Error: /api/service3/gnn//
+ERROR 2024-10-27 13:50:19,664 basehttp basehttp.py:212 "POST /api/service3/gnn// HTTP/1.1" 500 149
+INFO 2024-10-27 16:39:14,156 autoreload autoreload.py:668 Watching for file changes with StatReloader
+INFO 2024-10-27 16:39:18,173 middleware middleware.py:16 Request: OPTIONS /api/login/
+INFO 2024-10-27 16:39:18,178 middleware middleware.py:22 Response: 200 OK (0.00s)
+INFO 2024-10-27 16:39:18,178 basehttp basehttp.py:212 "OPTIONS /api/login/ HTTP/1.1" 200 0
+INFO 2024-10-27 16:39:18,179 middleware middleware.py:16 Request: POST /api/login/
+INFO 2024-10-27 16:39:18,180 views views.py:45 Started login in gateWay view
+INFO 2024-10-27 16:39:20,233 middleware middleware.py:16 Request: POST /api/login/
+INFO 2024-10-27 16:39:20,235 views views.py:45 Started login in gateWay view
+INFO 2024-10-27 16:39:21,019 views views.py:53 End login in gateWay view: Successful
+INFO 2024-10-27 16:39:21,020 middleware middleware.py:22 Response: 200 OK (2.84s)
+INFO 2024-10-27 16:39:21,021 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-27 16:39:21,033 middleware middleware.py:16 Request: OPTIONS /api/users/chathurangiudunuwara@gmail.com
+INFO 2024-10-27 16:39:21,033 middleware middleware.py:22 Response: 200 OK (0.00s)
+INFO 2024-10-27 16:39:21,034 basehttp basehttp.py:212 "OPTIONS /api/users/chathurangiudunuwara@gmail.com HTTP/1.1" 200 0
+INFO 2024-10-27 16:39:21,036 middleware middleware.py:16 Request: OPTIONS /api/users/chathurangiudunuwara@gmail.com/
+INFO 2024-10-27 16:39:21,037 middleware middleware.py:22 Response: 200 OK (0.00s)
+INFO 2024-10-27 16:39:21,037 basehttp basehttp.py:212 "OPTIONS /api/users/chathurangiudunuwara@gmail.com/ HTTP/1.1" 200 0
+INFO 2024-10-27 16:39:21,038 middleware middleware.py:16 Request: GET /api/users/chathurangiudunuwara@gmail.com/
+INFO 2024-10-27 16:39:21,398 views views.py:146 user_detail called for email: chathurangiudunuwara@gmail.com
+INFO 2024-10-27 16:39:21,760 views views.py:155 user_detail GET successful for email: chathurangiudunuwara@gmail.com
+INFO 2024-10-27 16:39:21,762 middleware middleware.py:22 Response: 200 OK (0.72s)
+INFO 2024-10-27 16:39:21,763 basehttp basehttp.py:212 "GET /api/users/chathurangiudunuwara@gmail.com/ HTTP/1.1" 200 125
+INFO 2024-10-27 16:39:23,454 views views.py:53 End login in gateWay view: Successful
+INFO 2024-10-27 16:39:23,455 middleware middleware.py:22 Response: 200 OK (3.22s)
+INFO 2024-10-27 16:39:23,456 basehttp basehttp.py:212 "POST /api/login/ HTTP/1.1" 200 380
+INFO 2024-10-27 16:39:23,462 middleware middleware.py:16 Request: GET /api/users/chathurangiudunuwara@gmail.com/
+INFO 2024-10-27 16:39:23,868 views views.py:146 user_detail called for email: chathurangiudunuwara@gmail.com
+INFO 2024-10-27 16:39:24,272 views views.py:155 user_detail GET successful for email: chathurangiudunuwara@gmail.com
+INFO 2024-10-27 16:39:24,273 middleware middleware.py:22 Response: 200 OK (0.81s)
+INFO 2024-10-27 16:39:24,273 basehttp basehttp.py:212 "GET /api/users/chathurangiudunuwara@gmail.com/ HTTP/1.1" 200 125
+INFO 2024-10-27 17:31:13,538 middleware middleware.py:16 Request: OPTIONS /recommendation/
+INFO 2024-10-27 17:31:13,604 middleware middleware.py:22 Response: 200 OK (0.03s)
+INFO 2024-10-27 17:31:13,625 basehttp basehttp.py:212 "OPTIONS /recommendation/ HTTP/1.1" 200 0
+INFO 2024-10-27 17:31:13,639 middleware middleware.py:16 Request: POST /recommendation/
+INFO 2024-10-27 17:31:14,257 middleware middleware.py:22 Response: 404 Not Found (0.62s)
+WARNING 2024-10-27 17:31:14,258 log log.py:241 Not Found: /recommendation/
+WARNING 2024-10-27 17:31:14,258 basehttp basehttp.py:212 "POST /recommendation/ HTTP/1.1" 404 2232
