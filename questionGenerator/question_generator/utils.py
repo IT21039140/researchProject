@@ -44,7 +44,8 @@ def generate_questions(prompt: str, max_tokens=500) -> str:
 def generate_questions_for_law(prompt: str, max_tokens: int) -> str:
     try:
         response = openai.ChatCompletion.create(
-            model="ft:gpt-4o-mini-2024-07-18:personal::A5QBObhf",
+            # model="ft:gpt-4o-mini-2024-07-18:personal::A5QBObhf",
+            model="gpt-4o",
             messages=[{"role": "system", "content": "You are an expert in creating aptitude test questions."},
                       {"role": "user", "content": prompt}],
             max_tokens=max_tokens,

@@ -119,7 +119,7 @@ def gateway_view(request, service, endpoint):
         elif method == 'PUT':
             response = requests.put(url, headers=headers, json=request.data)
         elif method == 'DELETE':
-            response = requests.delete(url, headers=headers)
+            response = requests.delete(url, headers=headers,json=request.data)
         
         response.raise_for_status()  # Raise HTTPError for bad responses (4xx and 5xx)
         log.info(f'gateway_view success for service: {service}, endpoint: {endpoint}')

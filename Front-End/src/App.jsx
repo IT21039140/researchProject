@@ -20,9 +20,10 @@ function App() {
         <Route path="/question-generator" element={<Dashboard isQuestionGenerator={true} />} />
         <Route path="/subscribe" element={<SubscriptionPage />} />
         <Route path="/chat" element={<ChatBot/>} />
-        <Route path="/career_guidance" element={<Dashboard />}>
-             <Route index element={<CareerGuidance />} />
-        </Route>
+        {/* <Route path="/career_guidance" element={<Dashboard />}> */}
+             {/* <Route path="/career_guidance" element={<CareerGuidance />} /> */}
+        <Route path="/career_guidance" element={<Dashboard isCareerGuidance={true} />} />
+        {/* </Route> */}
 
       </Routes>
     </Router>

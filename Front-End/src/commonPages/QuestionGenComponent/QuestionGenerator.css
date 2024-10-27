@@ -190,7 +190,8 @@
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 48%;
+  /* max-width: 48%; */
+  max-width: 100%;
 }
 
 .answered-questions-table h3, .unanswered-questions-table h3 {
@@ -313,4 +314,163 @@
 .question-set-title {
   font-weight: bold;
   color: #483d8b;
+}
+
+.retake-button {
+  background-color: #007bff; /* Primary blue color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  margin-top: 20px;
+}
+
+.retake-button:hover {
+  background-color: #0056b3; /* Darker blue for hover effect */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.retake-button:active {
+  background-color: #003f7f; /* Even darker blue for active effect */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.retake-button:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 3px rgba(0, 123, 255, 0.4);
+}
+
+
+.pdf-button {
+  background-color: #28a745; /* Green color */
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.pdf-button:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.pdf-button:active {
+  background-color: #1e7e34; /* Even darker green on click */
+  transform: translateY(1px); /* Slight push effect */
+}
+
+.pdf-button:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 3px rgba(40, 167, 69, 0.4);
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.pagination button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.pagination span {
+  margin: 0 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+.law-questions-container{
+ text-align: left; 
+}
+
+/* Container to center the law-papers-table below the other tables */
+.law-papers-container {
+  display: flex;
+  justify-content: center; /* Center the table within the container */
+  margin-top: 20px;
+}
+
+/* Styles for the law papers table */
+.law-papers-table {
+  width: 80%; /* Width of the table itself, adjust as needed */
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;
+}
+
+.law-papers-table h3 {
+  color: #483d8b; /* Consistent color with other table headers */
+  margin-bottom: 15px;
+}
+
+.law-papers-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.law-papers-table table th,
+.law-papers-table table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.law-papers-table table th {
+  background-color: #6a5acd; /* Matching color scheme */
+  color: white;
+}
+
+.law-papers-table table tbody tr:hover {
+  background-color: #f1f1f1; /* Highlight on row hover */
+}
+
+.view-paper-button,
+.delete-paper-button {
+  background-color: transparent;
+  border: none;
+  color: #6a5acd;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.view-paper-button i,
+.delete-paper-button i {
+  margin-right: 5px;
+}
+
+.view-paper-button:hover,
+.delete-paper-button:hover {
+  color: #483d8b; /* Slight color change on hover */
 }

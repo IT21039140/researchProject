@@ -120,21 +120,21 @@ function Sidebar({ onCollapse }) {
               </div>
           )}
         </div>
-//       <div className="user-profile" ref={profileRef} onClick={toggleDropdown}>
-//         <img src={profilePic} alt="Profile Icon" className="profile-image" />
-//         <a href="#" className="profile-name">
-//           My Profile
-//         </a>
-//         {dropdownVisible && (
+       {/* <div className="user-profile" ref={profileRef} onClick={toggleDropdown}>
+         <img src={profilePic} alt="Profile Icon" className="profile-image" />
+         <a href="#" className="profile-name">
+         My Profile
+         </a>
+         {dropdownVisible && (
 
-//           <div ref={dropdownRef} className={`dropdown-menu ${collapsed ? 'collapsed-menu' : ''}`}>
-//             <ul>
-//               <li><a  onClick={() => navigate('/settings')}>Settings</a></li>
-//               <li><a  onClick={handleLogout}>Log Out</a></li>
-//             </ul>
-//           </div>
-//         )}
-//       </div>
+          <div ref={dropdownRef} className={`dropdown-menu ${collapsed ? 'collapsed-menu' : ''}`}>
+            <ul>
+              <li><a  onClick={() => navigate('/settings')}>Settings</a></li>
+              <li><a  onClick={handleLogout}>Log Out</a></li>
+            </ul>
+          </div>
+        )}
+      </div> */}
     </aside>
   );
 }
