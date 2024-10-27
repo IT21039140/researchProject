@@ -16,7 +16,7 @@ import RankingForm from "../../Components/UniCourseRecommendationComponenets/Dra
 
 const RecommendationHome = () => {
   return (
-    <Container fluid className="main-content">
+    <Container fluid >
       <ChatUI />
       <br />
       <br />

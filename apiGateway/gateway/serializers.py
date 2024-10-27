@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import UserEdu
 
 class UserSerializer(serializers.Serializer):
+    id = serializers.CharField(read_only=True)
     email = serializers.EmailField()
     first_name = serializers.CharField(max_length=30, required=False)
     last_name = serializers.CharField(max_length=30, required=False)

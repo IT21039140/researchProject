@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import { FaArrowLeft, FaArrowRight, FaCheck } from "react-icons/fa";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import "./Styles/SupportChat.css";
+
 
 function SupportChat() {
   const [step, setStep] = useState(0);

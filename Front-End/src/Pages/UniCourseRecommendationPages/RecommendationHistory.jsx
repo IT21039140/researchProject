@@ -30,7 +30,7 @@ const RecommendationHistory = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:8010/uni/recommendations/get-by-user/${userId}/`
+          `http://127.0.0.1:8000/api/service3/recommendations/get-by-user/${userId}/`
         );
 
         const recommendationData = response.data.recommendations;
@@ -225,7 +225,7 @@ const RecommendationHistory = () => {
   };
 
   return (
-    <div className="dashboard-content">
+    <div >
       <h1 className="title">Course Catalog</h1>
       <div className="filters">
         <input

@@ -92,7 +92,9 @@ def refresh_token(request):
 def gateway_view(request, service, endpoint):
     log.info(f'Service : {service} : End point: {endpoint}')
     service_url = settings.SERVICE_URLS.get(service.lower())
+
     log.info(f'Service service_url: {service_url}')
+
 
     if not service_url:
         log.error(f'Service not found: {service}')
@@ -102,14 +104,15 @@ def gateway_view(request, service, endpoint):
     log.info(f'Service service_url full: {url}')
     method = request.method
 
-    # Extract the access token from the request headers
     access_token = request.headers.get('Authorization')
-
+    
     if access_token:
         headers = {'Authorization': access_token}
     else:
         log.error('Authorization token is missing')
         return JsonResponse({"error": "Authorization token is missing"}, status=401)
+
+    log.info(f'Accessing URL: {url} with method: {method} and headers: {headers}')
 
     try:
         if method == 'GET':
@@ -122,17 +125,16 @@ def gateway_view(request, service, endpoint):
             response = requests.delete(url, headers=headers,json=request.data)
         
         response.raise_for_status()  # Raise HTTPError for bad responses (4xx and 5xx)
+
         log.info(f'gateway_view success for service: {service}, endpoint: {endpoint}')
         return Response(response.json(), status=response.status_code)
-    
+
     except RequestException as e:
         log.error(f'gateway_view RequestException for service: {service}, endpoint: {endpoint}, error: {e}')
         return JsonResponse({"error": str(e)}, status=500)
     except Exception as e:
         log.error(f'gateway_view Exception for service: {service}, endpoint: {endpoint}, error: {e}')
         return JsonResponse({"error": str(e)}, status=500)
-
-
     
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
