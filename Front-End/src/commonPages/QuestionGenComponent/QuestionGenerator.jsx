@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import Analytics from './QuestionAnalytics';
+// import Analytics from './QuestionAnalytics';
 import PastGeneratedQuestions from './PastGeneratedQuestions';
 import GenerateQuestions from './GenerateQuestions';
 import './QuestionGenerator.css';
 
 function QuestionGenerator({ sidebarCollapsed }) {
-  const [activeTab, setActiveTab] = useState('Analytics');
+  const [activeTab, setActiveTab] = useState('Past generated Questions');
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'Analytics':
-        return <Analytics />;
+      // case 'Analytics':
+      //   return <Analytics />;
       case 'Past generated Questions':
         return <PastGeneratedQuestions />;
       case 'Generate Questions':
@@ -23,12 +23,12 @@ function QuestionGenerator({ sidebarCollapsed }) {
   return (
     <div className={`question-generator-container ${sidebarCollapsed ? 'collapsed' : ''}`}>
       <div className="tabs">
-        <button
+        {/* <button
           className={`tab ${activeTab === 'Analytics' ? 'active' : ''}`}
           onClick={() => setActiveTab('Analytics')}
         >
           Analytics
-        </button>
+        </button> */}
         <button
           className={`tab ${activeTab === 'Past generated Questions' ? 'active' : ''}`}
           onClick={() => setActiveTab('Past generated Questions')}

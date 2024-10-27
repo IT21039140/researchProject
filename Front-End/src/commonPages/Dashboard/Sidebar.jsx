@@ -123,7 +123,6 @@ function Sidebar({ onCollapse }) {
           </li>
         </ul>
       </nav>
-
       <div className="user-profile" ref={profileRef} onClick={toggleDropdown}>
         <img src={profilePic} alt="Profile Icon" className="profile-image" />
         <a href="#" className="profile-name">My Profile</a>
@@ -140,6 +139,7 @@ function Sidebar({ onCollapse }) {
           </div>
         )}
       </div>
+
     </aside>
   );
 }

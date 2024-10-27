@@ -90,13 +90,18 @@ def refresh_token(request):
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def gateway_view(request, service, endpoint):
+    log.info(f'Service : {service} : End point: {endpoint}')
     service_url = settings.SERVICE_URLS.get(service.lower())
-    
+
+    log.info(f'Service service_url: {service_url}')
+
+
     if not service_url:
         log.error(f'Service not found: {service}')
         return JsonResponse({"error": "Service not found"}, status=404)
 
     url = f'{service_url}{endpoint}'
+    log.info(f'Service service_url full: {url}')
     method = request.method
 
     access_token = request.headers.get('Authorization')
@@ -117,9 +122,10 @@ def gateway_view(request, service, endpoint):
         elif method == 'PUT':
             response = requests.put(url, headers=headers, json=request.data)
         elif method == 'DELETE':
-            response = requests.delete(url, headers=headers)
+            response = requests.delete(url, headers=headers,json=request.data)
+        
+        response.raise_for_status()  # Raise HTTPError for bad responses (4xx and 5xx)
 
-        response.raise_for_status()  # Raise for bad responses
         log.info(f'gateway_view success for service: {service}, endpoint: {endpoint}')
         return Response(response.json(), status=response.status_code)
 
@@ -129,7 +135,6 @@ def gateway_view(request, service, endpoint):
     except Exception as e:
         log.error(f'gateway_view Exception for service: {service}, endpoint: {endpoint}, error: {e}')
         return JsonResponse({"error": str(e)}, status=500)
-
     
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

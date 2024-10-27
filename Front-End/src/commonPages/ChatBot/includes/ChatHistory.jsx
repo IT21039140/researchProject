@@ -4,12 +4,21 @@ import axios from 'axios';
 function ChatHistory({ onSelectSession }) {
   const [chatHistory, setChatHistory] = useState([]);
   const [userEmail, setUserEmail] = useState(localStorage.getItem('email'));
+  const token = localStorage.getItem('access_token');
 
   useEffect(() => {
     async function fetchChatHistory() {
       try {
-        const response = await axios.get(`http://127.0.0.1:5000/api/get_chat/${userEmail}`);
-        const uniqueSessions = [...new Set(response.data.chat_history.map(chat => chat.session_id))];
+        
+        // const response = await axios.get(`http://127.0.0.1:5000/api/get_chat/${userEmail}`);
+        const response = await axios.get(
+          `http://127.0.0.1:8000/api/service2/get_chat/${userEmail}/`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}` // Attach the token in the Authorization header
+            }
+          }
+        );        const uniqueSessions = [...new Set(response.data.chat_history.map(chat => chat.session_id))];
         setChatHistory(uniqueSessions);
       } catch (error) {
         console.error('Error fetching chat history:', error);

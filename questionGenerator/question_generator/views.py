@@ -10,6 +10,7 @@ from .ServiceClient import ServiceClient
 import jwt
 from django.conf import settings
 from pymongo import MongoClient
+import datetime
 
 # Initialize pymongo client
 client = MongoClient(settings.MONGO_URI)
@@ -486,14 +487,16 @@ class RetrieveUnansweredQuestionsAPIView(APIView):
                 for question in questions:
                     formatted_questions.append({
                         "question_number": question.get('question_number'),
-                        "question_text": question.get('question_text'),
+                        "question": question.get('question_text'),
                         "options": question.get('options'),
                         "correct_answer": question.get('correct_answer')  # Optional if needed
+
                     })
 
                 response_data = {
                     "paperId": paper_id,
-                    "questions": formatted_questions
+                    "questions": formatted_questions,
+                    "paperDes": "IT Paper"
                 }
 
                 log.info(f"Questions retrieved successfully for paperId: {paper_id}")
@@ -517,6 +520,55 @@ class RetrieveUnansweredQuestionsAPIView(APIView):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+
+class DeletePaperAPIView(APIView):
+    def delete(self, request):
+        email = request.data.get('email')
+        paper_id = request.data.get('paperId')
+
+        if not email or not paper_id:
+            log.error("Missing email or paperId in request payload.")
+            return Response(
+                {"error": "Both email and paperId are required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            # Check if the UserPaper exists with the given email and paperId
+            user_paper = db.user_paper.find_one({"user_id": email, "paperId": paper_id})
+
+            if not user_paper:
+                log.error(f"No paper found for email: {email}, paperId: {paper_id}")
+                return Response(
+                    {"error": "No paper found with the given email and paperId."},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+
+            # Delete associated questions from GeneratedITQuestions
+            db.generated_it_questions.delete_many({"paperId": paper_id})
+            log.info(f"Deleted questions associated with paperId: {paper_id}")
+
+            # Delete the UserPaper entry
+            db.user_paper.delete_one({"user_id": email, "paperId": paper_id})
+            log.info(f"Deleted paper with paperId: {paper_id} for user_id: {email}")
+
+            # Delete related user responses from UserResponse
+            db.user_responses.delete_many({"email": email, "paperId": paper_id})
+            log.info(f"Deleted user responses associated with paperId: {paper_id} for email: {email}")
+
+            return Response(
+                {"message": f"Paper with paperId {paper_id} for email {email} deleted successfully."},
+                status=status.HTTP_200_OK
+            )
+
+        except Exception as e:
+            log.error(f"Error deleting paper with paperId: {paper_id} for email: {email}")
+            log.error(f"An error occurred: {str(e)}")
+            log.error(f"Traceback: {traceback.format_exc()}")
+            return Response(
+                {"error": "An unexpected error occurred while deleting the paper."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
 class GenerateLawQuestionAPIView(APIView):
     def post(self, request):
@@ -550,42 +602,59 @@ class GenerateLawQuestionAPIView(APIView):
                     {"error": "The access token is invalid."},
                     status=status.HTTP_401_UNAUTHORIZED
                 )
+            log.info(f"Token is valid")
+
+            email = request.data.get('email')
+            if not email:
+                return Response({"error": "Email is required."}, status=status.HTTP_400_BAD_REQUEST)
+
+            # Generate a unique paperId
+            last_paper = db.generated_law_questions.find_one(sort=[("paperId", -1)])
+            paper_id = last_paper["paperId"] + 1 if last_paper else 1
+            log.info(f"old paperId  new paperid {paper_id}")
 
             # Proceed to generate the questions after token validation
             # Generate question set 1
             generated_content_set1 = generate_questions_for_law(law_question_prompt,135)
             if generated_content_set1.startswith("Error"):
                 return Response({"error": generated_content_set1}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            log.info(f"Question 1 generated successfully")
 
             # Generate question set 2
             generated_content_set2 = generate_questions_for_law(alphabetical_order_prompt,270)
             if generated_content_set2.startswith("Error"):
                 return Response({"error": generated_content_set2}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            log.info(f"Question 2 generated successfully")
 
             # Generate question set 3 (prepositions)
             generated_content_set3 = generate_questions_for_law(preposition_prompt,230)
             if generated_content_set3.startswith("Error"):
                 return Response({"error": generated_content_set3}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            log.info(f"Question 3 generated successfully")
 
             # Generate question set 4 (homophones/confused words)
             generated_content_set4 = generate_questions_for_law(homophones_prompt,180)
             if generated_content_set4.startswith("Error"):
                 return Response({"error": generated_content_set4}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            log.info(f"Question 4 generated successfully")
 
             # Generate question set 5 (verb forms)
             generated_content_set5 = generate_questions_for_law(verb_form_prompt,200)
             if generated_content_set5.startswith("Error"):
                 return Response({"error": generated_content_set5}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            log.info(f"Question 5 generated success fully")
 
             # Generate question set 6 (summary)
             generated_content_set6 = generate_questions_for_law(summary_prompt,500)
             if generated_content_set6.startswith("Error"):
                 return Response({"error": generated_content_set6}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            log.info(f"Question 6 generated successfully")
 
                 # Generate question set 7 (analytical essay)
             generated_content_set7 = generate_questions_for_law(analytical_essay_prompt,100)
             if generated_content_set7.startswith("Error"):
                 return Response({"error": generated_content_set7}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            log.info(f"Question 7 generated successfully")
 
             # Extract title and questions for questionSetNo1
             lines_set1 = generated_content_set1.split('\n')
@@ -680,6 +749,58 @@ class GenerateLawQuestionAPIView(APIView):
                     "questions": questions_content_set7
                 }
             }
+            question_sets=[ {
+                    "title": title_set1 if title_set1 else "In each of the questions from No. 1 to 3, select the Incorrectly spelt word and write the number of the relevant choice on the dotted line provided against each question. (03 marks)",
+                    "questions": questions_content_set1,
+                    "question_set_no": 1
+                },
+                {
+                    "title": title_set2 if title_set2 else "In each of the questions from No. 4 to 6, rearrange the words in the alphabetical order; check with the answers given and write the appropriate number of the relevant choice on the dotted line provided against each question. (03 marks)",
+                    "questions": questions_content_set2,
+                    "question_set_no": 2
+                },
+                {
+                    "title": title_set3 if title_set3 else "In each of the questions from No. 7 to 11, select the most appropriate preposition to fill in the blank and write the number of the relevant choice on the dotted line provided against each question. (05 marks)",
+                    "questions": questions_content_set3,
+                    "question_set_no": 3
+                },
+                {
+                    "title": title_set4 if title_set4 else "In each of the questions from No. 12 to 15, underline the correct option to fill in the blank. (04 marks)",
+                    "questions": questions_content_set4,
+                    "question_set_no": 4
+                },
+                {
+                    "title": title_set5 if title_set5 else "In questions from No. 16 to 21, fill in each blank with a suitable form of the verb provided within brackets. (06 marks)",
+                    "questions": questions_content_set5,
+                    "question_set_no": 5
+                },
+                {
+                    "title": title_set6 if title_set6 else "Read the following text and summarize it into one-third of its length and give a suitable title. Indicate the number of words used at the end. (15 marks)",
+                    "questions": questions_content_set6,
+                    "question_set_no": 6
+                },
+                {
+                    "title": title_set7 if title_set7 else "Write on analytical essay on the following topic using about 300 words. (25 marks)",
+                    "questions": questions_content_set7,
+                    "question_set_no": 7
+                }
+            ]
+
+            law_questions_data = {
+                "email": email,
+                "paperId": paper_id,
+                "generated_datetime": datetime.datetime.utcnow(),
+                "questions": question_sets
+            }
+
+            # Insert the generated questions into
+            # Insert the generated questions into MongoDB
+            try:
+                db.generated_law_questions.insert_one(law_questions_data)
+                log.info(f"Law questions saved successfully for email: {email}, paperId: {paper_id}")
+            except Exception as e:
+                log.error(f"Error in save low question {str(e)}")
+                return Response({"error": "A paper with this ID already exists."}, status=status.HTTP_409_CONFLICT)
 
             return Response(response_data, status=status.HTTP_200_OK)
 
@@ -688,6 +809,195 @@ class GenerateLawQuestionAPIView(APIView):
             log.error(f"Traceback: {traceback.format_exc()}")
             return Response(
                 {"error": "An error occurred while generating law questions."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class RetrieveUserPapersAPIView(APIView):
+    def post(self, request):
+        # Retrieve and validate the access token
+        access_token = request.headers.get('Authorization')
+        if not access_token:
+            log.error("Missing access token in request headers.")
+            return Response(
+                {"error": "Authorization token is required."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+        try:
+            # Decode and validate the JWT token
+            jwt.decode(access_token.split(' ')[1], settings.JWT_SECRET_KEY, algorithms=[settings.JWT_ALGORITHM])
+        except jwt.ExpiredSignatureError as e:
+            log.error("The access token has expired.")
+            return Response(
+                {"error": "The access token has expired."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+        except jwt.InvalidTokenError as e:
+            log.error("The access token is invalid.")
+            return Response(
+                {"error": "The access token is invalid."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+        # If token is valid, proceed with fetching papers
+        try:
+            # Retrieve email from the request payload
+            email = request.data.get('email')
+            if not email:
+                log.error("Missing email in request payload.")
+                return Response(
+                    {"error": "Email is required."},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+            # Query the generated law questions for the specified email
+            user_papers = db.generated_law_questions.find({"email": email})
+
+            # If no papers are found, return an empty response
+            if not user_papers:
+                log.info(f"No papers found for email: {email}")
+                return Response(
+                    {"message": "No papers found for the specified user."},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+
+            # Prepare the response data with paperId, number_of_questions, and paper description
+            paper_details = []
+            for paper in user_papers:
+                paper_details.append({
+                    "paperId": paper.get("paperId"),
+                    "number_of_questions": len(paper.get("questions", [])),
+                    "paper_description": "Law Paper"  # Fixed description; can be adjusted based on specific requirements
+                })
+
+            return Response({"papers": paper_details}, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            log.error(f"Error retrieving papers: {str(e)}")
+            return Response(
+                {"error": "An error occurred while retrieving papers."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+
+class RetrieveSingleLawPaperAPIView(APIView):
+    def post(self, request):
+        # Retrieve and validate the access token
+        access_token = request.headers.get('Authorization')
+        if not access_token:
+            log.error("Missing access token in request headers.")
+            return Response(
+                {"error": "Authorization token is required."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+        try:
+            # Decode and validate the JWT token
+            jwt.decode(access_token.split(' ')[1], settings.JWT_SECRET_KEY, algorithms=[settings.JWT_ALGORITHM])
+        except jwt.ExpiredSignatureError:
+            log.error("The access token has expired.")
+            return Response(
+                {"error": "The access token has expired."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+        except jwt.InvalidTokenError:
+            log.error("The access token is invalid.")
+            return Response(
+                {"error": "The access token is invalid."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+        # Extract paperId and email from the request payload
+        email = request.data.get('email')
+        paper_id = request.data.get('paperId')
+        if not email or not paper_id:
+            log.error("Missing email or paperId in request payload.")
+            return Response(
+                {"error": "Both email and paperId are required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            # Retrieve the paper from the database
+            paper = db.generated_law_questions.find_one({"email": email, "paperId": paper_id})
+            if not paper:
+                log.error(f"Paper not found for email: {email}, paperId: {paper_id}")
+                return Response(
+                    {"error": "Paper not found."},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+
+            # Format the questions into the specified response structure
+            response_data = {}
+            for i, question_set in enumerate(paper['questions'], start=1):
+                question_set_key = f"questionSetNo{i}"
+                response_data[question_set_key] = {
+                    "title": question_set.get("title"),
+                    "questions": question_set.get("questions")
+                }
+
+            return Response(response_data, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            log.error(f"Error retrieving single paper: {str(e)}")
+            return Response(
+                {"error": "An error occurred while retrieving the paper."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+class DeleteLawQuestionPaperAPIView(APIView):
+    def delete(self, request):
+        # Retrieve and validate the access token
+        access_token = request.headers.get('Authorization')
+        if not access_token:
+            log.error("Missing access token in request headers.")
+            return Response(
+                {"error": "Authorization token is required."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+        try:
+            # Decode and validate the JWT token
+            jwt.decode(access_token.split(' ')[1], settings.JWT_SECRET_KEY, algorithms=[settings.JWT_ALGORITHM])
+        except jwt.ExpiredSignatureError:
+            log.error("The access token has expired.")
+            return Response(
+                {"error": "The access token has expired."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+        except jwt.InvalidTokenError:
+            log.error("The access token is invalid.")
+            return Response(
+                {"error": "The access token is invalid."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+
+        # Extract paperId and email from the request payload
+        email = request.data.get('email')
+        paper_id = request.data.get('paperId')
+        if not email or not paper_id:
+            log.error("Missing email or paperId in request payload.")
+            return Response(
+                {"error": "Both email and paperId are required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            # Attempt to delete the specified paper
+            result = db.generated_law_questions.delete_one({"email": email, "paperId": paper_id})
+            if result.deleted_count == 0:
+                log.error(f"Paper not found for email: {email}, paperId: {paper_id}")
+                return Response(
+                    {"error": "Paper not found or already deleted."},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+
+            log.info(f"Paper with paperId: {paper_id} deleted successfully for email: {email}")
+            return Response({"message": "Paper deleted successfully."}, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            log.error(f"Error deleting law question paper: {str(e)}")
+            return Response(
+                {"error": "An error occurred while deleting the paper."},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
