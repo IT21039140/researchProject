@@ -389,10 +389,11 @@ export default function CareerGuidance() {
 
     setLoading(true); // Set loading to true before the fetch
     try {
-      const response = await fetch("http://localhost:8000/recommendation/", {
+      const response = await fetch("http://127.0.0.1:8000/api/service4/recommendation/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.getItem('access_token')}`,
         },
         body: JSON.stringify(studentData),
       });

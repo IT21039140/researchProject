@@ -44,7 +44,7 @@ class StudentData(BaseModel):
     dream_job_title: str
 
 # Define the recommendation endpoint
-@app.post("/recommendation/")
+@app.post("/recommendation")
 def rnn_recommendations(data: StudentData):
     print(data)
     
@@ -108,4 +108,4 @@ def rnn_recommendations(data: StudentData):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8004)

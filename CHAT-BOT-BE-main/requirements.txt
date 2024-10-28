@@ -101,3 +101,4 @@ zipp==3.18.1
 
 flask~=3.0.3
 pymongo~=4.8.0
+Flask-Cors==4.0.1  # Added flask_cors
