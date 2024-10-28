@@ -1,7 +1,8 @@
 # recommendation/services.py
 
-from .user_models import User
-from .course_models import Course
+from recommendation.models.user_models import User
+from recommendation.models.course_models import Course
+
 
 class UserService:
     @staticmethod

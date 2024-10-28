@@ -32,3 +32,7 @@ class Course(Document):
     guidance_and_information = fields.StringField(max_length=200)
     additional_requirements = fields.ListField(fields.StringField())
 
+    
+    # Add __str__ method for string representation
+    def __str__(self):
+        return self.course_name  # Return the course_name for better representation

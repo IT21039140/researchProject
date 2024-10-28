@@ -1,24 +1,75 @@
-from django.test import TestCase
-from recommendation.models.course_models import Course
+import unittest
+from mongoengine import connect, disconnect, ValidationError
+from mongomock import MongoClient  # Import MongoClient from mongomock
+from recommendation.models.course_models import Course, MinimumEligibilityRequirement, University  # Adjust import based on your app structure
 
-class CourseModelTest(TestCase):
+class TestCourseModel(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        # Use mongomock's MongoClient directly
+        connect('test_db', host='localhost', mongo_client_class=MongoClient)
+
+    @classmethod
+    def tearDownClass(cls):
+        disconnect()
+
     def setUp(self):
-        self.course = Course.objects.create(
-            course_name="Test Course",
-            course_code="TC101",
-            proposed_intake="2024",
-            minimum_eligibility_requirements="None",
-            universities=["University A"],
-            area="Engineering",
-            duration="4 years"
+        Course.drop_collection()  # Clear the collection before each test
+
+    def test_create_course(self):
+        # Correctly create MinimumEligibilityRequirement instances
+        minimum_eligibility1 = MinimumEligibilityRequirement(subjects=['Mathematics', 'English'], grade='A')
+        minimum_eligibility2 = MinimumEligibilityRequirement(subjects=['Science', 'Mathematics'], grade='B')
+
+        university = University(
+            uni_name='University of Colombo',
+            specializations=['Engineering', 'Science'],
+            province='Western',
+            location='Colombo',
+            duration='4 Years',
+            degree_offered='BSc',
+            medium='English'
         )
 
-    def test_course_creation(self):
-        """Test that the course is created correctly"""
-        self.assertEqual(self.course.course_name, "Test Course")
-        self.assertEqual(self.course.course_code, "TC101")
-        self.assertEqual(self.course.proposed_intake, "2024")
-        self.assertEqual(self.course.minimum_eligibility_requirements, "None")
-        self.assertIn("University A", self.course.universities)
-        self.assertEqual(self.course.area, "Engineering")
-        self.assertEqual(self.course.duration, "4 years")
+        course = Course(
+            stream='Science',
+            course_name='Computer Science',
+            course_code='CS101',
+            proposed_intake=2025,
+            minimum_eligibility_requirements=[minimum_eligibility1, minimum_eligibility2],
+            universities=[university],
+            area='Information Technology',
+            english_requirement='C',
+            math_requirement='B',
+            science_requirement='B',
+            important_note='N/A',
+            guidance_and_information='Check website for details.',
+            additional_requirements=['Interview']
+        )
+        course.save()
+        self.assertEqual(course.course_name, 'Computer Science')
+
+    def test_field_validations(self):
+        with self.assertRaises(ValidationError):
+            course = Course(
+                stream='Science',
+                course_name='A' * 201,  # Exceeds max length of 200
+                course_code='CS101',
+                proposed_intake=2025,
+                minimum_eligibility_requirements=[],
+                universities=[],
+                area='Information Technology',
+                english_requirement='C',
+                math_requirement='B',
+                science_requirement='B'
+            )
+            course.save()
+
+    def test_string_representation(self):
+        course = Course(course_name='Physics')
+        course.save()  # Save the course before checking the string representation
+        self.assertEqual(str(course), 'Physics')  # Update as necessary based on your __str__ implementation
+
+if __name__ == '__main__':
+    unittest.main()
