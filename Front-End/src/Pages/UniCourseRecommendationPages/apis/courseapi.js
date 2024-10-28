@@ -1,9 +1,12 @@
 import axios from "axios";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import swal from 'sweetalert';
 
 // Function to fetch user data
 export const fetchUserData = async (id) => {
   try {
-    const response = await axios.get(`http://127.0.0.1:8000/api/service3/users/${id}/`,{
+    const response = await axios.get(`http://127.0.0.1:8000/api/service3/users/${id}/`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('access_token')}`,
       },
@@ -14,10 +17,10 @@ export const fetchUserData = async (id) => {
   }
 };
 
-export const fetchProfileData = async (id) => {
+export const fetchProfileData = async (id, navigate) => {
   try {
     const response = await axios.get(
-      `http://127.0.0.1:8000/api/service3/users/?user_id=${id}`,
+      `http://127.0.0.1:8000/api/service3/users/?user_id=${id}/`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -37,9 +40,7 @@ export const fetchProfileData = async (id) => {
       console.log("Valid Data:", validData);
 
       // Sort records by `created_at` in descending order
-      validData.sort(
-        (a, b) => new Date(b.created_at) - new Date(a.created_at)
-      );
+      validData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
       // Log sorted data for debugging
       console.log("Sorted Data:", validData);
@@ -48,37 +49,33 @@ export const fetchProfileData = async (id) => {
       const lastRecord = validData[0];
 
       if (lastRecord) {
-        console.log("Last Record:", lastRecord  );  
+        console.log("Last Record:", lastRecord);
         return lastRecord;
-          
       } else {
-        console.log("No valid records found after sorting.");
+        swal("No user records found. Please build your preference profile.").then(() => {
+          navigate("/recommendation-dashboard?tab=RecommendationHome");
+        });
       }
     } else {
-      console.log("No records found.");
+      swal("No user records found. Please build your preference profile.").then(() => {
+        navigate("/recommendation-dashboard?tab=RecommendationHome");
+      });
     }
   } catch (error) {
-    if (
-      error.response &&
-      error.response.status === 404 &&
-      error.response.data.detail === "No users found"
-    ) {
-      swal(
-        "No user records found. Please build your preference profile."
-      ).then(() => {
-        navigate("/recommendation/");
+    if (error.response && error.response.data.detail === "No users found") {
+      swal("No user records found. Please build your preference profile.").then(() => {
+        navigate("/recommendation-dashboard?tab=RecommendationHome");
       });
     } else {
       console.error("Error fetching profile data:", error);
     }
   }
-
-}
+};
 
 export const fetchUserDataN = async (id) => {
   try {
     const response = await axios.get(
-      `http://127.0.0.1:8000/api/service3/users/?user_id=${id}`,{
+      `http://127.0.0.1:8000/api/service3/users/?user_id=${id}/`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },
@@ -107,7 +104,7 @@ export const fetchRecommendations = async (userData) => {
   try {
     const response = await axios.post(
       "http://127.0.0.1:8000/api/service3/gnn//",
-      userData,{
+      userData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`,
         },

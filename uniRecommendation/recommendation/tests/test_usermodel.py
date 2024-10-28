@@ -19,9 +19,6 @@ class ResultSerializerTest(TestCase):
     def tearDownClass(cls):
         disconnect()
 
-    def setUp(self):
-        User.drop_collection()  # Clear the collection before each test
-
     def test_result_serializer_valid(self):
         data = {
             "subject": "Mathematics",
