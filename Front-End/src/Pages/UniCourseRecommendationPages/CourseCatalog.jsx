@@ -2,20 +2,13 @@ import React, { useState, useEffect } from "react";
 import { RingLoader } from "react-spinners";
 import "./Styles/CourseCatalog.css"; // Ensure the path is correct
 import axios from "axios";
+
 import swal from "sweetalert";
 import { FaThList, FaTh } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+
 import PopupChart from "../../Components/UniCourseRecommendationComponenets/RadarChartApp";
-import {
-  checkUserExists,
-  updateUserRecommendations,
-  addUserRecommendations,
-} from "./apis/recomondationapi";
-import {
-  fetchUserData,
-  fetchRecommendations,
-  fetchProfileData,
-} from "./apis/courseapi";
+
+import { fetchRecommendations, fetchUserData } from "./apis/courseapi";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -29,47 +22,6 @@ import {
 const CourseCatalog = () => {
   const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState([]);
-  // Destructure user details
-  const { id, first_name, last_name } = userDetails;
-
-  useEffect(() => {
-    // Retrieve and parse user details from localStorage
-    const storedUserDetails = JSON.parse(localStorage.getItem("user_details"));
-
-    if (!storedUserDetails) {
-      // Redirect to login page if user details are not found
-      swal("Please login to view this page");
-      navigate("/login");
-    } else {
-      // Set user details to state if found
-      setUserDetails(storedUserDetails);
-      console.log(storedUserDetails);
-      fetchProfile(id);
-    }
-  }, [navigate, id]);
-
-  // Check if userDetails is still null, indicating redirection might still be occurring
-  if (!userDetails) {
-    return <p>Redirecting...</p>;
-  }
-
-
-
-  const fetchProfile = async (id) => {
-    const result = await fetchProfileData(id); // Await the fetch result
-    console.log (result);
-    const userId = result.id; // Extract user ID from result
-
-    if (!userId) {
-      swal("Please Create Preference profile first").then(() => {
-        navigate("/recommendation/");
-      });
-    } else {
-      fetchData(userId);
-    }
-  };
-
-  // Only re-run effect if id or navigate changes
 
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -86,22 +38,116 @@ const CourseCatalog = () => {
   });
   const [searchQuery, setSearchQuery] = useState("");
   const [groupBy, setGroupBy] = useState("");
-  const [userData, setUserData] = useState({
-    Name: "",
+
+  const [answers, setAnswers] = useState({
+    id: "",
     Year: "",
     Stream: "",
-    Results: [
-      { subject: "", grade: "" },
-      { subject: "", grade: "" },
-      { subject: "", grade: "" },
-    ],
     English: "",
     Preferred_University: "",
-    Locations: [],
-    "Career Areas": [],
-    areas: [],
+    Career_Areas: "",
     duration: "",
+    Locations: [],
+    areas: [],
+    Results: [],
   });
+
+  useEffect(() => {
+    // Retrieve and parse user details from localStorage
+    const storedUserDetails = JSON.parse(localStorage.getItem("user_details"));
+
+    if (!storedUserDetails) {
+      // Redirect to login page if user details are not found
+      navigate("/login");
+    } else {
+      // Set user details to state if found
+      setUserDetails(storedUserDetails);
+      console.log(storedUserDetails);
+      fetchProfileData(storedUserDetails.id);
+    }
+  }, [navigate]);
+
+  // Check if userDetails is still null, indicating redirection might still be occurring
+  if (!userDetails) {
+    return <p>Redirecting...</p>;
+  }
+
+  const fetchProfileData = async (id) => {
+    try {
+      const response = await axios.get(
+        `http://127.0.0.1:8000/api/service3/users/?user_id=${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        }
+      );
+      const data = response.data;
+
+      // Log the fetched data for debugging
+      console.log("Fetched Data:", data);
+
+      if (data.length > 0) {
+        // Ensure all records have a `created_at` field
+        const validData = data.filter((record) => record.created_at);
+
+        // Log valid data to verify records with `created_at`
+        console.log("Valid Data:", validData);
+
+        // Sort records by `created_at` in descending order
+        validData.sort(
+          (a, b) => new Date(b.created_at) - new Date(a.created_at)
+        );
+
+        // Log sorted data for debugging
+        console.log("Sorted Data:", validData);
+
+        // Get the most recent record
+        const lastRecord = validData[0];
+
+        if (lastRecord) {
+          setAnswers(lastRecord);
+          const recordId = lastRecord.id;
+          console.log("Most Recent Record ID:", recordId);
+
+          fetchData(recordId);
+        } else {
+          console.log("No valid records found after sorting.");
+        }
+      } else {
+        console.log("No records found.");
+      }
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status === 404 &&
+        error.response.data.detail === "No users found"
+      ) {
+        swal(
+          "No user records found. Please build your preference profile."
+        ).then(() => {
+          navigate("/recommendation/");
+        });
+      } else {
+        console.error("Error fetching profile data:", error);
+      }
+    }
+  };
+
+  const fetchData = async (id) => {
+    try {
+      const data = await fetchUserData(id);
+      console.log("User data fetched:", data);
+
+      const recommendations = await fetchRecommendations(data);
+      setCourses(recommendations);
+      setLoading(false);
+
+      // Ensure saveRecommendations is defined and called correctly
+    } catch (error) {
+      console.log("Error", error.message, "error");
+    }
+  };
 
   const CourseFormat = (courses) => {
     return courses.map((course) => ({
@@ -118,41 +164,6 @@ const CourseCatalog = () => {
       Score: parseFloat(course["Score"]) || 0, // Convert to float or use 0 as default
     }));
   };
-
-  const fetchData = async (uId) => {
-    try {
-      const data = await fetchUserData(uId);
-      setUserData(data);
-      const recommendations = await fetchRecommendations(data);
-      setCourses(recommendations);
-
-      // Ensure saveRecommendations is defined and called correctly
-    } catch (error) {
-      console.log("Error", error.message, "error");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    const saveRecommendations = async (courses) => {
-      try {
-        const userExists = await checkUserExists(id);
-
-        if (userExists) {
-          await updateUserRecommendations(id, courses);
-          console.log("Recommendations updated");
-        } else {
-          await addUserRecommendations(id, courses);
-          console.log("Recommendations added");
-        }
-      } catch (error) {
-        console.error("Error handling recommendations:", error);
-      }
-    };
-    const courseFormat = CourseFormat(courses);
-    saveRecommendations(courseFormat);
-  }, [courses]);
 
   const handleToggleView = () => {
     setIsGridView(!isGridView);
@@ -212,6 +223,8 @@ const CourseCatalog = () => {
           .includes(searchQuery.toLowerCase()) ||
         course["University"].toLowerCase().includes(searchQuery.toLowerCase()))
   );
+
+  
 
   const groupedCourses =
     groupBy === ""
@@ -335,10 +348,12 @@ const CourseCatalog = () => {
                   >
                     <div className="course-number">{index * 10 + i + 1}</div>
                     <img
-                    
-                      src={`https://via.placeholder.com/80/000000/FFFFFF?text=${course["Course Name"][0]}`}
+                      src={`https://via.placeholder.com/80/000000/FFFFFF?text=${encodeURIComponent(
+                        course["Course Name"][0]
+                      )}`}
                       alt="Course Thumbnail"
                     />
+
                     <div className="course-info">
                       <h3>{course["Course Name"]}</h3>
                       <p>
