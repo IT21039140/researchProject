@@ -11,6 +11,7 @@ function Index() {
   const [messages, setMessages] = useState([
     { text: 'Hi! How can I help you today?', sender: 'bot' }
   ]);
+  const token = localStorage.getItem('access_token');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -18,19 +19,36 @@ function Index() {
       if (sessionID) {
         setMessages([])
         try {
-          const response = await axios.get(`http://127.0.0.1:5000/api/get_single_chat/${sessionID}`);
-          const messages = response.data;
-
-          const newMessages = [];
-          messages.chat_history.forEach((x) => {
-            newMessages.push({ text: x.user_message, sender: 'user' });
-            newMessages.push({ text: x.user_respond, sender: 'bot' });
-          });
-
-          setMessages((prevMessages) => [...prevMessages, ...newMessages]);
+          // Get the token from localStorage
+          
+        
+          // Make sure the token exists before making the API call
+          if (token) {
+            const response = await axios.get(
+              `http://127.0.0.1:8000/api/service2/get_single_chat/${sessionID}/`,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`, // Attach the token in the Authorization header
+                },
+              }
+            );
+        
+            const messages = response.data;
+            const newMessages = [];
+        
+            messages.chat_history.forEach((x) => {
+              newMessages.push({ text: x.user_message, sender: 'user' });
+              newMessages.push({ text: x.user_respond, sender: 'bot' });
+            });
+        
+            setMessages((prevMessages) => [...prevMessages, ...newMessages]);
+          } else {
+            console.error('No token found in localStorage');
+          }
         } catch (error) {
           console.error('Error fetching messages:', error);
         }
+        
       }
     }
 
@@ -47,20 +65,30 @@ function Index() {
     setMessages((prevMessages) => [...prevMessages, { text, sender: 'user' }]);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: text, user_email: email, session_id: sessionID }),
-      });
-      const data = await response.json();
-      setMessages((prevMessages) => [...prevMessages, { text: data.response, sender: 'bot' }]);
+      // Get the token from localStorage
+    
+      // Make sure the token exists before making the API call
+      if (token) {
+        const response = await fetch('http://127.0.0.1:8000/api/service2/chat/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`, // Attach the token in the Authorization header
+          },
+          body: JSON.stringify({ message: text, user_email: email, session_id: sessionID }),
+        });
+    
+        const data = await response.json();
+        setMessages((prevMessages) => [...prevMessages, { text: data.response, sender: 'bot' }]);
+      } else {
+        console.error('No token found in localStorage');
+      }
     } catch (error) {
       console.error('Error:', error);
     } finally {
       setLoading(false); // Set loading to false when response is received
     }
+    
   };
 
   return (

@@ -6,8 +6,11 @@ import QuestionGenerator from '../QuestionGenComponent/QuestionGenerator';
 import RecommendationDashboard from '../../Pages/UniCourseRecommendationPages/RecommendationDashboard';
 import CareerGuidance from "../../Pages/CareerGuidance/CareerGuidance";
 import './Dashboard.css';
+import CareerGuidance from "../../Pages/CareerGuidance/CareerGuidance"
+
 
 function Dashboard({ view }) {
+
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   // Render the content based on the view prop
@@ -27,7 +30,6 @@ function Dashboard({ view }) {
   return (
     <div className="dashboard-container">
       <Sidebar onCollapse={setSidebarCollapsed} />
-      {renderContent()}
     </div>
   );
 }

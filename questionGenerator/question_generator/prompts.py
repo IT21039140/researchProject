@@ -15,21 +15,19 @@ Example:
    B. Foreign key
    C. Secondary key
    D. Composite key
-Correct answer: Foreign key
+Correct answer: B. Foreign key
 2.Hexadecimal has a base value of?
    A. 6
    B. 8
    C. 16
    D. 18
-Correct answer: 16
+Correct answer: C. 16
 
-Now, generate 30 questions:
+Now, generate 10 questions:
 """
 
 law_question_prompt = (
-    "Generate a set of questions similar to the example below. The title of the question must be: "
-    "\"In each of the questions from No. 1 to 3, select the Incorrectly spelt word and write the number of "
-    "the relevant choice on the dotted line provided against each question. (03 marks)\"\n\n"
+    "Generate a set of questions similar to the example below. "
     "Each question should provide four words, where one word is spelled incorrectly. "
     "The student needs to identify the incorrectly spelled word and mark the corresponding number "
     "on the dotted line provided. Follow this structure exactly, and ensure that only one word in each set "
@@ -64,7 +62,7 @@ You are an expert in creating aptitude test questions.
 
 Generate three multiple-choice questions where students are required to rearrange four words in alphabetical order.
 Each question should have four words labeled A, B, C, D. Provide four answer options for each question, where each option lists the words in different orders.
-Title: In each of the questions from No. 4 to 6, rearrange the words in alphabetical order; check with the answers given and write the appropriate number of the relevant choice on the dotted line provided against each question. (03 marks)
+
 Format:
 4.
 (A) reckless
@@ -99,10 +97,8 @@ Format:
 (4) B, D, A, C
 (.......)
 
-
-now please generate the questions.
-
-now generate the question.
+only generate one set of questions this is a must
+now please generate the question. 
 """
 
 # prompts.py
@@ -115,7 +111,6 @@ Generate five multiple-choice questions where students are required to select th
 Each question should provide four preposition options labeled 1, 2, 3, 4.
 below is an example
 
-Title: In each of the questions from No. 7 to 11, select the most appropriate preposition to fill in the blank and write the number of the relevant choice on the dotted line provided against each question. (05 marks)
 Format:
 A decision can be made only after a full inquiry is made ... the matter.
 (1) into (2) of (3) on (4) about (.........)
@@ -132,8 +127,8 @@ After the meeting, every participant was invited ... dinner by the chairman.
 It was clear that the chairman took great pleasure ... commending his committee members for their support.
 (1) at (2) for (3) in (4) about (.........)
 
-
-now please generate the questions.
+only generate one set of question this is a must and give only the questions
+now please generate the question.
 """
 
 homophones_prompt = """
@@ -141,7 +136,6 @@ You are an expert in creating aptitude test questions.
 
 Create four fill-in-the-blank sentences where students must select between two given options to complete the sentence, similar to homophones or easily confused words.(do not give the correct answers)
 
-Title: In each of the questions from No. 12 to 15, underline the correct option to fill in the blank. (04 marks)
 Format:
 
 12. Most people enjoy reading ........ (historic / historical) novels. Such a novel generally has a plot set in history.
@@ -152,8 +146,8 @@ Format:
 
 15. According to some recent measures taken by New Zealand Human Rights Commission, people ......... (affected / effected) by domestic violence receive more legal protection.
 
-
-now please generate the questions.
+only generate one set of question this is a must
+now please generate the question.
 
 """
 
@@ -165,23 +159,20 @@ You are an expert in creating aptitude test questions.
 
 Create six fill-in-the-blank sentences where students must choose the correct form of a verb provided in brackets. 
 
-Title: In questions from No. 16 to 21, fill in each blank with a suitable form of the verb provided within brackets. (06 marks)
-Format:
 
 16. Ravi is a legal officer at a private bank in Colombo, and he often (go) .......... abroad on business trips.
 17. Last week, he had to go to Tokyo, but he almost (miss) .......... his flight.
 18. He (stand) ............ in the queue at the check-in desk when he suddenly (realize) .......... that he (leave) ............ his passport at home.
 21. Fortunately, Ravi lives near the airport, so he (have) ........... time to take a taxi home to get it. He got to the airport just in time for the flight.
 
-now please generate the questions.
+only generate one set of question this is a must
+now please generate the question.
 
 """
 summary_prompt = """
 You are an expert in creating aptitude test questions.
 
 Write a passage (more tha 300 words) on an educational or societal topic, asking students to summarize it into one-third of its length, provide a suitable title, and indicate the word count.
-
-Title: Read the following text and summarize it into one-third of its length and give a suitable title. Indicate the number of words used at the end. (15 marks)
 
 Example:
 Colebrooke’s motivation with regard to education can only be judged from what he has
@@ -193,7 +184,7 @@ humanitarian, and utilitarian.
 
 title: ........
 
-
+only generate one set of question this is a must
 now please generate the questions.
 """
 
@@ -203,7 +194,6 @@ You are an expert in creating aptitude test questions.
 generate question that asks the student to write essay for specific topic and ask students to write an analytical essay follow below example.
 
 Example question:
-Write on analytical essay on the following topic using about 300 words. (25 marks)
 
 A debate exists in contemporary Sri Lankan society on the segregation of schools based on
 gender, ethnicity, language or religion. Some people argue that such segregation has more
@@ -214,7 +204,7 @@ Use specific reasons and examples to support your view.
 
 Title:..........................
 
-
+only generate one set of question this is a must
 now please generate the questions.
 
 """

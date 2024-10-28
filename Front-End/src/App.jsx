@@ -23,8 +23,8 @@ function App() {
           element={<Dashboard view="questionGenerator" />}
         />
 
-        <Route path="/subscribe" element={<SubscriptionPage />} />
         <Route path="/chat" element={<ChatBot />} />
+
 
         <Route path="/subscribe" element={<SubscriptionPage />} />
         <Route path="/chat" element={<ChatBot />} />
