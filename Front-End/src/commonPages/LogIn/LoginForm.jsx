@@ -1,9 +1,10 @@
+// LoginForm.js (modified)
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 
-const LoginForm = ({ switchToRegister }) => {
+const LoginForm = ({ switchToRegister, switchToPasswordReset }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -13,7 +14,7 @@ const LoginForm = ({ switchToRegister }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Request to login and get tokens
+      // Login request
       const response = await axios.post('http://127.0.0.1:8000/api/login/', {
         email,
         password,
@@ -21,26 +22,19 @@ const LoginForm = ({ switchToRegister }) => {
 
       swal('Login successful!', '', 'success');
 
-
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
-      localStorage.setItem('email',email)
+      localStorage.setItem('email', email);
 
-
-      // Fetch user details using the access token
-      const userResponse = await axios.get('http://127.0.0.1:8000/api/users/'+email, {
+      // Fetch user details
+      const userResponse = await axios.get(`http://127.0.0.1:8000/api/users/${email}`, {
         headers: {
           Authorization: `Bearer ${response.data.access}`,
         },
       });
 
       // Store user details in localStorage
-      localStorage.setItem('user_details', JSON.stringify({
-        id: userResponse.data.id,
-        first_name: userResponse.data.first_name,
-        last_name: userResponse.data.last_name,
-        email: userResponse.data.email,
-      }));
+      localStorage.setItem('user_details', JSON.stringify(userResponse.data));
 
       setMessage('Login successful!');
       setMessageType('success');
@@ -74,14 +68,16 @@ const LoginForm = ({ switchToRegister }) => {
         <input
           type="password"
           id="password"
-          placeholder="Enter 6 characters or more"
+          placeholder="Enter your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
 
         <div className="extras">
-          <a href="#" className="forgot-password">Forgot Password?</a>
+          <a href="#" className="forgot-password" onClick={switchToPasswordReset}>
+            Forgot Password?
+          </a>
         </div>
 
         <button type="submit">LOGIN</button>

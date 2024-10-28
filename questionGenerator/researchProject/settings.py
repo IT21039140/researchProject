@@ -39,7 +39,7 @@ SECRET_KEY = 'django-insecure-^)itayy)u5y1-c^-u9pv&#9yl8_18jwb4i9&s1bjc21uo1)7nn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 LOGGING = {
     'version': 1,
@@ -94,6 +94,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'question_generator',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -104,7 +105,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+# Allow all origins to access the API
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'researchProject.urls'
 

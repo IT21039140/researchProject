@@ -12,11 +12,27 @@ const RegisterForm = ({ switchToLogin }) => {
   const [messageType, setMessageType] = useState('');
   const navigate = useNavigate();
 
+  // Function to validate strong password
+  const validatePassword = (password) => {
+    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return strongPasswordRegex.test(password);
+  };
+
   const handleRegister = async (e) => {
     e.preventDefault();
 
+    // Check if passwords match
     if (password !== passwordConfirm) {
       setMessage('Passwords do not match.');
+      setMessageType('error');
+      return;
+    }
+
+    // Check if password meets criteria
+    if (!validatePassword(password)) {
+      setMessage(
+        'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'
+      );
       setMessageType('error');
       return;
     }
@@ -33,10 +49,7 @@ const RegisterForm = ({ switchToLogin }) => {
       if (response.data.email) {
         setMessage('Registration successful! Proceed to payment.');
         setMessageType('success');
-
         navigate('/');
-        // Redirect or call the payment flow using the registered email
-        // navigate('/subscribe', { state: { email: response.data.email } });
       }
     } catch (error) {
       setMessage('Registration failed. Please check your details.');
@@ -47,7 +60,12 @@ const RegisterForm = ({ switchToLogin }) => {
   return (
     <div className="login-form">
       <h2>Register</h2>
-      <p>Already have an account? <a href="#" onClick={switchToLogin}>Log In</a></p>
+      <p>
+        Already have an account?{' '}
+        <a href="#" onClick={switchToLogin}>
+          Log In
+        </a>
+      </p>
       <form onSubmit={handleRegister}>
         <label htmlFor="email">Email Address</label>
         <input
@@ -101,11 +119,7 @@ const RegisterForm = ({ switchToLogin }) => {
 
         <button type="submit">REGISTER</button>
       </form>
-      {message && (
-        <div className={`message ${messageType}`}>
-          {message}
-        </div>
-      )}
+      {message && <div className={`message ${messageType}`}>{message}</div>}
     </div>
   );
 };

@@ -6,6 +6,8 @@ class UserSerializer(serializers.Serializer):
     email = serializers.EmailField()
     first_name = serializers.CharField(max_length=30, required=False)
     last_name = serializers.CharField(max_length=30, required=False)
+    is_subscribed = serializers.BooleanField(read_only=True)  # Added for retrieving subscription status
+    stripe_customer_id = serializers.CharField(read_only=True)
     password = serializers.CharField(write_only=True)
     password_confirm = serializers.CharField(write_only=True)
 
@@ -37,3 +39,17 @@ class UserSerializer(serializers.Serializer):
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField(write_only=True)
+
+class PasswordResetRequestSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+
+class PasswordResetSerializer(serializers.Serializer):
+    token = serializers.CharField()
+    new_password = serializers.CharField(write_only=True)
+    new_password_confirm = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+        if data['new_password'] != data['new_password_confirm']:
+            raise serializers.ValidationError("Passwords do not match.")
+        return data

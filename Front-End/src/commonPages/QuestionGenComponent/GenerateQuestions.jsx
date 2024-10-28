@@ -1,11 +1,11 @@
 import React, { useState } from 'react'; 
 import axios from 'axios';
-import LawQuestionsComponent from './LawQuestionsComponent'; // Import the LawQuestionsComponent
-import ITQuestionsComponent from './ITQuestionsComponent'; // Import the ITQuestionsComponent
+import LawQuestionsComponent from './LawQuestionsComponent'; 
+import ITQuestionsComponent from './ITQuestionsComponent'; 
 
 function GenerateQuestions() {
   const [questions, setQuestions] = useState([]);
-  const [lawQuestions, setLawQuestions] = useState(null); // State for law questions
+  const [lawQuestions, setLawQuestions] = useState(null); 
   const [userAnswers, setUserAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
@@ -13,11 +13,13 @@ function GenerateQuestions() {
   const [paperDes, setPaperDes] = useState('');
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
-  const [isITQuestions, setIsITQuestions] = useState(false); // To check which type of questions are being generated
+  const [isITQuestions, setIsITQuestions] = useState(false);
+  const [loading, setLoading] = useState(false); // New loading state
 
   const handleITQuestionsClick = async () => {
     const token = localStorage.getItem('access_token');
     const email = localStorage.getItem('email');
+    setLoading(true); // Start loading
 
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/service1/generate-ITmodel-paper/', 
@@ -35,40 +37,45 @@ function GenerateQuestions() {
       setUserAnswers({});
       setScore(0);
       setMessage('');
-      setIsITQuestions(true); // Flag to show IT Questions
-      setLawQuestions(null);  // Clear Law questions
+      setIsITQuestions(true); 
+      setLawQuestions(null);  
     } catch (error) {
       console.error('Error fetching IT questions:', error);
       if (error.response && error.response.status === 401) {
         alert('Session expired. Please log in again.');
       }
+    } finally {
+      setLoading(false); // End loading
     }
   };
 
   const handleLawQuestionsClick = async () => {
-    const token = localStorage.getItem('access_token'); // Fetch the token from localStorage
+    const token = localStorage.getItem('access_token'); 
+    const email = localStorage.getItem('email');
+    setLoading(true); // Start loading
 
     try {
       const response = await axios.post(
         'http://127.0.0.1:8000/api/service1/generate-law-lang-paper/',
-        {}, // Send an empty body, as no request data is required here
+        {email}, 
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+            Authorization: `Bearer ${token}`, 
           },
         }
       );
-      setLawQuestions(response.data); // Set the law questions
-      setQuestions([]);  // Clear IT questions
-      setIsITQuestions(false); // Flag to show Law Questions
+      setLawQuestions(response.data); 
+      setQuestions([]); 
+      setIsITQuestions(false);
     } catch (error) {
       console.error('Error fetching law questions:', error);
+    } finally {
+      setLoading(false); // End loading
     }
   };
 
-  // Updated normalizeAnswer function to handle undefined answers
   const normalizeAnswer = (answer) => {
-    if (!answer) return ''; // Return an empty string if answer is undefined or empty
+    if (!answer) return ''; 
     return answer.replace(/^[A-D]\.\s*/, '').trim().toLowerCase();
   };
 
@@ -84,39 +91,44 @@ function GenerateQuestions() {
       <h2>Generate Questions</h2>
       <div className="additional-buttons">
         <button className="additional-button" onClick={handleLawQuestionsClick}>
-          Law Questions
+          English laguage/Law Questions
         </button>
         <button className="additional-button" onClick={handleITQuestionsClick}>
           IT Questions
         </button>
       </div>
 
-      {/* Use ITQuestionsComponent to display IT questions */}
-      {isITQuestions && questions.length > 0 && (
-        <ITQuestionsComponent
-          questions={questions}
-          userAnswers={userAnswers}
-          handleAnswerChange={handleAnswerChange}
-          normalizeAnswer={normalizeAnswer}
-          showResults={showResults}
-          setShowResults={setShowResults}
-          setScore={setScore}
-          score={score}
-          setMessage={setMessage}
-          setMessageType={setMessageType}
-          paperId={paperId}
-          paperDes={paperDes}
-        />
-      )}
-
-      {/* Display Law Questions */}
-      {lawQuestions && <LawQuestionsComponent questionSets={lawQuestions} />}
-
-      {/* Display message */}
-      {message && (
-        <div className={`message ${messageType === 'success' ? 'success' : 'error'}`}>
-          {message}
+      {loading ? (
+        <div className="loading-screen">
+          <p>Loading...</p>
         </div>
+      ) : (
+        <>
+          {isITQuestions && questions.length > 0 && (
+            <ITQuestionsComponent
+              questions={questions}
+              userAnswers={userAnswers}
+              handleAnswerChange={handleAnswerChange}
+              normalizeAnswer={normalizeAnswer}
+              showResults={showResults}
+              setShowResults={setShowResults}
+              setScore={setScore}
+              score={score}
+              setMessage={setMessage}
+              setMessageType={setMessageType}
+              paperId={paperId}
+              paperDes={paperDes}
+            />
+          )}
+
+          {lawQuestions && <LawQuestionsComponent questionSets={lawQuestions} />}
+
+          {message && (
+            <div className={`message ${messageType === 'success' ? 'success' : 'error'}`}>
+              {message}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

@@ -59,7 +59,17 @@ STRIPE_SECRET_KEY = env('STRIPE_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Email configurations in settings.py
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mkmdgroup1@gmail.com'  # Your email
+EMAIL_HOST_PASSWORD = '*#Mkmd123*#'  # Your email password or app-specific password
+# DEFAULT_FROM_EMAIL = 'Aspira dewsasi6@gmail.com'
+
+ALLOWED_HOSTS = ['*']
 
 # Logging configuration
 LOGGING = {

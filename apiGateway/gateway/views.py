@@ -1,6 +1,7 @@
 #gateway/views.py
 import datetime
-
+from django.utils import timezone
+from django.core.mail import send_mail
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import requests
@@ -11,11 +12,11 @@ from rest_framework import status
 from stripe import StripeErrorWithParamCode
 from django.views import View
 from .models import UserEdu, SubscriptionDetails, PaymentHistory, SubscriptionPlan
-from .serializers import UserSerializer, LoginSerializer
+from .serializers import UserSerializer, LoginSerializer, PasswordResetRequestSerializer, PasswordResetSerializer
 from .authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
-from rest_framework.permissions import AllowAny
+# from rest_framework.permissions import AllowAny
 import jwt
 import logging
 # import stripe
@@ -86,6 +87,82 @@ def refresh_token(request):
     except UserEdu.DoesNotExist:
         log.error('End refresh_token in gateWay view: User not found')
         return Response({"detail": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+
+# Utility function to generate reset token
+def generate_password_reset_token(email):
+    expiration = timezone.now() + datetime.timedelta(hours=1)  # Token valid for 1 hour
+    payload = {
+        'email': email,
+        'exp': expiration,
+    }
+    return jwt.encode(payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)
+
+
+@api_view(['POST'])
+def request_password_reset(request):
+    serializer = PasswordResetRequestSerializer(data=request.data)
+    if serializer.is_valid():
+        email = serializer.validated_data['email']
+        try:
+            user = UserEdu.objects.get(email=email)
+            reset_token = generate_password_reset_token(user.email)
+
+            # Send the reset token to the user's email
+            subject = "Password Reset Request"
+            message = f"Hello {user.first_name},\n\nYou requested a password reset. Please use the following token to reset your password:\n\n{reset_token}\n\nIf you did not request this, please ignore this email."
+            recipient_list = [user.email]
+
+            send_mail(
+                subject,
+                message,
+                settings.DEFAULT_FROM_EMAIL,
+                recipient_list,
+                fail_silently=False,
+            )
+
+            log.info(f"Password reset email sent for email: {email}")
+            return Response({"message": "Password reset token sent to email."}, status=status.HTTP_200_OK)
+
+        except UserEdu.DoesNotExist:
+            log.error(f"Password reset requested for non-existent email: {email}")
+            return Response({"error": "User with this email does not exist"}, status=status.HTTP_404_NOT_FOUND)
+
+    log.error("Invalid data in request_password_reset")
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def reset_password(request):
+    serializer = PasswordResetSerializer(data=request.data)
+    if serializer.is_valid():
+        token = serializer.validated_data['token']
+        new_password = serializer.validated_data['new_password']
+
+        try:
+            # Decode the token to get the email
+            payload = jwt.decode(token, settings.JWT_SECRET_KEY, algorithms=[settings.JWT_ALGORITHM])
+            email = payload.get('email')
+
+            # Retrieve the user
+            user = UserEdu.objects.get(email=email)
+            user.set_password(new_password)
+            user.save()
+            log.info(f"Password reset successful for email: {email}")
+
+            return Response({"message": "Password reset successful"}, status=status.HTTP_200_OK)
+
+        except jwt.ExpiredSignatureError:
+            log.error("Expired password reset token")
+            return Response({"error": "Reset token has expired"}, status=status.HTTP_400_BAD_REQUEST)
+        except jwt.InvalidTokenError:
+            log.error("Invalid password reset token")
+            return Response({"error": "Invalid reset token"}, status=status.HTTP_400_BAD_REQUEST)
+        except UserEdu.DoesNotExist:
+            log.error(f"Password reset attempted for non-existent email in token")
+            return Response({"error": "User does not exist"}, status=status.HTTP_404_NOT_FOUND)
+
+    log.error("Invalid data in reset_password")
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
@@ -176,8 +253,9 @@ def user_detail(request, email):
 
 
 @api_view(['POST'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def create_subscription(request):
+    log.info("Started create_subscription")
     email = request.data.get('email')
     stripe_token = request.data.get('stripe_token')
 
@@ -201,26 +279,39 @@ def create_subscription(request):
         if not user.stripe_customer_id:
             customer = stripe.Customer.create(
                 email=email,
-                source=stripe_token  # Stripe token from frontend
+                source=stripe_token
             )
             user.stripe_customer_id = customer['id']
             user.save()
 
-        # Create a subscription for the customer
-        subscription = stripe.Subscription.create(
+        # Check if a subscription already exists for the user
+        subscription = SubscriptionDetails.objects(email=email).first()
+
+        if subscription:
+            # Update existing subscription details
+            subscription.plan_id = plan.plan_id
+            subscription.start_date = datetime.datetime.utcnow()
+            subscription.subscription_status = "active"
+        else:
+            # Create a new subscription record if one does not exist
+            subscription = SubscriptionDetails(
+                email=email,
+                plan_id=plan.plan_id,
+                start_date=datetime.datetime.utcnow(),
+                subscription_status="active"
+            )
+
+        # Create a subscription for the customer on Stripe
+        stripe_subscription = stripe.Subscription.create(
             customer=user.stripe_customer_id,
             items=[{'plan': plan.plan_id}],
             expand=["latest_invoice.payment_intent"],
         )
 
-        # Save subscription details in the database
-        SubscriptionDetails.objects.create(
-            email=email,
-            stripe_subscription_id=subscription['id'],
-            subscription_status=subscription['status'],
-            plan_id=plan.plan_id,
-            start_date=datetime.datetime.utcnow()
-        )
+        # Save the Stripe subscription ID and status
+        subscription.stripe_subscription_id = stripe_subscription['id']
+        subscription.subscription_status = stripe_subscription['status']
+        subscription.save()
 
         # Mark the user as subscribed
         user.is_subscribed = True
@@ -230,10 +321,12 @@ def create_subscription(request):
 
     except StripeErrorWithParamCode as e:
         log.error(f"Stripe error: {str(e)}")
-        return Response({"error": "An error occurred with the payment gateway."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({"error": "An error occurred with the payment gateway."},
+                        status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     except Exception as e:
         log.error(f"Unexpected error: {str(e)}")
         return Response({"error": "An unexpected error occurred."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])

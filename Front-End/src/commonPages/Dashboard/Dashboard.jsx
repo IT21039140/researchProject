@@ -6,7 +6,6 @@ import QuestionGenerator from '../QuestionGenComponent/QuestionGenerator';
 import RecommendationDashboard from '../../Pages/UniCourseRecommendationPages/RecommendationDashboard';
 import CareerGuidance from "../../Pages/CareerGuidance/CareerGuidance";
 import './Dashboard.css';
-import CareerGuidance from "../../Pages/CareerGuidance/CareerGuidance"
 
 
 function Dashboard({ view }) {
@@ -30,6 +29,7 @@ function Dashboard({ view }) {
   return (
     <div className="dashboard-container">
       <Sidebar onCollapse={setSidebarCollapsed} />
+      {renderContent()}
     </div>
   );
 }

@@ -6,7 +6,7 @@ from .utils import generate_questions,generate_questions_for_law
 from .processing import process_and_format_questions
 import logging
 import traceback
-from .ServiceClient import ServiceClient
+# from .ServiceClient import ServiceClient
 import jwt
 from django.conf import settings
 from pymongo import MongoClient
@@ -52,18 +52,18 @@ class GenerateITModelPaperAPIView(APIView):
                     status=status.HTTP_401_UNAUTHORIZED
                 )
 
-            try:
-                service_client = ServiceClient()
-                user_details = service_client.get_user_details(user_id, access_token)
-                log.info(f"User details retrieved: {user_details}")
-            except Exception as e:
-                log.error(f"Error accessing user details: {e}")
-                log.error(f"An error occurred: {str(e)}")
-                log.error(f"Traceback: {traceback.format_exc()}")
-                return Response(
-                    {"error": "Failed to access user details."},
-                    status=status.HTTP_500_INTERNAL_SERVER_ERROR
-                )
+            # try:
+            #     service_client = ServiceClient()
+            #     user_details = service_client.get_user_details(user_id, access_token)
+            #     log.info(f"User details retrieved: {user_details}")
+            # except Exception as e:
+            #     log.error(f"Error accessing user details: {e}")
+            #     log.error(f"An error occurred: {str(e)}")
+            #     log.error(f"Traceback: {traceback.format_exc()}")
+            #     return Response(
+            #         {"error": "Failed to access user details."},
+            #         status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            #     )
 
             if not user_id:
                 log.error("Missing userId in request payload.")
@@ -606,6 +606,7 @@ class GenerateLawQuestionAPIView(APIView):
 
             email = request.data.get('email')
             if not email:
+                log.error(f"Email is missing {email}")
                 return Response({"error": "Email is required."}, status=status.HTTP_400_BAD_REQUEST)
 
             # Generate a unique paperId

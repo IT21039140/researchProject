@@ -8,6 +8,8 @@ class UserEdu(Document):
     first_name = StringField(max_length=30)
     last_name = StringField(max_length=30)
     password = StringField(max_length=128, required=True)
+    # Stripe customer ID for subscription management
+    stripe_customer_id = StringField(max_length=100, null=True)  # Add this field
 
     # Subscription status for the user
     is_subscribed = BooleanField(default=False)  # True if the user has an active subscription
